@@ -1,0 +1,186 @@
+2023-11-21 16:46:20.600 +03:00 [INF] Registered 5 endpoints in 5524 milliseconds.
+2023-11-21 16:46:23.630 +03:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-11-21 16:46:23.714 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-21 16:46:23.994 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 16:46:24.103 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."Name", "c"."Status"
+FROM "Contributors" AS "c"
+2023-11-21 16:46:24.247 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2023-11-21 16:46:24.264 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2023-11-21 16:46:24.579 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 16:46:24.580 +03:00 [INF] Hosting environment: Development
+2023-11-21 16:46:24.580 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 16:46:25.050 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 16:46:25.379 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 16:46:25.420 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 352.4497ms
+2023-11-21 16:46:25.695 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 316.1855ms
+2023-11-21 16:46:25.720 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 16:46:25.728 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 16:46:25.741 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.2531ms
+2023-11-21 16:46:25.804 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 83.2133ms
+2023-11-21 16:46:25.860 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 16:46:26.143 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 16:46:27.402 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1541.7347ms
+2023-11-21 16:47:00.171 +03:00 [INF] Registered 5 endpoints in 2304 milliseconds.
+2023-11-21 16:47:01.940 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-21 16:47:02.131 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 16:47:02.239 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 16:47:02.241 +03:00 [INF] Hosting environment: Development
+2023-11-21 16:47:02.246 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 16:47:02.276 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 16:47:02.477 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 16:47:02.483 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 211.4826ms
+2023-11-21 16:47:02.643 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 166.0869ms
+2023-11-21 16:47:02.661 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 16:47:02.661 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 16:47:02.665 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.4303ms
+2023-11-21 16:47:02.700 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.796ms
+2023-11-21 16:47:02.765 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 16:47:02.831 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 16:47:03.761 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 996.228ms
+2023-11-21 16:56:47.875 +03:00 [INF] Registered 5 endpoints in 2002 milliseconds.
+2023-11-21 16:56:49.435 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-21 16:56:49.619 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 16:56:49.708 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 16:56:49.714 +03:00 [INF] Hosting environment: Development
+2023-11-21 16:56:49.714 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 16:56:49.741 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 16:56:49.942 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 16:56:49.948 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 212.8088ms
+2023-11-21 16:56:50.114 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 16:56:50.128 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 158.7772ms
+2023-11-21 16:56:50.128 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 16:56:50.134 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.2285ms
+2023-11-21 16:56:50.168 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.3429ms
+2023-11-21 16:56:50.440 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 16:56:50.487 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 16:56:51.218 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 777.9392ms
+2023-11-21 17:00:55.188 +03:00 [INF] Registered 5 endpoints in 2359 milliseconds.
+2023-11-21 17:00:56.691 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-21 17:00:56.876 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 17:00:56.974 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 17:00:56.975 +03:00 [INF] Hosting environment: Development
+2023-11-21 17:00:56.975 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant 2\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 17:00:57.009 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 17:00:57.701 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 17:00:57.707 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 702.731ms
+2023-11-21 17:00:57.848 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 146.5979ms
+2023-11-21 17:00:57.875 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 17:00:57.875 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 17:00:57.879 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 3.3786ms
+2023-11-21 17:00:58.556 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 681.156ms
+2023-11-21 17:00:58.601 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 17:00:58.660 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 17:00:59.298 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 696.8394ms
+2023-11-21 17:22:27.339 +03:00 [INF] Registered 5 endpoints in 2427 milliseconds.
+2023-11-21 17:22:29.324 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-21 17:22:29.520 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 17:22:29.615 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 17:22:29.616 +03:00 [INF] Hosting environment: Development
+2023-11-21 17:22:29.616 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant 2\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 17:22:29.649 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 17:22:29.821 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 17:22:29.826 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 182.2592ms
+2023-11-21 17:22:30.012 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 191.4782ms
+2023-11-21 17:22:30.030 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 17:22:30.033 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 17:22:30.044 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.4587ms
+2023-11-21 17:22:30.089 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.6059ms
+2023-11-21 17:22:30.143 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 17:22:30.245 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 17:22:30.935 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 792.2513ms
+2023-11-21 17:43:37.612 +03:00 [INF] Registered 5 endpoints in 6472 milliseconds.
+2023-11-21 17:43:45.147 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-21 17:43:45.365 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-21 17:43:45.586 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 17:43:45.587 +03:00 [INF] Hosting environment: Development
+2023-11-21 17:43:45.656 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant 2\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-21 17:43:45.720 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-21 17:43:46.288 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-21 17:43:46.293 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 580.5326ms
+2023-11-21 17:43:47.275 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 987.066ms
+2023-11-21 17:43:47.282 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-21 17:43:47.288 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-21 17:43:47.291 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 8.9366ms
+2023-11-21 17:43:47.367 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.5348ms
+2023-11-21 17:43:47.718 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-21 17:43:47.786 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-21 17:43:48.619 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 900.9889ms
+2023-11-21 17:43:56.786 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Contributors - null null
+2023-11-21 17:43:56.793 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-21 17:43:56.819 +03:00 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2023-11-21 17:43:57.023 +03:00 [INF] Handling ListContributorsQuery
+2023-11-21 17:43:57.024 +03:00 [INF] Property Skip : null
+2023-11-21 17:43:57.024 +03:00 [INF] Property Take : null
+2023-11-21 17:43:57.187 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Name"
+FROM (
+    SELECT Id, Name FROM Contributors
+) AS "k"
+2023-11-21 17:43:57.193 +03:00 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[KFA.SupportAssistant.UseCases.Contributors.ContributorDTO]] in 168 ms
+2023-11-21 17:43:57.213 +03:00 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2023-11-21 17:43:57.222 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Contributors - 200 null application/json 435.9112ms
+2023-11-21 17:44:12.781 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Contributors - application/json 32
+2023-11-21 17:44:12.782 +03:00 [INF] Executing endpoint 'HTTP: POST /Contributors'
+2023-11-21 17:44:12.847 +03:00 [INF] Handling CreateContributorCommand
+2023-11-21 17:44:12.848 +03:00 [INF] Property Name : Contributor Name
+2023-11-21 17:44:13.633 +03:00 [INF] Executed endpoint 'HTTP: POST /Contributors'
+2023-11-21 17:44:13.635 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddAsync(T entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Contributors.Create.CreateContributorHandler.Handle(CreateContributorCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant 2\BackEnd\src\KFA.SupportAssistant.UseCases\Contributors\Create\CreateContributorHandler.cs:line 14
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.ContributorEndpoints.Create.HandleAsync(CreateContributorRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant 2\BackEnd\src\KFA.SupportAssistant.Web\Contributors\Create.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-21 17:44:13.776 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Contributors - 500 null text/plain; charset=utf-8 994.6428ms
