@@ -13,5 +13,14 @@ public class DefaultCoreModule : Module
   {
     builder.RegisterType<DeleteContributorService>()
         .As<IDeleteContributorService>().InstancePerLifetimeScope();
+
+    builder.RegisterType(typeof(DeleteModelService<>))
+       .As(typeof(IDeleteModelService<>)).InstancePerLifetimeScope();
+
+    builder.RegisterType(typeof(InsertModelService<>))
+       .As(typeof(IInsertModelService<>)).InstancePerLifetimeScope();
+
+    builder.RegisterType(typeof(UpdateModelService<>))
+       .As(typeof(IUpdateModelService<>)).InstancePerLifetimeScope();
   }
 }

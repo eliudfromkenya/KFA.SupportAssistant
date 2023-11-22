@@ -3,10 +3,10 @@
 namespace KFA.SupportAssistant.Core.ContributorAggregate.Events;
 
 /// <summary>
-/// A domain event that is dispatched whenever a contributor is deleted.
+/// A domain event that is dispatched whenever a gontributor is deleted.
 /// The DeleteContributorService is used to dispatch this event.
 /// </summary>
-internal sealed class ContributorDeletedEvent(int contributorId) : DomainEventBase
+internal sealed class ContributorDeletedEvent(string contributorId) : DomainEventBase
 {
-  public int ContributorId { get; init; } = contributorId;
+  public string ContributorId { get; init; } = contributorId;
 }

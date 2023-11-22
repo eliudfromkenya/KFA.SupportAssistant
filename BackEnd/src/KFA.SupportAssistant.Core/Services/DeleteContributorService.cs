@@ -1,8 +1,8 @@
 ﻿using Ardalis.Result;
+using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.ContributorAggregate.Events;
 using KFA.SupportAssistant.Core.Interfaces;
-using Ardalis.SharedKernel;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -12,7 +12,7 @@ public class DeleteContributorService(IRepository<Contributor> _repository,
   IMediator _mediator,
   ILogger<DeleteContributorService> _logger) : IDeleteContributorService
 {
-  public async Task<Result> DeleteContributor(int contributorId)
+  public async Task<Result> DeleteContributor(string contributorId)
   {
     _logger.LogInformation("Deleting Contributor {contributorId}", contributorId);
     var aggregateToDelete = await _repository.GetByIdAsync(contributorId);
