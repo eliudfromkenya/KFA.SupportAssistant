@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.SharedKernel;
+using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.Globals;
 
@@ -14,12 +17,17 @@ namespace KFA.SupportAssistant.Globals;
 	//     post-persistence. If you prefer GUID Ids, change it here. If you need to support
 	//     both GUID and int IDs, change to EntityBase<TId> and use TId as the type for
 	//     Id.
-	public abstract class BaseModel: IAggregateRoot
+	public abstract record class BaseModel: IAggregateRoot
 	{
 		private List<DomainEventBase> _domainEvents = new List<DomainEventBase>();
+  private string? _id;
 
-		public string Id { get; set; }
+  [Key]
+  [MaxLength(___PrimaryMaxLength___)]
+  public virtual string? Id { get => _id; set => _id = value; }
 
+  public BaseModel(string? id = null) => _id = id;
+  
 		[NotMapped]
 		public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
 
@@ -32,4 +40,30 @@ namespace KFA.SupportAssistant.Globals;
 		{
 			_domainEvents.Clear();
 		}
-	}
+
+
+#pragma warning disable IDE1006 // Naming Styles
+  internal const int ___PrimaryMaxLength___ = 20;
+#pragma warning restore IDE1006 // Naming Styles
+
+  [NotMapped]
+  [JsonIgnore]
+  public abstract string? ___tableName___ { get; protected set; }
+
+  [NotMapped]
+  [JsonIgnore]
+  public bool? ___RecordIsSelected___ { get; set; }
+
+  [Column("modification_status", Order = 103)]
+  public byte? ___ModificationStatus___ { get; set; } = 1;
+
+  [NotMapped]
+  [JsonIgnore]
+  public object? ___Tag___ { get; set; }
+
+  [Column("date_added", Order = 100)]
+  public long? ___DateInserted___ { get; set; }
+
+  [Column("date_updated", Order = 101)]
+  public long? ___DateUpdated___ { get; set; }
+  }

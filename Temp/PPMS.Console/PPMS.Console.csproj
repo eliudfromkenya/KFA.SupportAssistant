@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Entries Table.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.Triggers" />
+    <PackageReference Include="Humanizer" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+	  <PackageReference Include="Newtonsoft.Json" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" />
+    <PackageReference Include="Prism.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\Entries Table.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Data\OldData.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+</Project>
