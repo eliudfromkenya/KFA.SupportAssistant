@@ -5,7 +5,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_cost_centres")]
-internal sealed record class CostCentre : BaseModel
+public sealed record class CostCentre : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_cost_centres";
   [Required]

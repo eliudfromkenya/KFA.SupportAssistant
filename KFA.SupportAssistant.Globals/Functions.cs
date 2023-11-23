@@ -53,7 +53,7 @@ public static class Functions
     return Convert.ToInt32(new string(month.Where(char.IsDigit).ToArray()));
     }
 
-  public static IRepository<X>? ResolveRepository<T, X>(BaseDTO<T> dTO) where T : IBaseModel where X : class, IBaseModel, T => null;
+  public static IRepository<X>? ResolveRepository<T, X>(BaseDTO<T> dTO) where T : BaseModel where X : BaseModel, T => null;
   public static T? ResolveObject<T>() where T : class => Declarations.ServiceScope?.ServiceProvider.GetService<T>();
   public static string[] GenerateMonths(string monthFrom, string monthTo)
     {

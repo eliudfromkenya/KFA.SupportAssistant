@@ -10,7 +10,7 @@ public interface IIdGenerator
 
   string GetNextId(Type type);
 
-  string GetNextId<T>() where T : IBaseModel;
+  string GetNextId<T>() where T : BaseModel;
 
   Task<bool?> RefreshKeysAsync(bool forceRefresh = false);
 
@@ -22,5 +22,5 @@ public interface IIdGenerator
 
   string TryNextId(Type type);
 
-  string TryNextId<T>() where T : IBaseModel;
+  string TryNextId<T>() where T : BaseModel;
 }

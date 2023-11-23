@@ -5,7 +5,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_computer_anydesks")]
-internal sealed record class ComputerAnydesk : BaseModel
+public sealed record class ComputerAnydesk : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_computer_anydesks";
   [Required]

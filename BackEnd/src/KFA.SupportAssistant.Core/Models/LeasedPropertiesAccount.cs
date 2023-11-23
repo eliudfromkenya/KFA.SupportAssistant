@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_leased_properties_accounts")]
-internal sealed record class LeasedPropertiesAccount : BaseModel
+public sealed record class LeasedPropertiesAccount : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_leased_properties_accounts";
   [Column("account_number")]

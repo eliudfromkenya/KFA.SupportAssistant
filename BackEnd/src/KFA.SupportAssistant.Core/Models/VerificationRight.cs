@@ -5,7 +5,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_verification_rights")]
-internal sealed record class VerificationRight : BaseModel
+public sealed record class VerificationRight : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_verification_rights";
   [Column("device_id")]

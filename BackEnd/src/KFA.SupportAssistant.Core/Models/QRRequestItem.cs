@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_qr_request_items")]
-internal sealed record class QRRequestItem : BaseModel
+public sealed record class QRRequestItem : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_qr_request_items";
   [MaxLength(30, ErrorMessage = "Please cash sale number must be 30 characters or less")]

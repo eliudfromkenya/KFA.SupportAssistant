@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_item_groups")]
-internal sealed record class ItemGroup : BaseModel
+public sealed record class ItemGroup : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_item_groups";
   [Required]

@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_ledger_accounts")]
-internal sealed record class LedgerAccount : BaseModel
+public sealed record class LedgerAccount : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_ledger_accounts";
   [Column("cost_centre_code")]

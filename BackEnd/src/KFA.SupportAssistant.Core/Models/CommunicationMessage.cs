@@ -5,7 +5,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_communication_messages")]
-internal sealed record class CommunicationMessage : BaseModel
+public sealed record class CommunicationMessage : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_communication_messages";
   [Column("attachments")]

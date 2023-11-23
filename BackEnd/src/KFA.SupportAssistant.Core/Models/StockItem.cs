@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_stock_items")]
-internal sealed record class StockItem : BaseModel
+public sealed record class StockItem : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_stock_items";
   [MaxLength(255, ErrorMessage = "Please barcode must be 255 characters or less")]

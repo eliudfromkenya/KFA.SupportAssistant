@@ -6,7 +6,7 @@ using KFA.SupportAssistant.Globals;
 namespace KFA.SupportAssistant.Core.Models;
 
 [Table("tbl_data_devices")]
-internal sealed record class DataDevice : BaseModel
+public sealed record class DataDevice : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_data_devices";
   [MaxLength(255, ErrorMessage = "Please device caption must be 255 characters or less")]

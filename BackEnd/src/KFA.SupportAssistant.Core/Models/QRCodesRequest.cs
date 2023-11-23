@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using KFA.DynamicsAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_qr_codes_requests")]
-internal sealed record class QRCodesRequest : BaseModel
+public sealed record class QRCodesRequest : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_qr_codes_requests";
   [Column("cost_centre_code")]
@@ -37,7 +38,7 @@ internal sealed record class QRCodesRequest : BaseModel
 
   [MaxLength(255, ErrorMessage = "Please response status must be 255 characters or less")]
   [Column("response_status")]
-  public byte? ResponseStatus { get; init; }
+  public QRResponseType? ResponseStatus { get; init; }
   [Column("time")]
   public global::System.DateTime Time { get; init; }
 

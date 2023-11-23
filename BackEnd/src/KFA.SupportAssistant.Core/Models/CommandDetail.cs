@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_command_details")]
-internal sealed record class CommandDetail : BaseModel
+public sealed record class CommandDetail : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_command_details";
   [Required]

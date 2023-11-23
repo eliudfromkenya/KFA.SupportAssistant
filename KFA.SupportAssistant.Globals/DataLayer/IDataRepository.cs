@@ -3,7 +3,7 @@ using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 
 namespace KFA.SupportAssistant.Globals.DataLayer;
 
-public interface IDataRepository<T, Y> where T : BaseDTO<Y>, IBaseDTO where Y : IBaseModel
+public interface IDataRepository<T, Y> where T : BaseDTO<Y> where Y : BaseModel
 {
   Task<T> AddAsync(T entity, CancellationToken cancellationToken = default);
 

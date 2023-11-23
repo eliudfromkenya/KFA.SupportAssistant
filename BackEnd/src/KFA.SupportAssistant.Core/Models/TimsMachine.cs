@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_tims_machines")]
-internal sealed record class TimsMachine : BaseModel
+public sealed record class TimsMachine : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_tims_machines";
   [MaxLength(5, ErrorMessage = "Please class type must be 5 characters or less")]

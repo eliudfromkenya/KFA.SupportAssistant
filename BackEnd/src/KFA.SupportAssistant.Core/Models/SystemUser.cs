@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_system_users")]
-internal sealed record class SystemUser : BaseModel
+public sealed record class SystemUser : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_system_users";
   [Required]

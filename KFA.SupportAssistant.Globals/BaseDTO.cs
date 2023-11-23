@@ -1,11 +1,11 @@
-﻿using KFA.SupportAssistant.Globals.DataLayer;
+﻿using KFA.SupportAssistant.Globals;
 
-public abstract record BaseDTO<T> : IBaseDTO where T : IBaseModel
+public abstract record BaseDTO<T> where T : BaseModel
 {
   public string? Id { get; set; }
   public DateTime? DateUpdated___ { get; set; }
   public DateTime? DateInserted___ { get; set; }
   public object? ___Tag___ { get; set; }
 
-  public abstract IBaseModel? ToModel();
+  public abstract T? ToModel();
 }

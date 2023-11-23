@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_suppliers")]
-internal sealed record class Supplier : BaseModel
+public sealed record class Supplier : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_suppliers";
   [MaxLength(255, ErrorMessage = "Please address must be 255 characters or less")]

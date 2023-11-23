@@ -5,7 +5,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_user_audit_trails")]
-internal sealed record class UserAuditTrail : BaseModel
+public sealed record class UserAuditTrail : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_user_audit_trails";
   [Required]

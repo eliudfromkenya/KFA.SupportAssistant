@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_password_safes")]
-internal sealed record class PasswordSafe : BaseModel
+public sealed record class PasswordSafe : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_password_safes";
   [Required]

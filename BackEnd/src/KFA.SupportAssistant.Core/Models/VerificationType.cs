@@ -4,7 +4,7 @@ using KFA.SupportAssistant.Globals;
 
 namespace KFA.DynamicsAssistant.Infrastructure.Models;
 [Table("tbl_verification_types")]
-internal sealed record class VerificationType : BaseModel
+public sealed record class VerificationType : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_verification_types";
   [MaxLength(255, ErrorMessage = "Please category must be 255 characters or less")]
