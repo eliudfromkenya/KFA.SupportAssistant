@@ -1,6 +1,8 @@
 ﻿using FastEndpoints;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.UseCases.DTOs;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.UseCases.Models.Create;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using Mapster;
 using MediatR;
@@ -28,7 +30,7 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
     AllowAnonymous();
     //Claims("AdminID", "EmployeeID");
     // Roles("Admin", "Manager","AAA-06");
-    Permissions("R-AAA-10", "DeleteUsersPermission");
+    //Permissions("R-AAA-10", "DeleteUsersPermission");
     //Policy(x => x.RequireAssertion(...));
     Summary(s =>
     {
@@ -46,12 +48,16 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
     var requestDTO = request.Adapt<CostCentreDTO>();
     requestDTO.Id = request.CostCentreCode;
 
-    var result = await _mediator.Send(new CreateModelCommand<CostCentreDTO>(requestDTO), cancellationToken);
+    var result = await _mediator.Send(new CreateModelCommand<CostCentreDTO, CostCentre>(requestDTO), cancellationToken);
 
     if (result.IsSuccess)
     {
-      Response = new CreateCostCentreResponse(result.Value?.Id, result.Value?.Description!, result.Value?.Narration, result.Value?.Region, result.Value?.SupplierCodePrefix, result.Value?.DateInserted___, result.Value?.DateUpdated___);
-      return;
+      if(result?.Value?.FirstOrDefault() is CostCentreDTO obj)
+      {
+        Response = new CreateCostCentreResponse(obj.Id, obj.Description!, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
+        return;
+      }
+     
     }
     // TODO: Handle other cases as necessary
   }

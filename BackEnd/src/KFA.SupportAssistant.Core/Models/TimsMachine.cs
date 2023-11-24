@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_tims_machines")]
 public sealed record class TimsMachine : BaseModel
 {

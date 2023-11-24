@@ -1,6 +1,8 @@
 ﻿using FastEndpoints;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.UseCases.DTOs;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using Mapster;
 using MediatR;
@@ -32,7 +34,7 @@ public class List :  Endpoint<ListCostCentreRequest, CostCentreListResponse>
   public override async Task HandleAsync(ListCostCentreRequest request,
     CancellationToken cancellationToken)
   {
-    var command = new ListModelQuery<CostCentreDTO>(new ListParam { Skip=request.Skip, Take=request.Take });
+    var command = new ListModelsQuery<CostCentreDTO, CostCentre>(new ListParam { Skip=request.Skip, Take=request.Take });
     var result = await _mediator.Send(command, cancellationToken);
 
     if (result.IsSuccess)

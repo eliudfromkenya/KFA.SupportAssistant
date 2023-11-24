@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.DynamicsAssistant.Core.DataLayer.Types;
+using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;

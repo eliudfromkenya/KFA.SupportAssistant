@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using KFA.DynamicsAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
 

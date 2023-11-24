@@ -1,0 +1,911 @@
+2023-11-24 19:06:52.028 +03:00 [INF] Registered 10 endpoints in 5060 milliseconds.
+2023-11-24 19:07:13.930 +03:00 [INF] Executed DbCommand (413ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 19:07:15.018 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 19:07:15.896 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 19:07:15.897 +03:00 [INF] Hosting environment: Development
+2023-11-24 19:07:15.906 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 19:07:16.948 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 19:07:18.498 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 19:07:18.551 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 1639.5662ms
+2023-11-24 19:07:19.470 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 972.4643ms
+2023-11-24 19:07:19.555 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - null null
+2023-11-24 19:07:19.558 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 19:07:19.558 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - null null
+2023-11-24 19:07:19.559 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - null null
+2023-11-24 19:07:19.563 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 19:07:19.650 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 18.438ms
+2023-11-24 19:07:20.685 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1126.8008ms
+2023-11-24 19:07:20.805 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-11-24 19:07:20.810 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - 200 145208 text/css 1250.8002ms
+2023-11-24 19:07:20.934 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-11-24 19:07:20.940 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - 200 322865 text/javascript 1381.8974ms
+2023-11-24 19:07:21.023 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-11-24 19:07:21.079 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - 200 1045710 text/javascript 1523.5825ms
+2023-11-24 19:07:21.740 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 19:07:23.341 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 19:07:33.952 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 12211.4121ms
+2023-11-24 19:08:23.658 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:08:23.662 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 19:08:23.681 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:24.222 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:24.223 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 564.681ms
+2023-11-24 19:08:45.120 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:08:45.120 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:45.125 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:45.126 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 7.1934ms
+2023-11-24 19:08:46.408 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:08:46.408 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:46.413 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:08:46.414 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 5.8652ms
+2023-11-24 19:09:17.998 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:09:18.003 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:09:18.008 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:09:18.008 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 10.4908ms
+2023-11-24 19:09:18.902 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:09:18.902 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:09:18.905 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:09:18.906 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 5.054ms
+2023-11-24 19:10:15.741 +03:00 [INF] Registered 10 endpoints in 999 milliseconds.
+2023-11-24 19:10:17.420 +03:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 19:10:17.680 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 19:10:17.835 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 19:10:17.836 +03:00 [INF] Hosting environment: Development
+2023-11-24 19:10:17.836 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 19:10:17.889 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 19:10:18.115 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 19:10:18.127 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 244.0486ms
+2023-11-24 19:10:18.400 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 284.3274ms
+2023-11-24 19:10:18.409 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 19:10:18.415 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 19:10:18.421 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 11.5269ms
+2023-11-24 19:10:18.523 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.8737ms
+2023-11-24 19:10:18.862 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 19:10:18.928 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 19:10:19.940 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1078.2526ms
+2023-11-24 19:10:30.624 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:10:30.629 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 19:10:30.634 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:10:30.804 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:10:30.805 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 400 null application/problem+json 180.6523ms
+2023-11-24 19:10:51.702 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 168
+2023-11-24 19:10:51.702 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:11:17.386 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 19:11:17.393 +03:00 [INF] Property Models : [{"Description":"hdfg sfhdf hs","Narration":"hgnfdsfdbdfbd","Region":"hgfhdfgshfsh","SupplierCodePrefix":"fgbzcbsdfbgadfsg","Id":"4323","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 19:11:17.476 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:11:17.493 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.Registration.ComponentNotRegisteredException: The requested service 'MediatR.IRequestHandler`2[[KFA.SupportAssistant.UseCases.Models.Create.CreateModelCommand`2[[KFA.SupportAssistant.UseCases.DTOs.CostCentreDTO, KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[KFA.DynamicsAssistant.Infrastructure.Models.CostCentre, KFA.SupportAssistant.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Ardalis.Result.Result`1[[KFA.SupportAssistant.UseCases.DTOs.CostCentreDTO[], KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Ardalis.Result, Version=7.2.0.0, Culture=neutral, PublicKeyToken=null]]' has not been registered. To avoid this exception, either register a component to provide the service, check for service registration using IsRegistered(), or use the ResolveOptional() method to resolve an optional dependency.
+
+See https://autofac.rtfd.io/help/service-not-registered for more info.
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProvider.GetRequiredService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 19:11:17.715 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 500 null text/plain; charset=utf-8 26013.5735ms
+2023-11-24 19:12:15.612 +03:00 [INF] Registered 10 endpoints in 11017 milliseconds.
+2023-11-24 19:12:17.004 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 19:12:17.311 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 19:12:17.646 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 19:12:17.647 +03:00 [INF] Hosting environment: Development
+2023-11-24 19:12:17.647 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 19:12:17.709 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 19:12:18.267 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 19:12:18.279 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 579.1197ms
+2023-11-24 19:12:18.518 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 19:12:18.518 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 251.063ms
+2023-11-24 19:12:18.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 23.3837ms
+2023-11-24 19:12:18.544 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 19:12:18.715 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 170.8822ms
+2023-11-24 19:12:18.901 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 19:12:18.916 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 19:12:19.715 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 813.4326ms
+2023-11-24 19:23:46.101 +03:00 [INF] Registered 10 endpoints in 1141 milliseconds.
+2023-11-24 19:23:47.472 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 19:23:47.758 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 19:23:47.916 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 19:23:47.917 +03:00 [INF] Hosting environment: Development
+2023-11-24 19:23:47.917 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 19:23:48.005 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 19:23:48.225 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 19:23:48.234 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 236.669ms
+2023-11-24 19:23:48.497 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 19:23:48.507 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 282.2776ms
+2023-11-24 19:23:48.508 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 19:23:48.512 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 14.4234ms
+2023-11-24 19:23:48.590 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 82.0433ms
+2023-11-24 19:23:48.714 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 19:23:48.735 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 19:23:49.777 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1063.0601ms
+2023-11-24 19:25:01.192 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 160
+2023-11-24 19:25:01.196 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 19:25:01.202 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:25:08.911 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 19:25:08.919 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 19:25:08.990 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 19:25:08.992 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.Registration.ComponentNotRegisteredException: The requested service 'MediatR.IRequestHandler`2[[KFA.SupportAssistant.UseCases.Models.Create.CreateModelCommand`2[[KFA.SupportAssistant.UseCases.DTOs.CostCentreDTO, KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[KFA.DynamicsAssistant.Infrastructure.Models.CostCentre, KFA.SupportAssistant.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Ardalis.Result.Result`1[[KFA.SupportAssistant.UseCases.DTOs.CostCentreDTO[], KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Ardalis.Result, Version=7.2.0.0, Culture=neutral, PublicKeyToken=null]]' has not been registered. To avoid this exception, either register a component to provide the service, check for service registration using IsRegistered(), or use the ResolveOptional() method to resolve an optional dependency.
+
+See https://autofac.rtfd.io/help/service-not-registered for more info.
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProvider.GetRequiredService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 19:25:09.056 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 500 null text/plain; charset=utf-8 7864.5021ms
+2023-11-24 20:05:56.176 +03:00 [INF] Registered 10 endpoints in 2453 milliseconds.
+2023-11-24 20:06:00.368 +03:00 [INF] Executed DbCommand (448ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 20:06:00.828 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 20:06:01.341 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 20:06:01.341 +03:00 [INF] Hosting environment: Development
+2023-11-24 20:06:01.342 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 20:06:01.750 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 20:06:02.417 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 20:06:02.490 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 750.2756ms
+2023-11-24 20:06:03.268 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 20:06:03.271 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 853.4853ms
+2023-11-24 20:06:03.289 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 17.506ms
+2023-11-24 20:06:03.305 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 20:06:03.480 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 174.5322ms
+2023-11-24 20:06:03.731 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 20:06:03.817 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 20:06:05.612 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1881.4796ms
+2023-11-24 20:44:45.191 +03:00 [INF] Registered 10 endpoints in 17264 milliseconds.
+2023-11-24 20:44:50.738 +03:00 [INF] Executed DbCommand (276ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 20:44:51.386 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 20:44:52.458 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 20:44:52.459 +03:00 [INF] Hosting environment: Development
+2023-11-24 20:44:52.459 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 20:44:53.095 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 20:44:54.766 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 20:44:54.807 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 1720.6508ms
+2023-11-24 20:44:55.742 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 976.1716ms
+2023-11-24 20:44:55.848 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 20:44:55.857 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 20:44:55.972 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.3314ms
+2023-11-24 20:44:56.113 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 255.9079ms
+2023-11-24 20:44:56.237 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 20:44:56.388 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 20:45:00.967 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 4729.565ms
+2023-11-24 20:48:23.987 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/cost_centres - application/json 160
+2023-11-24 20:48:24.037 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 20:48:24.042 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 20:48:30.078 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 20:48:30.084 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 20:48:30.140 +03:00 [INF] Inserting model KFA.DynamicsAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 20:48:30.575 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 20:48:30.579 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot create a DbSet for 'CostCentre' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityStates(IEnumerable`1 entities, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddRange(IEnumerable`1 entities)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 20
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 20:48:30.846 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/cost_centres - 500 null text/plain; charset=utf-8 6861.687ms
+2023-11-24 21:08:40.851 +03:00 [INF] Registered 10 endpoints in 25654 milliseconds.
+2023-11-24 21:08:42.456 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:08:42.784 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:08:42.907 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:08:42.907 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:08:42.907 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:08:42.965 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 21:08:43.214 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 21:08:43.226 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 271.0186ms
+2023-11-24 21:08:43.475 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 260.8752ms
+2023-11-24 21:08:43.489 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 21:08:43.489 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:08:43.509 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 19.9436ms
+2023-11-24 21:08:43.623 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 134.68ms
+2023-11-24 21:08:43.709 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 21:08:43.727 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:08:44.692 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 983.2988ms
+2023-11-24 21:12:05.773 +03:00 [INF] Registered 10 endpoints in 1798 milliseconds.
+2023-11-24 21:12:07.183 +03:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:12:07.494 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:12:07.629 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:12:07.630 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:12:07.630 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:12:07.675 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 21:12:07.982 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 21:12:08.000 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 334.205ms
+2023-11-24 21:12:08.179 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 197.455ms
+2023-11-24 21:12:08.219 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:12:08.225 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 6.3496ms
+2023-11-24 21:12:08.287 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 21:12:08.345 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.809ms
+2023-11-24 21:12:08.498 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 21:12:08.514 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:12:09.391 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 892.2904ms
+2023-11-24 21:15:43.206 +03:00 [INF] Registered 10 endpoints in 1930 milliseconds.
+2023-11-24 21:15:44.619 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:15:44.998 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:15:45.114 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:15:45.115 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:15:45.121 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:15:45.206 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2023-11-24 21:15:45.466 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2023-11-24 21:15:45.479 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 277.4413ms
+2023-11-24 21:15:45.750 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 283.972ms
+2023-11-24 21:15:45.827 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:15:45.833 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.1044ms
+2023-11-24 21:15:45.868 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2023-11-24 21:15:45.936 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.4183ms
+2023-11-24 21:15:46.069 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2023-11-24 21:15:46.082 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:15:46.973 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 904.2558ms
+2023-11-24 21:18:53.474 +03:00 [INF] Registered 10 endpoints in 18973 milliseconds.
+2023-11-24 21:18:54.705 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:18:55.018 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:18:55.292 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 21:18:55.293 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:18:55.294 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:18:55.295 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:18:55.960 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 21:18:56.318 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 386.5036ms
+2023-11-24 21:18:56.396 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 21:18:56.610 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 213.6592ms
+2023-11-24 21:18:56.623 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2023-11-24 21:18:56.623 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2023-11-24 21:18:56.623 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:18:56.629 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 21:18:56.630 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - null null
+2023-11-24 21:18:56.636 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 13.0714ms
+2023-11-24 21:18:56.720 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 90.6936ms
+2023-11-24 21:18:56.787 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-11-24 21:18:56.791 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - 200 145208 text/css 161.0532ms
+2023-11-24 21:18:56.815 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-11-24 21:18:56.829 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 322865 text/javascript 206.3395ms
+2023-11-24 21:18:56.846 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-11-24 21:18:56.853 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - 200 1045710 text/javascript 229.7359ms
+2023-11-24 21:18:57.243 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 21:18:57.290 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - null null
+2023-11-24 21:18:57.291 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:18:57.330 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-11-24 21:18:57.338 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 47.5183ms
+2023-11-24 21:18:58.313 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1069.9745ms
+2023-11-24 21:34:47.294 +03:00 [INF] Registered 10 endpoints in 38834 milliseconds.
+2023-11-24 21:34:48.519 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:34:48.813 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:34:48.993 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 21:34:48.995 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:34:48.996 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:34:48.997 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:34:49.686 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 21:34:50.029 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 365.5739ms
+2023-11-24 21:34:50.036 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 21:34:50.280 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 244.8112ms
+2023-11-24 21:34:50.292 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:34:50.322 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 30.4711ms
+2023-11-24 21:34:50.342 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 21:34:50.424 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 81.8819ms
+2023-11-24 21:34:50.872 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 21:34:50.898 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:34:51.918 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1045.6793ms
+2023-11-24 21:44:46.848 +03:00 [INF] Registered 10 endpoints in 27267 milliseconds.
+2023-11-24 21:44:48.008 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 21:44:48.356 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 21:44:48.532 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 21:44:48.533 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 21:44:48.534 +03:00 [INF] Hosting environment: Development
+2023-11-24 21:44:48.535 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 21:44:49.262 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 21:44:49.645 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 392.0919ms
+2023-11-24 21:44:49.651 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 21:44:49.853 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 202.0513ms
+2023-11-24 21:44:49.865 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 21:44:49.873 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.3797ms
+2023-11-24 21:44:49.879 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 21:44:50.006 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 126.666ms
+2023-11-24 21:44:50.092 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 21:44:50.142 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 21:44:51.062 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 970.0189ms
+2023-11-24 21:45:26.514 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/cost_centres - application/json 160
+2023-11-24 21:45:26.519 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 21:45:26.524 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 21:45:29.328 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 21:45:29.334 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 21:45:29.441 +03:00 [INF] Inserting model KFA.DynamicsAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 21:45:29.643 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 21:45:29.646 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot create a DbSet for 'CostCentre' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityStates(IEnumerable`1 entities, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddRange(IEnumerable`1 entities)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 20
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 21:45:29.704 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/cost_centres - 500 null text/plain; charset=utf-8 3190.8953ms
+2023-11-24 22:22:59.886 +03:00 [INF] Registered 10 endpoints in 5652 milliseconds.
+2023-11-24 22:23:04.994 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 22:23:05.654 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-24 22:23:05.844 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 22:23:05.846 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 22:23:05.847 +03:00 [INF] Hosting environment: Development
+2023-11-24 22:23:05.849 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 22:23:08.882 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 22:23:10.072 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1196.1527ms
+2023-11-24 22:23:10.077 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 22:23:11.529 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1451.985ms
+2023-11-24 22:23:11.720 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 22:23:11.730 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.7331ms
+2023-11-24 22:23:11.776 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 22:23:11.819 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.9922ms
+2023-11-24 22:23:12.272 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 22:23:12.683 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 22:23:14.462 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 2189.6479ms
+2023-11-24 22:23:48.102 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/cost_centres - application/json 160
+2023-11-24 22:23:48.107 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 22:23:48.109 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:23:48.724 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 22:23:48.729 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 22:23:48.831 +03:00 [INF] Inserting model KFA.SupportAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 22:23:49.515 +03:00 [ERR] Failed executing DbCommand (73ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 13), @p2='?' (Size = 15), @p3='?' (Size = 13), @p4='?' (Size = 5), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64), @p7='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "tbl_cost_centres" ("cost_centre_code", "description", "narration", "region", "supplier_code_prefix", "date_added", "date_updated", "modification_status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2023-11-24 22:23:49.618 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'KFA.SupportAssistant.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-11-24 22:23:50.197 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:23:50.201 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\AppDbContext.cs:line 55
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 19
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 22:23:50.348 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/cost_centres - 500 null text/plain; charset=utf-8 2245.396ms
+2023-11-24 22:29:18.277 +03:00 [INF] Registered 10 endpoints in 1893 milliseconds.
+2023-11-24 22:29:21.484 +03:00 [INF] Executed DbCommand (962ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-11-24 22:29:23.529 +03:00 [ERR] Failed executing DbCommand (126ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "date_added" INTEGER NULL,
+    "date_updated" INTEGER NULL,
+    "modification_status" INTEGER NULL,
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-24 22:29:24.266 +03:00 [ERR] An error occurred seeding the DB. SQLite Error 1: 'duplicate column name: Name'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'duplicate column name: Name'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateTables()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 80
+2023-11-24 22:29:24.563 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 22:29:24.565 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 22:29:24.567 +03:00 [INF] Hosting environment: Development
+2023-11-24 22:29:24.571 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 22:29:27.589 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 22:29:27.920 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 353.6481ms
+2023-11-24 22:29:27.931 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 22:29:28.160 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 229.1759ms
+2023-11-24 22:29:28.176 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 22:29:28.184 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.748ms
+2023-11-24 22:29:28.193 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 22:29:28.291 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.8946ms
+2023-11-24 22:29:28.403 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 22:29:28.428 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 22:29:29.403 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 999.9632ms
+2023-11-24 22:37:27.838 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/cost_centres - application/json 160
+2023-11-24 22:37:27.845 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 22:37:27.851 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:37:28.054 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 22:37:28.059 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 22:37:28.086 +03:00 [INF] Inserting model KFA.SupportAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 22:37:28.382 +03:00 [ERR] Failed executing DbCommand (19ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 13), @p2='?' (Size = 15), @p3='?' (Size = 13), @p4='?' (Size = 5), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64), @p7='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "tbl_cost_centres" ("cost_centre_code", "description", "narration", "region", "supplier_code_prefix", "date_added", "date_updated", "modification_status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2023-11-24 22:37:28.395 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'KFA.SupportAssistant.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-11-24 22:37:28.628 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:37:28.632 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\AppDbContext.cs:line 55
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 19
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 22:37:28.684 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/cost_centres - 500 null text/plain; charset=utf-8 846.488ms
+2023-11-24 22:38:23.512 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/cost_centres - application/json 160
+2023-11-24 22:38:23.516 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:38:23.520 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 22:38:23.522 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 22:38:23.531 +03:00 [INF] Inserting model KFA.SupportAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 22:38:23.607 +03:00 [ERR] Failed executing DbCommand (1ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 13), @p2='?' (Size = 15), @p3='?' (Size = 13), @p4='?' (Size = 5), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64), @p7='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "tbl_cost_centres" ("cost_centre_code", "description", "narration", "region", "supplier_code_prefix", "date_added", "date_updated", "modification_status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2023-11-24 22:38:23.615 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'KFA.SupportAssistant.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-11-24 22:38:23.811 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:38:23.812 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\AppDbContext.cs:line 55
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 19
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 22:38:23.827 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/cost_centres - 500 null text/plain; charset=utf-8 316.212ms
+2023-11-24 22:41:20.787 +03:00 [INF] Registered 10 endpoints in 4578 milliseconds.
+2023-11-24 22:41:26.345 +03:00 [INF] Executed DbCommand (284ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-11-24 22:41:27.404 +03:00 [ERR] Failed executing DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "date_added" INTEGER NULL,
+    "date_updated" INTEGER NULL,
+    "modification_status" INTEGER NULL,
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-24 22:44:37.422 +03:00 [INF] Registered 10 endpoints in 1562 milliseconds.
+2023-11-24 22:44:39.199 +03:00 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 22:44:39.719 +03:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "date_added" INTEGER NULL,
+    "date_updated" INTEGER NULL,
+    "modification_status" INTEGER NULL,
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-24 22:47:02.725 +03:00 [INF] Registered 10 endpoints in 2104 milliseconds.
+2023-11-24 22:47:04.556 +03:00 [INF] Executed DbCommand (121ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-11-24 22:47:05.190 +03:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "date_added" INTEGER NULL,
+    "date_updated" INTEGER NULL,
+    "modification_status" INTEGER NULL,
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-24 22:49:34.202 +03:00 [INF] Registered 10 endpoints in 1727 milliseconds.
+2023-11-24 22:49:35.837 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-24 22:49:36.333 +03:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "date_added" INTEGER NULL,
+    "date_updated" INTEGER NULL,
+    "modification_status" INTEGER NULL,
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL
+);
+2023-11-24 22:49:36.383 +03:00 [ERR] An error occurred seeding the DB. SQLite Error 1: 'duplicate column name: Name'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'duplicate column name: Name'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateTables()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 80
+2023-11-24 22:49:40.108 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-24 22:49:40.111 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-24 22:49:40.112 +03:00 [INF] Hosting environment: Development
+2023-11-24 22:49:40.113 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-24 22:49:42.400 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-24 22:49:43.427 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1070.016ms
+2023-11-24 22:49:43.472 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-24 22:49:46.943 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-24 22:49:46.943 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-24 22:49:46.945 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 3472.729ms
+2023-11-24 22:49:47.063 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 119.8691ms
+2023-11-24 22:49:47.191 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 248.3656ms
+2023-11-24 22:49:47.361 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-24 22:49:47.484 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-24 22:49:51.831 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 4470.2955ms
+2023-11-24 22:50:13.686 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/cost_centres - application/json 160
+2023-11-24 22:50:13.693 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-24 22:50:13.698 +03:00 [INF] Executing endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:50:14.029 +03:00 [INF] Handling CreateModelCommand`2
+2023-11-24 22:50:14.039 +03:00 [INF] Property Models : [{"Description":"Eliuf lgiluio","Narration":"hgpoy poh yio[p","Region":"rug hvg oyitp","SupplierCodePrefix":"fiugh","Id":"4532","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}]
+2023-11-24 22:50:14.103 +03:00 [INF] Inserting model KFA.SupportAssistant.Infrastructure.Models.CostCentre - 1
+2023-11-24 22:50:14.538 +03:00 [ERR] Failed executing DbCommand (28ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 13), @p2='?' (Size = 15), @p3='?' (Size = 13), @p4='?' (Size = 5), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64), @p7='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "tbl_cost_centres" ("cost_centre_code", "description", "narration", "region", "supplier_code_prefix", "date_added", "date_updated", "modification_status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2023-11-24 22:50:14.586 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'KFA.SupportAssistant.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-11-24 22:50:15.353 +03:00 [INF] Executed endpoint 'HTTP: POST /cost_centres'
+2023-11-24 22:50:15.356 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: tbl_cost_centres'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\AppDbContext.cs:line 59
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.AddRangeAsync(IEnumerable`1 entities, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.InsertModelService`1.InsertModel(CancellationToken cancellationToken, T[] models) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\InsertModelService.cs:line 22
+   at KFA.SupportAssistant.UseCases.Models.Create.CreateModelHandler`2.Handle(CreateModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Create\CreateModelHandler.cs:line 19
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.EndPoints.CostCentres.Create.HandleAsync(CreateCostCentreRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\Create.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-24 22:50:15.435 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/cost_centres - 500 null text/plain; charset=utf-8 1748.7355ms

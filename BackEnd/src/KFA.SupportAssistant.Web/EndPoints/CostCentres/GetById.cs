@@ -1,7 +1,9 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.UseCases.DTOs;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using Mapster;
 using MediatR;
@@ -41,7 +43,7 @@ public class GetById : Endpoint<GetCostCentreByIdRequest, CostCentreRecord>
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO>(request.Id ?? "");
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(request.Id ?? "");
     var result = await _mediator.Send(command, cancellationToken);
 
     if (result.Status == ResultStatus.NotFound || result.Value == null)

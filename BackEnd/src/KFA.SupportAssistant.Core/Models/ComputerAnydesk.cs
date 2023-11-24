@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.DynamicsAssistant.Core.DataLayer.Types;
+using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_computer_anydesks")]
 public sealed record class ComputerAnydesk : BaseModel
 {

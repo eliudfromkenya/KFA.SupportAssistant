@@ -1,4 +1,4 @@
-﻿using KFA.DynamicsAssistant.Infrastructure.Models;
+﻿using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant;
 
 namespace KFA.SupportAssistant.UseCases.DTOs;

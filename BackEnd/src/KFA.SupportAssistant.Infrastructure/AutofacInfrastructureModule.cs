@@ -63,6 +63,7 @@ public class AutofacInfrastructureModule : Module
     RegisterEF(builder);
     RegisterQueries(builder);
     RegisterMediatR(builder);
+    RegisterEntities.RegisterQueries(builder);
   }
 
   private void RegisterEF(ContainerBuilder builder)

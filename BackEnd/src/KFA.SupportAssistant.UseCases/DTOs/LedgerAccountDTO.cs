@@ -1,4 +1,4 @@
-﻿using KFA.DynamicsAssistant.Infrastructure.Models;
+﻿using KFA.SupportAssistant.Infrastructure.Models;
 
 namespace KFA.SupportAssistant.UseCases.DTOs;
 public record class LedgerAccountDTO : BaseDTO<LedgerAccount>

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_command_details")]
 public sealed record class CommandDetail : BaseModel
 {

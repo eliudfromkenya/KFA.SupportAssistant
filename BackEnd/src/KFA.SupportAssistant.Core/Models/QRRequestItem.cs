@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_qr_request_items")]
 public sealed record class QRRequestItem : BaseModel
 {

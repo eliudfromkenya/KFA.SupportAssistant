@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using KFA.DynamicsAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.UseCases.DTOs;
 using Mapster;

@@ -1,7 +1,10 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.UseCases.DTOs;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.UseCases.Models.Get;
+using KFA.SupportAssistant.UseCases.Models.Update;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using Mapster;
 using MediatR;
@@ -43,7 +46,7 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO>(request.Id ?? "");
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(request.Id ?? "");
     var resultObj = await _mediator.Send(command, cancellationToken);
 
     if (resultObj.Status == ResultStatus.NotFound)
@@ -54,7 +57,7 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
     }
 
       var value = request.Adapt(resultObj.Value);
-      var result = await _mediator.Send(new UpdateModelCommand<CostCentreDTO>(request.Id ?? "", value!), cancellationToken);
+      var result = await _mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(request.Id ?? "", value!), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
     {

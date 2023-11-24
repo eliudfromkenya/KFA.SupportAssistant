@@ -1,4 +1,4 @@
-﻿namespace KFA.DynamicsAssistant.Core.DataLayer.Types;
+﻿namespace KFA.SupportAssistant.Core.DataLayer.Types;
 
 [Flags]
 public enum CommunicationMessageStatus : byte

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_item_groups")]
 public sealed record class ItemGroup : BaseModel
 {

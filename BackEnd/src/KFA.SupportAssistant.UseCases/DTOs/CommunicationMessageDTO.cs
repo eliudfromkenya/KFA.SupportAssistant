@@ -1,4 +1,4 @@
-﻿using KFA.DynamicsAssistant.Core.DataLayer.Types;
+﻿using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant;
 using KFA.SupportAssistant.Core.Models;
 

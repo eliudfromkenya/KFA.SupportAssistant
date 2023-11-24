@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
 using Ardalis.Specification;
-using KFA.DynamicsAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.UseCases.Models.Get;

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.DynamicsAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Infrastructure.Models;
 [Table("tbl_verification_rights")]
 public sealed record class VerificationRight : BaseModel
 {

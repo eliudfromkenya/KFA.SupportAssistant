@@ -1,5 +1,5 @@
-﻿using KFA.DynamicsAssistant.Core.DataLayer.Types;
-using KFA.DynamicsAssistant.Infrastructure.Models;
+﻿using KFA.SupportAssistant.Core.DataLayer.Types;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant;
 
 namespace KFA.SupportAssistant.UseCases.DTOs;

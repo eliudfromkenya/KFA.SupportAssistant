@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
-using KFA.SupportAssistant.UseCases.DTOs;
-using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.UseCases.Models.Delete;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using MediatR;
 
@@ -41,7 +41,7 @@ public class Delete : Endpoint<DeleteCostCentreRequest>
       return;
     }
 
-    var command = new DeleteModelCommand<CostCentreDTO>(request.Id ?? "");
+    var command = new DeleteModelCommand<CostCentre>(request.Id ?? "");
 
     var result = await _mediator.Send(command, cancellationToken);
 

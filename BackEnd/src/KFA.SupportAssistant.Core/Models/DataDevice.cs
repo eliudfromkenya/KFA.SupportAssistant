@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.DynamicsAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
