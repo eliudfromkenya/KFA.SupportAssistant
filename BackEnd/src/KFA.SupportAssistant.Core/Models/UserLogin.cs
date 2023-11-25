@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_user_logins")]
 public sealed record class UserLogin : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (UserLoginDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_logins";
   [Required]
   [MaxLength(100, ErrorMessage = "Please device id must be 100 characters or less")]
@@ -37,5 +42,5 @@ public sealed record class UserLogin : BaseModel
 
   public string? User_Caption { get; set; }
   public ICollection<UserAuditTrail>? UserAuditTrails { get; set; }
- public ICollection<Verification>? Verifications { get; set; }
+  public ICollection<Verification>? Verifications { get; set; }
 }

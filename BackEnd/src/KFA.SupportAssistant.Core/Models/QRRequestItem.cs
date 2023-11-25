@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_qr_request_items")]
 public sealed record class QRRequestItem : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (QRRequestItemDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_qr_request_items";
   [MaxLength(30, ErrorMessage = "Please cash sale number must be 30 characters or less")]
   [Column("cash_sale_number")]

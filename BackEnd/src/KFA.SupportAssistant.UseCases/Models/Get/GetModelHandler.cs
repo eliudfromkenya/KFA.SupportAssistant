@@ -3,7 +3,6 @@ using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.UseCases.Models.Get;
-using KFA.SupportAssistant.UseCases.DTOs;
 namespace KFA.SupportAssistant.UseCases.Xs.Get;
 
 /// <summary>
@@ -16,9 +15,12 @@ public class GetModelHandler<T,X>(IReadRepository<X> _repository)
   {
     var spec = new ModelByIdSpec<X>(request.id);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
-    if (entity == null) return Result.NotFound();
+    if (entity == null)
+    {
+      return Result.NotFound("Element was not found");
+    }
 
-    if ((BaseModel)entity is T obj)
+    if (entity.ToBaseDTO() is T obj)
       return obj;
     return Result.Error("Unable to convert the result");
   }

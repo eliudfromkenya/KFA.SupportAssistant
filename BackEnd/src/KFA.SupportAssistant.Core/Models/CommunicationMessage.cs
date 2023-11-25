@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
 namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_communication_messages")]
 public sealed record class CommunicationMessage : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (CommunicationMessageDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_communication_messages";
   [Column("attachments")]
   public byte[]? Attachments { get; init; }

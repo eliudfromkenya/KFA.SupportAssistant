@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_suppliers")]
 public sealed record class Supplier : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (SupplierDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_suppliers";
   [MaxLength(255, ErrorMessage = "Please address must be 255 characters or less")]
   [Column("address")]
@@ -48,7 +53,6 @@ public sealed record class Supplier : BaseModel
   public LedgerAccount? LedgerAccount { get; set; }
 
   public string? Supplier_Caption { get; set; }
-
 
   [Required]
   [Column("supplier_id")]

@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_verifications")]
 public sealed record class Verification : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (VerificationDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_verifications";
   [Required]
   [Column("date_of_verification")]
@@ -19,7 +24,6 @@ public sealed record class Verification : BaseModel
   public UserLogin? Login { get; set; }
 
   public string? Login_Caption { get; set; }
-
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]

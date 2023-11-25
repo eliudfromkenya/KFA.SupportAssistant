@@ -2,10 +2,14 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_system_users")]
 public sealed record class SystemUser : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (SystemUser)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_system_users";
   [Required]
   [MaxLength(255, ErrorMessage = "Please contact must be 255 characters or less")]

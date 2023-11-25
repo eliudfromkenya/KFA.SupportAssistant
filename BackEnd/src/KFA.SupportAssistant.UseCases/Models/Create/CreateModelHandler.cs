@@ -2,6 +2,7 @@
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Globals.DataLayer;
 
 namespace KFA.SupportAssistant.UseCases.Models.Create;
 
@@ -16,7 +17,15 @@ public class CreateModelHandler<T,X>(IInsertModelService<X> _addService)
       .Where(m => m != null)
       .Select(n => n!)
       .ToArray() ?? [];
+
+    foreach (var obj in objs)
+    {
+      obj.___DateInserted___ = DateTime.Now.FromDateTime();
+      obj.___DateUpdated___ = DateTime.Now.FromDateTime();
+      if (string.IsNullOrWhiteSpace(obj.Id))
+        obj.Id = Declarations.IdGenerator?.GetNextId<X>();
+    }
     var createdItem = await _addService.InsertModel(cancellationToken, objs);
-    return createdItem.Value?.Select(c => c as T)?.ToArray() ?? [];
+    return createdItem.Value?.Select(c => (T)c.ToBaseDTO())?.ToArray() ?? [];
   }
 }

@@ -1,7 +1,6 @@
 ﻿
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.Models;
-using KFA.SupportAssistant.Infrastructure.Models;
 
 namespace KFA.SupportAssistant.Core.Services;
 public interface IAuthService

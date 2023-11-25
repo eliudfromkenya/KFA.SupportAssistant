@@ -1,7 +1,7 @@
 ﻿using FastEndpoints;
-using KFA.SupportAssistant.Infrastructure.Models;
-using KFA.SupportAssistant.UseCases.DTOs;
-using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Create;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using Mapster;
@@ -49,6 +49,12 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
     requestDTO.Id = request.CostCentreCode;
 
     var result = await _mediator.Send(new CreateModelCommand<CostCentreDTO, CostCentre>(requestDTO), cancellationToken);
+
+    if (result.Errors.Any())
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      return;
+    }
 
     if (result.IsSuccess)
     {

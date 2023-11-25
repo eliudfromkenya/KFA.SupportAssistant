@@ -1,7 +1,8 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
-using KFA.SupportAssistant.Infrastructure.Models;
-using KFA.SupportAssistant.UseCases.DTOs;
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.UseCases.Models.Update;
@@ -48,6 +49,12 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
 
     var command = new GetModelQuery<CostCentreDTO, CostCentre>(request.Id ?? "");
     var resultObj = await _mediator.Send(command, cancellationToken);
+
+    if (resultObj.Errors.Any())
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, resultObj.Status, resultObj.Errors, cancellationToken);
+      return;
+    }
 
     if (resultObj.Status == ResultStatus.NotFound)
     {

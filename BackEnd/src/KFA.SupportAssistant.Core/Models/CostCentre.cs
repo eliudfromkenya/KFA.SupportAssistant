@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_cost_centres")]
 public sealed record class CostCentre : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (CostCentreDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_cost_centres";
   [Required]
   [Column("cost_centre_code")]

@@ -8,6 +8,8 @@ using KFA.SupportAssistant.Infrastructure.Data;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Serilog;
+using KFA.SupportAssistant.Globals.Classes;
+using MonkeyCache.LiteDB;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,11 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 });
 
 string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");
+LocalCache.ConString = builder.Configuration.GetConnectionString("LiteDB");
+Barrel.ApplicationId = "your_unique_name_here";
+Barrel.EncryptionKey = "SomeKey";
+
+
 Guard.Against.Null(connectionString);
 builder.Services.AddApplicationDbContext(connectionString);
 

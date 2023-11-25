@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_ledger_accounts")]
 public sealed record class LedgerAccount : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (LedgerAccountDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_ledger_accounts";
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }

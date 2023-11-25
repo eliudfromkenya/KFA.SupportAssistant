@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_let_properties_accounts")]
 public sealed record class LetPropertiesAccount : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (LetPropertiesAccountDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_let_properties_accounts";
   [Column("account_number")]
   public string? AccountNumber { get; init; }

@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="SharpZipLib" />
     <PackageReference Include="SQLite" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" />
   </ItemGroup>
   
   <ItemGroup>

@@ -10,7 +10,6 @@ using KFA.SupportAssistant.Infrastructure.Data.Queries;
 using KFA.SupportAssistant.UseCases.Contributors.List;
 using MediatR;
 using KFA.SupportAssistant.UseCases.Models.Create;
-using KFA.SupportAssistant.UseCases.DTOs;
 using KFA.SupportAssistant.UseCases.Models.Delete;
 using KFA.SupportAssistant.UseCases.Models.Update;
 using KFA.SupportAssistant.UseCases.Models.Get;
@@ -19,8 +18,10 @@ using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.UseCases.Contributors.Create;
 using KFA.SupportAssistant.Globals.Models;
-using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Infrastructure.Data;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Core.Interfaces;
 
 namespace KFA.SupportAssistant.Infrastructure;
 internal static class RegisterEntities
@@ -40,6 +41,7 @@ internal static class RegisterEntities
     .Where(typeof(BaseModel).IsAssignableFrom)
         .Where(c => c != typeof(BaseModel)).ToList();
 
+    RegisterDataServices(builder);
     RegisterCreateModels(builder, classes);
     RegisterDeleteModels(builder, classes);
     RegisterUpdateModels(builder, classes);
@@ -55,7 +57,9 @@ internal static class RegisterEntities
            .InstancePerLifetimeScope();
     builder.RegisterType<IdGenerator>()
            .As<IIdGenerator>()
-           .InstancePerLifetimeScope();
+           .SingleInstance();
+   
+    Declarations.IdGenerator = new IdGenerator();
   }
 
   private static void RegisterListsModels(ContainerBuilder builder, List<Type> allDTOTypes)
@@ -69,14 +73,14 @@ internal static class RegisterEntities
 
         var requestHandlerType = typeof(IRequestHandler<,>);
         var modelCommandType = typeof(ListModelsQuery<,>);
-        var listType = typeof(IList<>).MakeGenericType(dtoType);
+        var listType = typeof(List<>).MakeGenericType(dtoType);
         var resultType = typeof(Result<>);// .MakeGenericType(listType);
         var genericCommandType = modelCommandType.MakeGenericType(dtoType, type);
         var genericResultType = resultType.MakeGenericType(listType);
         var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, genericResultType);
 
         Type genericHandlerType = typeof(ListModelsHandler<,>);
-        Type constructedHandlerType = genericHandlerType.MakeGenericType([dtoType, type]);
+        Type constructedHandlerType = genericHandlerType.MakeGenericType(dtoType, type);
 
         builder.RegisterType(constructedHandlerType)
           .As(constructedRequestHandlerType)
@@ -192,6 +196,10 @@ internal static class RegisterEntities
 
         Type genericHandlerType = typeof(DeleteModelHandler<>);
         Type constructedHandlerType = genericHandlerType.MakeGenericType([type]);
+
+        builder.RegisterType(typeof(DeleteModelService<>).MakeGenericType(type))
+         .As(typeof(IDeleteModelService<>).MakeGenericType(type))
+         .InstancePerLifetimeScope();
 
         builder.RegisterType(constructedHandlerType)
           .As(constructedRequestHandlerType)

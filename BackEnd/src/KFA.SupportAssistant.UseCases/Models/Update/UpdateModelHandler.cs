@@ -1,7 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Globals;
-using KFA.SupportAssistant.UseCases.DTOs;
 using Mapster;
 
 namespace KFA.SupportAssistant.UseCases.Models.Update;
@@ -19,6 +18,7 @@ public class UpdateModelHandler<T,X>(IRepository<X> _repository)
       return Result.NotFound();
     }
     request?.model?.Adapt(model);
+    model.___DateUpdated___ = DateTime.Now.FromDateTime();
     await _repository.UpdateAsync(model, cancellationToken);
 
     var ans = model as T;

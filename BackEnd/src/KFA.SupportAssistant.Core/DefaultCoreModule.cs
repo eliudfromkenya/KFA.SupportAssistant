@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using KFA.SupportAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals;

@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_user_audit_trails")]
 public sealed record class UserAuditTrail : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (UserAuditTrailDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_audit_trails";
   [Required]
   [Column("activity_date")]

@@ -14,6 +14,11 @@ public static class LocalCache
       Id = ObjectId.NewObjectId()?.ToString();
     }
 
+    public Poco()
+      {
+        Id = ObjectId.NewObjectId()?.ToString();
+      }
+
     [BsonCtor]
     public Poco(string id, T? value)
     {
@@ -22,10 +27,12 @@ public static class LocalCache
     }
   }
 
-  static readonly string conString = @"";
+  private static string? _conString = @"localData";
+  public static string? ConString { get => _conString; set => _conString = value; }
+
   public static List<T?> Get<T>(int limit = 0)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
@@ -46,7 +53,7 @@ public static class LocalCache
 
   public static List<T?>? Get<T>(Func<T?, bool> condition, int limit = 0)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
@@ -63,20 +70,25 @@ public static class LocalCache
 
   public static T? Get<T>(string id)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
-   return col.Query()
+    var obj = col.Query()
        .Where(x => x.Id == id)
        .OrderBy(x => x.Id)
        .Limit(1)
-       .FirstOrDefault().Value;
+       .FirstOrDefault();
+
+    if(obj == default)
+      return default;
+
+   return obj.Value;
   }
 
   public static void Add<T>(string id, T? obj)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
@@ -86,7 +98,7 @@ public static class LocalCache
 
   public static void Update<T>(string id, T? obj)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
@@ -101,7 +113,7 @@ public static class LocalCache
 
   public static void Upsert<T>(string id, T? obj)
   {
-    using var db = new LiteDatabase(conString);
+    using var db = new LiteDatabase(ConString);
     // Get a collection (or create, if doesn't exist)
     var col = db.GetCollection<Poco<T>>(GetCollectionName<T>());
 
@@ -109,7 +121,7 @@ public static class LocalCache
        .Where(v => v.Id == id)
        .FirstOrDefault();
 
-    if(obj == null)
+    if(oldObj == default)
     {
       // Insert new customer document (Id will be auto-incremented)
       col.Insert(new Poco<T>(id, obj));

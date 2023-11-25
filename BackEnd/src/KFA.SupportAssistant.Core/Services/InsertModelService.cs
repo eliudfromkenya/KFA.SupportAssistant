@@ -19,9 +19,9 @@ public class InsertModelService<T>(IRepository<T> _repository,
     if (models?.Length < 1)
       return Result.Error("No elements to add are provided");
 
-    await _repository.AddRangeAsync(models!, cancellationToken);
-    var domainEvent = new ModelInsertedEvent<T>([.. models]);
+    T[] objs = [.. await _repository.AddRangeAsync(models!, cancellationToken)];
+    var domainEvent = new ModelInsertedEvent<T>(objs);
     await _mediator.Publish(domainEvent, cancellationToken);
-    return Result.Success();
+    return Result.Success(objs);
   }
 }

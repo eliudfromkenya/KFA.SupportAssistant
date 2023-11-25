@@ -70,7 +70,7 @@ public static class Extensions
     name = name.Trim();
 
     if (name.ToLower().EndsWith(" id"))
-      return name.Substring(0, name.Length - 3).Trim();
+      return name[..^3].Trim();
 
     return singularTypeName.MakeName();
   }

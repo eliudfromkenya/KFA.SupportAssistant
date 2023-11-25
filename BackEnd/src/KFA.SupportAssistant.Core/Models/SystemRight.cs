@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_system_rights")]
 public sealed record class SystemRight : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (SystemRightDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_system_rights";
   [Required]
   [Column("is_compulsory")]

@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_stock_items")]
 public sealed record class StockItem : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (StockItemDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_stock_items";
   [MaxLength(255, ErrorMessage = "Please barcode must be 255 characters or less")]
   [Column("barcode")]

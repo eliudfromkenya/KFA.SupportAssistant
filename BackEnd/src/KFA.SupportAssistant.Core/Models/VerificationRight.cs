@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_verification_rights")]
 public sealed record class VerificationRight : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (VerificationRightDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_verification_rights";
   [Column("device_id")]
   public string? DeviceId { get; init; }
@@ -16,7 +21,6 @@ public sealed record class VerificationRight : BaseModel
 
   public string? Device_Caption { get; set; }
 
-
   [Column("user_id")]
   public string? UserId { get; init; }
 
@@ -24,7 +28,6 @@ public sealed record class VerificationRight : BaseModel
   public SystemUser? User { get; set; }
 
   public string? User_Caption { get; set; }
-
 
   [Required]
   [Column("user_role_id")]
@@ -34,7 +37,6 @@ public sealed record class VerificationRight : BaseModel
   public UserRole? UserRole { get; set; }
 
   public string? UserRole_Caption { get; set; }
-
 
   [Required]
   [Column("verification_right_id")]

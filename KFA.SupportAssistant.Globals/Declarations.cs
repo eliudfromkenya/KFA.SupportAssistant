@@ -11,6 +11,7 @@ namespace KFA.SupportAssistant;
 public static class Declarations
 {
   public static IServiceScope? ServiceScope { get; set; }
+  public static IIdGenerator? IdGenerator { get; set; }
   public static IServiceCollection? DIServices { get; set; }
   public static string ApplicationDataPath { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DynamicAssistantHelper");
   public static IGeneralService? GeneralService { get; set; }

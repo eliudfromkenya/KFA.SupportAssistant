@@ -64,7 +64,7 @@ internal class IdGenerator : IIdGenerator
 
         var olds = existings.Where(c => c?.TableName == obj.TableName && (c?.LastAssignedValue?.StartsWith(prefix ?? "") ?? false));
         if (!olds.Any() ||
-            (new[] { olds?.First()?.LastAssignedValue, obj.LastAssignedValue }.Max() == obj.LastAssignedValue))
+            new[] { olds?.First()?.LastAssignedValue, obj.LastAssignedValue }.Max() == obj.LastAssignedValue)
           LocalCache.Upsert(name, obj);
       }
       LocalCache.Upsert("DeviceNumber", Declarations.DeviceNumber);
@@ -153,7 +153,7 @@ internal class IdGenerator : IIdGenerator
   {
     try
     {
-      table = table?.StrimLineTableName()?.Pluralize().MakeName().ToLower();
+      table = table?.MakeName().ToLower();
       if (LastAssignedPrimary.ContainsKey(table ?? ""))
         LastAssignedPrimary[table ?? ""] = key ?? "";
       else
@@ -199,7 +199,7 @@ internal class IdGenerator : IIdGenerator
 
       try
       {
-        table = table.StrimLineTableName()?.Pluralize().MakeName().ToLower();
+        table = table.MakeName().ToLower();
 
         if (LastAssignedPrimary.ContainsKey(table ?? ""))
           return GetNewId(LastAssignedPrimary[table ?? ""]);
@@ -245,7 +245,7 @@ internal class IdGenerator : IIdGenerator
   {
     try
     {
-      int Place = Source.IndexOf(Find);
+      var Place = Source.IndexOf(Find);
       var result = Source.Remove(Place, Find.Length).Insert(Place, Replace);
       return result;
     }
@@ -266,7 +266,7 @@ internal class IdGenerator : IIdGenerator
   {
     try
     {
-      int Place = Source.LastIndexOf(Find);
+      var Place = Source.LastIndexOf(Find);
       var result = Source.Remove(Place, Find.Length).Insert(Place, Replace);
       return result;
     }

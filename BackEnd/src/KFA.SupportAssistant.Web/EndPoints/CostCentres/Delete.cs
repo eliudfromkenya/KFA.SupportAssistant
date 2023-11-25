@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
-using KFA.SupportAssistant.Infrastructure.Models;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Delete;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using MediatR;
@@ -44,6 +45,12 @@ public class Delete : Endpoint<DeleteCostCentreRequest>
     var command = new DeleteModelCommand<CostCentre>(request.Id ?? "");
 
     var result = await _mediator.Send(command, cancellationToken);
+
+    if (result.Errors.Any())
+    {
+       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+       return;
+    }
 
     if (result.Status == ResultStatus.NotFound)
     {

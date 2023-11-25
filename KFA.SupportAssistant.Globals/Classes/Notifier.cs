@@ -14,7 +14,7 @@ public static class Notifier
 
   public static void NotifyError(string? message, string? v, Exception? ex)
   {
-    throw new NotImplementedException();
+    //throw new NotImplementedException();
   }
 
   public static void NotifyError(Exception? ex)

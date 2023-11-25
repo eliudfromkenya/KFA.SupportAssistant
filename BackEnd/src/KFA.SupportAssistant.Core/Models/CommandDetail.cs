@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_command_details")]
 public sealed record class CommandDetail : BaseModel
 {
@@ -63,5 +64,9 @@ public sealed record class CommandDetail : BaseModel
   public string? ShortcutKey { get; init; }
 
   public ICollection<UserAuditTrail>? UserAuditTrails { get; set; }
- 
+
+  public override object ToBaseDTO()
+  {
+    return (CommandDetailDTO)this;
+  }
 }

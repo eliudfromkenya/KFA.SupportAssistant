@@ -2,7 +2,6 @@
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.Models;
-using KFA.SupportAssistant.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace KFA.SupportAssistant.Infrastructure.Data;

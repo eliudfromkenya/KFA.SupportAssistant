@@ -10,11 +10,6 @@ public class CreateCostCentreValidator : Validator<CreateCostCentreRequest>
 {
   public CreateCostCentreValidator()
   {
-    RuleFor(x => x.CostCentreCode)
-      .NotEmpty()
-      .WithMessage("Name is required.")
-      .Length(4);
-
     RuleFor(x => x.Description)
      .NotEmpty()
      .WithMessage("Name is required.")

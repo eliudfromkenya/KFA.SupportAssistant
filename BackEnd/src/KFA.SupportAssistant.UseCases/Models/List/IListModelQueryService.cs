@@ -1,5 +1,4 @@
 ﻿using KFA.SupportAssistant.Globals;
-using KFA.SupportAssistant.UseCases.DTOs;
 
 namespace KFA.SupportAssistant.UseCases.Models.List;
 

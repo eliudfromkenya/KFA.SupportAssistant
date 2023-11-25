@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_user_rights")]
 public sealed record class UserRight : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (UserRightDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_rights";
   [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]

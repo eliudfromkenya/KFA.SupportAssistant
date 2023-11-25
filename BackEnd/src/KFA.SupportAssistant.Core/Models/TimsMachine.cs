@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_tims_machines")]
 public sealed record class TimsMachine : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (TimsMachineDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_tims_machines";
   [MaxLength(5, ErrorMessage = "Please class type must be 5 characters or less")]
   [Column("class_type")]

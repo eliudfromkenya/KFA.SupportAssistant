@@ -19,11 +19,12 @@ namespace KFA.SupportAssistant.Globals;
 	//     Id.
 	public abstract record class BaseModel: IAggregateRoot
 	{
-		private List<DomainEventBase> _domainEvents = new List<DomainEventBase>();
+		private readonly List<DomainEventBase> _domainEvents = [];
   private string? _id;
 
   [Key]
   [MaxLength(___PrimaryMaxLength___)]
+  [Column("id")]
   public virtual string? Id { get => _id; set => _id = value; }
 
   public BaseModel(string? id = null) => _id = id;
@@ -41,6 +42,7 @@ namespace KFA.SupportAssistant.Globals;
 			_domainEvents.Clear();
 		}
 
+  public abstract object ToBaseDTO();
 
 #pragma warning disable IDE1006 // Naming Styles
   internal const int ___PrimaryMaxLength___ = 20;
@@ -62,8 +64,8 @@ namespace KFA.SupportAssistant.Globals;
   public object? ___Tag___ { get; set; }
 
   [Column("date_added", Order = 100)]
-  public long? ___DateInserted___ { get; set; }
+  public long? ___DateInserted___ { get; set; } = DateTime.Now.FromDateTime();
 
   [Column("date_updated", Order = 101)]
-  public long? ___DateUpdated___ { get; set; }
+  public long? ___DateUpdated___ { get; set; } = DateTime.Now.FromDateTime();
   }

@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_qr_codes_requests")]
 public sealed record class QRCodesRequest : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (QRCodesRequestDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_qr_codes_requests";
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }

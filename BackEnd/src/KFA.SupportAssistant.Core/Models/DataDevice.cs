@@ -1,13 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.SupportAssistant.Infrastructure.Models;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Core.Models;
 
 namespace KFA.SupportAssistant.Core.Models;
 
 [Table("tbl_data_devices")]
 public sealed record class DataDevice : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (DataDeviceDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_data_devices";
   [MaxLength(255, ErrorMessage = "Please device caption must be 255 characters or less")]
   [Column("device_caption")]
@@ -43,7 +48,6 @@ public sealed record class DataDevice : BaseModel
   public CostCentre? Station { get; set; }
 
   public string? Station_Caption { get; set; }
-
 
   [MaxLength(255, ErrorMessage = "Please type of device must be 255 characters or less")]
   [Column("type_of_device")]

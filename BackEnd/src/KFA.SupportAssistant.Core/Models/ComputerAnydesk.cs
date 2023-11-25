@@ -2,11 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_computer_anydesks")]
 public sealed record class ComputerAnydesk : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (ComputerAnydeskDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_computer_anydesks";
   [Required]
   [Column("anydesk_id")]

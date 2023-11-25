@@ -1,6 +1,7 @@
 ﻿using FastEndpoints;
-using KFA.SupportAssistant.Infrastructure.Models;
-using KFA.SupportAssistant.UseCases.DTOs;
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
@@ -29,6 +30,13 @@ public class List :  Endpoint<ListCostCentreRequest, CostCentreListResponse>
   {
     Get(ListCostCentreRequest.Route);
     AllowAnonymous();
+    Summary(s =>
+    {
+      // XML Docs are used by default but are overridden by these properties:
+      s.Summary = "Create a new CostCentre nnnh.";
+      s.Description = "Create a new CostCentre. A valid name is required. hgklgjk";
+      s.ExampleRequest = new ListCostCentreRequest { Skip = 0, Take = 10};
+    });
   }
 
   public override async Task HandleAsync(ListCostCentreRequest request,
@@ -36,6 +44,12 @@ public class List :  Endpoint<ListCostCentreRequest, CostCentreListResponse>
   {
     var command = new ListModelsQuery<CostCentreDTO, CostCentre>(new ListParam { Skip=request.Skip, Take=request.Take });
     var result = await _mediator.Send(command, cancellationToken);
+
+    if (result.Errors.Any())
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      return;
+    }
 
     if (result.IsSuccess)
     {

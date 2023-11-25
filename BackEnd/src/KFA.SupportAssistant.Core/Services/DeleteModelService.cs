@@ -18,12 +18,12 @@ public class DeleteModelService<T>(IRepository<T> _repository,
   {
     _logger.LogInformation("Deleting model {type} - {ids}", typeof(T), string.Join(",", ids));
     if (ids?.Length < 1)
-      return Result.Error("No elements to delete are provided");
+      return Result.Error("cc");
 
-    var aggregatesToDelete = await _repository.ListAsync(new ModelByQuerySpec<T>(tt => ids?.Contains(tt.Id) ?? false), cancellationToken);
-    if (aggregatesToDelete == null) return Result.NotFound();
+    var aggregatesToDelete = await _repository.ListAsync(new ModelByIdsSpec<T>(ids!), cancellationToken);
+    if (aggregatesToDelete?.Count < 1) return Result.NotFound("No element(s) to delete have been found.");
 
-    await _repository.DeleteRangeAsync(aggregatesToDelete, cancellationToken);
+    await _repository.DeleteRangeAsync(aggregatesToDelete!, cancellationToken);
     var domainEvent = new ModelDeletedEvent<T>([.. aggregatesToDelete]);
     await _mediator.Publish(domainEvent, cancellationToken);
     return Result.Success();

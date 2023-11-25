@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_password_safes")]
 public sealed record class PasswordSafe : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (PasswordSafeDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_password_safes";
   [Required]
   [MaxLength(255, ErrorMessage = "Please details must be 255 characters or less")]

@@ -1,11 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Core.DTOs;
 
-namespace KFA.SupportAssistant.Infrastructure.Models;
+namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_user_roles")]
 public sealed record class UserRole : BaseModel
 {
+  public override object ToBaseDTO()
+  {
+    return (UserRoleDTO)this;
+  }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_roles";
   [Required]
   [Column("expiration_date")]
