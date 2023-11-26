@@ -3,35 +3,68 @@ using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
+using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Globals.Classes;
 using KFA.SupportAssistant.Infrastructure;
 using KFA.SupportAssistant.Infrastructure.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 using MonkeyCache.LiteDB;
+using Mapster;
+using MySqlConnector;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
-builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
-
-builder.Services.Configure<CookiePolicyOptions>(options =>
-{
-  options.CheckConsentNeeded = context => true;
-  options.MinimumSameSitePolicy = SameSiteMode.None;
-});
-
-string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");
+//string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");
+string? connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
 LocalCache.ConString = builder.Configuration.GetConnectionString("LiteDB");
-Barrel.ApplicationId = "your_unique_name_here";
-Barrel.EncryptionKey = "SomeKey";
+
+LoggerConfiguration logConfig = logConfig = new LoggerConfiguration();
+builder.Host.UseSerilog((_, config) => new LoggerConfiguration()
+               .ReadFrom.Configuration(builder.Configuration)
+               .WriteTo.MySQL(
+                   connectionString: connectionString,
+                   tableName: "tbl_system_logs"));
+
+Log.Logger = logConfig.CreateBootstrapLogger();
+
+Log.Information("Starting the HostBuilder...");
+
+builder.Services
+   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
+   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
+   .AddAuthentication(o =>
+   {
+     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
+     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
+   })
+   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
+   {
+     o.ForwardDefaultSelector = ctx =>
+     {
+       if (ctx.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
+           authHeader.FirstOrDefault()?.StartsWith("Bearer ") is true)
+         return JwtBearerDefaults.AuthenticationScheme;
+       return CookieAuthenticationDefaults.AuthenticationScheme;
+     };
+   });
+
 
 Guard.Against.Null(connectionString);
-builder.Services.AddApplicationDbContext(connectionString);
-
+var con = new MySqlConnection(connectionString);
+builder.Services.AddDbContext<AppDbContext>(options =>
+          options.UseMySql(con, ServerVersion.AutoDetect(con)), ServiceLifetime.Scoped);
+//builder.Services.AddMapster();
 builder.Services.AddFastEndpoints();
+builder.Services.AddAuthorization();
+
 builder.Services.SwaggerDocument(o =>
 {
   o.ShortSchemaNames = true;
