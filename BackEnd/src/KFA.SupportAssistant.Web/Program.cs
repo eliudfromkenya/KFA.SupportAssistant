@@ -37,24 +37,24 @@ Log.Logger = logConfig.CreateBootstrapLogger();
 
 Log.Information("Starting the HostBuilder...");
 
-builder.Services
-   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
-   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
-   .AddAuthentication(o =>
-   {
-     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
-     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
-   })
-   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
-   {
-     o.ForwardDefaultSelector = ctx =>
-     {
-       if (ctx.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
-           authHeader.FirstOrDefault()?.StartsWith("Bearer ") is true)
-         return JwtBearerDefaults.AuthenticationScheme;
-       return CookieAuthenticationDefaults.AuthenticationScheme;
-     };
-   });
+//builder.Services
+//   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
+//   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
+//   .AddAuthentication(o =>
+//   {
+//     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
+//     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
+//   })
+//   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
+//   {
+//     o.ForwardDefaultSelector = ctx =>
+//     {
+//       if (ctx.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
+//           authHeader.FirstOrDefault()?.StartsWith("Bearer ") is true)
+//         return JwtBearerDefaults.AuthenticationScheme;
+//       return CookieAuthenticationDefaults.AuthenticationScheme;
+//     };
+//   });
 
 
 Guard.Against.Null(connectionString);
@@ -64,6 +64,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //builder.Services.AddMapster();
 builder.Services.AddFastEndpoints();
 builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
 
 builder.Services.SwaggerDocument(o =>
 {
