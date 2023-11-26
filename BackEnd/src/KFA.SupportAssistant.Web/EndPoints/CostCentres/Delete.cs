@@ -48,8 +48,8 @@ public class Delete : Endpoint<DeleteCostCentreRequest>
 
     if (result.Errors.Any())
     {
-       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-       return;
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      return;
     }
 
     if (result.Status == ResultStatus.NotFound)

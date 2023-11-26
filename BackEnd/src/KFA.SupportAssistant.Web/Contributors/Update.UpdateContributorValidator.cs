@@ -1,6 +1,6 @@
-﻿using KFA.SupportAssistant.Infrastructure.Data.Config;
-using FastEndpoints;
+﻿using FastEndpoints;
 using FluentValidation;
+using KFA.SupportAssistant.Infrastructure.Data.Config;
 
 namespace KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
 

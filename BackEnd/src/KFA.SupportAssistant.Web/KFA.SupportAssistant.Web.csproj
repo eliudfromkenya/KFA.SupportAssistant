@@ -12,7 +12,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="EndPoints\CostCentres\Patch.PatchRequest.cs" />
+    <None Include="EndPoints\CostCentres\PatchCostCentre.PatchRequest.cs" />
   </ItemGroup>
   
   <ItemGroup>

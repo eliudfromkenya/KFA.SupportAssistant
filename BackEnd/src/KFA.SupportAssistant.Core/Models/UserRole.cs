@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_user_roles")]

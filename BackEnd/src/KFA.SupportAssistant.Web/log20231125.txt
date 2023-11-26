@@ -5689,3 +5689,562 @@ RETURNING 1;
 2023-11-25 16:26:25.686 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 763 ms
 2023-11-25 16:26:35.040 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
 2023-11-25 16:26:35.043 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4532 - 200 null application/json 44400.8437ms
+2023-11-25 18:12:28.111 +03:00 [INF] Registered 11 endpoints in 6512 milliseconds.
+2023-11-25 18:12:35.130 +03:00 [INF] Executed DbCommand (739ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 18:12:36.206 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 18:12:36.594 +03:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 18:12:38.497 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 18:12:40.391 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 18:12:40.392 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 18:12:40.394 +03:00 [INF] Hosting environment: Development
+2023-11-25 18:12:40.396 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 18:12:45.386 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 18:12:46.479 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1406.8035ms
+2023-11-25 18:12:46.497 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 18:12:47.833 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1336.5008ms
+2023-11-25 18:12:47.913 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 18:12:47.935 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 18:12:47.983 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 48.6352ms
+2023-11-25 18:12:48.095 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 181.9969ms
+2023-11-25 18:12:48.201 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 18:12:48.477 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 18:12:51.674 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 3472.7425ms
+2023-11-25 18:16:30.046 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/2132 - text/plain 296
+2023-11-25 18:16:30.076 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 18:16:30.095 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:16:30.298 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:16:30.300 +03:00 [INF] Property id : 2132
+2023-11-25 18:16:30.636 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:16:30.665 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 363 ms
+2023-11-25 18:16:30.788 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:16:30.799 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/2132 - 404 null application/problem+json 752.5313ms
+2023-11-25 18:17:44.134 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4534 - text/plain 296
+2023-11-25 18:17:44.143 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:17:44.145 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:17:44.151 +03:00 [INF] Property id : 4534
+2023-11-25 18:17:44.158 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:17:44.343 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 190 ms
+2023-11-25 18:17:44.399 +03:00 [INF] Handling UpdateModelCommand`2
+2023-11-25 18:17:44.401 +03:00 [INF] Property id : 4534
+2023-11-25 18:17:44.406 +03:00 [INF] Property model : {"Description":"KFA ni job","Narration":"Msee Wa Ingo","Region":"My Region","SupplierCodePrefix":"fiugh","Id":"4534","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}
+2023-11-25 18:17:44.808 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 5), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 18:17:44.891 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 473 ms
+2023-11-25 18:17:44.949 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:17:44.951 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4534 - 200 null application/json 826.4862ms
+2023-11-25 18:19:01.695 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4534 - text/plain 296
+2023-11-25 18:19:01.705 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:19:01.707 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:19:01.709 +03:00 [INF] Property id : 4534
+2023-11-25 18:19:01.712 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:19:01.759 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 49 ms
+2023-11-25 18:19:01.771 +03:00 [INF] Handling UpdateModelCommand`2
+2023-11-25 18:19:01.772 +03:00 [INF] Property id : 4534
+2023-11-25 18:19:01.774 +03:00 [INF] Property model : {"Description":"KFA ni job","Narration":"Msee Wa Ingo","Region":"My Region","SupplierCodePrefix":"fiugh","Id":"4534","DateUpdated___":"2023-11-25T18:17:44.6190000","DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}
+2023-11-25 18:19:01.785 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 5), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 18:19:01.830 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 50 ms
+2023-11-25 18:19:01.861 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:19:01.862 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4534 - 200 null application/json 167.1687ms
+2023-11-25 18:22:58.462 +03:00 [INF] Registered 11 endpoints in 4829 milliseconds.
+2023-11-25 18:23:05.418 +03:00 [INF] Executed DbCommand (491ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 18:23:06.755 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 18:23:07.027 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 18:23:08.954 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 18:23:11.680 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 18:23:11.681 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 18:23:11.682 +03:00 [INF] Hosting environment: Development
+2023-11-25 18:23:11.683 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 18:23:13.977 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 18:23:15.482 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1965.3272ms
+2023-11-25 18:23:15.511 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 18:23:16.597 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1092.0821ms
+2023-11-25 18:23:16.634 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 18:23:16.637 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 18:23:16.678 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 44.3102ms
+2023-11-25 18:23:16.841 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 203.9413ms
+2023-11-25 18:23:16.974 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 18:23:17.217 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 18:23:19.255 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 2281.1851ms
+2023-11-25 18:23:36.140 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4435 - text/plain 296
+2023-11-25 18:23:36.171 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 18:23:36.195 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:23:36.366 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:23:36.368 +03:00 [INF] Property id : 4435
+2023-11-25 18:23:36.730 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:23:36.793 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 423 ms
+2023-11-25 18:23:36.960 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:23:36.975 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4435 - 404 null application/problem+json 835.3252ms
+2023-11-25 18:23:50.067 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4235 - text/plain 296
+2023-11-25 18:23:50.070 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:23:50.073 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:23:50.075 +03:00 [INF] Property id : 4235
+2023-11-25 18:23:50.089 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:23:50.096 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 19 ms
+2023-11-25 18:23:50.101 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:23:50.104 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4235 - 404 null application/problem+json 36.7748ms
+2023-11-25 18:24:05.023 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 296
+2023-11-25 18:24:05.031 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:24:05.036 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:24:05.037 +03:00 [INF] Property id : 4535
+2023-11-25 18:24:05.040 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:24:05.250 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 211 ms
+2023-11-25 18:24:05.396 +03:00 [INF] Handling UpdateModelCommand`2
+2023-11-25 18:24:05.402 +03:00 [INF] Property id : 4535
+2023-11-25 18:24:05.413 +03:00 [INF] Property model : {"Description":"KFA ni job","Narration":"Msee Wa Ingo","Region":"My Region","SupplierCodePrefix":"S#W","Id":"4535","DateUpdated___":null,"DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}
+2023-11-25 18:24:06.320 +03:00 [INF] Executed DbCommand (162ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 18:24:06.387 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 956 ms
+2023-11-25 18:24:06.442 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:24:06.443 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 1420.4214ms
+2023-11-25 18:24:24.204 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 296
+2023-11-25 18:24:24.207 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:24:24.209 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:24:24.210 +03:00 [INF] Property id : 4535
+2023-11-25 18:24:24.213 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:24:24.246 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 34 ms
+2023-11-25 18:24:24.251 +03:00 [INF] Handling UpdateModelCommand`2
+2023-11-25 18:24:24.253 +03:00 [INF] Property id : 4535
+2023-11-25 18:24:24.255 +03:00 [INF] Property model : {"Description":"KFA ni job","Narration":"Msee Wa Ingo","Region":"My Region","SupplierCodePrefix":"S#W","Id":"4535","DateUpdated___":"2023-11-25T18:24:05.9230000","DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}
+2023-11-25 18:24:24.263 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 18:24:24.305 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 44 ms
+2023-11-25 18:24:24.335 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:24:24.337 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 132.7307ms
+2023-11-25 18:25:02.607 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 296
+2023-11-25 18:25:02.616 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:25:02.618 +03:00 [INF] Handling GetModelQuery`2
+2023-11-25 18:25:02.619 +03:00 [INF] Property id : 4535
+2023-11-25 18:25:02.622 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__id_0
+LIMIT 1
+2023-11-25 18:25:02.626 +03:00 [INF] Handled GetModelQuery`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 4 ms
+2023-11-25 18:25:02.628 +03:00 [INF] Handling UpdateModelCommand`2
+2023-11-25 18:25:02.629 +03:00 [INF] Property id : 4535
+2023-11-25 18:25:02.630 +03:00 [INF] Property model : {"Description":"KFA ni job","Narration":"Msee Wa Ingo","Region":"My Region","SupplierCodePrefix":"S#W","Id":"4535","DateUpdated___":"2023-11-25T18:24:24.2620000","DateInserted___":null,"___Tag___":null,"$type":"CostCentreDTO"}
+2023-11-25 18:25:02.645 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 18:25:02.706 +03:00 [INF] Handled UpdateModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 63 ms
+2023-11-25 18:25:02.707 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 18:25:02.709 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 102.8772ms
+2023-11-25 18:25:49.748 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 296
+2023-11-25 18:25:49.751 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:14:48.871 +03:00 [INF] Registered 11 endpoints in 54152 milliseconds.
+2023-11-25 21:14:57.630 +03:00 [INF] Executed DbCommand (465ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 21:14:59.439 +03:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 21:14:59.781 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 21:15:00.541 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 21:15:02.137 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 21:15:02.139 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 21:15:02.140 +03:00 [INF] Hosting environment: Development
+2023-11-25 21:15:02.141 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 21:15:05.946 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 21:15:10.075 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 4466.3402ms
+2023-11-25 21:15:10.391 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 21:15:14.073 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 3682.3923ms
+2023-11-25 21:15:15.206 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 21:15:15.229 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 23.0176ms
+2023-11-25 21:15:15.236 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 21:15:15.583 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 347.0517ms
+2023-11-25 21:15:16.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 21:15:16.593 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 21:15:36.409 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 20319.325ms
+2023-11-25 21:17:24.867 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4532 - text/plain 201
+2023-11-25 21:17:24.891 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 21:17:24.914 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:17:41.490 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:17:41.492 +03:00 [INF] Property id : 4532
+2023-11-25 21:17:41.494 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:17:41.875 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:18:28.030 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:18:28.047 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'CostCentre' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.UpdateAsync(T entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Patch.PatchModelHandler`2.Handle(PatchModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Patch\PatchModelHandler.cs:line 23
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Update.PatchCostCentre.HandleAsync(PatchRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\PatchCostCentre.cs:line 34
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-25 21:18:28.140 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4532 - 500 null text/plain; charset=utf-8 63273.5841ms
+2023-11-25 21:40:17.770 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4532 - text/plain 201
+2023-11-25 21:40:17.780 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:40:17.782 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:40:17.784 +03:00 [INF] Property id : 4532
+2023-11-25 21:40:17.785 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:40:17.820 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:40:17.908 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:40:17.911 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'CostCentre' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.UpdateAsync(T entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Patch.PatchModelHandler`2.Handle(PatchModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Patch\PatchModelHandler.cs:line 23
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Update.PatchCostCentre.HandleAsync(PatchRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\PatchCostCentre.cs:line 34
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-25 21:40:17.923 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4532 - 500 null text/plain; charset=utf-8 153.6508ms
+2023-11-25 21:48:31.997 +03:00 [INF] Registered 11 endpoints in 2332 milliseconds.
+2023-11-25 21:48:33.972 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 21:48:34.211 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 21:48:34.280 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 21:48:34.486 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 21:48:35.082 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 21:48:35.084 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 21:48:35.085 +03:00 [INF] Hosting environment: Development
+2023-11-25 21:48:35.086 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 21:48:41.493 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 21:48:43.057 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1578.0708ms
+2023-11-25 21:48:43.067 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 21:48:43.379 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 310.8928ms
+2023-11-25 21:48:43.536 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 21:48:43.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 5.8649ms
+2023-11-25 21:48:43.573 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 21:48:43.748 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 174.2819ms
+2023-11-25 21:48:43.837 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 21:48:43.949 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 21:48:45.078 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1241.0779ms
+2023-11-25 21:49:31.829 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4235 - text/plain 209
+2023-11-25 21:49:31.837 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 21:49:31.841 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:49:31.955 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:49:31.957 +03:00 [INF] Property id : 4235
+2023-11-25 21:49:31.958 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:49:40.949 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:49:40.961 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 9001 ms
+2023-11-25 21:49:48.726 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:49:48.738 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4235 - 404 null null 16909.3929ms
+2023-11-25 21:50:21.541 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4534 - text/plain 209
+2023-11-25 21:50:21.552 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:50:21.555 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:50:21.557 +03:00 [INF] Property id : 4534
+2023-11-25 21:50:21.558 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:50:24.872 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:50:31.520 +03:00 [INF] Executed DbCommand (112ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 5), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-25 21:53:28.159 +03:00 [INF] Registered 11 endpoints in 2529 milliseconds.
+2023-11-25 21:53:29.982 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 21:53:30.266 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 21:53:30.317 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 21:53:30.408 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 21:53:30.622 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 21:53:30.623 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 21:53:30.624 +03:00 [INF] Hosting environment: Development
+2023-11-25 21:53:30.625 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 21:53:32.059 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 21:53:32.890 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 833.7879ms
+2023-11-25 21:53:32.897 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 21:53:33.146 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 249.3775ms
+2023-11-25 21:53:33.171 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 21:53:33.218 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 21:53:33.238 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 67.526ms
+2023-11-25 21:53:33.326 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.9427ms
+2023-11-25 21:53:33.425 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 21:53:33.458 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 21:53:34.590 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1165.3879ms
+2023-11-25 21:54:08.819 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 193
+2023-11-25 21:54:08.826 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 21:54:08.829 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:54:08.906 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:54:08.909 +03:00 [INF] Property id : 4535
+2023-11-25 21:54:08.911 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:54:09.138 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:54:09.673 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:54:09.676 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'CostCentre' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.UpdateAsync(T entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Patch.PatchModelHandler`2.Handle(PatchModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Patch\PatchModelHandler.cs:line 26
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Update.PatchCostCentre.HandleAsync(PatchRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\PatchCostCentre.cs:line 34
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-25 21:54:09.767 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 500 null text/plain; charset=utf-8 947.8388ms
+2023-11-25 21:58:33.862 +03:00 [INF] Registered 11 endpoints in 1325 milliseconds.
+2023-11-25 21:58:36.741 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-25 21:58:36.944 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-25 21:58:36.997 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-25 21:58:37.107 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-25 21:58:37.308 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-25 21:58:37.310 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-25 21:58:37.311 +03:00 [INF] Hosting environment: Development
+2023-11-25 21:58:37.312 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-25 21:58:44.377 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-25 21:58:45.893 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 1536.5961ms
+2023-11-25 21:58:45.900 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-25 21:58:47.368 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-25 21:58:47.368 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-25 21:58:47.369 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1469.1108ms
+2023-11-25 21:58:47.376 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 7.6104ms
+2023-11-25 21:58:47.466 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 97.4953ms
+2023-11-25 21:58:47.566 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-25 21:58:47.668 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-25 21:58:49.363 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1797.671ms
+2023-11-25 21:59:42.597 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 193
+2023-11-25 21:59:42.609 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-25 21:59:42.612 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:59:42.743 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-25 21:59:42.744 +03:00 [INF] Property id : 4535
+2023-11-25 21:59:42.746 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.Models.CostCentre,KFA.SupportAssistant.Core.Models.CostCentre]
+2023-11-25 21:59:42.993 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-25 21:59:53.515 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-25 21:59:53.895 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-25 21:59:53.898 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'CostCentre' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.RepositoryBase`1.UpdateAsync(T entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Core.Interfaces.UpdateModelService`1.UpdateModel(String id, T model, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Core\Services\UpdateModelService.cs:line 23
+   at KFA.SupportAssistant.UseCases.Models.Patch.PatchModelHandler`2.Handle(PatchModelCommand`2 request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Models\Patch\PatchModelHandler.cs:line 25
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.UseCases.Models.Update.PatchCostCentre.HandleAsync(PatchRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\EndPoints\CostCentres\PatchCostCentre.cs:line 34
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-25 21:59:53.993 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 500 null text/plain; charset=utf-8 11396.3009ms

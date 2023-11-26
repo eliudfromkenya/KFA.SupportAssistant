@@ -1,7 +1,7 @@
 ﻿using FastEndpoints;
-using MediatR;
-using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
 using KFA.SupportAssistant.UseCases.Contributors.List;
+using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+using MediatR;
 
 namespace KFA.SupportAssistant.Web.ContributorEndpoints;
 

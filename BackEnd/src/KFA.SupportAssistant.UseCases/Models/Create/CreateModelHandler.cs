@@ -2,11 +2,10 @@
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
-using KFA.SupportAssistant.Globals.DataLayer;
 
 namespace KFA.SupportAssistant.UseCases.Models.Create;
 
-public class CreateModelHandler<T,X>(IInsertModelService<X> _addService)
+public class CreateModelHandler<T, X>(IInsertModelService<X> _addService)
   : ICommandHandler<CreateModelCommand<T, X>, Result<T?[]>> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
   public async Task<Result<T?[]>> Handle(CreateModelCommand<T, X> request,

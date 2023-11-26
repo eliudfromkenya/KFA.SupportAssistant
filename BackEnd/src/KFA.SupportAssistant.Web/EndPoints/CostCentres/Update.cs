@@ -3,7 +3,6 @@ using FastEndpoints;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.UseCases.Models.Update;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
@@ -63,8 +62,8 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
       return;
     }
 
-      var value = request.Adapt(resultObj.Value);
-      var result = await _mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(request.Id ?? "", value!), cancellationToken);
+    var value = request.Adapt(resultObj.Value);
+    var result = await _mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(request.Id ?? "", value!), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
     {
@@ -73,10 +72,9 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
     }
 
     if (result.IsSuccess)
-    {      
+    {
       Response = new UpdateCostCentreResponse(new CostCentreRecord(value?.Id, value?.Description, value?.Narration, value?.Region, value?.SupplierCodePrefix, value?.DateInserted___, value?.DateUpdated___));
       return;
     }
   }
 }
-

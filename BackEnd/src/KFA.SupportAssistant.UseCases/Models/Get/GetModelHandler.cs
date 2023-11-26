@@ -3,15 +3,16 @@ using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.UseCases.Models.Get;
+
 namespace KFA.SupportAssistant.UseCases.Xs.Get;
 
 /// <summary>
 /// Queries don't necessarily need to use repository methods, but they can if it's convenient
 /// </summary>
-public class GetModelHandler<T,X>(IReadRepository<X> _repository)
-  : IQueryHandler<GetModelQuery<T,X>, Result<T>> where T : BaseDTO<X>, new() where X : BaseModel, new()
+public class GetModelHandler<T, X>(IReadRepository<X> _repository)
+  : IQueryHandler<GetModelQuery<T, X>, Result<T>> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
-  public async Task<Result<T>> Handle(GetModelQuery<T,X> request, CancellationToken cancellationToken)
+  public async Task<Result<T>> Handle(GetModelQuery<T, X> request, CancellationToken cancellationToken)
   {
     var spec = new ModelByIdSpec<X>(request.id);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);

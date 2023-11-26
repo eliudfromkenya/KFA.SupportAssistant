@@ -9,6 +9,7 @@ namespace KFA.SupportAssistant.Infrastructure.Data;
 public class AppDbContext : DbContext
 {
   private readonly IDomainEventDispatcher? _dispatcher;
+
   //static object obj = new object();
   public AppDbContext(DbContextOptions<AppDbContext> options,
     IDomainEventDispatcher? dispatcher)
@@ -20,7 +21,6 @@ public class AppDbContext : DbContext
       //this.Database.EnsureCreated();
     }
   }
-
 
   public DbSet<Contributor> Contributors => Set<Contributor>();
   public DbSet<CommandDetail> CommandDetails { get; set; }
@@ -48,6 +48,7 @@ public class AppDbContext : DbContext
   public DbSet<VerificationRight> VerificationRights { get; set; }
   public DbSet<VerificationType> VerificationTypes { get; set; }
   public DbSet<Verification> Verifications { get; set; }
+
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);

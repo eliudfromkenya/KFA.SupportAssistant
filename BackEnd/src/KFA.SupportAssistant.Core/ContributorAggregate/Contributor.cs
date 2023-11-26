@@ -12,7 +12,7 @@ public record Contributor : BaseModel, IAggregateRoot
   public override string? ___tableName___ { get; protected set; } = "tbl_contributors";
   public Contributor(string name)
   {
-      Name = Guard.Against.NullOrEmpty(name, nameof(name));
+    Name = Guard.Against.NullOrEmpty(name, nameof(name));
   }
 
   public ContributorStatus Status { get; private set; } = ContributorStatus.NotSet;

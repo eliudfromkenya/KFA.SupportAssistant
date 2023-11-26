@@ -58,12 +58,11 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
 
     if (result.IsSuccess)
     {
-      if(result?.Value?.FirstOrDefault() is CostCentreDTO obj)
+      if (result?.Value?.FirstOrDefault() is CostCentreDTO obj)
       {
         Response = new CreateCostCentreResponse(obj.Id, obj.Description!, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
         return;
       }
-     
     }
     // TODO: Handle other cases as necessary
   }

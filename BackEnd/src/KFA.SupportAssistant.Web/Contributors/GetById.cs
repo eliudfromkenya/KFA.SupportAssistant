@@ -1,8 +1,8 @@
-﻿using FastEndpoints;
-using MediatR;
-using Ardalis.Result;
-using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+﻿using Ardalis.Result;
+using FastEndpoints;
 using KFA.SupportAssistant.UseCases.Contributors.Get;
+using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+using MediatR;
 
 namespace KFA.SupportAssistant.Web.ContributorEndpoints;
 

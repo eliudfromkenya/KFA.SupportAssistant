@@ -7,6 +7,7 @@ public class CreateCostCentreRequest
   public const string Route = "/cost_centres";
 
   public string? CostCentreCode { get; set; }
+
   [Required]
   public string? Description { get; set; }
 

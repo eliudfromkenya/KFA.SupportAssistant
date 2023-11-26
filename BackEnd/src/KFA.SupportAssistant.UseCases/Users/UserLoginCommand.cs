@@ -1,5 +1,4 @@
 ﻿using Ardalis.Result;
-using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.Models;
 
 namespace KFA.SupportAssistant.UseCases.Contributors.Create;

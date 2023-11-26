@@ -4,7 +4,6 @@ using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Pilgrims.Systems.Assistant.DataLayer.General;
 
@@ -21,7 +20,7 @@ public class GeneralService : IGeneralService
           .Select(x =>
           {
             var tableName = x.GetTableName();
-            var pri = x?.FindPrimaryKey()?.Properties.Select(x => x.GetColumnName(Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier.Table(tableName??"", null))).First();
+            var pri = x?.FindPrimaryKey()?.Properties.Select(x => x.GetColumnName(Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier.Table(tableName ?? "", null))).First();
             var attribs = new { Table = x?.GetTableName(), Key = pri, Type = x?.ClrType.Name };
             return attribs;
           })

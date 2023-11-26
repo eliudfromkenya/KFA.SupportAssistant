@@ -1,8 +1,8 @@
-﻿using FastEndpoints;
-using Ardalis.Result;
-using MediatR;
-using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+﻿using Ardalis.Result;
+using FastEndpoints;
 using KFA.SupportAssistant.UseCases.Contributors.Delete;
+using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+using MediatR;
 
 namespace KFA.SupportAssistant.Web.ContributorEndpoints;
 

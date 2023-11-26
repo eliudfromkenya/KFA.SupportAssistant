@@ -6,7 +6,7 @@ namespace KFA.SupportAssistant.UseCases.Models.List;
 /// Represents a service that will actually fetch the necessary data
 /// Typically implemented in Infrastructure
 /// </summary>
-public interface IListModelsQueryService<T,X> where T : BaseDTO<X>, new() where X : BaseModel, new()
+public interface IListModelsQueryService<T, X> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
   Task<IList<T>> ListAsync();
 }

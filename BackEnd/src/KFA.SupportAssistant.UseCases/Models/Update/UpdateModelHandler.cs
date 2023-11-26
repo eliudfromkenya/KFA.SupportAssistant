@@ -1,14 +1,15 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
+using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
 using Mapster;
 
 namespace KFA.SupportAssistant.UseCases.Models.Update;
 
-public class UpdateModelHandler<T,X>(IRepository<X> _repository)
-  : ICommandHandler<UpdateModelCommand<T,X>, Result<T>> where T : BaseDTO<X>, new() where X : BaseModel, new()
+public class UpdateModelHandler<T, X>(IRepository<X> _repository, IUpdateModelService<X> _updateService)
+  : ICommandHandler<UpdateModelCommand<T, X>, Result<T>> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
-  public async Task<Result<T>> Handle(UpdateModelCommand<T,X> request, CancellationToken cancellationToken)
+  public async Task<Result<T>> Handle(UpdateModelCommand<T, X> request, CancellationToken cancellationToken)
   {
     var id = request?.model?.Id;
     if (string.IsNullOrWhiteSpace(id))
@@ -19,16 +20,10 @@ public class UpdateModelHandler<T,X>(IRepository<X> _repository)
     }
     request?.model?.Adapt(model);
     model.___DateUpdated___ = DateTime.Now.FromDateTime();
-    await _repository.UpdateAsync(model, cancellationToken);
+    model = await _updateService.UpdateModel(id, model, cancellationToken);
 
-    var ans = model as T;
-    if(ans == null)
-    {
-      ans = request?.model;
-      model.Adapt(ans);
-    }
-    if(ans != null)
-    return Result.Success(ans);
+    if (model.ToBaseDTO() is T ans)
+      return Result.Success(ans);
     return Result.Error("Unable to convert entity to dto after insert");
   }
 }

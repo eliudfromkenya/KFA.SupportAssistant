@@ -13,7 +13,7 @@ public class UpdateModelService<T>(IRepository<T> _repository,
 {
   // This service and method exist to provide a place in which to fire domain events
   // when deleting this aggregate root entity
-  public async Task<Result> UpdateModel(string id, T model, CancellationToken cancellationToken)
+  public async Task<Result<T>> UpdateModel(string id, T model, CancellationToken cancellationToken)
   {
     _logger.LogInformation("Updating model {type} - {id}", typeof(T), id);
     if (model == null)
@@ -23,6 +23,6 @@ public class UpdateModelService<T>(IRepository<T> _repository,
     await _repository.UpdateAsync(model!, cancellationToken);
     var domainEvent = new ModelUpdatedEvent<T>(id, model);
     await _mediator.Publish(domainEvent, cancellationToken);
-    return Result.Success();
+    return Result.Success(model);
   }
 }

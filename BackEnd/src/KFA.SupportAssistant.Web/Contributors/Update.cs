@@ -1,12 +1,9 @@
-﻿using KFA.SupportAssistant.Core.ContributorAggregate;
-using Ardalis.SharedKernel;
+﻿using Ardalis.Result;
 using FastEndpoints;
-using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
-using KFA.SupportAssistant.UseCases.Contributors.Update;
-using MediatR;
-using Ardalis.Result;
 using KFA.SupportAssistant.UseCases.Contributors.Get;
+using KFA.SupportAssistant.UseCases.Contributors.Update;
+using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
+using MediatR;
 
 namespace KFA.SupportAssistant.Web.ContributorEndpoints;
 

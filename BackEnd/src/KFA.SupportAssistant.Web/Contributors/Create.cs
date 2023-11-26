@@ -1,9 +1,6 @@
-﻿using KFA.SupportAssistant.Core.ContributorAggregate;
-using Ardalis.SharedKernel;
-using FastEndpoints;
-using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
-using KFA.SupportAssistant.UseCases.Contributors.List;
+﻿using FastEndpoints;
 using KFA.SupportAssistant.UseCases.Contributors.Create;
+using KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.ContributorEndpoints;
@@ -36,7 +33,7 @@ public class Create(IMediator _mediator)
   {
     var result = await _mediator.Send(new CreateContributorCommand(request.Name!));
 
-    if(result.IsSuccess)
+    if (result.IsSuccess)
     {
       Response = new CreateContributorResponse(result.Value, request.Name!);
       return;

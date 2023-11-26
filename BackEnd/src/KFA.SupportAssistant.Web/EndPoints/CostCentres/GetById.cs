@@ -3,10 +3,8 @@ using FastEndpoints;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
-using Mapster;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;

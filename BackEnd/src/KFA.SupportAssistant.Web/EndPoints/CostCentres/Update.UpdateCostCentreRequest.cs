@@ -20,6 +20,4 @@ public record UpdateCostCentreRequest
   public string? Region { get; set; }
 
   public string? SupplierCodePrefix { get; set; }
-
-
 }

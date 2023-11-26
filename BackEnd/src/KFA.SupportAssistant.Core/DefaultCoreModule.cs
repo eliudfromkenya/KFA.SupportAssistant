@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.Interfaces;
+using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals;
 
@@ -45,7 +45,6 @@ public class DefaultCoreModule : Module
     var typeA = typeof(DeleteModelService<>);
     var typeB = typeof(InsertModelService<>);
     var typeC = typeof(UpdateModelService<>);
-
 
     classes.ToList()
    .ForEach(type =>

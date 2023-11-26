@@ -2,7 +2,6 @@
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
-using KFA.SupportAssistant.Core.Models;
 
 namespace KFA.SupportAssistant.UseCases.Models.Delete;
 
@@ -14,9 +13,8 @@ public class DeleteModelHandler<T>(IDeleteModelService<T> _deleteCostCentreServi
     // This Approach: Keep Domain Events in the Domain Model / Core project; this becomes a pass-through
     // This is @ardalis's preferred approach
     var result = await _deleteCostCentreService.DeleteModel(cancellationToken, request.id);
-  
-    return result;
 
+    return result;
 
     // Another Approach: Do the real work here including dispatching domain events - change the event from internal to public
     // @ardalis prefers using the service above so that **domain** event behavior remains in the **domain model** (core project)

@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals.Models;
 
@@ -20,7 +19,7 @@ public class UserLoginHandler : ICommandHandler<UserLoginCommand, Result<LoginRe
   {
     LoginResult? result = await _authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
 
-    if(result == null)
+    if (result == null)
     {
       return Result.Unauthorized();
     }

@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Core.DTOs;
-using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
 

@@ -1,4 +1,4 @@
-using KFA.SupportAssistant.Web.ContributorEndpoints;
+﻿using KFA.SupportAssistant.Web.ContributorEndpoints;
 
 namespace KFA.SupportAssistant.Web.Endpoints.ContributorEndpoints;
 

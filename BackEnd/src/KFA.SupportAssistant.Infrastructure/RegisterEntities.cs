@@ -1,32 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using Autofac;
-using KFA.SupportAssistant.Globals;
-using KFA.SupportAssistant.Infrastructure.Data.Queries;
-using KFA.SupportAssistant.UseCases.Contributors.List;
-using MediatR;
-using KFA.SupportAssistant.UseCases.Models.Create;
-using KFA.SupportAssistant.UseCases.Models.Delete;
-using KFA.SupportAssistant.UseCases.Models.Update;
-using KFA.SupportAssistant.UseCases.Models.Get;
-using KFA.SupportAssistant.UseCases.Xs.Get;
-using KFA.SupportAssistant.UseCases.Models.List;
-using KFA.SupportAssistant.Globals.DataLayer;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
-using KFA.SupportAssistant.Globals.Models;
-using KFA.SupportAssistant.Infrastructure.Data;
-using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Interfaces;
+using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals;
+using KFA.SupportAssistant.Globals.DataLayer;
+using KFA.SupportAssistant.Globals.Models;
+using KFA.SupportAssistant.Infrastructure.Data;
+using KFA.SupportAssistant.UseCases.Contributors.Create;
+using KFA.SupportAssistant.UseCases.Models.Create;
+using KFA.SupportAssistant.UseCases.Models.Delete;
+using KFA.SupportAssistant.UseCases.Models.Get;
+using KFA.SupportAssistant.UseCases.Models.List;
+using KFA.SupportAssistant.UseCases.Models.Patch;
+using KFA.SupportAssistant.UseCases.Models.Update;
+using KFA.SupportAssistant.UseCases.Xs.Get;
+using MediatR;
 
 namespace KFA.SupportAssistant.Infrastructure;
+
 internal static class RegisterEntities
 {
-  public static void RegisterQueries(ContainerBuilder builder )
+  public static void RegisterQueries(ContainerBuilder builder)
   {
     //builder.RegisterType<ListContributorsQueryService>()
     //  .As<IListContributorsQueryService>()
@@ -48,6 +43,7 @@ internal static class RegisterEntities
     RegisterByIdModels(builder, classes);
     RegisterByIdsModels(builder, classes);
     RegisterListsModels(builder, classes);
+    RegisterPatchModels(builder, classes);
   }
 
   private static void RegisterDataServices(ContainerBuilder builder)
@@ -58,7 +54,7 @@ internal static class RegisterEntities
     builder.RegisterType<IdGenerator>()
            .As<IIdGenerator>()
            .SingleInstance();
-   
+
     Declarations.IdGenerator = new IdGenerator();
   }
 
@@ -122,6 +118,7 @@ internal static class RegisterEntities
       }
     });
   }
+
   private static void RegisterByIdsModels(ContainerBuilder builder, List<Type> allDTOTypes)
   {
     allDTOTypes.ForEach(type =>
@@ -145,7 +142,7 @@ internal static class RegisterEntities
           .As(constructedRequestHandlerType)
           .InstancePerLifetimeScope();
       }
-      catch(Exception ex)
+      catch (Exception ex)
       {
         var dd = ex.ToString();
       }
@@ -169,6 +166,36 @@ internal static class RegisterEntities
         var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, genericResultType);
 
         Type genericHandlerType = typeof(UpdateModelHandler<,>);
+        Type constructedHandlerType = genericHandlerType.MakeGenericType([dtoType, type]);
+
+        builder.RegisterType(constructedHandlerType)
+          .As(constructedRequestHandlerType)
+          .InstancePerLifetimeScope();
+      }
+      catch (Exception ex)
+      {
+        var dd = ex.ToString();
+      }
+    });
+  }
+
+  private static void RegisterPatchModels(ContainerBuilder builder, List<Type> allDTOTypes)
+  {
+    allDTOTypes.ForEach(type =>
+    {
+      try
+      {
+        var dtoAssemblyName = typeof(CostCentreDTO).Assembly.GetName()?.Name;
+        var dtoType = Type.GetType($"{dtoAssemblyName}.DTOs.{type.Name}DTO, {dtoAssemblyName}")!;
+
+        var requestHandlerType = typeof(IRequestHandler<,>);
+        var modelCommandType = typeof(PatchModelCommand<,>);
+        var resultType = typeof(Result<>);
+        var genericCommandType = modelCommandType.MakeGenericType(dtoType, type);
+        var genericResultType = resultType.MakeGenericType(dtoType);
+        var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, genericResultType);
+
+        Type genericHandlerType = typeof(PatchModelHandler<,>);
         Type constructedHandlerType = genericHandlerType.MakeGenericType([dtoType, type]);
 
         builder.RegisterType(constructedHandlerType)
