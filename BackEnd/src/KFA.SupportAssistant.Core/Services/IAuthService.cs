@@ -1,4 +1,4 @@
-﻿using KFA.SupportAssistant.Core.Models;
+﻿using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Globals.Models;
 
 namespace KFA.SupportAssistant.Core.Services;
@@ -15,7 +15,7 @@ public interface IAuthService
 
   Task<bool> ClearUserRightsAsync(string userId, CancellationToken cancellationToken, params string[] rightsToClear);
 
-  Task<DataDevice> RegisterDeviceAsync(DataDevice dataDevice, CancellationToken cancellationToken);
+  Task<DataDeviceDTO> RegisterDeviceAsync(DataDeviceDTO dataDevice, CancellationToken cancellationToken);
 
-  Task<SystemUser> RegisterUserAsync(SystemUser usr, string password, CancellationToken cancellationToken);
+  Task<SystemUserDTO> RegisterUserAsync(SystemUserDTO usr, string password, CancellationToken cancellationToken);
 }

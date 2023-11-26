@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using KFA.SupportAssistant.Globals.Models;
 
-namespace KFA.SupportAssistant.UseCases.Contributors.Create;
+namespace KFA.SupportAssistant.UseCases.Users;
 
 /// <summary>
 /// Create a new Contributor.

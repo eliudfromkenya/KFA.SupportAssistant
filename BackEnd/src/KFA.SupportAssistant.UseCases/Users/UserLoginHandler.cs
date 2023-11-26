@@ -3,7 +3,7 @@ using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals.Models;
 
-namespace KFA.SupportAssistant.UseCases.Contributors.Create;
+namespace KFA.SupportAssistant.UseCases.Users;
 
 public class UserLoginHandler : ICommandHandler<UserLoginCommand, Result<LoginResult>>
 {
@@ -17,7 +17,7 @@ public class UserLoginHandler : ICommandHandler<UserLoginCommand, Result<LoginRe
   public async Task<Result<LoginResult>> Handle(UserLoginCommand request,
     CancellationToken cancellationToken)
   {
-    LoginResult? result = await _authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
+    var result = await _authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
 
     if (result == null)
     {

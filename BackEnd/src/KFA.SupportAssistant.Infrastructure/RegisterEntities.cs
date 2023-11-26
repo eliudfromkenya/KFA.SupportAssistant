@@ -3,17 +3,19 @@ using Autofac;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Globals.Models;
 using KFA.SupportAssistant.Infrastructure.Data;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Create;
 using KFA.SupportAssistant.UseCases.Models.Delete;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.UseCases.Models.Patch;
 using KFA.SupportAssistant.UseCases.Models.Update;
+using KFA.SupportAssistant.UseCases.Users;
 using KFA.SupportAssistant.UseCases.Xs.Get;
 using MediatR;
 
@@ -54,6 +56,7 @@ internal static class RegisterEntities
     builder.RegisterType<IdGenerator>()
            .As<IIdGenerator>()
            .SingleInstance();
+    builder.RegisterType<AuthService>().As<IAuthService>().InstancePerLifetimeScope();
 
     Declarations.IdGenerator = new IdGenerator();
   }
