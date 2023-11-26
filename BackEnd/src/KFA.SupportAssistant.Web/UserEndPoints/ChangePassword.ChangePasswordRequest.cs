@@ -8,9 +8,12 @@ public class ChangePasswordRequest
 
   [Required]
   public string? Username { get; set; }
+
   [Required]
   public string? CurrentPassword { get; set; }
+
   [Required]
   public string? NewPassword { get; set; }
+
   public string? Device { get; internal set; }
 }

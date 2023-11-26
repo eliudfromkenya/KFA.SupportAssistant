@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using System.Security.Claims;
-using FastEndpoints.Security;
-using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
+﻿using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -27,7 +23,7 @@ public class ChangeRole(IMediator mediator) : Endpoint<ChangeRoleRequest>
       // XML Docs are used by default but are overridden by these properties:
       //s.Summary = "Create a new Contributor.";
       //s.Description = "Create a new Contributor. A valid name is required.";
-      s.ExampleRequest = new ChangeRoleRequest { UserId = "Username or UserId", NewRoleId = "New Role Id" , Device = "Device on which request is being sent"};
+      s.ExampleRequest = new ChangeRoleRequest { UserId = "Username or UserId", NewRoleId = "New Role Id", Device = "Device on which request is being sent" };
     });
   }
 

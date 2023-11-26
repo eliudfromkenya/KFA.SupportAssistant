@@ -1,4 +1,5 @@
 ﻿namespace KFA.SupportAssistant.Web.UserEndPoints;
+
 public readonly struct LoginResponse
 {
   public LoginResponse(string? loginId, string? token, object? userId, string? role, DateTime? date, string?[] rights)
@@ -10,6 +11,7 @@ public readonly struct LoginResponse
     Rights = rights;
     Date = date;
   }
+
   public string? LoginId { get; }
   public string? Token { get; }
   public object? UserId { get; }

@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core.DTOs;
-using MediatR;
 
 namespace KFA.SupportAssistant.Web.UserEndPoints;
 

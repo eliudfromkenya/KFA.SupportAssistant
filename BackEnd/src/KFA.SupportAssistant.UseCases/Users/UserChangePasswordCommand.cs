@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ardalis.Result;
-using KFA.SupportAssistant.Globals.Models;
+﻿using Ardalis.Result;
 
 namespace KFA.SupportAssistant.UseCases.Users;
 
@@ -13,4 +7,3 @@ namespace KFA.SupportAssistant.UseCases.Users;
 /// </summary>
 /// <param name="Name"></param>
 public record UserChangePasswordCommand(string userId, string currentPassword, string newPassword, string? device) : Ardalis.SharedKernel.ICommand<Result>;
-

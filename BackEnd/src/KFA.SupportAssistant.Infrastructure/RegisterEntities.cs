@@ -17,6 +17,7 @@ using KFA.SupportAssistant.UseCases.Models.Patch;
 using KFA.SupportAssistant.UseCases.Models.Update;
 using KFA.SupportAssistant.UseCases.Users;
 using KFA.SupportAssistant.UseCases.Xs.Get;
+using KFA.SupportAssistant.Web.UserEndPoints;
 using MediatR;
 
 namespace KFA.SupportAssistant.Infrastructure;
@@ -39,6 +40,7 @@ internal static class RegisterEntities
         .Where(c => c != typeof(BaseModel)).ToList();
 
     RegisterDataServices(builder);
+    RegisterUserServices(builder);
     RegisterCreateModels(builder, classes);
     RegisterDeleteModels(builder, classes);
     RegisterUpdateModels(builder, classes);
@@ -48,15 +50,38 @@ internal static class RegisterEntities
     RegisterPatchModels(builder, classes);
   }
 
-  private static void RegisterDataServices(ContainerBuilder builder)
+
+  private static void RegisterUserServices(ContainerBuilder builder)
   {
-    builder.RegisterType<UserLoginHandler>()
-           .As<IRequestHandler<UserLoginCommand, Result<LoginResult>>>()
+    builder.RegisterType<UserAddRightsHandler>()
+           .As<IRequestHandler<UserAddRightsCommand, Result<UserRightDTO[]>>>()
            .InstancePerLifetimeScope();
+    builder.RegisterType<UserChangePasswordHandler>()
+         .As<IRequestHandler<UserChangePasswordCommand, Result>>()
+         .InstancePerLifetimeScope();
+    builder.RegisterType<UserChangeRoleHandler>()
+         .As<IRequestHandler<UserChangeRoleCommand, Result>>()
+         .InstancePerLifetimeScope();
+    builder.RegisterType<UserClearRightsHandler>()
+         .As<IRequestHandler<UserClearRightsCommand, Result<string[]>>>()
+         .InstancePerLifetimeScope();
+    builder.RegisterType<UserRegisterHandler>()
+         .As<IRequestHandler<UserRegisterCommand, Result<(SystemUserDTO user, string? loginId, string?[]? rights)>>>()
+         .InstancePerLifetimeScope();
+    builder.RegisterType<UserRegisterDeviceHandler>()
+         .As<IRequestHandler<UserRegisterDeviceCommand, Result<DataDeviceDTO>>>()
+         .InstancePerLifetimeScope();
+    builder.RegisterType<UserLoginHandler>()
+         .As<IRequestHandler<UserLoginCommand, Result<LoginResult>>>()
+         .InstancePerLifetimeScope();
+  }
+    private static void RegisterDataServices(ContainerBuilder builder)
+  {
     builder.RegisterType<IdGenerator>()
            .As<IIdGenerator>()
            .SingleInstance();
     builder.RegisterType<AuthService>().As<IAuthService>().InstancePerLifetimeScope();
+    builder.RegisterType<UserManagementService>().As<IUserManagementService>().InstancePerLifetimeScope();
 
     Declarations.IdGenerator = new IdGenerator();
   }

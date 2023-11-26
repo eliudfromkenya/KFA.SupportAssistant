@@ -1,9 +1,4 @@
-﻿using System.Configuration;
-using System.Security.Claims;
-using Ardalis.Result;
-using FastEndpoints.Security;
-using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
+﻿using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -18,6 +13,7 @@ namespace KFA.SupportAssistant.Web.UserEndPoints;
 public class ChangePassword(IMediator mediator) : Endpoint<ChangePasswordRequest>
 {
   private readonly IMediator _mediator = mediator;
+
   public override void Configure()
   {
     Post(ChangePasswordRequest.Route);
@@ -27,7 +23,7 @@ public class ChangePassword(IMediator mediator) : Endpoint<ChangePasswordRequest
       // XML Docs are used by default but are overridden by these properties:
       //s.Summary = "Create a new Contributor.";
       //s.Description = "Create a new Contributor. A valid name is required.";
-      s.ExampleRequest = new ChangePasswordRequest { Username = "Username", CurrentPassword = "password", NewPassword="NewPassword" };
+      s.ExampleRequest = new ChangePasswordRequest { Username = "Username", CurrentPassword = "password", NewPassword = "NewPassword" };
     });
   }
 
@@ -37,7 +33,7 @@ public class ChangePassword(IMediator mediator) : Endpoint<ChangePasswordRequest
   {
     var command = new UserChangePasswordCommand(request.Username!, request.CurrentPassword!, request.NewPassword!, request.Device);
     var result = await _mediator.Send(command, cancellationToken);
-    
+
     if (result.Errors.Any())
     {
       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);

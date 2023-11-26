@@ -1,5 +1,4 @@
 ﻿using Ardalis.Result;
-using FastEndpoints;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
@@ -26,7 +25,7 @@ public class PatchCostCentre(IMediator _mediator) : Endpoint<PatchRequest>
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }
-    CostCentre patchFunc(CostCentre tt) => PatchUpdater.Patch(request.PatchDocument, tt);
+    CostCentreDTO patchFunc(CostCentreDTO tt) => PatchUpdater.Patch< CostCentreDTO,CostCentre>(request.PatchDocument, tt);
     var result = await _mediator.Send(new PatchModelCommand<CostCentreDTO, CostCentre>(request.Id ?? "", patchFunc), cancellationToken);
 
     if (result.Errors.Any())

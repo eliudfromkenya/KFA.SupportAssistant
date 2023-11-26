@@ -20,9 +20,9 @@ public class PatchModelHandler<T, X>(IRepository<X> _repository, IUpdateModelSer
     {
       return Result.NotFound();
     }
-   
-    var mn = request.applyChanges(model);
-    mn.Adapt(model);
+
+    if (model.ToBaseDTO() is T baseModel)
+      request.applyChanges(baseModel).Adapt(model);   
 
     model.___DateUpdated___ = DateTime.Now.FromDateTime();
     model = await _updateService.UpdateModel(id, model, cancellationToken);

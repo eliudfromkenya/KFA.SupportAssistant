@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using System.Security.Claims;
-using FastEndpoints.Security;
-using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
+﻿using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 

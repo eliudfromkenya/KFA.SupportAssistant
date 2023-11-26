@@ -8,7 +8,9 @@ public class ChangeRoleRequest
 
   [Required]
   public string? UserId { get; set; }
+
   [Required]
   public string? NewRoleId { get; set; }
+
   public string? Device { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿namespace KFA.SupportAssistant.Web.UserEndPoints;
+
 public readonly struct RegisterResponse(string? token, string? roleId, string? userId, string? contact, string? emailAddress, DateTime expirationDate, bool isActive, DateTime maturityDate, string? nameOfTheUser, string? narration, string? username)
 {
   public string? Token { get; init; } = token;

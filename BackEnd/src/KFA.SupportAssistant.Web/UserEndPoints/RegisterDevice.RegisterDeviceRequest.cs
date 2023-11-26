@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace KFA.SupportAssistant.Web.UserEndPoints;
+﻿namespace KFA.SupportAssistant.Web.UserEndPoints;
 
 public class RegisterDeviceRequest
 {

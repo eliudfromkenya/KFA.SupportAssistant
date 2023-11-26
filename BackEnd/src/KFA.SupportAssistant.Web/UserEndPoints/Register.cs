@@ -1,12 +1,9 @@
-﻿using System.Configuration;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using FastEndpoints.Security;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
-using YamlDotNet.Core.Tokens;
 
 namespace KFA.SupportAssistant.Web.UserEndPoints;
 
@@ -30,7 +27,7 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
       // XML Docs are used by default but are overridden by these properties:
       //s.Summary = "Create a new Contributor.";
       //s.Description = "Create a new Contributor. A valid name is required.";
-      s.ExampleRequest = new RegisterRequest { Username = "Username", Password = "password" , NameOfTheUser="Name", EmailAddress="email"};
+      s.ExampleRequest = new RegisterRequest { Username = "Username", Password = "password", NameOfTheUser = "Name", EmailAddress = "email" };
     });
   }
 
@@ -55,7 +52,7 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
       Username = request.Username
     };
 
-    var command = new UserRegisterCommand(userDTO, request.Password!);
+    var command = new UserRegisterCommand(userDTO, request?.Device, request?.Password!);
     var result = await _mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())
@@ -73,7 +70,7 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
           claims: new Claim[]
           {
            new ("UserId", user.Id!) ,
-            new ("LoginId", loginId) ,
+            new ("LoginId", loginId!) ,
             new ("RoleId", user.RoleId!)
           });
 

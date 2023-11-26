@@ -11,6 +11,7 @@ public class AddRightsRequest
 
   [Required]
   public string?[]? Rights { get; set; }
+
   [Required]
   public string?[]? Commands { get; set; }
 }

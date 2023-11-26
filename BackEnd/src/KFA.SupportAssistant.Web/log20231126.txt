@@ -216,3 +216,662 @@ RETURNING 1;
 2023-11-26 06:54:44.632 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 46 ms
 2023-11-26 06:54:44.634 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
 2023-11-26 06:54:44.637 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 61.2505ms
+2023-11-26 11:28:05.819 +03:00 [INF] Registered 18 endpoints in 11311 milliseconds.
+2023-11-26 11:28:12.538 +03:00 [INF] Executed DbCommand (612ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-26 11:28:13.189 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-26 11:28:13.339 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-26 11:28:14.319 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-26 11:28:16.052 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-26 11:28:16.057 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-26 11:28:16.060 +03:00 [INF] Hosting environment: Development
+2023-11-26 11:28:16.062 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-26 11:28:29.327 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-26 11:28:31.750 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 2657.8211ms
+2023-11-26 11:28:31.837 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-26 11:28:33.656 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1819.4843ms
+2023-11-26 11:28:33.719 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-26 11:28:33.775 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 56.1193ms
+2023-11-26 11:28:34.092 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-26 11:28:34.571 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 479.0324ms
+2023-11-26 11:28:34.995 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-26 11:28:36.895 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-26 11:28:46.250 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 11255.2331ms
+2023-11-26 11:31:38.558 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/login - application/json 72
+2023-11-26 11:31:38.579 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-26 11:31:38.616 +03:00 [INF] Executing endpoint 'HTTP: POST /users/login'
+2023-11-26 11:31:39.292 +03:00 [INF] Handling UserLoginCommand
+2023-11-26 11:31:39.294 +03:00 [INF] Property username : Username
+2023-11-26 11:31:39.296 +03:00 [INF] Property password : password
+2023-11-26 11:31:39.297 +03:00 [INF] Property device : null
+2023-11-26 11:31:41.292 +03:00 [INF] Executed endpoint 'HTTP: POST /users/login'
+2023-11-26 11:31:41.316 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The LINQ expression 'DbSet<SystemUser>()
+    .Where(s => s.Username.Equals(
+        value: __username_0, 
+        comparisonType: CurrentCultureIgnoreCase))' could not be translated. Additional information: Translation of the 'string.Equals' overload with a 'StringComparison' parameter is not supported. See https://go.microsoft.com/fwlink/?linkid=2129535 for more information. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass9_0`1.<Execute>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetEnumerator()
+   at System.Collections.Generic.LargeArrayBuilder`1.AddRange(IEnumerable`1 items)
+   at System.Collections.Generic.EnumerableHelpers.ToArray[T](IEnumerable`1 source)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.LoginAsync(String username, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 20
+   at KFA.SupportAssistant.UseCases.Users.UserLoginHandler.Handle(UserLoginCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserLoginHandler.cs:line 20
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Login.HandleAsync(LoginRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Login.cs:line 51
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 11:31:41.457 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/login - 500 null text/plain; charset=utf-8 2899.4787ms
+2023-11-26 11:32:24.841 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 253
+2023-11-26 11:32:24.848 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 11:32:24.937 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 11:32:24.943 +03:00 [INF] Property user : {"Contact":null,"EmailAddress":"email","ExpirationDate":"0001-01-01T00:00:00.0000000","IsActive":false,"MaturityDate":"0001-01-01T00:00:00.0000000","NameOfTheUser":"Name","Narration":null,"RoleId":null,"Username":"Username","Id":null,"DateUpdated___":"2023-11-26T08:32:24.9350165Z","DateInserted___":"2023-11-26T08:32:24.9349307Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 11:32:24.955 +03:00 [INF] Property password : password
+2023-11-26 11:32:25.019 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 11:32:25.021 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.Registration.ComponentNotRegisteredException: The requested service 'MediatR.IRequestHandler`2[[KFA.SupportAssistant.UseCases.Users.UserRegisterCommand, KFA.SupportAssistant.UseCases, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Ardalis.Result.Result`1[[System.ValueTuple`3[[KFA.SupportAssistant.Core.DTOs.SystemUserDTO, KFA.SupportAssistant.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String[], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Ardalis.Result, Version=7.2.0.0, Culture=neutral, PublicKeyToken=null]]' has not been registered. To avoid this exception, either register a component to provide the service, check for service registration using IsRegistered(), or use the ResolveOptional() method to resolve an optional dependency.
+
+See https://autofac.rtfd.io/help/service-not-registered for more info.
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 11:32:25.030 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 190.6059ms
+2023-11-26 11:33:16.471 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 209
+2023-11-26 11:33:16.484 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:33:16.546 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:33:16.547 +03:00 [INF] Property id : 4535
+2023-11-26 11:33:16.548 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:33:17.021 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:33:49.938 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 11:33:50.091 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 17), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 11:33:50.182 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 33630 ms
+2023-11-26 11:33:50.324 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:33:50.332 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 33860.7136ms
+2023-11-26 11:34:14.636 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 202
+2023-11-26 11:34:14.639 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:34:14.640 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:34:14.641 +03:00 [INF] Property id : 4535
+2023-11-26 11:34:14.643 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:34:14.690 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:34:20.724 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 11:34:20.729 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 17), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 11:34:20.811 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 6167 ms
+2023-11-26 11:34:20.814 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:34:20.816 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 6180.3695ms
+2023-11-26 11:34:45.266 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 202
+2023-11-26 11:34:45.268 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:34:45.270 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:34:45.271 +03:00 [INF] Property id : 4535
+2023-11-26 11:34:45.272 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:34:45.276 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:41:49.801 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 11:41:49.845 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 17), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 11:41:50.084 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 424810 ms
+2023-11-26 11:41:50.087 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:41:50.089 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 424823.2096ms
+2023-11-26 11:41:59.981 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 202
+2023-11-26 11:41:59.984 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:41:59.986 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:41:59.987 +03:00 [INF] Property id : 4535
+2023-11-26 11:41:59.988 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:41:59.992 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:44:07.548 +03:00 [INF] Registered 18 endpoints in 1967 milliseconds.
+2023-11-26 11:44:09.414 +03:00 [INF] Executed DbCommand (127ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-26 11:44:09.636 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-26 11:44:09.695 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-26 11:44:09.786 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-26 11:44:10.010 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-26 11:44:10.012 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-26 11:44:10.013 +03:00 [INF] Hosting environment: Development
+2023-11-26 11:44:10.014 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-26 11:44:12.254 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-26 11:44:12.699 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 466.4845ms
+2023-11-26 11:44:12.714 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-26 11:44:13.185 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 471.062ms
+2023-11-26 11:44:13.208 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-26 11:44:13.215 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-26 11:44:13.250 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 42.3088ms
+2023-11-26 11:44:13.317 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.9045ms
+2023-11-26 11:44:13.388 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-26 11:44:13.409 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-26 11:44:14.891 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1503.1801ms
+2023-11-26 11:45:07.846 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 199
+2023-11-26 11:45:07.853 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-26 11:45:07.858 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:45:07.969 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:45:07.971 +03:00 [INF] Property id : 4535
+2023-11-26 11:45:07.972 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:45:08.182 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:45:36.722 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 11:45:36.813 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 7), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 3), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 11:45:36.890 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 28916 ms
+2023-11-26 11:45:36.914 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:45:36.927 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 29081.406ms
+2023-11-26 11:50:22.606 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 203
+2023-11-26 11:50:22.611 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:50:22.614 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 11:50:22.615 +03:00 [INF] Property id : 4535
+2023-11-26 11:50:22.617 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 11:50:22.630 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 11:50:22.646 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 11:50:22.651 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 4), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 11:50:22.746 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 126 ms
+2023-11-26 11:50:22.749 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 11:50:22.752 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 146.7799ms
+2023-11-26 12:14:12.983 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 203
+2023-11-26 12:14:12.987 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 12:14:12.995 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 12:14:12.997 +03:00 [INF] Property id : 4535
+2023-11-26 12:14:12.998 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 12:14:13.005 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 12:14:13.013 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 12:14:13.017 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 10), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 4), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 12:14:13.127 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 127 ms
+2023-11-26 12:14:13.129 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 12:14:13.131 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 147.534ms
+2023-11-26 12:14:29.153 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - text/plain 210
+2023-11-26 12:14:29.157 +03:00 [INF] Executing endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 12:14:29.159 +03:00 [INF] Handling PatchModelCommand`2
+2023-11-26 12:14:29.161 +03:00 [INF] Property id : 4535
+2023-11-26 12:14:29.163 +03:00 [INF] Property applyChanges : System.Func`2[KFA.SupportAssistant.Core.DTOs.CostCentreDTO,KFA.SupportAssistant.Core.DTOs.CostCentreDTO]
+2023-11-26 12:14:29.165 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."cost_centre_code", "t"."description", "t"."narration", "t"."region", "t"."supplier_code_prefix", "t"."date_added", "t"."date_updated", "t"."modification_status"
+FROM "tbl_cost_centres" AS "t"
+WHERE "t"."cost_centre_code" = @__p_0
+LIMIT 1
+2023-11-26 12:14:29.169 +03:00 [INF] Updating model KFA.SupportAssistant.Core.Models.CostCentre - 4535
+2023-11-26 12:14:29.171 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p7='?' (Size = 4), @p0='?' (Size = 17), @p1='?' (Size = 12), @p2='?' (Size = 9), @p3='?' (Size = 4), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "tbl_cost_centres" SET "description" = @p0, "narration" = @p1, "region" = @p2, "supplier_code_prefix" = @p3, "date_added" = @p4, "date_updated" = @p5, "modification_status" = @p6
+WHERE "cost_centre_code" = @p7
+RETURNING 1;
+2023-11-26 12:14:29.216 +03:00 [INF] Handled PatchModelCommand`2 with Ardalis.Result.Result`1[KFA.SupportAssistant.Core.DTOs.CostCentreDTO] in 52 ms
+2023-11-26 12:14:29.219 +03:00 [INF] Executed endpoint 'HTTP: PATCH /cost_centres/{id}'
+2023-11-26 12:14:29.220 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57679/cost_centres/4535 - 200 null application/json 67.5631ms
+2023-11-26 14:36:44.077 +03:00 [INF] Registered 18 endpoints in 16309 milliseconds.
+2023-11-26 14:36:55.035 +03:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-26 14:36:56.881 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-26 14:37:00.445 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-26 14:37:08.973 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-26 14:37:26.784 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-26 14:37:26.786 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-26 14:37:26.787 +03:00 [INF] Hosting environment: Development
+2023-11-26 14:37:26.788 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-26 14:37:37.608 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-26 14:37:45.230 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 8161.303ms
+2023-11-26 14:37:45.457 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-26 14:37:54.129 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 8672.6178ms
+2023-11-26 14:37:54.677 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-26 14:37:54.749 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-26 14:37:54.778 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 29.8112ms
+2023-11-26 14:37:55.274 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 597.7072ms
+2023-11-26 14:37:55.737 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-26 14:38:01.422 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-26 14:38:16.836 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 21099.0602ms
+2023-11-26 14:40:30.433 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:40:30.451 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-26 14:40:30.467 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:40:30.914 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:40:30.920 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:40:30.8919933Z","DateInserted___":"2023-11-26T11:40:30.8917205Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:40:30.951 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:40:30.952 +03:00 [INF] Property password : 654321
+2023-11-26 14:40:32.309 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:40:32.349 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:40:32.451 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 2018.0604ms
+2023-11-26 14:45:06.683 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:45:06.692 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:45:06.694 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:45:06.697 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:45:06.6945389Z","DateInserted___":"2023-11-26T11:45:06.6945381Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:45:06.710 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:45:06.714 +03:00 [INF] Property password : 654321
+2023-11-26 14:45:06.927 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:45:06.929 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:45:06.939 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 256.3402ms
+2023-11-26 14:46:01.212 +03:00 [INF] Registered 18 endpoints in 2473 milliseconds.
+2023-11-26 14:46:03.166 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-26 14:46:03.500 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-26 14:46:03.598 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-26 14:46:03.740 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-26 14:46:04.203 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-26 14:46:04.204 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-26 14:46:04.205 +03:00 [INF] Hosting environment: Development
+2023-11-26 14:46:04.208 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-26 14:46:09.886 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-26 14:46:10.320 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 459.7601ms
+2023-11-26 14:46:10.330 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-26 14:46:10.585 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 255.4156ms
+2023-11-26 14:46:10.632 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-26 14:46:10.646 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 9.2119ms
+2023-11-26 14:46:10.678 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-26 14:46:10.733 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.8342ms
+2023-11-26 14:46:11.011 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-26 14:46:11.148 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-26 14:46:12.166 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1155.1861ms
+2023-11-26 14:46:45.868 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:46:45.884 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-26 14:46:45.889 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:46:46.029 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:46:46.037 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:46:46.0222588Z","DateInserted___":"2023-11-26T11:46:46.0222000Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:46:46.054 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:46:46.055 +03:00 [INF] Property password : 654321
+2023-11-26 14:46:46.526 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:46:46.529 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:46:46.545 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 677.2894ms
+2023-11-26 14:47:06.581 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:47:06.586 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:47:06.590 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:47:06.592 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:47:06.5899797Z","DateInserted___":"2023-11-26T11:47:06.5899789Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:47:06.601 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:47:06.604 +03:00 [INF] Property password : 654321
+2023-11-26 14:47:06.793 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:47:06.795 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:47:06.806 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 225.6496ms
+2023-11-26 14:48:24.215 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:48:24.223 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:48:24.224 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:48:24.225 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:48:24.2246139Z","DateInserted___":"2023-11-26T11:48:24.2246132Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:48:24.235 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:48:24.236 +03:00 [INF] Property password : 654321
+2023-11-26 14:48:38.283 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:48:38.285 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:48:38.294 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 14085.3423ms
+2023-11-26 14:49:02.058 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:49:02.062 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:49:02.063 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:49:02.064 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:49:02.0635682Z","DateInserted___":"2023-11-26T11:49:02.0635675Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:49:02.075 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:49:02.077 +03:00 [INF] Property password : 654321
+2023-11-26 14:49:35.467 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:49:35.469 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to track an entity of type 'SystemUser' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 110
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:49:35.477 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 33419.2318ms
+2023-11-26 14:51:29.697 +03:00 [INF] Registered 18 endpoints in 6197 milliseconds.
+2023-11-26 14:51:34.961 +03:00 [INF] Executed DbCommand (1,269ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-11-26 14:51:35.762 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2023-11-26 14:51:35.847 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."id", "c"."Name", "c"."Status", "c"."date_added", "c"."date_updated", "c"."modification_status"
+FROM "Contributors" AS "c"
+2023-11-26 14:51:35.975 +03:00 [ERR] An error occurred seeding the DB. Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+System.InvalidOperationException: Unable to track an entity of type 'Contributor' because its primary key property 'Id' is null.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NullableKeyIdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.PopulateTestData(AppDbContext dbContext) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 35
+   at KFA.SupportAssistant.Infrastructure.Data.SeedData.Initialize(IServiceProvider serviceProvider) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\SeedData.cs:line 23
+   at Program.<<Main>$>g__SeedDatabase|0_5(WebApplication app) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\Program.cs:line 86
+2023-11-26 14:51:36.192 +03:00 [INF] Now listening on: http://localhost:57679
+2023-11-26 14:51:36.193 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-26 14:51:36.194 +03:00 [INF] Hosting environment: Development
+2023-11-26 14:51:36.196 +03:00 [INF] Content root path: E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web
+2023-11-26 14:51:37.899 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - null null
+2023-11-26 14:51:40.183 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - 302 0 null 2303.4023ms
+2023-11-26 14:51:40.189 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - null null
+2023-11-26 14:51:41.684 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 1495.0873ms
+2023-11-26 14:51:41.705 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_vs/browserLink - null null
+2023-11-26 14:51:41.706 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - null null
+2023-11-26 14:51:41.720 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_framework/aspnetcore-browser-refresh.js - 200 13784 application/javascript; charset=utf-8 14.0518ms
+2023-11-26 14:51:41.844 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/_vs/browserLink - 200 null text/javascript; charset=UTF-8 138.7401ms
+2023-11-26 14:51:42.181 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - null null
+2023-11-26 14:51:42.337 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-26 14:51:43.908 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1727.6681ms
+2023-11-26 14:53:58.261 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/users/register - application/json 321
+2023-11-26 14:53:58.295 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-11-26 14:53:58.299 +03:00 [INF] Executing endpoint 'HTTP: POST /users/register'
+2023-11-26 14:53:58.647 +03:00 [INF] Handling UserRegisterCommand
+2023-11-26 14:53:58.652 +03:00 [INF] Property user : {"Contact":"07220942343","EmailAddress":"eliudfromken@outloook.com","ExpirationDate":"2050-07-01T00:00:00.0000000","IsActive":true,"MaturityDate":"2023-07-01T00:00:00.0000000","NameOfTheUser":"Eliud Amukambew","Narration":"Online tester","RoleId":null,"Username":"Eliud","Id":null,"DateUpdated___":"2023-11-26T11:53:58.6320373Z","DateInserted___":"2023-11-26T11:53:58.6319573Z","___Tag___":null,"$type":"SystemUserDTO"}
+2023-11-26 14:53:58.667 +03:00 [INF] Property device : ASG-02
+2023-11-26 14:53:58.669 +03:00 [INF] Property password : 654321
+2023-11-26 14:54:28.140 +03:00 [ERR] Failed executing DbCommand (119ms) [Parameters=[@p0='?' (Size = 6), @p1='?' (Size = 11), @p2='?' (Size = 25), @p3='?' (DbType = DateTime), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTime), @p6='?' (Size = 15), @p7='?' (Size = 13), @p8='?' (Size = 64) (DbType = Binary), @p9='?' (Size = 128) (DbType = Binary), @p10='?' (Size = 6), @p11='?', @p12='?' (Size = 5), @p13='?' (DbType = Int64), @p14='?' (DbType = Int64), @p15='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "tbl_system_users" ("user_id", "contact", "email_address", "expiration_date", "is_active", "maturity_date", "name_of_the_user", "narration", "password_hash", "password_salt", "role_id", "Role_Caption", "username", "date_added", "date_updated", "modification_status")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2023-11-26 14:54:28.245 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'KFA.SupportAssistant.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-11-26 14:54:28.501 +03:00 [INF] Executed endpoint 'HTTP: POST /users/register'
+2023-11-26 14:54:28.506 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Data\AppDbContext.cs:line 60
+   at KFA.SupportAssistant.Infrastructure.Services.AuthService.RegisterUserAsync(SystemUserDTO mUser, String password, String device, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Infrastructure\Services\AuthService.cs:line 112
+   at KFA.SupportAssistant.UseCases.Users.UserRegisterHandler.Handle(UserRegisterCommand request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.UseCases\Users\UserRegisterHandler.cs:line 13
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at KFA.SupportAssistant.Web.UserEndPoints.Register.HandleAsync(RegisterRequest request, CancellationToken cancellationToken) in E:\Documents\GitHub\KFA.SupportAssistant\BackEnd\src\KFA.SupportAssistant.Web\UserEndPoints\Register.cs:line 56
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-26 14:54:28.560 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/users/register - 500 null text/plain; charset=utf-8 30299.1918ms

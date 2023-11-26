@@ -1,9 +1,5 @@
-﻿using System.Configuration;
-using System.Security.Claims;
-using FastEndpoints.Security;
-using KFA.SupportAssistant.Core.DTOs;
+﻿using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Infrastructure.Services;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.UserEndPoints;

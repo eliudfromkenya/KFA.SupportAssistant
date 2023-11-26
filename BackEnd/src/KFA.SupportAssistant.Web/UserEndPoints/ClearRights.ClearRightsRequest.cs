@@ -8,7 +8,9 @@ public class ClearRightsRequest
 
   [Required]
   public string? UserId { get; set; }
+
   [Required]
   public string[] UserRightIds { get; set; } = [];
+
   public string? Device { get; set; }
 }

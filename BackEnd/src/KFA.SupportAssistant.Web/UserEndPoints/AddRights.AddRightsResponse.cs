@@ -10,6 +10,7 @@ public readonly struct AddRightsResponse
     ObjectName = objectName;
     RightId = rightId;
   }
+
   public string? UserId { get; }
   public string? Id { get; }
   public string? CommandId { get; }

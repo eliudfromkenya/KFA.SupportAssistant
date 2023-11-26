@@ -5,19 +5,12 @@ using KFA.SupportAssistant.Globals.Models;
 
 namespace KFA.SupportAssistant.UseCases.Users;
 
-public class UserLoginHandler : ICommandHandler<UserLoginCommand, Result<LoginResult>>
+public class UserLoginHandler(IAuthService authService) : ICommandHandler<UserLoginCommand, Result<LoginResult>>
 {
-  private readonly IAuthService _authService;
-
-  public UserLoginHandler(IAuthService authService)
-  {
-    _authService = authService;
-  }
-
   public async Task<Result<LoginResult>> Handle(UserLoginCommand request,
     CancellationToken cancellationToken)
   {
-    var result = await _authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
+    var result = await authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
 
     if (result == null)
     {

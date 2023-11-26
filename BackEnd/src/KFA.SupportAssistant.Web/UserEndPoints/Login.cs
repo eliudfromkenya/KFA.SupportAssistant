@@ -1,7 +1,5 @@
-﻿using System.Configuration;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using FastEndpoints.Security;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -51,7 +49,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
 
     var command = new UserLoginCommand(request.Username!, request.Password!, request.Device);
     var result = await _mediator.Send(command, cancellationToken);
-    
+
     if (result.IsSuccess)
     {
       var value = result.Value;
@@ -63,7 +61,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
           {
             new ("UserId", value.UserId!) ,
             new ("LoginId", value.LoginId!) ,
-            new ("RoleId", value.UserRole!) 
+            new ("RoleId", value.UserRole!)
           });
 
       await SendAsync(new LoginResponse(value.LoginId, jwtToken, value.UserId, value.UserRole, DateTime.Now, value.UserRights), cancellation: cancellationToken);

@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using System.Security.Claims;
-using FastEndpoints.Security;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
-using KFA.SupportAssistant.UseCases.Users;
+﻿using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.UserEndPoints;
@@ -37,7 +33,7 @@ public class AddRights(IMediator mediator, IConfiguration config) : Endpoint<Add
   {
     var command = new UserAddRightsCommand(request.UserId!, request.Commands!, request.Rights!);
     var result = await _mediator.Send(command, cancellationToken);
-    
+
     if (result.IsSuccess)
     {
       await SendAsync(result.Value.Select(v => new AddRightsResponse(v.Id, v.UserId, v.CommandId, v.ObjectName, v.RightId)).ToArray(), cancellation: cancellationToken);
