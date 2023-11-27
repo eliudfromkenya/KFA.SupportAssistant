@@ -30,7 +30,7 @@ internal class UserManagementService(AppDbContext context, IIdGenerator idGenera
         UserId = user.Id,
         RightId = v.Id,
         Narration = "Changed via web Api",
-        ___ModificationStatus___ = 1,
+        // ___ModificationStatus___ = 1,
         ___DateInserted___ = DateTime.UtcNow.FromDateTime(),
         ___DateUpdated___ = DateTime.UtcNow.FromDateTime()
       }).Select(n =>

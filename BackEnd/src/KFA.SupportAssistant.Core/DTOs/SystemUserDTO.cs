@@ -5,9 +5,9 @@ public record class SystemUserDTO : BaseDTO<SystemUser>
 {
   public string? Contact { get; set; }
   public string? EmailAddress { get; set; }
-  public DateTime ExpirationDate { get; set; }
-  public bool IsActive { get; set; }
-  public DateTime MaturityDate { get; set; }
+  public DateTime? ExpirationDate { get; set; }
+  public bool? IsActive { get; set; }
+  public DateTime? MaturityDate { get; set; }
   public string? NameOfTheUser { get; set; }
   public string? Narration { get; set; }
   //public string? Password { get; set; }

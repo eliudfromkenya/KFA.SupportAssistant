@@ -23,7 +23,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       users = users.Where(user => VerifyUser(password, user.PasswordHash, user.PasswordSalt)).ToArray();
       if (users.Length == 0) throw new Exception("Invalid user login credentials\r\nPlease check username or password");
 
-      users = users.Where(user => user.IsActive).ToArray();
+      users = users.Where(user => user?.IsActive??false).ToArray();
       if (users.Length == 0) throw new Exception("User is inactive, please contact system administrator");
 
       users = users.Where(user => user.MaturityDate < DateTime.UtcNow).ToArray();
@@ -57,7 +57,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
         Id = id,
         ___DateInserted___ = DateTime.UtcNow.FromDateTime(),
         ___DateUpdated___ = DateTime.UtcNow.FromDateTime(),
-        ___ModificationStatus___ = 1,
+        // ___ModificationStatus___ = 1,
         UptoDate = DateTime.UtcNow
       };
       await context.AddAsync(login, cancellationToken);

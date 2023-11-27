@@ -74,7 +74,7 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
             new ("RoleId", user.RoleId!)
           });
 
-      await SendAsync(new RegisterResponse(jwtToken, user.RoleId, user.Id, user.Contact, user.EmailAddress, user.ExpirationDate, user.IsActive, user.MaturityDate, user.NameOfTheUser, user.Narration, user.Username), cancellation: cancellationToken);
+      await SendAsync(new RegisterResponse(jwtToken, user.RoleId, user.Id, user.Contact, user.EmailAddress, user.ExpirationDate?? new DateTime(1,1,1), user.IsActive == true, user.MaturityDate ?? new DateTime(1, 1, 1), user.NameOfTheUser, user.Narration, user.Username), cancellation: cancellationToken);
     }
     else await SendErrorsAsync(statusCode: 500, cancellationToken);
   }

@@ -56,8 +56,8 @@ namespace KFA.SupportAssistant.Globals;
   [JsonIgnore]
   public bool? ___RecordIsSelected___ { get; set; }
 
-  [Column("modification_status", Order = 103)]
-  public byte? ___ModificationStatus___ { get; set; } = 1;
+  //[Column("modification_status", Order = 103)]
+  //public byte? ___ModificationStatus___ { get; set; } = 1;
 
   [NotMapped]
   [JsonIgnore]

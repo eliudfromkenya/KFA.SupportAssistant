@@ -23,15 +23,15 @@ public sealed record class SystemUser : BaseModel
 
   [Required]
   [Column("expiration_date")]
-  public global::System.DateTime ExpirationDate { get; init; }
+  public global::System.DateTime? ExpirationDate { get; init; }
 
   [Required]
   [Column("is_active")]
-  public bool IsActive { get; init; }
+  public bool? IsActive { get; init; }
 
   [Required]
   [Column("maturity_date")]
-  public global::System.DateTime MaturityDate { get; init; }
+  public global::System.DateTime? MaturityDate { get; init; }
 
   [Required]
   [MaxLength(255, ErrorMessage = "Please name of the user must be 255 characters or less")]
@@ -55,7 +55,7 @@ public sealed record class SystemUser : BaseModel
 
   [ForeignKey(nameof(RoleId))]
   public UserRole? Role { get; set; }
-
+  [NotMapped]
   public string? Role_Caption { get; set; }
 
   [Required]
