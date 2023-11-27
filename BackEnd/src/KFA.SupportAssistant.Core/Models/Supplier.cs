@@ -25,7 +25,7 @@ public sealed record class Supplier : BaseModel
 
   [ForeignKey(nameof(CostCentreCode))]
   public CostCentre? CostCentre { get; set; }
-
+  [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
   [Required]
@@ -51,7 +51,7 @@ public sealed record class Supplier : BaseModel
 
   [ForeignKey(nameof(SupplierCode))]
   public LedgerAccount? LedgerAccount { get; set; }
-
+  [NotMapped]
   public string? Supplier_Caption { get; set; }
 
   [Required]

@@ -11,29 +11,29 @@ public sealed record class SystemUser : BaseModel
     return (SystemUser)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_system_users";
-  [Required]
+  //[Required]
   [MaxLength(255, ErrorMessage = "Please contact must be 255 characters or less")]
   [Column("contact")]
   public string? Contact { get; init; }
 
-  [Required]
+  //[Required]
   [MaxLength(255, ErrorMessage = "Please email address must be 255 characters or less")]
   [Column("email_address")]
   public string? EmailAddress { get; init; }
 
-  [Required]
+  //[Required]
   [Column("expiration_date")]
   public global::System.DateTime? ExpirationDate { get; init; }
 
-  [Required]
+  //[Required]
   [Column("is_active")]
   public bool? IsActive { get; init; }
 
-  [Required]
+  //[Required]
   [Column("maturity_date")]
   public global::System.DateTime? MaturityDate { get; init; }
 
-  [Required]
+  //[Required]
   [MaxLength(255, ErrorMessage = "Please name of the user must be 255 characters or less")]
   [Column("name_of_the_user")]
   public string? NameOfTheUser { get; init; }
@@ -42,11 +42,11 @@ public sealed record class SystemUser : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  //[Required]
   [Column("password_hash")]
   public byte[]? PasswordHash { get; init; }
 
-  [Required]
+  //[Required]
   [Column("password_salt")]
   public byte[]? PasswordSalt { get; init; }
   [Required]
@@ -67,7 +67,7 @@ public sealed record class SystemUser : BaseModel
   //[Column("user_number")]
   //public string? UserNumber { get; init; }
 
-  [Required]
+  //[Required]
   [MaxLength(255, ErrorMessage = "Please username must be 255 characters or less")]
   [Column("username")]
   public string? Username { get; init; }

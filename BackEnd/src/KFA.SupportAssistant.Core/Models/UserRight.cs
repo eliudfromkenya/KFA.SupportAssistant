@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using KFA.SupportAssistant.Core.DataLayer.Types;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Globals;
 
@@ -12,7 +13,7 @@ public sealed record class UserRight : BaseModel
     return (UserRightDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_rights";
-  [Required]
+  //[Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -21,7 +22,7 @@ public sealed record class UserRight : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+ // [Required]
   [MaxLength(255, ErrorMessage = "Please object name must be 255 characters or less")]
   [Column("object_name")]
   public string? ObjectName { get; init; }
@@ -31,7 +32,7 @@ public sealed record class UserRight : BaseModel
 
   [ForeignKey(nameof(CommandId))]
   public CommandDetail? CommandDetail { get; set; }
-
+  [NotMapped]
   public string? Command_Caption { get; set; }
 
   [Column("right_id")]
@@ -39,28 +40,30 @@ public sealed record class UserRight : BaseModel
 
   [ForeignKey(nameof(RightId))]
   public SystemRight? Right { get; set; }
-
+  [NotMapped]
   public string? Right_Caption { get; set; }
 
-  [Required]
+ // [Required]
   [Column("role_id")]
   public string? RoleId { get; init; }
 
   [ForeignKey(nameof(RoleId))]
   public UserRole? Role { get; set; }
-
+  [NotMapped]
   public string? Role_Caption { get; set; }
 
-  [Required]
+ // [Required]
   [Column("user_id")]
   public string? UserId { get; init; }
 
   [ForeignKey(nameof(UserId))]
   public SystemUser? User { get; set; }
-
+  [NotMapped]
   public string? User_Caption { get; set; }
 
-  [Required]
+  //[Required]
   [Column("user_right_id")]
   public override string? Id { get; set; }
+  [Column("user_activities")]
+  public UserActivities UserActivities { get; set; } = UserActivities.None;
 }

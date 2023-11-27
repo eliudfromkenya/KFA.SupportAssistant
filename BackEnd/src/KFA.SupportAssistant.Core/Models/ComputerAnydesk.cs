@@ -35,7 +35,7 @@ public sealed record class ComputerAnydesk : BaseModel
 
   [ForeignKey(nameof(CostCentreCode))]
   public CostCentre? CostCentre { get; set; }
-
+  [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
   [Required]

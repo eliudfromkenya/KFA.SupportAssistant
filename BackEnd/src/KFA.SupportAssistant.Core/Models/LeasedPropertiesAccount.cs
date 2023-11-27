@@ -23,7 +23,7 @@ public sealed record class LeasedPropertiesAccount : BaseModel
 
   [ForeignKey(nameof(CostCentreCode))]
   public CostCentre? CostCentre { get; set; }
-
+  [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
   [Column("current_rent")]
@@ -52,6 +52,6 @@ public sealed record class LeasedPropertiesAccount : BaseModel
   public string? Narration { get; init; }
 
   public LedgerAccount? LedgerAccount { get; set; }
-
+  [NotMapped]
   public string? LedgerAccount_Caption { get; set; }
 }

@@ -17,7 +17,7 @@ public sealed record class VerificationRight : BaseModel
 
   [ForeignKey(nameof(DeviceId))]
   public DataDevice? Device { get; set; }
-
+  [NotMapped]
   public string? Device_Caption { get; set; }
 
   [Column("user_id")]
@@ -25,7 +25,7 @@ public sealed record class VerificationRight : BaseModel
 
   [ForeignKey(nameof(UserId))]
   public SystemUser? User { get; set; }
-
+  [NotMapped]
   public string? User_Caption { get; set; }
 
   [Required]
@@ -34,7 +34,7 @@ public sealed record class VerificationRight : BaseModel
 
   [ForeignKey(nameof(UserRoleId))]
   public UserRole? UserRole { get; set; }
-
+  [NotMapped]
   public string? UserRole_Caption { get; set; }
 
   [Required]

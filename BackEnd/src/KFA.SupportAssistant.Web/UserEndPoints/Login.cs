@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using FastEndpoints.Security;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -49,6 +50,12 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
 
     var command = new UserLoginCommand(request.Username!, request.Password!, request.Device);
     var result = await _mediator.Send(command, cancellationToken);
+
+    if (result.Errors.Any())
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      return;
+    }
 
     if (result.IsSuccess)
     {

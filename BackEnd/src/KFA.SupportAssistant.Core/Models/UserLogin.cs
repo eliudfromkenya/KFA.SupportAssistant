@@ -39,7 +39,7 @@ public sealed record class UserLogin : BaseModel
 
   [ForeignKey(nameof(UserId))]
   public SystemUser? User { get; set; }
-
+  [NotMapped]
   public string? User_Caption { get; set; }
   public ICollection<UserAuditTrail>? UserAuditTrails { get; set; }
   public ICollection<Verification>? Verifications { get; set; }

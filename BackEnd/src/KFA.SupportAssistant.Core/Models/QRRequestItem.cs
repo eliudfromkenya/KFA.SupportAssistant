@@ -21,7 +21,7 @@ public sealed record class QRRequestItem : BaseModel
 
   [ForeignKey(nameof(CostCentreCode))]
   public CostCentre? CostCentre { get; set; }
-
+  [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
   [MaxLength(25, ErrorMessage = "Please hs code must be 25 characters or less")]

@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.UseCases.Users;
+﻿using KFA.SupportAssistant.Infrastructure.Services;
+using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.UserEndPoints;
@@ -34,13 +35,16 @@ public class AddRights(IMediator mediator, IConfiguration config) : Endpoint<Add
     var command = new UserAddRightsCommand(request.UserId!, request.Commands!, request.Rights!);
     var result = await _mediator.Send(command, cancellationToken);
 
+    if (result.Errors.Any())
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      return;
+    }
+
     if (result.IsSuccess)
     {
       await SendAsync(result.Value.Select(v => new AddRightsResponse(v.Id, v.UserId, v.CommandId, v.ObjectName, v.RightId)).ToArray(), cancellation: cancellationToken);
     }
-    else
-    {
-      AddError("The supplied credentials are invalid!");
-    }
+    else await SendErrorsAsync(statusCode: 500, cancellationToken);
   }
 }

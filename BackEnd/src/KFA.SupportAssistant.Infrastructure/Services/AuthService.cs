@@ -5,6 +5,7 @@ using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Globals.Models;
 using KFA.SupportAssistant.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace KFA.SupportAssistant.Infrastructure.Services;
 
@@ -15,8 +16,8 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
     using (context)
     {
       var users = context.SystemUsers
-        .Where(c => c.Username!.Equals(username, StringComparison.CurrentCultureIgnoreCase))
-        // .Where(c => c.IsActive && c.MaturityDate >  DateTime.UtcNow && c.ExpirationDate < DateTime.UtcNow)
+      .Where(b => b.Username == username || b.Id == username || b.EmailAddress == username)
+      .AsNoTracking()
         .Select(b => new { b.Id, b.ExpirationDate, b.IsActive, b.MaturityDate, b.NameOfTheUser, b.PasswordHash, b.PasswordSalt, b.RoleId, b.Username, })
         .ToArray();
 
@@ -57,7 +58,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
         Id = id,
         ___DateInserted___ = DateTime.UtcNow.FromDateTime(),
         ___DateUpdated___ = DateTime.UtcNow.FromDateTime(),
-        // ___ModificationStatus___ = 1,
+        ___ModificationStatus___ = 1,
         UptoDate = DateTime.UtcNow
       };
       await context.AddAsync(login, cancellationToken);
@@ -96,7 +97,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
 
   public async Task<SystemUserDTO> RegisterUserAsync(SystemUserDTO mUser, string password, string? device, CancellationToken cancellationToken)
   {
-    using (context)
+    //using (context)
     {
       var usr = (SystemUser)mUser;
       byte[] passwordHash, passwordSalt = [];
@@ -124,15 +125,13 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       using var db = context;
       var user = context.SystemUsers
       .Where(b => b.Username == userIdOrUsername || b.Id == userIdOrUsername)
+      .AsNoTracking()
       .FirstOrDefault() ?? throw new Exception("Can't find the user to change the password");
       byte[] passwordHash, passwordSalt = [];
       passwordHash = newPassword!.CreatePasswordHash(out passwordSalt);
 
       if (!VerifyUser(oldPassword, user.PasswordHash, user.PasswordSalt))
         throw new Exception("Your current(old) password is not valid");
-
-      var userX = db.SystemUsers
-          .FirstOrDefault(c => c.Id == user.Id);
 
       user = user with { IsActive = true, PasswordHash = passwordHash, PasswordSalt = passwordSalt };
 

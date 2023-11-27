@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using Ardalis.SharedKernel;
 using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.Globals;
 
-	//
-	// Summary:
-	//     A base class for DDD Entities. Includes support for domain events dispatched
-	//     post-persistence. If you prefer GUID Ids, change it here. If you need to support
-	//     both GUID and int IDs, change to EntityBase<TId> and use TId as the type for
-	//     Id.
-	public abstract record class BaseModel: IAggregateRoot
-	{
-		private readonly List<DomainEventBase> _domainEvents = [];
+//
+// Summary:
+//     A base class for DDD Entities. Includes support for domain events dispatched
+//     post-persistence. If you prefer GUID Ids, change it here. If you need to support
+//     both GUID and int IDs, change to EntityBase<TId> and use TId as the type for
+//     Id.
+public abstract record class BaseModel : IAggregateRoot
+  {
+  private readonly List<DomainEventBase> _domainEvents = [];
   private string? _id;
 
   [Key]
@@ -28,19 +22,19 @@ namespace KFA.SupportAssistant.Globals;
   public virtual string? Id { get => _id; set => _id = value; }
 
   public BaseModel(string? id = null) => _id = id;
-  
-		[NotMapped]
-		public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
 
-		protected void RegisterDomainEvent(DomainEventBase domainEvent)
-		{
-			_domainEvents.Add(domainEvent);
-		}
+  [NotMapped]
+  public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
 
-		internal void ClearDomainEvents()
-		{
-			_domainEvents.Clear();
-		}
+  protected void RegisterDomainEvent(DomainEventBase domainEvent)
+    {
+    _domainEvents.Add(domainEvent);
+    }
+
+  internal void ClearDomainEvents()
+    {
+    _domainEvents.Clear();
+    }
 
   public abstract object ToBaseDTO();
 
@@ -56,8 +50,8 @@ namespace KFA.SupportAssistant.Globals;
   [JsonIgnore]
   public bool? ___RecordIsSelected___ { get; set; }
 
-  //[Column("modification_status", Order = 103)]
-  //public byte? ___ModificationStatus___ { get; set; } = 1;
+  [Column("is_currently_enabled", Order = 103)]
+  public byte? ___ModificationStatus___ { get; set; } = 1;
 
   [NotMapped]
   [JsonIgnore]
@@ -68,4 +62,6 @@ namespace KFA.SupportAssistant.Globals;
 
   [Column("date_updated", Order = 101)]
   public long? ___DateUpdated___ { get; set; } = DateTime.Now.FromDateTime();
+  [Column("originator_id", Order = 101)]
+  public long? originator_id { get; set; } = 100000000023;
   }

@@ -36,7 +36,7 @@ public sealed record class UserAuditTrail : BaseModel
 
   [ForeignKey(nameof(CommandId))]
   public CommandDetail? Command { get; set; }
-
+  [NotMapped]
   public string? Command_Caption { get; set; }
 
   [Required]
@@ -54,7 +54,7 @@ public sealed record class UserAuditTrail : BaseModel
 
   [ForeignKey(nameof(LoginId))]
   public UserLogin? Login { get; set; }
-
+  [NotMapped]
   public string? Login_Caption { get; set; }
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]

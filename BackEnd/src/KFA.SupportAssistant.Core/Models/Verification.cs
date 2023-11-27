@@ -22,7 +22,7 @@ public sealed record class Verification : BaseModel
 
   [ForeignKey(nameof(LoginId))]
   public UserLogin? Login { get; set; }
-
+  [NotMapped]
   public string? Login_Caption { get; set; }
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]

@@ -16,10 +16,16 @@ public class RegisterDeviceValidator : Validator<RegisterDeviceRequest>
       .MinimumLength(2)
       .MaximumLength(DataSchemaConstants.DEFAULT_NAME_LENGTH);
 
-    RuleFor(x => x.DeviceCode)
+    RuleFor(x => x.Description)
     .NotEmpty()
-    .WithMessage("Device Code is required.")
+    .WithMessage("Device caption is required.")
     .MinimumLength(2)
     .MaximumLength(DataSchemaConstants.DEFAULT_NAME_LENGTH);
+
+    RuleFor(x => x.DeviceCode)
+  .NotEmpty()
+  .WithMessage("Device Code is required.")
+  .MinimumLength(2)
+  .MaximumLength(DataSchemaConstants.DEFAULT_NAME_LENGTH);
   }
 }

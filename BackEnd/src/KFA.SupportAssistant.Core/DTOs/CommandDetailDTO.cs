@@ -8,10 +8,10 @@ public record class CommandDetailDTO : BaseDTO<CommandDetail>
   public string? Category { get; set; }
   public string? CommandName { get; set; }
   public string? CommandText { get; set; }
-  public long ImageId { get; set; }
+  public long? ImageId { get; set; }
   public string? ImagePath { get; set; }
-  public bool IsEnabled { get; set; }
-  public bool IsPublished { get; set; }
+  public bool? IsEnabled { get; set; }
+  public bool? IsPublished { get; set; }
   public string? Narration { get; set; }
   public string? ShortcutKey { get; set; }
   public override CommandDetail? ToModel()

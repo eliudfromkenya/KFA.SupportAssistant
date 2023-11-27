@@ -39,6 +39,6 @@ public sealed record class UserRole : BaseModel
   public ICollection<SystemUser>? SystemUsers { get; set; }
   public ICollection<UserRight>? UserRights { get; set; }
   public VerificationRight? VerificationRight { get; set; }
-
+  [NotMapped]
   public string? UserRole_Caption { get; set; }
 }

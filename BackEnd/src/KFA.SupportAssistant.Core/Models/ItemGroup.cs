@@ -26,7 +26,7 @@ public sealed record class ItemGroup : BaseModel
 
   [ForeignKey(nameof(ParentGroupId))]
   public ItemGroup? ParentGroup { get; set; }
-
+  [NotMapped]
   public string? ParentGroup_Caption { get; set; }
 
   public ICollection<ItemGroup>? ItemGroups { get; set; }

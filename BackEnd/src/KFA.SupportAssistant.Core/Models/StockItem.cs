@@ -21,7 +21,7 @@ public sealed record class StockItem : BaseModel
 
   [ForeignKey(nameof(GroupId))]
   public ItemGroup? Group { get; set; }
-
+  [NotMapped]
   public string? Group_Caption { get; set; }
 
   [Required]
