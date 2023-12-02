@@ -1,11 +1,12 @@
 ﻿using Ardalis.Result;
-using FastEndpoints;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.UseCases.Models.Update;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+using KFA.SupportAssistant.Web.Services;
 using Mapster;
 using MediatR;
 
@@ -18,19 +19,20 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// Update an existing CostCentre by providing a fully defined replacement set of values.
 /// See: https://stackoverflow.com/questions/60761955/rest-update-best-practice-put-collection-id-without-id-in-body-vs-put-collecti
 /// </remarks>
-public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse>
+public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse>
 {
-  private readonly IMediator _mediator;
-
-  public Update(IMediator mediator)
-  {
-    _mediator = mediator;
-  }
-
   public override void Configure()
   {
     Put(UpdateCostCentreRequest.Route);
-    AllowAnonymous();
+    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Summary(s =>
+    {
+      // XML Docs are used by default but are overridden by these properties:
+      s.Summary = "Update a Cost Centre";
+      s.Description = "Create a new CostCentre. A valid name is required. hgklgjk";
+      s.ExampleRequest = new CreateCostCentreRequest { Description = "CostCentre Name" };
+      s.ResponseExamples[200] = new CreateCostCentreResponse { };
+    });
   }
 
   public override async Task HandleAsync(
@@ -46,8 +48,8 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO, CostCentre>(request.Id ?? "");
-    var resultObj = await _mediator.Send(command, cancellationToken);
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "");
+    var resultObj = await mediator.Send(command, cancellationToken);
 
     if (resultObj.Errors.Any())
     {
@@ -63,7 +65,7 @@ public class Update : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse
     }
 
     var value = request.Adapt(resultObj.Value);
-    var result = await _mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(request.Id ?? "", value!), cancellationToken);
+    var result = await mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "", value!), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
     {

@@ -1,4 +1,5 @@
 ﻿using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.UseCases.Models.Create;
@@ -7,4 +8,4 @@ namespace KFA.SupportAssistant.UseCases.Models.Create;
 /// Create a new CostCentre.
 /// </summary>
 /// <param name="Name"></param>
-public record CreateModelCommand<T, X>(params T[] Models) : Ardalis.SharedKernel.ICommand<Result<T?[]>> where T : BaseDTO<X>, new() where X : BaseModel, new();
+public record CreateModelCommand<T, X>(EndPointUser user, params T[] models) : Ardalis.SharedKernel.ICommand<Result<T?[]>> where T : BaseDTO<X>, new() where X : BaseModel, new();

@@ -1,6 +1,5 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Autofac.Core;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Globals;
 using Mapster;
@@ -25,7 +24,7 @@ public class PatchModelHandler<T, X>(IRepository<X> _repository, IUpdateModelSer
       request.applyChanges(baseModel).Adapt(model);   
 
     model.___DateUpdated___ = DateTime.Now.FromDateTime();
-    model = await _updateService.UpdateModel(id, model, cancellationToken);
+    model = await _updateService.UpdateModel(request.user, id, model, cancellationToken);
 
     if (model.ToBaseDTO() is T ans)
       return Result.Success(ans);

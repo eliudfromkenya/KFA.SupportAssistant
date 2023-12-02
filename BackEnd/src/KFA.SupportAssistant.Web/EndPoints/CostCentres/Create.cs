@@ -1,9 +1,10 @@
-﻿using FastEndpoints;
+﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Create;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+using KFA.SupportAssistant.Web.Services;
 using Mapster;
 using MediatR;
 
@@ -15,32 +16,21 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// Creates a new CostCentre given a name.
 /// </remarks>
-public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse>
+public class Create(IMediator mediator) : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse>
 {
-  private readonly IMediator _mediator;
-
-  public Create(IMediator mediator)
-  {
-    _mediator = mediator;
-  }
-
   public override void Configure()
   {
     Post(CreateCostCentreRequest.Route);
-    AllowAnonymous();
-    //Claims("AdminID", "EmployeeID");
-    // Roles("Admin", "Manager","AAA-06");
-    //Permissions("R-AAA-10", "DeleteUsersPermission");
-    //Policy(x => x.RequireAssertion(...));
+    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
-      s.Summary = "Create a new CostCentre nnnh.";
-      s.Description = "Create a new CostCentre. A valid name is required. hgklgjk";
-      s.ExampleRequest = new CreateCostCentreRequest { Description = "CostCentre Name" };
+      s.Summary = "User to create a new cost centre";
+      s.Description = "Cost centre to be created details are provided here";
+      s.ExampleRequest = new CreateCostCentreRequest { CostCentreCode = "1000", Description = "Cost Centre Name" };
+      s.ResponseExamples[200] = new CreateCostCentreResponse("1100", "Cost Centre Name", "Narration", "Region", "S3A", DateTime.UtcNow, DateTime.UtcNow);
     });
   }
-
   public override async Task HandleAsync(
     CreateCostCentreRequest request,
     CancellationToken cancellationToken)
@@ -48,13 +38,14 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
     var requestDTO = request.Adapt<CostCentreDTO>();
     requestDTO.Id = request.CostCentreCode;
 
-    var result = await _mediator.Send(new CreateModelCommand<CostCentreDTO, CostCentre>(requestDTO), cancellationToken);
+    var result = await mediator.Send(new CreateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), requestDTO), cancellationToken);
+
+    AddError("Tester men error");
 
     if (result.Errors.Any())
-    {
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      return;
-    }
+      result.Errors.ToList().ForEach(n => AddError(n));
+    await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+    ThrowIfAnyErrors();
 
     if (result.IsSuccess)
     {
@@ -64,6 +55,5 @@ public class Create : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse
         return;
       }
     }
-    // TODO: Handle other cases as necessary
   }
 }

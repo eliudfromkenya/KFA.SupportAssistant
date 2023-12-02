@@ -1,10 +1,11 @@
-﻿using FastEndpoints;
+﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+using KFA.SupportAssistant.Web.Services;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
@@ -15,39 +16,32 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// List all CostCentres - returns a CostCentreListResponse containing the CostCentres.
 /// </remarks>
-public class List : Endpoint<ListCostCentreRequest, CostCentreListResponse>
+public class List(IMediator mediator) : Endpoint<ListCostCentreRequest, CostCentreListResponse>
 {
-  private readonly IMediator _mediator;
-
-  public List(IMediator mediator)
-  {
-    _mediator = mediator;
-  }
-
   public override void Configure()
   {
     Get(ListCostCentreRequest.Route);
-    AllowAnonymous();
+    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
-      s.Summary = "Create a new CostCentre nnnh.";
-      s.Description = "Create a new CostCentre. A valid name is required. hgklgjk";
-      s.ExampleRequest = new ListCostCentreRequest { Skip = 0, Take = 10 };
+      s.Summary = "Retrieves list of cost centres as specified";
+      s.Description = "Returns all cost centres within specified range";
+      s.ResponseExamples[200] = new CostCentreListResponse { CostCentres = [] };
+      s.ExampleRequest = new ListCostCentreRequest { Skip = 0, Take = 1000 };
     });
   }
 
   public override async Task HandleAsync(ListCostCentreRequest request,
     CancellationToken cancellationToken)
   {
-    var command = new ListModelsQuery<CostCentreDTO, CostCentre>(new ListParam { Skip = request.Skip, Take = request.Take });
-    var result = await _mediator.Send(command, cancellationToken);
+    var command = new ListModelsQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), new ListParam { Skip = request.Skip, Take = request.Take });
+    var result = await mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())
-    {
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      return;
-    }
+      result.Errors.ToList().ForEach(n => AddError(n));
+     await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+    ThrowIfAnyErrors();
 
     if (result.IsSuccess)
     {

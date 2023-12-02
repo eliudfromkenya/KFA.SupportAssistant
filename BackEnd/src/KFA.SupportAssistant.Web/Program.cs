@@ -37,24 +37,24 @@ Log.Logger = logConfig.CreateBootstrapLogger();
 
 Log.Information("Starting the HostBuilder...");
 
-//builder.Services
-//   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
-//   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
-//   .AddAuthentication(o =>
-//   {
-//     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
-//     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
-//   })
-//   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
-//   {
-//     o.ForwardDefaultSelector = ctx =>
-//     {
-//       if (ctx.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
-//           authHeader.FirstOrDefault()?.StartsWith("Bearer ") is true)
-//         return JwtBearerDefaults.AuthenticationScheme;
-//       return CookieAuthenticationDefaults.AuthenticationScheme;
-//     };
-//   });
+builder.Services
+   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
+   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
+   .AddAuthentication(o =>
+   {
+     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
+     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
+   })
+   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
+   {
+     o.ForwardDefaultSelector = ctx =>
+     {
+       if (ctx.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
+           authHeader.FirstOrDefault()?.StartsWith("Bearer ") is true)
+         return JwtBearerDefaults.AuthenticationScheme;
+       return CookieAuthenticationDefaults.AuthenticationScheme;
+     };
+   });
 
 
 Guard.Against.Null(connectionString);
@@ -62,13 +62,19 @@ var con = new MySqlConnection(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options =>
           options.UseMySql(con, ServerVersion.AutoDetect(con)), ServiceLifetime.Scoped);
 //builder.Services.AddMapster();
-builder.Services.AddFastEndpoints();
+builder.Services.AddFastEndpoints()
+                .AddAntiforgery();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication();
 
 builder.Services.SwaggerDocument(o =>
 {
   o.ShortSchemaNames = true;
+  o.DocumentSettings = s =>
+  {
+    s.Title = "KFA Dynamics Support";
+    s.Version = "V3.0.0.1";
+  };
 });
 
 // add list services for diagnostic purposes - see https://github.com/ardalis/AspNetCoreStartupServices
@@ -98,7 +104,7 @@ else
   app.UseDefaultExceptionHandler(); // from FastEndpoints
   app.UseHsts();
 }
-app.UseFastEndpoints();
+app.UseAntiForgery().UseFastEndpoints();
 app.UseSwaggerGen(); // FastEndpoints middleware
 
 app.UseHttpsRedirection();

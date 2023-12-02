@@ -14,7 +14,7 @@ public class DeleteModelService<T>(IRepository<T> _repository,
 {
   // This service and method exist to provide a place in which to fire domain events
   // when deleting this aggregate root entity
-  public async Task<Result> DeleteModel(CancellationToken cancellationToken, params string[] ids)
+  public async Task<Result> DeleteModel(EndPointUser? user, CancellationToken cancellationToken, params string[] ids)
   {
     _logger.LogInformation("Deleting model {type} - {ids}", typeof(T), string.Join(",", ids));
     if (ids?.Length < 1)

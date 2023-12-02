@@ -1,10 +1,11 @@
 ﻿using Ardalis.Result;
-using FastEndpoints;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+using KFA.SupportAssistant.Web.Services;
 using MediatR;
 
 namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
@@ -15,19 +16,20 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// Takes a positive integer ID and returns a matching CostCentre record.
 /// </remarks>
-public class GetById : Endpoint<GetCostCentreByIdRequest, CostCentreRecord>
+public class GetById(IMediator mediator) : Endpoint<GetCostCentreByIdRequest, CostCentreRecord>
 {
-  private readonly IMediator _mediator;
-
-  public GetById(IMediator mediator)
-  {
-    _mediator = mediator;
-  }
-
   public override void Configure()
   {
     Get(GetCostCentreByIdRequest.Route);
-    AllowAnonymous();
+    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Summary(s =>
+    {
+      // XML Docs are used by default but are overridden by these properties:
+      s.Summary = "Gets a cost centre by specified id";
+      s.Description = "Used to retrieved saved cost centre with the provided id";
+      s.ExampleRequest = new GetCostCentreByIdRequest { Id = "id to retrieve" };
+      s.ResponseExamples[200] = new CostCentreRecord("Id", "Description", "narration", "Region", "supplier prefix", DateTime.UtcNow, DateTime.UtcNow);
+    });
   }
 
   public override async Task HandleAsync(GetCostCentreByIdRequest request,
@@ -36,20 +38,17 @@ public class GetById : Endpoint<GetCostCentreByIdRequest, CostCentreRecord>
     if (string.IsNullOrWhiteSpace(request.Id))
     {
       AddError(request => request.Id ?? "Id", "Id of item to be retrieved is required please");
-
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
-
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO, CostCentre>(request.Id ?? "");
-    var result = await _mediator.Send(command, cancellationToken);
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "");
+    var result = await mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())
-    {
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      return;
-    }
+      result.Errors.ToList().ForEach(n => AddError(n));
+    await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+    ThrowIfAnyErrors();
 
     if (result.Status == ResultStatus.NotFound || result.Value == null)
     {

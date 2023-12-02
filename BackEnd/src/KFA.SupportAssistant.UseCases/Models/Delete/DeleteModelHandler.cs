@@ -12,7 +12,7 @@ public class DeleteModelHandler<T>(IDeleteModelService<T> _deleteCostCentreServi
   {
     // This Approach: Keep Domain Events in the Domain Model / Core project; this becomes a pass-through
     // This is @ardalis's preferred approach
-    var result = await _deleteCostCentreService.DeleteModel(cancellationToken, request.id);
+    var result = await _deleteCostCentreService.DeleteModel(request.user, cancellationToken, request.id);
 
     return result;
 

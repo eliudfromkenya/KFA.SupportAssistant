@@ -20,7 +20,7 @@ public class UpdateModelHandler<T, X>(IRepository<X> _repository, IUpdateModelSe
     }
     request?.model?.Adapt(model);
     model.___DateUpdated___ = DateTime.Now.FromDateTime();
-    model = await _updateService.UpdateModel(id, model, cancellationToken);
+    model = await _updateService.UpdateModel(request?.user, id, model, cancellationToken);
 
     if (model.ToBaseDTO() is T ans)
       return Result.Success(ans);

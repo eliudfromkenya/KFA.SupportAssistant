@@ -15,16 +15,14 @@ namespace KFA.SupportAssistant.Web.UserEndPoints;
 public class Login : Endpoint<LoginRequest, LoginResponse>
 {
   private readonly IMediator _mediator;
-  private readonly IConfiguration _config;
 
   //private readonly Microsoft.Extensions.Configuration.ConfigurationManager _manager;
 
   // private readonly WebApplicationBuilder _builder;
 
-  public Login(IMediator mediator, IConfiguration config)
+  public Login(IMediator mediator)
   {
     _mediator = mediator;
-    _config = config;
     //_manager = manager;
     // _builder = builder;
   }
@@ -46,7 +44,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
     LoginRequest request,
     CancellationToken cancellationToken)
   {
-    var tokenSignature = _config.GetValue<string>("Auth:TokenSigningKey");
+    var tokenSignature = Config.GetValue<string>("Auth:TokenSigningKey");
 
     var command = new UserLoginCommand(request.Username!, request.Password!, request.Device);
     var result = await _mediator.Send(command, cancellationToken);

@@ -11,7 +11,7 @@ public class CreateModelHandler<T, X>(IInsertModelService<X> _addService)
   public async Task<Result<T?[]>> Handle(CreateModelCommand<T, X> request,
     CancellationToken cancellationToken)
   {
-    X[] objs = request?.Models?
+    X[] objs = request?.models?
       .Select(c => c.ToModel())?
       .Where(m => m != null)
       .Select(n => n!)
@@ -24,7 +24,7 @@ public class CreateModelHandler<T, X>(IInsertModelService<X> _addService)
       if (string.IsNullOrWhiteSpace(obj.Id))
         obj.Id = Declarations.IdGenerator?.GetNextId<X>();
     }
-    var createdItem = await _addService.InsertModel(cancellationToken, objs);
+    var createdItem = await _addService.InsertModel(request?.user, cancellationToken, objs);
     return createdItem.Value?.Select(c => (T)c.ToBaseDTO())?.ToArray() ?? [];
   }
 }

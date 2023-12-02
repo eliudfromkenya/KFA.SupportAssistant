@@ -37,7 +37,10 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       var allUserRights = context
         .UserRights
         .Where(c => c.UserId == user.Id || c.RoleId == user.RoleId)
-        .Select(v => new { v.RightId, v.CommandId }).ToArray();
+        .Select(v => new { v.RightId, v.CommandId })
+        .Distinct()
+        .ToArray();
+
       var userRights = allUserRights
         .Where(c => c.CommandId != null && c.CommandId?.Trim()?.Length > 0)
         .Select(c => $"C-{c.CommandId}").Concat(allUserRights
