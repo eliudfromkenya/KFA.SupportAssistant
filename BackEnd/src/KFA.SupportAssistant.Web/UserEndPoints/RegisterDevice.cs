@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core.DTOs;
+﻿using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Infrastructure.Services;
 using MediatR;
@@ -17,7 +18,7 @@ public class RegisterDevice(IMediator mediator) : Endpoint<RegisterDeviceRequest
 
   public override void Configure()
   {
-    Post(RegisterDeviceRequest.Route);
+    Post(CoreFunctions.GetURL(RegisterDeviceRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

@@ -25,6 +25,9 @@ public sealed record class CostCentre : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
+  [Column("is_active")]
+  public bool? IsActive { get; init; } = true;
+
   [MaxLength(255, ErrorMessage = "Please region must be 255 characters or less")]
   [Column("region")]
   public string? Region { get; init; }

@@ -12,7 +12,6 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="EndPoints\CostCentres\PatchCostCentre.PatchRequestChecker.cs" />
     <None Include="EndPoints\CostCentres\PatchCostCentre.PatchRequest.cs" />
   </ItemGroup>
   
@@ -21,6 +20,7 @@
     <PackageReference Include="Ardalis.Result" />
     <PackageReference Include="Ardalis.Result.AspNetCore" />
     <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="FastEndpoints.AspVersioning" />
     <PackageReference Include="FastEndpoints.Security" />
     <!--<PackageReference Include="FastEndpoints.ApiExplorer" />-->
     <PackageReference Include="FastEndpoints.Swagger" />

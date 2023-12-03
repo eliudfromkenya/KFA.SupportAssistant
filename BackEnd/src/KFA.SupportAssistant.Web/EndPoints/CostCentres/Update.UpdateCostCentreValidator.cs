@@ -11,11 +11,11 @@ public class UpdateCostCentreValidator : Validator<UpdateCostCentreRequest>
 {
   public UpdateCostCentreValidator()
   {
-    RuleFor(x => x.Id)
-      .NotEmpty()
-      .WithMessage("Cost centre code of the cost centre to update is required please")
-      .MinimumLength(2)
-      .MaximumLength(DataSchemaConstants.DEFAULT_NAME_LENGTH);
+    //RuleFor(x => x.CostCentreCode)
+    //  .NotEmpty()
+    //  .WithMessage("Cost centre code of the cost centre to update is required please")
+    //  .MinimumLength(2)
+    //  .MaximumLength(DataSchemaConstants.DEFAULT_NAME_LENGTH);
 
     RuleFor(x => x.Description)
      .NotEmpty()
@@ -28,8 +28,8 @@ public class UpdateCostCentreValidator : Validator<UpdateCostCentreRequest>
       return string.IsNullOrWhiteSpace(objectId) || objectId == urlId;
     }
 
-    RuleFor(x => x.Id)
-      .Must((args, costCentreId) => checkIds(args.Id, costCentreId))
+    RuleFor(x => x.CostCentreCode)
+      .Must((args, costCentreId) => checkIds(args.CostCentreCode, costCentreId))
       .WithMessage("Route and body Ids must match; cannot update Id of an existing resource.");
   }
 }

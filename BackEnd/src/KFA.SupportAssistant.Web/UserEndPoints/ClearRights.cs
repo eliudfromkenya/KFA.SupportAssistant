@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Infrastructure.Services;
+﻿using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -16,7 +17,7 @@ public class ClearRights(IMediator mediator) : Endpoint<ClearRightsRequest, stri
 
   public override void Configure()
   {
-    Post(ClearRightsRequest.Route);
+    Post(CoreFunctions.GetURL(ClearRightsRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

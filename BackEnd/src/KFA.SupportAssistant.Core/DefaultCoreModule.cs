@@ -13,8 +13,8 @@ public class DefaultCoreModule : Module
 {
   protected override void Load(ContainerBuilder builder)
   {
-    builder.RegisterType<DeleteContributorService>()
-        .As<IDeleteContributorService>().InstancePerLifetimeScope();
+    //builder.RegisterType<DeleteContributorService>()
+    //    .As<IDeleteContributorService>().InstancePerLifetimeScope();
 
     //builder.RegisterType(typeof(DeleteModelService<>))
     //   .As(typeof(IDeleteModelService<>)).InstancePerLifetimeScope();

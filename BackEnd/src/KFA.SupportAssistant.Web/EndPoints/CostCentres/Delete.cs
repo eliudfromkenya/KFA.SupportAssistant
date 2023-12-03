@@ -19,14 +19,15 @@ public class Delete(IMediator mediator) : Endpoint<DeleteCostCentreRequest>
 {
   public override void Configure()
   {
-    Delete(DeleteCostCentreRequest.Route);
+    Delete(CoreFunctions.GetURL(DeleteCostCentreRequest.Route));
     Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Description(x => x.WithName("Delete Cost Centre"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Delete a Cost Centre";
       s.Description = "Used to delete cost centre with specified id(s)";
-      s.ExampleRequest = new DeleteCostCentreRequest { Id = "AAA-01" };
+      s.ExampleRequest = new DeleteCostCentreRequest { CostCentreCode = "AAA-01" };
       s.ResponseExamples = new Dictionary<int, object> { { 200, new object() } };
     });
   }
@@ -35,20 +36,22 @@ public class Delete(IMediator mediator) : Endpoint<DeleteCostCentreRequest>
     DeleteCostCentreRequest request,
     CancellationToken cancellationToken)
   {
-    if (string.IsNullOrWhiteSpace(request.Id))
+    if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.Id ?? "Id", "Item to be deleted is required please");
+      AddError(request => request.CostCentreCode ?? "Id", "Item to be deleted is required please");
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }
 
-    var command = new DeleteModelCommand<CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "");
+    var command = new DeleteModelCommand<CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "");
     var result = await mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())
+    {
       result.Errors.ToList().ForEach(n => AddError(n));
-    await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-    ThrowIfAnyErrors();
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
+      ThrowIfAnyErrors();
+    }
 
     if (result.Status == ResultStatus.NotFound)
     {

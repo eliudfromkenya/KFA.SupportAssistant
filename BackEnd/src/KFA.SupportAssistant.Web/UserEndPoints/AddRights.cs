@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Infrastructure.Services;
+﻿using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -17,7 +18,7 @@ public class AddRights(IMediator mediator, IConfiguration config) : Endpoint<Add
 
   public override void Configure()
   {
-    Post(AddRightsRequest.Route);
+    Post(CoreFunctions.GetURL(AddRightsRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

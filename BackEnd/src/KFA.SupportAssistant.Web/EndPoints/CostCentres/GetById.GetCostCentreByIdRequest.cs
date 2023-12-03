@@ -2,9 +2,9 @@
 
 public class GetCostCentreByIdRequest
 {
-  public const string Route = "/cost_centres/{id}";
+  public const string Route = "/cost_centres/{costCentreCode}";
 
-  public static string BuildRoute(string? costCentreId) => Route.Replace("{id}", costCentreId);
+  public static string BuildRoute(string? costCentreId) => Route.Replace("{costCentreCode}", costCentreId);
 
-  public string? Id { get; set; }
+  public string? CostCentreCode { get; set; }
 }

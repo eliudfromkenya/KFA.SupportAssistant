@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Infrastructure.Services;
+﻿using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -16,7 +17,7 @@ public class ChangeRole(IMediator mediator) : Endpoint<ChangeRoleRequest>
 
   public override void Configure()
   {
-    Post(ChangeRoleRequest.Route);
+    Post(CoreFunctions.GetURL(ChangeRoleRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

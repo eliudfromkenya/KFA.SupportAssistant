@@ -2,8 +2,9 @@
 
 public readonly struct CreateCostCentreResponse
 {
-  public CreateCostCentreResponse(string? costCentreCode, string? description, string? narration, string? region, string? supplierCodePrefix, DateTime? dateInserted___, DateTime? dateUpdated___)
+  public CreateCostCentreResponse(string? costCentreCode, bool? isActive, string? description, string? narration, string? region, string? supplierCodePrefix, DateTime? dateInserted___, DateTime? dateUpdated___)
   {
+    IsActive = isActive;
     CostCentreCode = costCentreCode;
     Description = description;
     Narration = narration;
@@ -20,4 +21,5 @@ public readonly struct CreateCostCentreResponse
   public string? SupplierCodePrefix { get; }
   public DateTime? DateInserted___ { get; }
   public DateTime? DateUpdated___ { get; }
+  public bool? IsActive { get; }
 }

@@ -2,7 +2,7 @@
 using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using FastEndpoints;
+using FastEndpoints.AspVersioning;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using KFA.SupportAssistant.Core;
@@ -104,7 +104,12 @@ else
   app.UseDefaultExceptionHandler(); // from FastEndpoints
   app.UseHsts();
 }
-app.UseAntiForgery().UseFastEndpoints();
+app.UseAntiForgery()
+   .UseFastEndpoints(c =>
+    {
+      c.Endpoints.RoutePrefix = "api/v3";
+    }); 
+
 app.UseSwaggerGen(); // FastEndpoints middleware
 
 app.UseHttpsRedirection();

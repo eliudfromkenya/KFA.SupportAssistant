@@ -3,11 +3,11 @@ using Ardalis.SharedKernel;
 using Autofac;
 using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.Interfaces;
+using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Data;
-using KFA.SupportAssistant.Infrastructure.Data.Queries;
 using KFA.SupportAssistant.Infrastructure.Email;
-using KFA.SupportAssistant.UseCases.Contributors.Create;
-using KFA.SupportAssistant.UseCases.Contributors.List;
+using KFA.SupportAssistant.UseCases.Models.Create;
+using KFA.SupportAssistant.UseCases.Models.List;
 using MediatR;
 using MediatR.Pipeline;
 using Module = Autofac.Module;
@@ -40,9 +40,9 @@ public class AutofacInfrastructureModule : Module
   private void LoadAssemblies()
   {
     // TODO: Replace these types with any type in the appropriate assembly/project
-    var coreAssembly = Assembly.GetAssembly(typeof(Contributor));
+    var coreAssembly = Assembly.GetAssembly(typeof(CostCentre));
     var infrastructureAssembly = Assembly.GetAssembly(typeof(AutofacInfrastructureModule));
-    var useCasesAssembly = Assembly.GetAssembly(typeof(CreateContributorCommand));
+    var useCasesAssembly = Assembly.GetAssembly(typeof(CreateModelCommand<,>));
 
     AddToAssembliesIfNotNull(coreAssembly);
     AddToAssembliesIfNotNull(infrastructureAssembly);
@@ -76,9 +76,9 @@ public class AutofacInfrastructureModule : Module
 
   private void RegisterQueries(ContainerBuilder builder)
   {
-    builder.RegisterType<ListContributorsQueryService>()
-      .As<IListContributorsQueryService>()
-      .InstancePerLifetimeScope();
+    //builder.RegisterType<ListContributorsQueryService>()
+    //  .As<IListModelsQueryService<X,Y>>()
+    //  .InstancePerLifetimeScope();
   }
 
   private void RegisterMediatR(ContainerBuilder builder)

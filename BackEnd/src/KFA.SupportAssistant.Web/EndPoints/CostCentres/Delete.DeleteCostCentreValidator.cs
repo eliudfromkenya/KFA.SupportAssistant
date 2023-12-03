@@ -1,5 +1,4 @@
-﻿using FastEndpoints;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
@@ -10,7 +9,7 @@ public class DeleteCostCentreValidator : Validator<DeleteCostCentreRequest>
 {
   public DeleteCostCentreValidator()
   {
-    RuleFor(x => x.Id)
+    RuleFor(x => x.CostCentreCode)
       .NotEmpty();
   }
 }

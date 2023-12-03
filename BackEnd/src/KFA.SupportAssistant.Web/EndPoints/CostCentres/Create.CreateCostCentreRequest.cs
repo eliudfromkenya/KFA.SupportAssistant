@@ -17,4 +17,5 @@ public class CreateCostCentreRequest
   public string? Region { get; set; }
 
   public string? SupplierCodePrefix { get; set; }
+  public bool? IsActive { get; set; } = true;
 }

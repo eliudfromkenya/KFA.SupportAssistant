@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Infrastructure.Services;
+﻿using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
 
@@ -16,7 +17,7 @@ public class ChangePassword(IMediator mediator) : Endpoint<ChangePasswordRequest
 
   public override void Configure()
   {
-    Post(ChangePasswordRequest.Route);
+    Post(CoreFunctions.GetURL(ChangePasswordRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

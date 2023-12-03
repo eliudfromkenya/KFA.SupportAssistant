@@ -22,7 +22,7 @@ public class AppDbContext : DbContext
     }
   }
 
-  public DbSet<Contributor> Contributors => Set<Contributor>();
+  //public DbSet<Contributor> Contributors => Set<Contributor>();
   public DbSet<CommandDetail> CommandDetails { get; set; }
   public DbSet<CommunicationMessage> CommunicationMessages { get; set; }
   public DbSet<ComputerAnydesk> ComputerAnydesks { get; set; }

@@ -5,6 +5,7 @@ public record class CostCentreDTO : BaseDTO<CostCentre>
 {
   public string? Description { get; set; }
   public string? Narration { get; set; }
+  public bool? IsActive { get; set; } = true;
   public string? Region { get; set; }
   public string? SupplierCodePrefix { get; set; }
   public override CostCentre? ToModel()
@@ -19,6 +20,7 @@ public record class CostCentreDTO : BaseDTO<CostCentre>
       Description = obj.Description,
       Narration = obj.Narration,
       Region = obj.Region,
+      IsActive= obj.IsActive,
       SupplierCodePrefix = obj.SupplierCodePrefix,
       Id = obj.Id,
       DateInserted___ = obj.___DateInserted___?.ToDateTime(),
@@ -31,6 +33,7 @@ public record class CostCentreDTO : BaseDTO<CostCentre>
     {
       Description = obj.Description,
       Narration = obj.Narration,
+      IsActive = obj.IsActive,
       Region = obj.Region,
       SupplierCodePrefix = obj.SupplierCodePrefix,
       Id = obj.Id,

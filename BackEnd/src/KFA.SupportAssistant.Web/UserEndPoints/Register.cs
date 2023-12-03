@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using FastEndpoints.Security;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
@@ -20,7 +21,7 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
 
   public override void Configure()
   {
-    Post(RegisterRequest.Route);
+    Post(CoreFunctions.GetURL(RegisterRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using FastEndpoints.Security;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
@@ -29,7 +30,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
 
   public override void Configure()
   {
-    Post(LoginRequest.Route);
+    Post(CoreFunctions.GetURL(LoginRequest.Route));
     AllowAnonymous();
     Summary(s =>
     {

@@ -23,8 +23,9 @@ public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, Upda
 {
   public override void Configure()
   {
-    Put(UpdateCostCentreRequest.Route);
+    Put(CoreFunctions.GetURL(UpdateCostCentreRequest.Route));
     Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Description(x => x.WithName("Update Cost Centre"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
@@ -39,22 +40,23 @@ public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, Upda
     UpdateCostCentreRequest request,
     CancellationToken cancellationToken)
   {
-    if (string.IsNullOrWhiteSpace(request.Id))
+    if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.Id ?? "Id", "Id of item to be updated is required please");
+      AddError(request => request.CostCentreCode ?? "Id", "Id of item to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "");
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "");
     var resultObj = await mediator.Send(command, cancellationToken);
 
     if (resultObj.Errors.Any())
     {
+      resultObj.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, resultObj.Status, resultObj.Errors, cancellationToken);
-      return;
+      ThrowIfAnyErrors();
     }
 
     if (resultObj.Status == ResultStatus.NotFound)
@@ -65,7 +67,7 @@ public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, Upda
     }
 
     var value = request.Adapt(resultObj.Value);
-    var result = await mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.Id ?? "", value!), cancellationToken);
+    var result = await mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "", value!), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
     {
@@ -75,7 +77,7 @@ public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, Upda
 
     if (result.IsSuccess)
     {
-      Response = new UpdateCostCentreResponse(new CostCentreRecord(value?.Id, value?.Description, value?.Narration, value?.Region, value?.SupplierCodePrefix, value?.DateInserted___, value?.DateUpdated___));
+      Response = new UpdateCostCentreResponse(new CostCentreRecord(value?.Id, value?.Description, value?.Narration, value?.Region, value?.SupplierCodePrefix, value?.IsActive, value?.DateInserted___, value?.DateUpdated___));
       return;
     }
   }
