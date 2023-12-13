@@ -47,6 +47,7 @@ internal static class RegisterEntities
     RegisterByIdModels(builder, classes);
     RegisterByIdsModels(builder, classes);
     RegisterListsModels(builder, classes);
+    RegisterDynamicListsModels(builder, classes);
     RegisterPatchModels(builder, classes);
   }
 
@@ -104,6 +105,38 @@ internal static class RegisterEntities
         var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, genericResultType);
 
         Type genericHandlerType = typeof(ListModelsHandler<,>);
+        Type constructedHandlerType = genericHandlerType.MakeGenericType(dtoType, type);
+
+        builder.RegisterType(constructedHandlerType)
+          .As(constructedRequestHandlerType)
+          .InstancePerLifetimeScope();
+      }
+      catch (Exception ex)
+      {
+        var dd = ex.ToString();
+      }
+    });
+  }
+
+
+  private static void RegisterDynamicListsModels(ContainerBuilder builder, List<Type> allDTOTypes)
+  {
+    allDTOTypes.ForEach(type =>
+    {
+      try
+      {
+        var dtoAssemblyName = typeof(CostCentreDTO).Assembly.GetName()?.Name;
+        var dtoType = Type.GetType($"{dtoAssemblyName}.DTOs.{type.Name}DTO, {dtoAssemblyName}")!;
+
+        var requestHandlerType = typeof(IRequestHandler<,>);
+        var modelCommandType = typeof(DynamicsListModelsQuery<,>);
+        //var listType = typeof(List<>).MakeGenericType(dtoType);
+        var resultType = typeof(Result<>);// .MakeGenericType(listType);
+        var genericCommandType = modelCommandType.MakeGenericType(dtoType, type);
+        var genericResultType = resultType.MakeGenericType(typeof(string));
+        var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, genericResultType);
+
+        Type genericHandlerType = typeof(DynamicsListModelsHandler<,>);
         Type constructedHandlerType = genericHandlerType.MakeGenericType(dtoType, type);
 
         builder.RegisterType(constructedHandlerType)

@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
-using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.Models;
 using Microsoft.EntityFrameworkCore;
 

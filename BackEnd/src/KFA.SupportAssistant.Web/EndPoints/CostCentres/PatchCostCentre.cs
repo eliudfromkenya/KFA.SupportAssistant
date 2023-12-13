@@ -5,6 +5,7 @@ using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Patch;
+using KFA.SupportAssistant.Web.Binders;
 using KFA.SupportAssistant.Web.EndPoints.CostCentres;
 using KFA.SupportAssistant.Web.Services;
 using MediatR;
@@ -16,6 +17,7 @@ public class PatchCostCentre(IMediator mediator) : Endpoint<PatchCostCentreReque
   public override void Configure()
   {
     Patch(CoreFunctions.GetURL(PatchCostCentreRequest.Route));
+    //RequestBinder(new PatchBinder<CostCentreDTO, CostCentre, PatchCostCentreRequest>());
     Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
     Description(x => x.WithName("Partial Update Cost Centre"));
     Summary(s =>

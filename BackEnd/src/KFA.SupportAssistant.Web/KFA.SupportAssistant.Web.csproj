@@ -12,6 +12,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <None Include="EndPoints\CostCentres\DynamicGet.CostCentreRequest.cs" />
     <None Include="EndPoints\CostCentres\PatchCostCentre.PatchRequest.cs" />
   </ItemGroup>
   

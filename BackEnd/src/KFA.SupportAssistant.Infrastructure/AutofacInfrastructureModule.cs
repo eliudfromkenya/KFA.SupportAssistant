@@ -4,6 +4,7 @@ using Autofac;
 using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Infrastructure.Data;
 using KFA.SupportAssistant.Infrastructure.Email;
 using KFA.SupportAssistant.UseCases.Models.Create;
@@ -68,6 +69,9 @@ public class AutofacInfrastructureModule : Module
 
   private void RegisterEF(ContainerBuilder builder)
   {
+    builder.RegisterGeneric(typeof(DbQuery<>))
+      .As(typeof(IDbQuery<>))
+      .InstancePerLifetimeScope();
     builder.RegisterGeneric(typeof(EfRepository<>))
       .As(typeof(IRepository<>))
       .As(typeof(IReadRepository<>))

@@ -17,6 +17,7 @@ using MonkeyCache.LiteDB;
 using Mapster;
 using MySqlConnector;
 using Serilog;
+using KFA.SupportAssistant.Web.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +63,8 @@ var con = new MySqlConnection(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options =>
           options.UseMySql(con, ServerVersion.AutoDetect(con)), ServiceLifetime.Scoped);
 //builder.Services.AddMapster();
+
+builder.Services.AddSingleton(typeof(IRequestBinder<>), typeof(MyRequestBinder<>));
 builder.Services.AddFastEndpoints()
                 .AddAntiforgery();
 builder.Services.AddAuthorization();
