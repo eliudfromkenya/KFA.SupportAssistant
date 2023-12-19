@@ -13,6 +13,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="SQLite" />
     <PackageReference Include="SharpZipLib" />
+    <PackageReference Include="EntityFrameworkCore.DataEncryption" />
   </ItemGroup>
   
   <ItemGroup>

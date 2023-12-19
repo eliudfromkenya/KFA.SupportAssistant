@@ -41,6 +41,17 @@ public class AppDbContext : DbContext
   public DbSet<VerificationRight> VerificationRights { get; set; }
   public DbSet<VerificationType> VerificationTypes { get; set; }
   public DbSet<Verification> Verifications { get; set; }
+  public DbSet<DuesPaymentDetail> DuesPaymentDetails { get; set; }
+  public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
+  public DbSet<IssuesAttachment> IssuesAttachments { get; set; }
+  public DbSet<IssuesProgress> IssuesProgresses { get; set; }
+  public DbSet<IssuesSubmission> IssuesSubmissions { get; set; }
+  public DbSet<PayrollGroup> PayrollGroups { get; set; }
+  public DbSet<PriceChangeRequest> PriceChangeRequests { get; set; }
+  public DbSet<ProjectIssue> ProjectIssues { get; set; }
+  public DbSet<StaffGroup> StaffGroups { get; set; }
+  public DbSet<StockItemCodesRequest> StockItemCodesRequests { get; set; }
+  public DbSet<VendorCodesRequest> VendorCodesRequests { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

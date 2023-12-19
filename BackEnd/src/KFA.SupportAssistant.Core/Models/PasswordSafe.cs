@@ -13,16 +13,19 @@ public sealed record class PasswordSafe : BaseModel
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_password_safes";
   [Required]
+  [Encrypted]
   [MaxLength(255, ErrorMessage = "Please details must be 255 characters or less")]
   [Column("details")]
   public string? Details { get; init; }
 
   [Required]
+  [Encrypted]
   [MaxLength(255, ErrorMessage = "Please name must be 255 characters or less")]
   [Column("name")]
   public string? Name { get; init; }
 
   [Required]
+  [Encrypted]
   [MaxLength(255, ErrorMessage = "Please password must be 255 characters or less")]
   [Column("password")]
   public string? Password { get; init; }
@@ -33,8 +36,10 @@ public sealed record class PasswordSafe : BaseModel
 
   [MaxLength(255, ErrorMessage = "Please reminder must be 255 characters or less")]
   [Column("reminder")]
+  [Encrypted]
   public string? Reminder { get; init; }
 
   [Column("users_visible_to")]
+  [Encrypted]
   public string? UsersVisibleTo { get; init; }
 }

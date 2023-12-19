@@ -20,7 +20,7 @@ public record class CostCentreDTO : BaseDTO<CostCentre>
       Description = obj.Description,
       Narration = obj.Narration,
       Region = obj.Region,
-      IsActive= obj.IsActive,
+      IsActive = obj.IsActive,
       SupplierCodePrefix = obj.SupplierCodePrefix,
       Id = obj.Id,
       DateInserted___ = obj.___DateInserted___?.ToDateTime(),

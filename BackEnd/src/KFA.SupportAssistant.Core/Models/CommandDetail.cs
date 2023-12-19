@@ -18,26 +18,26 @@ public sealed record class CommandDetail : BaseModel
   [Column("active_state")]
   public string? ActiveState { get; init; }
 
- // [Required]
+  // [Required]
   [MaxLength(25, ErrorMessage = "Please category must be 25 characters or less")]
   [Column("category")]
   public string? Category { get; init; }
 
- // [Required]
+  // [Required]
   [Column("command_id")]
   public override string? Id { get; set; }
 
- // [Required]
+  // [Required]
   [MaxLength(25, ErrorMessage = "Please command name must be 25 characters or less")]
   [Column("command_name")]
   public string? CommandName { get; init; }
 
- // [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please command text must be 255 characters or less")]
   [Column("command_text")]
   public string? CommandText { get; init; }
 
- // [Required]
+  // [Required]
   [Column("image_id")]
   public long? ImageId { get; init; }
 
@@ -46,11 +46,11 @@ public sealed record class CommandDetail : BaseModel
   [Column("image_path")]
   public string? ImagePath { get; init; }
 
- // [Required]
+  // [Required]
   [Column("is_enabled")]
   public bool? IsEnabled { get; init; }
 
- // [Required]
+  // [Required]
   [Column("is_published")]
   public bool? IsPublished { get; init; }
 

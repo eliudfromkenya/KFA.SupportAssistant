@@ -22,7 +22,7 @@ public sealed record class DataDevice : BaseModel
   [Column("device_code")]
   public string? DeviceCode { get; init; }
 
- // [Required]
+  // [Required]
   [Column("device_id")]
   public override string? Id { get; set; }
 

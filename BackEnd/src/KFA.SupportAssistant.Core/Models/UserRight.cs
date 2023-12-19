@@ -22,7 +22,7 @@ public sealed record class UserRight : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
- // [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please object name must be 255 characters or less")]
   [Column("object_name")]
   public string? ObjectName { get; init; }
@@ -43,7 +43,7 @@ public sealed record class UserRight : BaseModel
   [NotMapped]
   public string? Right_Caption { get; set; }
 
- // [Required]
+  // [Required]
   [Column("role_id")]
   public string? RoleId { get; init; }
 
@@ -52,7 +52,7 @@ public sealed record class UserRight : BaseModel
   [NotMapped]
   public string? Role_Caption { get; set; }
 
- // [Required]
+  // [Required]
   [Column("user_id")]
   public string? UserId { get; init; }
 
