@@ -38,7 +38,7 @@ public class Delete(IMediator mediator) : Endpoint<DeleteCostCentreRequest>
   {
     if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.CostCentreCode ?? "Id", "Item to be deleted is required please");
+      AddError(request => request.CostCentreCode, "Item to be deleted is required please");
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }

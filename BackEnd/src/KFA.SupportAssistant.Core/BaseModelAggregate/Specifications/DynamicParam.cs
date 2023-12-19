@@ -12,30 +12,33 @@ namespace KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
 
 public static class DynamicParam<T> where T : BaseModel, new()
 {
-  public async static Task<dynamic[]?> GetQuery(EndPointUser user, IDbQuery<T> queryGenerator, ListParam param, CancellationToken cancellationToken)
+  public async static Task<dynamic[]?> GetDynamicQuery(EndPointUser user, IDbQuery<T> queryGenerator, ListParam param, CancellationToken cancellationToken)
   {
-    var query = queryGenerator.GetQuery();
-    if (query != null)
-      query = CheckFilters(query, param);
-
-    IQueryable? ans = query;
-
-    if (param.Skip >= 0)
-      query = query?.Skip(param.Skip ?? 0);
-    if (param.Take >= 0)
-      query = query?.Take(param.Take ?? 0);
-
+    IQueryable? ans = GetQuery(user, queryGenerator, param);
     if (param.FilterParam?.SelectColumns?.Length > 0)
     {
       var par = param.FilterParam.SelectColumns.Trim();
 
       if (!Regex.IsMatch(par, "^new *\\("))
         par = Regex.IsMatch(par, "^ *\\(") ? $"new {par}" : $"new ({par})";
-      ans = query?.Select(par);
+      ans = ans?.Select(par);
     }
-    if (ans != null) return null;
+    if (ans == null) return null;
 
     return await ans!.ToDynamicArrayAsync(cancellationToken);
+  }
+
+  public static IQueryable<T>? GetQuery(EndPointUser user, IDbQuery<T> queryGenerator, ListParam param)
+  {
+    var query = queryGenerator.GetQuery();
+    if (query != null)
+      query = CheckFilters(query, param);
+
+    if (param.Skip >= 0)
+      query = query?.Skip(param.Skip ?? 0);
+    if (param.Take >= 0)
+      query = query?.Take(param.Take ?? 0);
+    return query;
   }
 
   private static IQueryable<T> FilterModelsBy(IQueryable<T> query,

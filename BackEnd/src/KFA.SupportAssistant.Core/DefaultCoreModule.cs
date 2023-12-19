@@ -13,29 +13,17 @@ public class DefaultCoreModule : Module
 {
   protected override void Load(ContainerBuilder builder)
   {
-    //builder.RegisterType<DeleteContributorService>()
-    //    .As<IDeleteContributorService>().InstancePerLifetimeScope();
-
-    //builder.RegisterType(typeof(DeleteModelService<>))
-    //   .As(typeof(IDeleteModelService<>)).InstancePerLifetimeScope();
-
-    //builder.RegisterType(typeof(InsertModelService<>))
-    //   .As(typeof(IInsertModelService<>)).InstancePerLifetimeScope();
-
-    //builder.RegisterType(typeof(UpdateModelService<>))
-    //   .As(typeof(IUpdateModelService<>)).InstancePerLifetimeScope();
-
     RegisterDeleteService(builder);
   }
 
-  private void RegisterDeleteService(ContainerBuilder builder)
+  private static void RegisterDeleteService(ContainerBuilder builder)
   {
     var classes = new[]
     {
        System.Reflection.Assembly.GetAssembly(typeof(BaseModel)),
        System.Reflection.Assembly.GetAssembly(typeof(CostCentre))
          } /*AppDomain.CurrentDomain.GetAssemblies()*/
-        .SelectMany(s => s?.GetTypes() ?? Array.Empty<Type>())
+        .SelectMany(s => s?.GetTypes() ?? [])
     .Where(typeof(BaseModel).IsAssignableFrom)
         .Where(c => c != typeof(BaseModel)).ToList();
 

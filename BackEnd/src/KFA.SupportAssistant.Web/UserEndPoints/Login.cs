@@ -61,7 +61,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
       var value = result.Value;
       var jwtToken = JWTBearer.CreateToken(
           signingKey: tokenSignature!,
-          expireAt: DateTime.UtcNow.AddDays(1),
+          expireAt: DateTime.UtcNow.AddDays(30),
           permissions: value.UserRights!,
           claims: new Claim[]
           {

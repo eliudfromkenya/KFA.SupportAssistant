@@ -20,6 +20,6 @@ public class EfRepositoryAdd : BaseEfRepoTestFixture
 
     Assert.Equal(testContributorName, newContributor?.Name);
     Assert.Equal(testContributorStatus, newContributor?.Status);
-    Assert.True(string.IsNullOrWhiteSpace(newContributor?.Id));
+    Assert.True(newContributor?.Id > 0);
   }
 }

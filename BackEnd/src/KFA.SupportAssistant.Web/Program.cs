@@ -2,8 +2,8 @@
 using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using FastEndpoints.AspVersioning;
-using FastEndpoints.Security;
+//using FastEndpoints.AspVersioning;
+//using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Globals.Classes;
@@ -13,11 +13,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
-using MonkeyCache.LiteDB;
-using Mapster;
 using MySqlConnector;
 using Serilog;
 using KFA.SupportAssistant.Web.Binders;
+using Microsoft.Data.SqlClient;
+using FastEndpoints.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,7 +64,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
           options.UseMySql(con, ServerVersion.AutoDetect(con)), ServiceLifetime.Scoped);
 //builder.Services.AddMapster();
 
-builder.Services.AddSingleton(typeof(IRequestBinder<>), typeof(MyRequestBinder<>));
+//builder.Services.AddSingleton(typeof(IRequestBinder<>), typeof(MyRequestBinder<>));
 builder.Services.AddFastEndpoints()
                 .AddAntiforgery();
 builder.Services.AddAuthorization();
@@ -109,9 +109,9 @@ else
 }
 app.UseAntiForgery()
    .UseFastEndpoints(c =>
-    {
-      c.Endpoints.RoutePrefix = "api/v3";
-    }); 
+   {
+     c.Endpoints.RoutePrefix = "api/v3";
+   });
 
 app.UseSwaggerGen(); // FastEndpoints middleware
 

@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core;
+﻿using System.Text.Json.Serialization;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
@@ -8,6 +9,7 @@ using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using KFA.SupportAssistant.Web.Services;
 using Mapster;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 
@@ -31,7 +33,7 @@ public class DynamicGet(IMediator mediator) : Endpoint<ListParam, string>
       s.Summary = "Retrieves dynamically of cost centres as specified";
       s.Description = "Returns all cost centres within specified range";
       // s.ResponseExamples[200] = new CostCentreListResponse { CostCentres = [] };
-      s.ExampleRequest = new DynamicGetCostCentreRequest { ListParam = new ListParam { FilterParam = new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] }, Skip = 0, Take = 1000 } };
+      s.ExampleRequest = new DynamicGetCostCentreRequest { ListParam = new ListParam { Param = JsonConvert.SerializeObject( new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] }), Skip = 0, Take = 1000 } };
     });
   }
 

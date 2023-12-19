@@ -1,14 +1,12 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
 using Autofac;
-using KFA.SupportAssistant.Core.ContributorAggregate;
 using KFA.SupportAssistant.Core.Interfaces;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Infrastructure.Data;
 using KFA.SupportAssistant.Infrastructure.Email;
 using KFA.SupportAssistant.UseCases.Models.Create;
-using KFA.SupportAssistant.UseCases.Models.List;
 using MediatR;
 using MediatR.Pipeline;
 using Module = Autofac.Module;
@@ -22,7 +20,7 @@ namespace KFA.SupportAssistant.Infrastructure;
 public class AutofacInfrastructureModule : Module
 {
   private readonly bool _isDevelopment = false;
-  private readonly List<Assembly> _assemblies = new List<Assembly>();
+  private readonly List<Assembly> _assemblies = [];
 
   public AutofacInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
   {
@@ -69,9 +67,6 @@ public class AutofacInfrastructureModule : Module
 
   private void RegisterEF(ContainerBuilder builder)
   {
-    builder.RegisterGeneric(typeof(DbQuery<>))
-      .As(typeof(IDbQuery<>))
-      .InstancePerLifetimeScope();
     builder.RegisterGeneric(typeof(EfRepository<>))
       .As(typeof(IRepository<>))
       .As(typeof(IReadRepository<>))
@@ -80,9 +75,13 @@ public class AutofacInfrastructureModule : Module
 
   private void RegisterQueries(ContainerBuilder builder)
   {
-    //builder.RegisterType<ListContributorsQueryService>()
-    //  .As<IListModelsQueryService<X,Y>>()
-    //  .InstancePerLifetimeScope();
+    builder.RegisterGeneric(typeof(DbQuery<>))
+       .As(typeof(IDbQuery<>))
+       .InstancePerLifetimeScope();
+    builder.RegisterGeneric(typeof(EfRepository<>))
+      .As(typeof(IRepository<>))
+      .As(typeof(IReadRepository<>))
+      .InstancePerLifetimeScope();
   }
 
   private void RegisterMediatR(ContainerBuilder builder)

@@ -9,19 +9,13 @@ public class AppDbContext : DbContext
 {
   private readonly IDomainEventDispatcher? _dispatcher;
 
-  //static object obj = new object();
   public AppDbContext(DbContextOptions<AppDbContext> options,
     IDomainEventDispatcher? dispatcher)
       : base(options)
   {
     _dispatcher = dispatcher;
-    //lock (obj)
-    {
-      //this.Database.EnsureCreated();
-    }
   }
 
-  //public DbSet<Contributor> Contributors => Set<Contributor>();
   public DbSet<CommandDetail> CommandDetails { get; set; }
   public DbSet<CommunicationMessage> CommunicationMessages { get; set; }
   public DbSet<ComputerAnydesk> ComputerAnydesks { get; set; }

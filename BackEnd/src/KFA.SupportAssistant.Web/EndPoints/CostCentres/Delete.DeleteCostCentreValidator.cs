@@ -9,7 +9,7 @@ public class DeleteCostCentreValidator : Validator<DeleteCostCentreRequest>
 {
   public DeleteCostCentreValidator()
   {
-    RuleFor(x => x.CostCentreCode)
-      .NotEmpty();
+    //RuleFor(x => x.CostCentreCode)
+    //  .NotEmpty();
   }
 }

@@ -1,12 +1,15 @@
-﻿using KFA.SupportAssistant.Core;
+﻿using System.Reflection;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.List;
+using KFA.SupportAssistant.Web.Binders;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using KFA.SupportAssistant.Web.Services;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 
@@ -18,19 +21,21 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// </remarks>
 public class List(IMediator mediator) : Endpoint<ListParam, CostCentreListResponse>
 {
-  const string Route = "/cost_centres";
   public override void Configure()
   {
-    Get(CoreFunctions.GetURL(Route));
+    Get(CoreFunctions.GetURL(CostCentreListRequest.Route));
     Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
-    Description(x => x.WithName("Get Cost Centres"));
+
+    Description(x => x.WithName("Get Cost Centres List"));
+
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Retrieves list of cost centres as specified";
-      s.Description = "Returns all cost centres within specified range";
+      s.Description = "Returns all cost centres within specified range / condition";
+      s.RequestParam(r => r.Take, "overriden username description");
       s.ResponseExamples[200] = new CostCentreListResponse { CostCentres = [] };
-      s.ExampleRequest = new ListParam { Skip = 0, Take = 1000 };
+      s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] }), Skip = 0, Take = 1000 };
     });
   }
 

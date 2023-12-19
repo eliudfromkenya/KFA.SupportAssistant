@@ -1,17 +1,23 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
+using KFA.SupportAssistant.Core.Services;
 using KFA.SupportAssistant.Globals;
+using Mapster;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.UseCases.Models.List;
 
-public class ListModelsHandler<T, X>(IReadRepository<X> _repository)
+public class ListModelsHandler<T, X>(IDbQuery<X> dbQuery)
   : IQueryHandler<ListModelsQuery<T, X>, Result<List<T>>> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
   public async Task<Result<List<T>>> Handle(ListModelsQuery<T, X> request, CancellationToken cancellationToken)
   {
-    var result = await _repository.ListAsync(new ModelByParamSpec<X>(request.param));
-
-    return Result.Success(result?.Select(c => (T)c.ToBaseDTO())?.ToList() ?? []);
+    var query = DynamicParam<X>.GetQuery(request.user, dbQuery, request.param);
+    List<X> objs = [];
+    if(query != null)
+      objs = await query!.ToListAsync(cancellationToken);
+    return Result<Result<List<T>>>.Success(objs.Select(v => (T)v.ToBaseDTO()).ToList());
   }
 }

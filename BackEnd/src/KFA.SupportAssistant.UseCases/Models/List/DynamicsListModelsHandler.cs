@@ -12,7 +12,7 @@ public class DynamicsListModelsHandler<T, X>(IDbQuery<X> dbQuery)
 {
   public async Task<Result<string>> Handle(DynamicsListModelsQuery<T, X> request, CancellationToken cancellationToken)
   {
-    var items = await DynamicParam<X>.GetQuery(request.user, dbQuery, request.param, cancellationToken);
+    var items = await DynamicParam<X>.GetDynamicQuery(request.user, dbQuery, request.param, cancellationToken);
     return Result<string>.Success(JsonConvert.SerializeObject(items));
   }
 }

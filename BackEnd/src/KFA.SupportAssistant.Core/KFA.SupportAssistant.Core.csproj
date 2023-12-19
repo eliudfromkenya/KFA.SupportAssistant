@@ -1,11 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
 
-  <PropertyGroup>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" />
     <PackageReference Include="Ardalis.Result" />
@@ -15,11 +10,11 @@
     <PackageReference Include="Autofac" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
-    <PackageReference Include="System.Linq.Dynamic.Core"  />
+    <PackageReference Include="System.Linq.Dynamic.Core"  />    
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
+    <ProjectReference Include="..\..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
   </ItemGroup>
 
 </Project>
