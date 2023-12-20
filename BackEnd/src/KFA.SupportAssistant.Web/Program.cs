@@ -15,8 +15,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
 using MySqlConnector;
 using Serilog;
-using KFA.SupportAssistant.Web.Binders;
-using Microsoft.Data.SqlClient;
 using FastEndpoints.Security;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +30,7 @@ builder.Host.UseSerilog((_, config) => new LoggerConfiguration()
                .ReadFrom.Configuration(builder.Configuration)
                .WriteTo.MySQL(
                    connectionString: connectionString,
-                   tableName: "tbl_system_logs"));
+                   tableName: "sys_logs"));
 
 Log.Logger = logConfig.CreateBootstrapLogger();
 
@@ -61,7 +59,7 @@ builder.Services
 Guard.Against.Null(connectionString);
 var con = new MySqlConnection(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options =>
-          options.UseMySql(con, ServerVersion.AutoDetect(con)), ServiceLifetime.Scoped);
+          options.UseMySql(con, ServerVersion.AutoDetect(con), b => b.MigrationsAssembly("KFA.SupportAssistant.Web")), ServiceLifetime.Scoped);
 //builder.Services.AddMapster();
 
 //builder.Services.AddSingleton(typeof(IRequestBinder<>), typeof(MyRequestBinder<>));

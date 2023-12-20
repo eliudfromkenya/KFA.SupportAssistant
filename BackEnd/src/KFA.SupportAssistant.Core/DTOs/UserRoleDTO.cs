@@ -20,7 +20,7 @@ public record class UserRoleDTO : BaseDTO<UserRole>
       MaturityDate = obj.MaturityDate,
       Narration = obj.Narration,
       RoleName = obj.RoleName,
-      RoleNumber = obj.RoleNumber,
+     // RoleNumber = obj.RoleNumber,
       Id = obj.Id,
       DateInserted___ = obj.___DateInserted___?.ToDateTime(),
       DateUpdated___ = obj.___DateUpdated___?.ToDateTime()
@@ -34,7 +34,7 @@ public record class UserRoleDTO : BaseDTO<UserRole>
       MaturityDate = obj.MaturityDate,
       Narration = obj.Narration,
       RoleName = obj.RoleName,
-      RoleNumber = obj.RoleNumber,
+      //RoleNumber = obj.RoleNumber,
       Id = obj.Id,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()

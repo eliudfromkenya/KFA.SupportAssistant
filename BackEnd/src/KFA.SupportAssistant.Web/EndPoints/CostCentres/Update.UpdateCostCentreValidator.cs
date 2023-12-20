@@ -1,5 +1,4 @@
-﻿using FastEndpoints;
-using FluentValidation;
+﻿using FluentValidation;
 using KFA.SupportAssistant.Infrastructure.Data.Config;
 
 namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;

@@ -56,6 +56,8 @@ public abstract record class BaseModel : IAggregateRoot
   [NotMapped]
   [JsonIgnore]
   public object? ___Tag___ { get; set; }
+  //[Column("is_currently_enabled", Order = 103)]
+  //public bool IsCurrentlyEnabled { get; set; } = true;
 
   [Column("date_added", Order = 100)]
   public long? ___DateInserted___ { get; set; } = DateTime.Now.FromDateTime();

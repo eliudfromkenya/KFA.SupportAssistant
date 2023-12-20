@@ -1,11 +1,10 @@
-﻿using System.Reflection;
-using KFA.SupportAssistant.Core;
+﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.List;
-using KFA.SupportAssistant.Web.Binders;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using KFA.SupportAssistant.Web.Services;
 using MediatR;
@@ -19,12 +18,14 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// List all CostCentres - returns a CostCentreListResponse containing the CostCentres.
 /// </remarks>
-public class List(IMediator mediator) : Endpoint<ListParam, CostCentreListResponse>
+public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoint<ListParam, CostCentreListResponse>
 {
+  private const string EndPointId = "ENP-015";
+
   public override void Configure()
   {
     Get(CoreFunctions.GetURL(CostCentreListRequest.Route));
-    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
 
     Description(x => x.WithName("Get Cost Centres List"));
 
@@ -56,7 +57,7 @@ public class List(IMediator mediator) : Endpoint<ListParam, CostCentreListRespon
     {
       Response = new CostCentreListResponse
       {
-        CostCentres = result.Value.Select(c => new CostCentreRecord(c?.Id, c?.Description, c?.Narration, c?.Region, c?.SupplierCodePrefix,c?.IsActive, c?.DateInserted___, c?.DateUpdated___)).ToList()
+        CostCentres = result.Value.Select(c => new CostCentreRecord(c?.Id, c?.Description, c?.Narration, c?.Region, c?.SupplierCodePrefix, c?.IsActive, c?.DateInserted___, c?.DateUpdated___)).ToList()
       };
     }
   }

@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Delete;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
@@ -15,12 +16,14 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// Delete a CostCentre by providing a valid integer id.
 /// </remarks>
-public class Delete(IMediator mediator) : Endpoint<DeleteCostCentreRequest>
+public class Delete(IMediator mediator, IEndPointManager endPointManager) : Endpoint<DeleteCostCentreRequest>
 {
+  private const string EndPointId = "ENP-012";
+
   public override void Configure()
   {
     Delete(CoreFunctions.GetURL(DeleteCostCentreRequest.Route));
-    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
     Description(x => x.WithName("Delete Cost Centre"));
     Summary(s =>
     {

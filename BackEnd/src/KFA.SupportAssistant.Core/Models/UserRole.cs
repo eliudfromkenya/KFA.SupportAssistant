@@ -33,8 +33,8 @@ public sealed record class UserRole : BaseModel
   [Column("role_name")]
   public string? RoleName { get; init; }
 
-  [Column("role_number")]
-  public short RoleNumber { get; init; }
+  //[Column("role_number")]
+  //public short RoleNumber { get; init; }
 
   public ICollection<SystemUser>? SystemUsers { get; set; }
   public ICollection<UserRight>? UserRights { get; set; }

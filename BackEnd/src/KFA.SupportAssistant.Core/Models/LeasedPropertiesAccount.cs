@@ -12,8 +12,8 @@ public sealed record class LeasedPropertiesAccount : BaseModel
     return (LeasedPropertiesAccountDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_leased_properties_accounts";
-  [Column("account_number")]
-  public string? AccountNumber { get; init; }
+  //[Column("account_number")]
+  //public string? AccountNumber { get; init; }
 
   [Column("commencement_rent")]
   public decimal CommencementRent { get; init; }
@@ -44,14 +44,14 @@ public sealed record class LeasedPropertiesAccount : BaseModel
   public override string? Id { get; set; }
 
   [MaxLength(25, ErrorMessage = "Please ledger account id must be 25 characters or less")]
-  [Column("ledger_account_id")]
-  public string? LedgerAccountId { get; init; }
+  [Column("ledger_account_code")]
+  public string? LedgerAccountCode { get; init; }
+  [ForeignKey(nameof(LedgerAccountCode))]
+  public LedgerAccount? LedgerAccount { get; set; }
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]
   public string? Narration { get; init; }
-
-  public LedgerAccount? LedgerAccount { get; set; }
   [NotMapped]
   public string? LedgerAccount_Caption { get; set; }
 }

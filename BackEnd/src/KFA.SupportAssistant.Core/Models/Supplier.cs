@@ -58,10 +58,6 @@ public sealed record class Supplier : BaseModel
   [Column("supplier_id")]
   public override string? Id { get; set; }
 
-  [MaxLength(10, ErrorMessage = "Please supplier ledger account id must be 10 characters or less")]
-  [Column("supplier_ledger_account_id")]
-  public string? SupplierLedgerAccountId { get; init; }
-
   [MaxLength(25, ErrorMessage = "Please telephone must be 25 characters or less")]
   [Column("telephone")]
   public string? Telephone { get; init; }

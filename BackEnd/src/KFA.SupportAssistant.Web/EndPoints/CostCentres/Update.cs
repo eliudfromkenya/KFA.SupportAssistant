@@ -2,6 +2,7 @@
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Get;
 using KFA.SupportAssistant.UseCases.Models.Update;
@@ -19,12 +20,14 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// Update an existing CostCentre by providing a fully defined replacement set of values.
 /// See: https://stackoverflow.com/questions/60761955/rest-update-best-practice-put-collection-id-without-id-in-body-vs-put-collecti
 /// </remarks>
-public class Update(IMediator mediator) : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse>
+public class Update(IMediator mediator, IEndPointManager endPointManager) : Endpoint<UpdateCostCentreRequest, UpdateCostCentreResponse>
 {
+  private const string EndPointId = "ENP-017";
+
   public override void Configure()
   {
     Put(CoreFunctions.GetURL(UpdateCostCentreRequest.Route));
-    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
     Description(x => x.WithName("Update Cost Centre"));
     Summary(s =>
     {

@@ -12,8 +12,8 @@ public sealed record class LetPropertiesAccount : BaseModel
     return (LetPropertiesAccountDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_let_properties_accounts";
-  [Column("account_number")]
-  public string? AccountNumber { get; init; }
+  //[Column("account_number")]
+  //public string? AccountNumber { get; init; }
 
   [Column("commencement_rent")]
   public decimal CommencementRent { get; init; }
@@ -33,8 +33,10 @@ public sealed record class LetPropertiesAccount : BaseModel
   public global::System.DateTime LastReviewDate { get; init; }
 
   [MaxLength(25, ErrorMessage = "Please ledger account id must be 25 characters or less")]
-  [Column("ledger_account_id")]
-  public string? LedgerAccountId { get; init; }
+  [Column("ledger_account_code")]
+  public string? LedgerAccountCode { get; init; }
+  [ForeignKey(nameof(LedgerAccountCode))]
+  public LedgerAccount? LedgerAccount { get; set; }
 
   [Column("let_on")]
   public global::System.DateTime LetOn { get; init; }
@@ -50,8 +52,6 @@ public sealed record class LetPropertiesAccount : BaseModel
   [MaxLength(255, ErrorMessage = "Please tenant address must be 255 characters or less")]
   [Column("tenant_address")]
   public string? TenantAddress { get; init; }
-
-  public LedgerAccount? LedgerAccount { get; set; }
   [NotMapped]
   public string? LedgerAccount_Caption { get; set; }
 }

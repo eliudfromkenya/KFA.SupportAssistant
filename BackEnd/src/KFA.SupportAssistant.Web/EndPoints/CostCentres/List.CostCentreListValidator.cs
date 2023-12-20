@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using KFA.SupportAssistant.Web.EndPoints.CostCentres;
-
-namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+﻿namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
 /// <summary>
 /// See: https://fast-endpoints.com/docs/validation
@@ -24,11 +21,11 @@ public class CostCentreListValidator : Validator<CostCentreListRequest>
     // .NotEmpty()
     // .WithMessage("Maximum number of cost centres to return is required.");
 
-     //RuleFor(x => x.Description)
-     //.NotEmpty()
-     //.WithMessage("Name is required.")
-     //.MinimumLength(2)
-     //.MaximumLength(30);
-     //.MaximumLength(30);
+    //RuleFor(x => x.Description)
+    //.NotEmpty()
+    //.WithMessage("Name is required.")
+    //.MinimumLength(2)
+    //.MaximumLength(30);
+    //.MaximumLength(30);
   }
 }

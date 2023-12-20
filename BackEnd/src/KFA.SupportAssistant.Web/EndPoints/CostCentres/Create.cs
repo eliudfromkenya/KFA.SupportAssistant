@@ -1,6 +1,7 @@
 ﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Create;
 using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
@@ -16,12 +17,14 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// <remarks>
 /// Creates a new CostCentre given a name.
 /// </remarks>
-public class Create(IMediator mediator) : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse>
+public class Create(IMediator mediator, IEndPointManager endPointManager) : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse>
 {
+  private const string EndPointId = "ENP-011";
+
   public override void Configure()
   {
     Post(CoreFunctions.GetURL(CreateCostCentreRequest.Route));
-    Permissions(UserRoleConstants.RIGHT_SYSTEM_ROUTINES, UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_SUPERVISOR, UserRoleConstants.ROLE_MANAGER);
+    Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
     Description(x => x.WithName("Add Cost Centre"));
 
     Summary(s =>
@@ -33,6 +36,7 @@ public class Create(IMediator mediator) : Endpoint<CreateCostCentreRequest, Crea
       s.ResponseExamples[200] = new CreateCostCentreResponse("1100", true, "Cost Centre Name", "Narration", "Region", "S3A", DateTime.UtcNow, DateTime.UtcNow);
     });
   }
+
   public override async Task HandleAsync(
     CreateCostCentreRequest request,
     CancellationToken cancellationToken)
@@ -53,7 +57,7 @@ public class Create(IMediator mediator) : Endpoint<CreateCostCentreRequest, Crea
     {
       if (result?.Value?.FirstOrDefault() is CostCentreDTO obj)
       {
-        Response = new CreateCostCentreResponse(obj.Id,obj.IsActive, obj.Description!, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
+        Response = new CreateCostCentreResponse(obj.Id, obj.IsActive, obj.Description!, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
         return;
       }
     }

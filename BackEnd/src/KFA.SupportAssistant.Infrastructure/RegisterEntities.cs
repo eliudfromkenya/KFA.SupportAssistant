@@ -82,6 +82,7 @@ internal static class RegisterEntities
            .As<IIdGenerator>()
            .SingleInstance();
     builder.RegisterType<AuthService>().As<IAuthService>().InstancePerLifetimeScope();
+    builder.RegisterType<EndPointManager>().As<IEndPointManager>().InstancePerLifetimeScope();
     builder.RegisterType<UserManagementService>().As<IUserManagementService>().InstancePerLifetimeScope();
 
     Declarations.IdGenerator = new IdGenerator();

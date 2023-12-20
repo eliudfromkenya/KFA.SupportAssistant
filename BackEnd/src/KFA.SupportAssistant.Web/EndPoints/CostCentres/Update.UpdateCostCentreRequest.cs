@@ -9,7 +9,7 @@ public record UpdateCostCentreRequest
   public static string BuildRoute(string costCentreCode) => Route.Replace("{CostCentreCode}", costCentreCode);
 
   //[Required]
-  public string? CostCentreCode { get;  set; }
+  public string? CostCentreCode { get; set; }
 
   [Required]
   public string? Description { get; set; }

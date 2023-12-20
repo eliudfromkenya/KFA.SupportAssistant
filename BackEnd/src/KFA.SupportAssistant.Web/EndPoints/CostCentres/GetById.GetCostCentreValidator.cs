@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+﻿namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
 /// <summary>
 /// See: https://fast-endpoints.com/docs/validation

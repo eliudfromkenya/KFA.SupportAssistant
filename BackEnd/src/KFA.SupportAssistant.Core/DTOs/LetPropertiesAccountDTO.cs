@@ -8,7 +8,7 @@ public record class LetPropertiesAccountDTO : BaseDTO<LetPropertiesAccount>
   public string? CostCentreCode { get; set; }
   public decimal CurrentRent { get; set; }
   public DateTime LastReviewDate { get; set; }
-  public string? LedgerAccountId { get; set; }
+  public string? LedgerAccountCode { get; set; }
   public DateTime LetOn { get; set; }
   public string? Narration { get; set; }
   public string? TenantAddress { get; set; }
@@ -20,12 +20,12 @@ public record class LetPropertiesAccountDTO : BaseDTO<LetPropertiesAccount>
   {
     return new LetPropertiesAccountDTO
     {
-      AccountNumber = obj.AccountNumber,
+      //AccountNumber = obj.AccountNumber,
       CommencementRent = obj.CommencementRent,
       CostCentreCode = obj.CostCentreCode,
       CurrentRent = obj.CurrentRent,
       LastReviewDate = obj.LastReviewDate,
-      LedgerAccountId = obj.LedgerAccountId,
+      LedgerAccountCode = obj.LedgerAccountCode,
       LetOn = obj.LetOn,
       Narration = obj.Narration,
       TenantAddress = obj.TenantAddress,
@@ -38,12 +38,12 @@ public record class LetPropertiesAccountDTO : BaseDTO<LetPropertiesAccount>
   {
     return new LetPropertiesAccount
     {
-      AccountNumber = obj.AccountNumber,
+     // AccountNumber = obj.AccountNumber,
       CommencementRent = obj.CommencementRent,
       CostCentreCode = obj.CostCentreCode,
       CurrentRent = obj.CurrentRent,
       LastReviewDate = obj.LastReviewDate,
-      LedgerAccountId = obj.LedgerAccountId,
+      LedgerAccountCode = obj.LedgerAccountCode,
       LetOn = obj.LetOn,
       Narration = obj.Narration,
       TenantAddress = obj.TenantAddress,

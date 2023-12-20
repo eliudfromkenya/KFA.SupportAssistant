@@ -22,6 +22,7 @@ public class AppDbContext : DbContext
   public DbSet<CostCentre> CostCentres { get; set; }
   public DbSet<DataDevice> DataDevices { get; set; }
   public DbSet<DeviceGuid> DeviceGuids { get; set; }
+  public DbSet<DefaultAccessRight> DefaultAccessRights { get; set; }
   public DbSet<ItemGroup> ItemGroups { get; set; }
   public DbSet<LeasedPropertiesAccount> LeasedPropertiesAccounts { get; set; }
   public DbSet<LedgerAccount> LedgerAccounts { get; set; }
