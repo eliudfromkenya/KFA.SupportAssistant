@@ -28,7 +28,7 @@ public sealed record class Supplier : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -45,7 +45,7 @@ public sealed record class Supplier : BaseModel
   [Column("postal_code")]
   public string? PostalCode { get; init; }
 
-  [Required]
+  // [Required]
   [Column("supplier_code")]
   public string? SupplierCode { get; init; }
 
@@ -54,7 +54,7 @@ public sealed record class Supplier : BaseModel
   [NotMapped]
   public string? Supplier_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("supplier_id")]
   public override string? Id { get; set; }
 

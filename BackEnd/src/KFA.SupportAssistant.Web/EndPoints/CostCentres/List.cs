@@ -21,13 +21,14 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoint<ListParam, CostCentreListResponse>
 {
   private const string EndPointId = "ENP-015";
+  public const string Route = "/cost_centres";
 
   public override void Configure()
   {
-    Get(CoreFunctions.GetURL(CostCentreListRequest.Route));
+    Get(CoreFunctions.GetURL(Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
 
-    Description(x => x.WithName("Get Cost Centres List"));
+    Description(x => x.WithName("Get Cost Centres List End Point"));
 
     Summary(s =>
     {

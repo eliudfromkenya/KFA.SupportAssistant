@@ -20,11 +20,11 @@ public sealed record class VerificationType : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("verification_type_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please verification type name must be 255 characters or less")]
   [Column("verification_type_name")]
   public string? VerificationTypeName { get; init; }

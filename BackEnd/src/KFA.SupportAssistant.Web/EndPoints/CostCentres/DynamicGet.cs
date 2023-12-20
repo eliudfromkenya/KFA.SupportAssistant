@@ -20,26 +20,25 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 public class DynamicGet(IMediator mediator, IEndPointManager endPointManager) : Endpoint<ListParam, string>
 {
   private const string EndPointId = "ENP-013";
+  public const string Route = "/cost_centres/dynamically";
 
   public override void Configure()
   {
-    Get(CoreFunctions.GetURL(DynamicGetCostCentreRequest.Route));
+    Get(CoreFunctions.GetURL(Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Get Cost Centres Dynamically"));
+    Description(x => x.WithName("Get Cost Centres Dynamically End Point"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Retrieves dynamically of cost centres as specified";
       s.Description = "Returns all cost centres within specified range";
-      // s.ResponseExamples[200] = new CostCentreListResponse { CostCentres = [] };
-      s.ExampleRequest = new DynamicGetCostCentreRequest { ListParam = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] }), Skip = 0, Take = 1000 } };
+      s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] }), Skip = 0, Take = 1000 };
     });
   }
 
   public override async Task HandleAsync(ListParam request,
     CancellationToken cancellationToken)
   {
-    //var lstPrm = request?.ListParam.Adapt<ListParam>();
     var command = new DynamicsListModelsQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request ?? new ListParam { });
     var result = await mediator.Send(command, cancellationToken);
 

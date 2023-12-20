@@ -33,11 +33,11 @@ public sealed record class EmployeeDetail : BaseModel
   [Column("email")]
   [Encrypted]
   public string? Email { get; init; }
-  [Required]
+  // [Required]
   [Column("employee_id")]
   public override string? Id { get; set; } = string.Empty;
 
-  [Required]
+  // [Required]
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please full name must be 255 characters or less")]
   [Column("full_name")]

@@ -8,7 +8,7 @@ namespace KFA.SupportAssistant.Core.Models;
 public sealed record class IssuesAttachment : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_issues_attachments";
-  [Required]
+  // [Required]
   [Column("attachment_id")]
   public override string? Id { get; set; }
 

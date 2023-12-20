@@ -12,7 +12,7 @@ public sealed record class SystemRight : BaseModel
     return (SystemRightDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_system_rights";
-  [Required]
+  // [Required]
   [Column("is_compulsory")]
   public bool IsCompulsory { get; init; }
 
@@ -20,11 +20,11 @@ public sealed record class SystemRight : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("right_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please right name must be 255 characters or less")]
   [Column("right_name")]
   public string? RightName { get; init; }

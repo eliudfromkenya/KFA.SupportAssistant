@@ -9,7 +9,7 @@ namespace KFA.SupportAssistant.Core.Models;
 public sealed record class IssuesSubmission : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_issues_submissions";
-  [Required]
+  // [Required]
   [Column("issue_id")]
   public string? IssueID { get; init; }
 
@@ -26,16 +26,16 @@ public sealed record class IssuesSubmission : BaseModel
   [Column("status")]
   public IssueStatus? Status { get; init; }
 
-  [Required]
+  // [Required]
   [Column("submission_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please submitted to must be 255 characters or less")]
   [Column("submitted_to")]
   public string? SubmittedTo { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please submitting user must be 255 characters or less")]
   [Column("submitting_user")]
   public string? SubmittingUser { get; init; }

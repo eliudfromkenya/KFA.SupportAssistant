@@ -12,11 +12,11 @@ public sealed record class Verification : BaseModel
     return (VerificationDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_verifications";
-  [Required]
+  // [Required]
   [Column("date_of_verification")]
   public global::System.DateTime DateOfVerification { get; init; }
 
-  [Required]
+  // [Required]
   [Column("login_id")]
   public string? LoginId { get; init; }
 
@@ -29,20 +29,20 @@ public sealed record class Verification : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("record_id")]
   public long RecordId { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please table name must be 255 characters or less")]
   [Column("table_name")]
   public string? TableName { get; init; }
 
-  [Required]
+  // [Required]
   [Column("verification_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please verification name must be 255 characters or less")]
   [Column("verification_name")]
   public string? VerificationName { get; init; }
@@ -50,7 +50,7 @@ public sealed record class Verification : BaseModel
   [Column("verification_record_id")]
   public long VerificationRecordId { get; init; }
 
-  [Required]
+  // [Required]
   [Column("verification_type_id")]
   public long VerificationTypeId { get; init; }
 }

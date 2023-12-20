@@ -31,7 +31,7 @@ public sealed record class TimsMachine : BaseModel
   [Column("external_port_number")]
   public string? ExternalPortNumber { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(20, ErrorMessage = "Please internal ip address must be 20 characters or less")]
   [Column("internal_ip_address")]
   public string? InternalIPAddress { get; init; }
@@ -40,7 +40,7 @@ public sealed record class TimsMachine : BaseModel
   [Column("internal_port_number")]
   public string? InternalPortNumber { get; init; }
 
-  [Required]
+  // [Required]
   [Column("machine_id")]
   public override string? Id { get; set; }
 
@@ -48,7 +48,7 @@ public sealed record class TimsMachine : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("ready_for_use")]
   public bool ReadyForUse { get; init; }
 

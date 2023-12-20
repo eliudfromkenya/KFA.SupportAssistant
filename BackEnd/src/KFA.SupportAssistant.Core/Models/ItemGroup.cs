@@ -12,11 +12,11 @@ public sealed record class ItemGroup : BaseModel
     return (ItemGroupDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_item_groups";
-  [Required]
+  // [Required]
   [Column("group_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please name must be 255 characters or less")]
   [Column("name")]
   public string? Name { get; init; }

@@ -9,12 +9,12 @@ namespace KFA.SupportAssistant.Core.Models;
 public sealed record class IssuesProgress : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_issues_progresses";
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
 
-  [Required]
+  // [Required]
   [Column("issue_id")]
   public string? IssueID { get; init; }
 
@@ -27,7 +27,7 @@ public sealed record class IssuesProgress : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("progress_id")]
   public override string? Id { get; set; }
 

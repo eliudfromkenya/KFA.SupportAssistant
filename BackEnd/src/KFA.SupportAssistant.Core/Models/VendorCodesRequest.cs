@@ -12,7 +12,7 @@ public sealed record class VendorCodesRequest : BaseModel
   [Column("attanded_by")]
   public string? AttandedBy { get; init; }
 
-  [Required]
+  // [Required]
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }
 
@@ -21,7 +21,7 @@ public sealed record class VendorCodesRequest : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -50,7 +50,7 @@ public sealed record class VendorCodesRequest : BaseModel
   [Column("vendor_code")]
   public string? VendorCode { get; init; }
 
-  [Required]
+  // [Required]
   [Column("vendor_code_request_id")]
   public override string? Id { get; set; }
 

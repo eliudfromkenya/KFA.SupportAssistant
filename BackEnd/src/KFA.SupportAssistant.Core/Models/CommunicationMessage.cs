@@ -26,17 +26,17 @@ public sealed record class CommunicationMessage : BaseModel
   [Column("from")]
   public string? From { get; init; }
 
-  [Required]
+  // [Required]
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please message must be 255 characters or less")]
   [Column("message")]
   public string? Message { get; init; }
 
-  [Required]
+  // [Required]
   [Column("message_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please message type must be 255 characters or less")]
   [Column("message_type")]

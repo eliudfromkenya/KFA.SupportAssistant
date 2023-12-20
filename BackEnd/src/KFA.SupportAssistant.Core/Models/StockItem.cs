@@ -24,11 +24,11 @@ public sealed record class StockItem : BaseModel
   [NotMapped]
   public string? Group_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("item_code")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please item name must be 255 characters or less")]
   [Column("item_name")]
   public string? ItemName { get; init; }

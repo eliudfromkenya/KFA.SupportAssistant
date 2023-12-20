@@ -41,7 +41,7 @@ public sealed record class LetPropertiesAccount : BaseModel
   [Column("let_on")]
   public global::System.DateTime LetOn { get; init; }
 
-  [Required]
+  // [Required]
   [Column("let_property_account_id")]
   public override string? Id { get; set; }
 

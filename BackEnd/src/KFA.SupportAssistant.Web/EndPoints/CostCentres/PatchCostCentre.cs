@@ -21,13 +21,12 @@ public class PatchCostCentre(IMediator mediator, IEndPointManager endPointManage
     Patch(CoreFunctions.GetURL(PatchCostCentreRequest.Route));
     //RequestBinder(new PatchBinder<CostCentreDTO, CostCentre, PatchCostCentreRequest>());
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Partial Update Cost Centre"));
+    Description(x => x.WithName("Partial Update Cost Centre End Point"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Update partially a cost centre";
       s.Description = "Updates part of an existing CostCentre. A valid existing is required.";
-      //s.ExampleRequest = new PatchRequest { Id = "Id to update", Content = @"{{Description: ""New Cost center Name""}}" };
       s.ResponseExamples[200] = new CostCentreRecord("Id", "Name", "Narration", "Region", "Supplier Code", true, DateTime.UtcNow, DateTime.UtcNow);
     });
   }

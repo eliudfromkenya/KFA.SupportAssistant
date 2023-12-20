@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Globals;
 
@@ -12,7 +11,7 @@ public sealed record class DeviceGuid : BaseModel
     return (DeviceGuidDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_device_guids";
-  [Required]
+  // [Required]
   [Column("guid")]
   public override string? Id { get; set; }
 }

@@ -12,16 +12,16 @@ public sealed record class UserLogin : BaseModel
     return (UserLoginDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_logins";
-  [Required]
+  // [Required]
   [MaxLength(100, ErrorMessage = "Please device id must be 100 characters or less")]
   [Column("device_id")]
   public string? DeviceId { get; init; }
 
-  [Required]
+  // [Required]
   [Column("from_date")]
   public global::System.DateTime FromDate { get; init; }
 
-  [Required]
+  // [Required]
   [Column("login_id")]
   public override string? Id { get; set; }
 
@@ -29,11 +29,11 @@ public sealed record class UserLogin : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("upto_date")]
   public global::System.DateTime UptoDate { get; init; }
 
-  [Required]
+  // [Required]
   [Column("user_id")]
   public string? UserId { get; init; }
 

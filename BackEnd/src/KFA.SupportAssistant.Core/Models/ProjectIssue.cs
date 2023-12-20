@@ -16,7 +16,7 @@ public sealed record class ProjectIssue : BaseModel
   [Column("date")]
   public global::System.DateTime Date { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -29,7 +29,7 @@ public sealed record class ProjectIssue : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("project_issue_id")]
   public override string? Id { get; set; }
 
@@ -44,7 +44,7 @@ public sealed record class ProjectIssue : BaseModel
   [Column("sub_category")]
   public string? SubCategory { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please title must be 255 characters or less")]
   [Column("title")]
   public string? Title { get; init; }

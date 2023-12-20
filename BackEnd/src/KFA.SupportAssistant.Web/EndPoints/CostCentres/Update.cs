@@ -28,7 +28,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     Put(CoreFunctions.GetURL(UpdateCostCentreRequest.Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Update Cost Centre"));
+    Description(x => x.WithName("Update Cost Centre End Point"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:

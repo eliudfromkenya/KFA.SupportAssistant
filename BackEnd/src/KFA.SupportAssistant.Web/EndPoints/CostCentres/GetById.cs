@@ -25,7 +25,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
   {
     Get(CoreFunctions.GetURL(GetCostCentreByIdRequest.Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Get Cost Centre"));
+    Description(x => x.WithName("Get Cost Centre End Point"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
@@ -41,7 +41,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
   {
     if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.CostCentreCode ?? "CostCentreCode", "Cost Centre Code of item to be retrieved is required please");
+      AddError(request => request.CostCentreCode, "Cost Centre Code of item to be retrieved is required please");
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }

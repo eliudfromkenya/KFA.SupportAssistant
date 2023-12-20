@@ -2,8 +2,6 @@
 using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-//using FastEndpoints.AspVersioning;
-//using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Globals.Classes;
@@ -21,7 +19,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
-//string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");
 string? connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
 LocalCache.ConString = builder.Configuration.GetConnectionString("LiteDB");
 
@@ -60,7 +57,6 @@ Guard.Against.Null(connectionString);
 var con = new MySqlConnection(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options =>
           options.UseMySql(con, ServerVersion.AutoDetect(con), b => b.MigrationsAssembly("KFA.SupportAssistant.Web")), ServiceLifetime.Scoped);
-//builder.Services.AddMapster();
 
 //builder.Services.AddSingleton(typeof(IRequestBinder<>), typeof(MyRequestBinder<>));
 builder.Services.AddFastEndpoints()
@@ -127,7 +123,6 @@ static void SeedDatabase(WebApplication app)
   try
   {
     var context = services.GetRequiredService<AppDbContext>();
-    //                    context.Database.Migrate();
     context.Database.EnsureCreated();
     SeedData.Initialize(services);
   }

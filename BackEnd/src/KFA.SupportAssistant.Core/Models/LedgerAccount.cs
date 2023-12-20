@@ -20,7 +20,7 @@ public sealed record class LedgerAccount : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -29,11 +29,11 @@ public sealed record class LedgerAccount : BaseModel
   [Column("group_name")]
   public string? GroupName { get; init; }
 
-  [Required]
+  // [Required]
   [Column("increase_with_debit")]
   public bool IncreaseWithDebit { get; init; }
 
-  [Required]
+  // [Required]
   [Column("ledger_account_code")]
   public string? LedgerAccountCode { get; init; }
 
@@ -42,7 +42,7 @@ public sealed record class LedgerAccount : BaseModel
   [NotMapped]
   public string? LedgerAccount_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("ledger_account_id")]
   public override string? Id { get; set; }
 

@@ -24,12 +24,12 @@ public class Delete(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     Delete(CoreFunctions.GetURL(DeleteCostCentreRequest.Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Delete Cost Centre"));
+    Description(x => x.WithName("Delete Cost Centre End Point"));
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Delete a Cost Centre";
-      s.Description = "Used to delete cost centre with specified id(s)";
+      s.Description = "Used to delete cost centre with specified cost centre code(s)";
       s.ExampleRequest = new DeleteCostCentreRequest { CostCentreCode = "AAA-01" };
       s.ResponseExamples = new Dictionary<int, object> { { 200, new object() } };
     });

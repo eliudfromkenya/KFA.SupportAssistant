@@ -8,16 +8,16 @@ namespace KFA.SupportAssistant.Core.Models;
 public sealed record class StaffGroup : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_staff_groups";
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
 
-  [Required]
+  // [Required]
   [Column("group_number")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [Column("is_active")]
   public bool IsActive { get; init; }
 

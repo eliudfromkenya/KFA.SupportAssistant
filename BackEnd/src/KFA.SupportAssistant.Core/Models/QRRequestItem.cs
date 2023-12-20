@@ -56,7 +56,7 @@ public sealed record class QRRequestItem : BaseModel
   [ForeignKey(nameof(RequestID))]
   public QRCodesRequest? QRCodesRequest { get; set; }
 
-  [Required]
+  // [Required]
   [Column("sale_id")]
   public override string? Id { get; set; }
 

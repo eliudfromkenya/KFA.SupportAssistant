@@ -7,6 +7,6 @@ public class GetCostCentreValidator : Validator<GetCostCentreByIdRequest>
 {
   public GetCostCentreValidator()
   {
-    // RuleFor(x => x.CostCentreCode).NotEmpty();
+    RuleFor(x => x.CostCentreCode).NotEmpty();
   }
 }

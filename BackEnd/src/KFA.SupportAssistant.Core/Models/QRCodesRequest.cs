@@ -20,7 +20,7 @@ public sealed record class QRCodesRequest : BaseModel
   public CostCentre? CostCentre { get; set; }
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
-  [Required]
+  // [Required]
   [Column("is_duplicate")]
   public bool IsDuplicate { get; init; }
 
@@ -28,11 +28,11 @@ public sealed record class QRCodesRequest : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("qr_code_request_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please request data must be 255 characters or less")]
   [Column("request_data")]
   public string? RequestData { get; init; }

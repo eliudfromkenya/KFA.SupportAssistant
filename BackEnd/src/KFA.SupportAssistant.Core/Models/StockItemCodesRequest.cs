@@ -12,7 +12,7 @@ public sealed record class StockItemCodesRequest : BaseModel
   [Column("attanded_by")]
   public string? AttandedBy { get; init; }
 
-  [Required]
+  // [Required]
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }
 
@@ -21,11 +21,11 @@ public sealed record class StockItemCodesRequest : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("cost_price")]
   public decimal CostPrice { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
@@ -42,7 +42,7 @@ public sealed record class StockItemCodesRequest : BaseModel
   [NotMapped]
   public string? Item_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("item_code_request_id")]
   public override string? Id { get; set; }
 
@@ -54,7 +54,7 @@ public sealed record class StockItemCodesRequest : BaseModel
   [Column("requesting_user")]
   public string? RequestingUser { get; init; }
 
-  [Required]
+  // [Required]
   [Column("selling_price")]
   public decimal SellingPrice { get; init; }
 

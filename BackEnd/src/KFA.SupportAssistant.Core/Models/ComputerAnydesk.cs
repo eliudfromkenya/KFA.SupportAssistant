@@ -13,11 +13,11 @@ public sealed record class ComputerAnydesk : BaseModel
     return (ComputerAnydeskDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_computer_anydesks";
-  [Required]
+  // [Required]
   [Column("anydesk_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(100, ErrorMessage = "Please anydesk number must be 100 characters or less")]
   [Column("anydesk_number")]
   public string? AnyDeskNumber { get; init; }
@@ -30,7 +30,7 @@ public sealed record class ComputerAnydesk : BaseModel
   [Column("name_of_user")]
   public string? NameOfUser { get; init; }
 
-  [Required]
+  // [Required]
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }
 
@@ -39,7 +39,7 @@ public sealed record class ComputerAnydesk : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please device name must be 255 characters or less")]
   [Column("device_name")]
   public string? DeviceName { get; init; }

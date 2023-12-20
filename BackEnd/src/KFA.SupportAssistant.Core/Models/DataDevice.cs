@@ -17,16 +17,16 @@ public sealed record class DataDevice : BaseModel
   [Column("device_caption")]
   public string? DeviceCaption { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(100, ErrorMessage = "Please device code must be 100 characters or less")]
   [Column("device_code")]
   public string? DeviceCode { get; init; }
 
-  [Required]
+  // [Required]
   [Column("device_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please device name must be 255 characters or less")]
   [Column("device_name")]
   public string? DeviceName { get; init; }
@@ -39,7 +39,7 @@ public sealed record class DataDevice : BaseModel
   [Column("device_right")]
   public string? DeviceRight { get; init; }
 
-  [Required]
+  // [Required]
   [Column("station")]
   public string? StationID { get; init; }
 

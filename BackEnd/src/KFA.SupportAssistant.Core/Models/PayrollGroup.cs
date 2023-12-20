@@ -8,11 +8,11 @@ namespace KFA.SupportAssistant.Core.Models;
 public sealed record class PayrollGroup : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_payroll_groups";
-  [Required]
+  // [Required]
   [Column("group_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please group name must be 255 characters or less")]
   [Column("group_name")]
   public string? GroupName { get; init; }

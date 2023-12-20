@@ -13,24 +13,24 @@ public sealed record class UserAuditTrail : BaseModel
     return (UserAuditTrailDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_user_audit_trails";
-  [Required]
+  // [Required]
   [Column("activity_date")]
   public global::System.DateTime ActivityDate { get; init; }
 
-  [Required]
+  // [Required]
   [Column("activity_enum_number")]
   public UserActivities ActivityEnumNumber { get; init; }
 
-  [Required]
+  // [Required]
   [Column("audit_id")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please category must be 255 characters or less")]
   [Column("category")]
   public string? Category { get; init; }
 
-  [Required]
+  // [Required]
   [Column("command_id")]
   public string? CommandId { get; init; }
 
@@ -39,16 +39,16 @@ public sealed record class UserAuditTrail : BaseModel
   [NotMapped]
   public string? Command_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [Column("data")]
   public string? Data { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }
 
-  [Required]
+  // [Required]
   [Column("login_id")]
   public string? LoginId { get; init; }
 
@@ -60,7 +60,7 @@ public sealed record class UserAuditTrail : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("old_values")]
   public string? OldValues { get; init; }
 }

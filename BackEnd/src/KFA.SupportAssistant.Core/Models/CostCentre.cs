@@ -12,11 +12,11 @@ public sealed record class CostCentre : BaseModel
     return (CostCentreDTO)this;
   }
   public override string? ___tableName___ { get; protected set; } = "tbl_cost_centres";
-  [Required]
+  // [Required]
   [Column("cost_centre_code")]
   public override string? Id { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   public string? Description { get; init; }

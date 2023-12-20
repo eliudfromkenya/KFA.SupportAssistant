@@ -16,7 +16,7 @@ public sealed record class PriceChangeRequest : BaseModel
   [Column("batch_number")]
   public string? BatchNumber { get; init; }
 
-  [Required]
+  // [Required]
   [Column("cost_centre_code")]
   public string? CostCentreCode { get; init; }
 
@@ -25,12 +25,12 @@ public sealed record class PriceChangeRequest : BaseModel
   [NotMapped]
   public string? CostCentre_Caption { get; set; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please cost price must be 255 characters or less")]
   [Column("cost_price")]
   public string? CostPrice { get; init; }
 
-  [Required]
+  // [Required]
   [Column("item_code")]
   public string? ItemCode { get; init; }
 
@@ -43,7 +43,7 @@ public sealed record class PriceChangeRequest : BaseModel
   [Column("narration")]
   public string? Narration { get; init; }
 
-  [Required]
+  // [Required]
   [Column("request_id")]
   public override string? Id { get; set; }
 
@@ -51,7 +51,7 @@ public sealed record class PriceChangeRequest : BaseModel
   [Column("requesting_user")]
   public string? RequestingUser { get; init; }
 
-  [Required]
+  // [Required]
   [MaxLength(255, ErrorMessage = "Please selling price must be 255 characters or less")]
   [Column("selling_price")]
   public string? SellingPrice { get; init; }

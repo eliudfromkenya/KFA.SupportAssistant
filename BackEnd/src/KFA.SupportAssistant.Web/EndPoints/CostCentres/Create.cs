@@ -25,7 +25,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     Post(CoreFunctions.GetURL(CreateCostCentreRequest.Route));
     Permissions([.. endPointManager.GetDefaultAccessRights(EndPointId), UserRoleConstants.ROLE_SUPER_ADMIN, UserRoleConstants.ROLE_ADMIN]);
-    Description(x => x.WithName("Add Cost Centre"));
+    Description(x => x.WithName("Add Cost Centre End Point"));
 
     Summary(s =>
     {

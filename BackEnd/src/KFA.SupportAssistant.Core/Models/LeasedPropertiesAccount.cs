@@ -39,7 +39,7 @@ public sealed record class LeasedPropertiesAccount : BaseModel
   [Column("leased_on")]
   public global::System.DateTime LeasedOn { get; init; }
 
-  [Required]
+  // [Required]
   [Column("leased_property_account_id")]
   public override string? Id { get; set; }
 
