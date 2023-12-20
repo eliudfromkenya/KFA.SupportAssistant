@@ -16,11 +16,11 @@ internal class EndPointManager(IRepository<DefaultAccessRight> repo)
 {
   public string[] GetDefaultAccessRights(string name, string type)
   {
-    return AsyncUtil.RunSync(() => CoreFunctions.GetDefaultAccessRights(repo, name, type)) ?? [];
+    return CoreFunctions.GetDefaultAccessRights(repo, name, type) ?? [];
   }
 
   public string[] GetDefaultAccessRights(string rightId)
   {
-    return AsyncUtil.RunSync(() => CoreFunctions.GetDefaultAccessRights(repo, rightId)) ?? [];
+    return CoreFunctions.GetDefaultAccessRights(repo, rightId) ?? [];
   }
 }

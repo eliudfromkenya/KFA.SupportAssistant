@@ -5,17 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Ardalis.SharedKernel;
 using Autofac;
+using KFA.SupportAssistant.Core.Classes;
 using KFA.SupportAssistant.Core.Models;
+using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core;
+
 public static class CoreFunctions
 {
-  public static string GetURL(string subURL) { return $"{subURL}".Replace("//", "/"); }
+  public static string GetURL(string subURL)
+  { return $"{subURL}".Replace("//", "/"); }
 
-  static List<DefaultAccessRight>? _defaultAccessRights = null;
-  public static async Task<string[]?> GetDefaultAccessRights(IRepository<DefaultAccessRight> repo, string name, string type)
-   { 
-      _defaultAccessRights ??= await repo.ListAsync();
+  private static List<DefaultAccessRight>? _defaultAccessRights = null;
+  private static readonly object _lockObj = new();
+
+  public static string[]? GetDefaultAccessRights(IRepository<DefaultAccessRight> repo, string name, string type)
+  {
+    lock (_lockObj)
+      if (_defaultAccessRights == null)
+      {
+        _defaultAccessRights = AsyncUtil.RunSync(() => repo.ListAsync());
+        SetDestroyRights();
+      }
 
     if (_defaultAccessRights == null)
       return null;
@@ -27,11 +38,32 @@ public static class CoreFunctions
         .Where(x => !string.IsNullOrWhiteSpace(x))
         .Select(c => c!)
         .ToArray();
-   }
+  }
 
-  public static async Task<string[]?> GetDefaultAccessRights(IRepository<DefaultAccessRight> repo, string rightId)
+  // This function will be called to destroy loaded access rights when application is done loading to free up space
+  private static void SetDestroyRights()
   {
-    _defaultAccessRights ??= await repo.ListAsync();
+    Functions.RunOnBackground(() =>
+    {
+      try
+      {
+        Thread.Sleep(60000);
+        _defaultAccessRights = null;
+      }
+      catch
+      {
+      }
+    });
+  }
+
+  public static string[]? GetDefaultAccessRights(IRepository<DefaultAccessRight> repo, string rightId)
+  {
+    lock (_lockObj)
+      if (_defaultAccessRights == null)
+      {
+        _defaultAccessRights = AsyncUtil.RunSync(() => repo.ListAsync());
+        SetDestroyRights();
+      }
 
     if (_defaultAccessRights == null)
       return null;
