@@ -53,8 +53,9 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
     {
       result.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      ThrowIfAnyErrors();
     }
+
+    ThrowIfAnyErrors();
 
     if (result.Status == ResultStatus.NotFound || result.Value == null)
     {

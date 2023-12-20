@@ -4,9 +4,9 @@ namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
 public record UpdateCostCentreRequest
 {
-  public const string Route = "/cost_centres/{CostCentreCode}";
+  public const string Route = "/cost_centres/{costCentreCode}";
 
-  public static string BuildRoute(string costCentreCode) => Route.Replace("{CostCentreCode}", costCentreCode);
+  public static string BuildRoute(string costCentreCode) => Route.Replace("{costCentreCode}", costCentreCode);
 
   //[Required]
   public string? CostCentreCode { get; set; }

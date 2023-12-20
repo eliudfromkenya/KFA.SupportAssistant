@@ -45,7 +45,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.CostCentreCode ?? "Id", "Id of item to be updated is required please");
+      AddError(request => request.CostCentreCode , "Id of item to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 
@@ -59,7 +59,6 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
     {
       resultObj.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, resultObj.Status, resultObj.Errors, cancellationToken);
-      ThrowIfAnyErrors();
     }
 
     if (resultObj.Status == ResultStatus.NotFound)
@@ -77,6 +76,8 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       await SendNotFoundAsync(cancellationToken);
       return;
     }
+
+    ThrowIfAnyErrors();
 
     if (result.IsSuccess)
     {

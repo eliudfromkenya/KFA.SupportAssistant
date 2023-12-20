@@ -53,8 +53,9 @@ public class Delete(IMediator mediator, IEndPointManager endPointManager) : Endp
     {
       result.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      ThrowIfAnyErrors();
     }
+
+    ThrowIfAnyErrors();
 
     if (result.Status == ResultStatus.NotFound)
     {

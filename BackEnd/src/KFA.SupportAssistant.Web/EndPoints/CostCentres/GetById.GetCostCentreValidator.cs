@@ -1,4 +1,6 @@
-﻿namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+﻿using FluentValidation;
+
+namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
 /// <summary>
 /// See: https://fast-endpoints.com/docs/validation
@@ -7,6 +9,10 @@ public class GetCostCentreValidator : Validator<GetCostCentreByIdRequest>
 {
   public GetCostCentreValidator()
   {
-    RuleFor(x => x.CostCentreCode).NotEmpty();
+    RuleFor(x => x.CostCentreCode)
+    .NotNull()
+    .WithMessage("Cost centre code is required please.")
+    .MinimumLength(2)
+    .MaximumLength(8);
   }
 }

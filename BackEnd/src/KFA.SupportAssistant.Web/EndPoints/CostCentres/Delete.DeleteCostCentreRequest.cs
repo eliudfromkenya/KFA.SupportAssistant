@@ -2,8 +2,8 @@
 
 public record DeleteCostCentreRequest
 {
-  public const string Route = "/cost_centres/{CostCentreCode}";
-  public static string BuildRoute(string? costCentreCode) => Route.Replace("{CostCentreCode}", costCentreCode);
+  public const string Route = "/cost_centres/{costCentreCode}";
+  public static string BuildRoute(string? costCentreCode) => Route.Replace("{costCentreCode}", costCentreCode);
   //[QueryParam]
   public string? CostCentreCode { get; set; }
 }

@@ -51,8 +51,9 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     {
       result.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      ThrowIfAnyErrors();
     }
+
+    ThrowIfAnyErrors();
 
     if (result.IsSuccess)
     {

@@ -46,8 +46,9 @@ public class DynamicGet(IMediator mediator, IEndPointManager endPointManager) : 
     {
       result.Errors.ToList().ForEach(n => AddError(n));
       await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
-      ThrowIfAnyErrors();
     }
+
+    ThrowIfAnyErrors();
 
     if (result.IsSuccess)
     {
