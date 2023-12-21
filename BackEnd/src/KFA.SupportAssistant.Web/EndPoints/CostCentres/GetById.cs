@@ -46,7 +46,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "");
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? string.Empty);
     var result = await mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())

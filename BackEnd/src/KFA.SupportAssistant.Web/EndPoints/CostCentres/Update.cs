@@ -45,14 +45,14 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.CostCentreCode , "Id of item to be updated is required please");
+      AddError(request => request.CostCentreCode, "Id of item to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 
       return;
     }
 
-    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "");
+    var command = new GetModelQuery<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? string.Empty);
     var resultObj = await mediator.Send(command, cancellationToken);
 
     if (resultObj.Errors.Any())
@@ -69,7 +69,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
     }
 
     var value = request.Adapt(resultObj.Value);
-    var result = await mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "", value!), cancellationToken);
+    var result = await mediator.Send(new UpdateModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? string.Empty, value!), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
     {

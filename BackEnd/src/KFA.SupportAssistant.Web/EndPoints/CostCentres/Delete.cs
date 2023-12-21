@@ -46,7 +46,7 @@ public class Delete(IMediator mediator, IEndPointManager endPointManager) : Endp
       return;
     }
 
-    var command = new DeleteModelCommand<CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "");
+    var command = new DeleteModelCommand<CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? string.Empty);
     var result = await mediator.Send(command, cancellationToken);
 
     if (result.Errors.Any())

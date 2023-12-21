@@ -1,25 +1,13 @@
 ﻿namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 
-public readonly struct CreateCostCentreResponse
+public readonly struct CreateCostCentreResponse(string? costCentreCode, bool? isActive, string? description, string? narration, string? region, string? supplierCodePrefix, DateTime? dateInserted___, DateTime? dateUpdated___)
 {
-  public CreateCostCentreResponse(string? costCentreCode, bool? isActive, string? description, string? narration, string? region, string? supplierCodePrefix, DateTime? dateInserted___, DateTime? dateUpdated___)
-  {
-    IsActive = isActive;
-    CostCentreCode = costCentreCode;
-    Description = description;
-    Narration = narration;
-    Region = region;
-    SupplierCodePrefix = supplierCodePrefix;
-    DateInserted___ = dateInserted___;
-    DateUpdated___ = dateUpdated___;
-  }
-
-  public string? CostCentreCode { get; }
-  public string? Description { get; }
-  public string? Narration { get; }
-  public string? Region { get; }
-  public string? SupplierCodePrefix { get; }
-  public DateTime? DateInserted___ { get; }
-  public DateTime? DateUpdated___ { get; }
-  public bool? IsActive { get; }
+  public string? CostCentreCode { get; } = costCentreCode;
+  public string? Description { get; } = description;
+  public string? Narration { get; } = narration;
+  public string? Region { get; } = region;
+  public string? SupplierCodePrefix { get; } = supplierCodePrefix;
+  public DateTime? DateInserted___ { get; } = dateInserted___;
+  public DateTime? DateUpdated___ { get; } = dateUpdated___;
+  public bool? IsActive { get; } = isActive;
 }

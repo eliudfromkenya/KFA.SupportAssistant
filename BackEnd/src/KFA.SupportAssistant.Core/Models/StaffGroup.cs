@@ -11,10 +11,12 @@ public sealed record class StaffGroup : BaseModel
   // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
+  [Encrypted]
   public string? Description { get; init; }
 
   // [Required]
   [Column("group_number")]
+  [Encrypted]
   public override string? Id { get; set; }
 
   // [Required]
@@ -23,6 +25,7 @@ public sealed record class StaffGroup : BaseModel
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]
+  [Encrypted]
   public string? Narration { get; init; }
 
   public ICollection<EmployeeDetail>? EmployeeDetails { get; set; }

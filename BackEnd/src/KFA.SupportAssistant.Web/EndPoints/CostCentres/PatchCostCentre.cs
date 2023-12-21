@@ -27,7 +27,7 @@ public class PatchCostCentre(IMediator mediator, IEndPointManager endPointManage
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = "Update partially a cost centre";
       s.Description = "Updates part of an existing CostCentre. A valid existing is required.";
-      //s.ResponseExamples[200] = new CostCentreRecord("Id", "Name", "Narration", "Region", "Supplier Code", true, DateTime.UtcNow, DateTime.UtcNow);
+      s.ResponseExamples[200] = new CostCentreRecord("Id", "Name", "Narration", "Region", "Supplier Code", true, DateTime.UtcNow, DateTime.UtcNow);
     });
   }
 
@@ -35,13 +35,13 @@ public class PatchCostCentre(IMediator mediator, IEndPointManager endPointManage
   {
     if (string.IsNullOrWhiteSpace(request.CostCentreCode))
     {
-      AddError(request => request.CostCentreCode , "Id of item to be updated is required please");
+      AddError(request => request.CostCentreCode, "Id of item to be updated is required please");
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }
 
     CostCentreDTO patchFunc(CostCentreDTO tt) => AsyncUtil.RunSync(() => PatchUpdater.Patch<CostCentreDTO, CostCentre>(() => request.PatchDocument, HttpContext, request.Content, tt, cancellationToken));
-    var result = await mediator.Send(new PatchModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? "", patchFunc), cancellationToken);
+    var result = await mediator.Send(new PatchModelCommand<CostCentreDTO, CostCentre>(CreateEndPointUser.GetEndPointUser(User), request.CostCentreCode ?? string.Empty, patchFunc), cancellationToken);
 
     if (result.Status == ResultStatus.NotFound)
       AddError("Can not find the cost centre to update");
@@ -49,7 +49,7 @@ public class PatchCostCentre(IMediator mediator, IEndPointManager endPointManage
     if (result.Errors.Any())
     {
       result.Errors.ToList().ForEach(n => AddError(n));
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);      
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
     }
 
     ThrowIfAnyErrors();
