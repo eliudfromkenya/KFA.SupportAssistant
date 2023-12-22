@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.LetPropertiesAccounts;
+
+public record LetPropertiesAccountRecord(decimal? CommencementRent, string? CostCentreCode, decimal? CurrentRent, global::System.DateTime? LastReviewDate, string? LedgerAccountCode, global::System.DateTime? LetOn, string? LetPropertyAccountId, string? Narration, string? TenantAddress, DateTime? DateInserted___, DateTime? DateUpdated___);

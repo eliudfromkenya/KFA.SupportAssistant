@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 
 public class GetCostCentreByIdRequest
 {

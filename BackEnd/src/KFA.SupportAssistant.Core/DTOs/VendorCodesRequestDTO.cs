@@ -9,7 +9,7 @@ public record class VendorCodesRequestDTO : BaseDTO<VendorCodesRequest>
   public string? Narration { get; set; }
   public string? RequestingUser { get; set; }
   public string? Status { get; set; }
-  public string? TimeAttended { get; set; }
+  public DateTime? TimeAttended { get; set; }
   public DateTime? TimeOfRequest { get; set; }
   public string? VendorCode { get; set; }
   public string? VendorType { get; set; }

@@ -4,7 +4,7 @@ namespace KFA.SupportAssistant.Core.DTOs;
 public record class ActualBudgetVarianceDTO : BaseDTO<ActualBudgetVariance>
 {
   public decimal ActualValue { get; set; }
-  public long BatchKey { get; set; }
+  public string? BatchKey { get; set; }
   public decimal BudgetValue { get; set; }
   public string? Comment { get; set; }
   public string? Description { get; set; }

@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.ExpensesBudgetDetails;
+
+public record ExpensesBudgetDetailRecord(string? BasisOfCalculation, string? BatchKey, string? ExpenseBudgetDetailId, string? LedgerAccountCode, decimal? Month01, decimal? Month02, decimal? Month03, decimal? Month04, decimal? Month05, decimal? Month06, decimal? Month07, decimal? Month08, decimal? Month09, decimal? Month10, decimal? Month11, decimal? Month12, string? Narration, DateTime? DateInserted___, DateTime? DateUpdated___);

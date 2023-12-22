@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.ActualBudgetVariancesBatchHeaders;
+
+public record ActualBudgetVariancesBatchHeaderRecord(string? ApprovedBy, string? BatchKey, string? BatchNumber, decimal? CashSalesAmount, short? ComputerNumberOfRecords, decimal? ComputerTotalActualAmount, decimal? ComputerTotalBudgetAmount, string? CostCentreCode, string? Month, string? Narration, short? NumberOfRecords, string? PreparedBy, decimal? PurchasesesAmount, decimal? TotalActualAmount, decimal? TotalBudgetAmount, DateTime? DateInserted___, DateTime? DateUpdated___);

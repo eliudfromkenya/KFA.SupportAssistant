@@ -4,7 +4,6 @@ using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Models.Create;
-using KFA.SupportAssistant.Web.Endpoints.CostCentreEndpoints;
 using KFA.SupportAssistant.Web.Services;
 using Mapster;
 using MediatR;
@@ -15,11 +14,11 @@ namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 /// Create a new CostCentre
 /// </summary>
 /// <remarks>
-/// Creates a new CostCentre given a name.
+/// Creates a new cost centre given by given details.
 /// </remarks>
 public class Create(IMediator mediator, IEndPointManager endPointManager) : Endpoint<CreateCostCentreRequest, CreateCostCentreResponse>
 {
-  private const string EndPointId = "ENP-011";
+  private const string EndPointId = "ENP-151";
 
   public override void Configure()
   {
@@ -30,10 +29,10 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
     Summary(s =>
     {
       // XML Docs are used by default but are overridden by these properties:
-      s.Summary = "User to create a new cost centre";
-      s.Description = "Cost centre to be created details are provided here";
-      s.ExampleRequest = new CreateCostCentreRequest { CostCentreCode = "1000", Description = "Cost Centre Name" };
-      s.ResponseExamples[200] = new CreateCostCentreResponse("1100", true, "Cost Centre Name", "Narration", "Region", "S3A", DateTime.UtcNow, DateTime.UtcNow);
+      s.Summary = $"[End Point - {EndPointId}] Used to create a new cost centre";
+      s.Description = "This endpoint is used to create a new  cost centre. Here details of cost centre to be created is provided";
+      s.ExampleRequest = new CreateCostCentreRequest { CostCentreCode = "1000", Description = "Description", Narration = "Narration", Region = "Region", SupplierCodePrefix = "Supplier Code Prefix" };
+      s.ResponseExamples[200] = new CreateCostCentreResponse("1000", "Description", "Narration", "Region", "Supplier Code Prefix", DateTime.Now, DateTime.Now);
     });
   }
 
@@ -58,7 +57,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
     {
       if (result?.Value?.FirstOrDefault() is CostCentreDTO obj)
       {
-        Response = new CreateCostCentreResponse(obj.Id, obj.IsActive, obj.Description!, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
+        Response = new CreateCostCentreResponse(obj.Id, obj.Description, obj.Narration, obj.Region, obj.SupplierCodePrefix, obj.DateInserted___, obj.DateUpdated___);
         return;
       }
     }

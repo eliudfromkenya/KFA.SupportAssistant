@@ -15,7 +15,7 @@ public sealed record class StockCountSheet : BaseModel
   public decimal AverageAgeMonths { get; init; }
 
   [Column("batch_key")]
-  public long BatchKey { get; init; }
+  public string? BatchKey { get; init; }
 
   [Required]
   [Column("count_sheet_document_id")]

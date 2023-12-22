@@ -12,7 +12,7 @@ public record class PriceChangeRequestDTO : BaseDTO<PriceChangeRequest>
   public string? RequestingUser { get; set; }
   public string? SellingPrice { get; set; }
   public string? Status { get; set; }
-  public string? TimeAttended { get; set; }
+  public DateTime? TimeAttended { get; set; }
   public DateTime? TimeOfRequest { get; set; }
   public override PriceChangeRequest? ToModel()
   {

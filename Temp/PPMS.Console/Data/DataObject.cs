@@ -170,7 +170,7 @@ namespace PPMS.Console.Data
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine("..........Errror..............\r\n\r\n" + ex.ToString());
+                    System.Console.WriteLine("..........Error..............\r\n\r\n" + ex.ToString());
                 }
                 //var tables = 
             }

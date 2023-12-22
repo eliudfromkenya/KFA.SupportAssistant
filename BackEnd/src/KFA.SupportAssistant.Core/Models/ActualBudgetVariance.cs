@@ -17,7 +17,9 @@ public sealed record class ActualBudgetVariance : BaseModel
   public decimal ActualValue { get; init; }
 
   [Column("batch_key")]
-  public long BatchKey { get; init; }
+  public string? BatchKey { get; init; }
+  [ForeignKey(nameof(BatchKey))]
+  public ActualBudgetVariancesBatchHeader? Batch { get; set; }
 
   [Column("budget_value")]
   public decimal BudgetValue { get; init; }

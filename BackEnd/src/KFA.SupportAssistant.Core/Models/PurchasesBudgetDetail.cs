@@ -9,7 +9,7 @@ public sealed record class PurchasesBudgetDetail : BaseModel
 {
   public override string? ___tableName___ { get; protected set; } = "tbl_purchases_budget_details";
   [Column("batch_key")]
-  public long BatchKey { get; init; }
+  public string? BatchKey { get; init; }
 
   [Column("buying_price")]
   public decimal BuyingPrice { get; init; }

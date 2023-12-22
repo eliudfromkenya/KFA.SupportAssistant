@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.StockCountSheets;
+
+public record StockCountSheetRecord(decimal? Actual, decimal? AverageAgeMonths, string? BatchKey, long? CountSheetDocumentId, string? CountSheetId, string? DocumentNumber, string? ItemCode, string? Narration, decimal? QuantityOnHand, decimal? QuantitySoldLast12Months, decimal? SellingPrice, decimal? StocksOver, decimal? StocksShort, decimal? UnitCostPrice, DateTime? DateInserted___, DateTime? DateUpdated___);

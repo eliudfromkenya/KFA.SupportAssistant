@@ -3,7 +3,7 @@
 namespace KFA.SupportAssistant.Core.DTOs;
 public record class PurchasesBudgetDetailDTO : BaseDTO<PurchasesBudgetDetail>
 {
-  public long BatchKey { get; set; }
+  public string? BatchKey { get; set; }
   public decimal BuyingPrice { get; set; }
   public string? ItemCode { get; set; }
   public byte Month { get; set; }

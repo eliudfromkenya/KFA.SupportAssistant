@@ -5,7 +5,7 @@ public record class StockCountSheetDTO : BaseDTO<StockCountSheet>
 {
   public decimal Actual { get; set; }
   public decimal AverageAgeMonths { get; set; }
-  public long BatchKey { get; set; }
+  public string? BatchKey { get; set; }
   public long CountSheetDocumentId { get; set; }
   public string? DocumentNumber { get; set; }
   public string? ItemCode { get; set; }

@@ -68,7 +68,7 @@ public sealed record class StockItemCodesRequest : BaseModel
 
   [MaxLength(255, ErrorMessage = "Please time attended must be 255 characters or less")]
   [Column("time_attended")]
-  public string? TimeAttended { get; init; }
+  public DateTime? TimeAttended { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please time of request must be 255 characters or less")]
   [Column("time_of_request")]

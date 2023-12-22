@@ -14,7 +14,7 @@ public record class StockItemCodesRequestDTO : BaseDTO<StockItemCodesRequest>
   public decimal SellingPrice { get; set; }
   public string? Status { get; set; }
   public string? Supplier { get; set; }
-  public string? TimeAttended { get; set; }
+  public DateTime? TimeAttended { get; set; }
   public DateTime? TimeOfRequest { get; set; }
   public string? UnitOfMeasure { get; set; }
   public override StockItemCodesRequest? ToModel()

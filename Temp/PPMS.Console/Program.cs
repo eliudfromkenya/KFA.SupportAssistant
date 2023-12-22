@@ -86,6 +86,8 @@ namespace PPMS.Console
             // }
             //PPMS.Console.Generators.Controllers.Generate();
             SeedData.GenerateContexts();
+
+            using var tsk51 = Task.Factory.StartNew(EndPointsGenerator.GenerateModels);
             using var tsk22 = Task.Factory.StartNew(Controllers.GenerateDtos);
             using var tsk = Task.Factory.StartNew(EfDbContext.Generate);
             using var tsk2 = Task.Factory.StartNew(Repository.Generate);
@@ -93,8 +95,8 @@ namespace PPMS.Console
             using var tsk4 = Task.Factory.StartNew(GraphQlGenerators.Generate);
             using var tsk5 = Task.Factory.StartNew(PageMaker.GenerateEntryPagesXamls);
             using var tsk6 = MagicOnionClasses.Generate();
-            Task.WaitAll(tsk, tsk2, tsk3, tsk22, tsk4, tsk5, tsk6);
-            foreach (var obj in new[] { tsk, tsk2, tsk22, tsk3, tsk4, tsk5, tsk6 })
+            Task.WaitAll(tsk, tsk2, tsk3, tsk22, tsk4, tsk5, tsk51 , tsk6);
+            foreach (var obj in new[] { tsk, tsk2, tsk22, tsk3, tsk4, tsk5, tsk51 , tsk6 })
                 obj.Dispose();
 
             WriteLine("Done");

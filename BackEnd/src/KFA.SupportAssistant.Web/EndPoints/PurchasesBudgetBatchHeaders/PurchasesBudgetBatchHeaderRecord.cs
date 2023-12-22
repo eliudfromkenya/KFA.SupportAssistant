@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.PurchasesBudgetBatchHeaders;
+
+public record PurchasesBudgetBatchHeaderRecord(string? ApprovedBy, string? BatchKey, string? BatchNumber, short? ComputerNumberOfRecords, decimal? ComputerTotalAmount, string? CostCentreCode, global::System.DateTime? Date, string? MonthFrom, string? MonthTo, string? Narration, short? NumberOfRecords, string? PreparedBy, decimal? TotalAmount, decimal? TotalQuantity, DateTime? DateInserted___, DateTime? DateUpdated___);
