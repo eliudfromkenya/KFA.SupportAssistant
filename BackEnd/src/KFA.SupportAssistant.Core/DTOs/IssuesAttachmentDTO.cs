@@ -47,5 +47,4 @@ public record class IssuesAttachmentDTO : BaseDTO<IssuesAttachment>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

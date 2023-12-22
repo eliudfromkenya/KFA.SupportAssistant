@@ -38,7 +38,7 @@ public record class LetPropertiesAccountDTO : BaseDTO<LetPropertiesAccount>
   {
     return new LetPropertiesAccount
     {
-     // AccountNumber = obj.AccountNumber,
+      // AccountNumber = obj.AccountNumber,
       CommencementRent = obj.CommencementRent,
       CostCentreCode = obj.CostCentreCode,
       CurrentRent = obj.CurrentRent,

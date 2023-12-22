@@ -10,5 +10,4 @@ public interface IUserManagementService
   Task<Result> ChangeUserRoleAsync(string userId, string newRoleId, string? device, CancellationToken cancellationToken);
 
   Task<Result<string[]>> ClearUserRightsAsync(string userId, string? device, CancellationToken cancellationToken, params string[] rightsToClear);
-
 }

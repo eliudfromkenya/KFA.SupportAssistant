@@ -56,5 +56,4 @@ public record class VendorCodesRequestDTO : BaseDTO<VendorCodesRequest>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

@@ -53,6 +53,16 @@ public class AppDbContext : DbContext
   public DbSet<StaffGroup> StaffGroups { get; set; }
   public DbSet<StockItemCodesRequest> StockItemCodesRequests { get; set; }
   public DbSet<VendorCodesRequest> VendorCodesRequests { get; set; }
+  public DbSet<ActualBudgetVariance> ActualBudgetVariances { get; set; }
+  public DbSet<ActualBudgetVariancesBatchHeader> ActualBudgetVariancesBatchHeaders { get; set; }
+  public DbSet<CountSheetBatch> CountSheetBatches { get; set; }
+  public DbSet<ExpenseBudgetBatchHeader> ExpenseBudgetBatchHeaders { get; set; }
+  public DbSet<ExpensesBudgetDetail> ExpensesBudgetDetails { get; set; }
+  public DbSet<PurchasesBudgetBatchHeader> PurchasesBudgetBatchHeaders { get; set; }
+  public DbSet<PurchasesBudgetDetail> PurchasesBudgetDetails { get; set; }
+  public DbSet<SalesBudgetBatchHeader> SalesBudgetBatchHeaders { get; set; }
+  public DbSet<SalesBudgetDetail> SalesBudgetDetails { get; set; }
+  public DbSet<StockCountSheet> StockCountSheets { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

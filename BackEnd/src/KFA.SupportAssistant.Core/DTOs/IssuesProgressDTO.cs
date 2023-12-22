@@ -45,5 +45,4 @@ public record class IssuesProgressDTO : BaseDTO<IssuesProgress>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

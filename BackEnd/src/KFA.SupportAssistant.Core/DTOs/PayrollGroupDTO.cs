@@ -31,5 +31,4 @@ public record class PayrollGroupDTO : BaseDTO<PayrollGroup>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

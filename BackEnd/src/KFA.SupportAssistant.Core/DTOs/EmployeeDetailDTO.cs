@@ -19,6 +19,9 @@ public record class EmployeeDetailDTO : BaseDTO<EmployeeDetail>
   public decimal? RetrenchmentAmount { get; set; }
   public global::System.DateTime? RetrenchmentDate { get; set; }
   public string? Status { get; set; }
+  public string? Remarks { get; set; }
+  public string? PayrollGroupID { get; set; }
+  public string? Classification { get; set; }
   public override EmployeeDetail? ToModel()
   {
     return (EmployeeDetail)this;
@@ -27,21 +30,24 @@ public record class EmployeeDetailDTO : BaseDTO<EmployeeDetail>
   {
     return new EmployeeDetailDTO
     {
-      AmountDue = decimal.TryParse( obj.AmountDue, out decimal amt)?amt:0,
+      AmountDue = obj.AmountDue,
+      Classification = obj.Classification,
       CostCentreCode = obj.CostCentreCode,
-      Date = DateTime.TryParse( obj.Date, out DateTime date)?date: null,
+      Date = obj.Date,
       Email = obj.Email,
       FullName = obj.FullName,
       Gender = obj.Gender,
       GroupNumber = obj.GroupNumber,
       IdNumber = obj.IdNumber,
       Narration = obj.Narration,
+      PayrollGroupID = obj.PayrollGroupID,
       PayrollNumber = obj.PayrollNumber,
       PhoneNumber = obj.PhoneNumber,
-      RejoinDate = DateTime.TryParse(obj.RejoinDate, out DateTime date1) ? date1 : null,
-      RetireeAmount = decimal.TryParse(obj.RetireeAmount, out decimal amt2) ? amt2 : null,
-      RetrenchmentAmount = decimal.TryParse(obj.RetrenchmentAmount, out decimal amt3) ? amt3 : null,
-      RetrenchmentDate = DateTime.TryParse(obj.RetrenchmentDate, out DateTime date2) ? date2 : null,
+      RejoinDate = obj.RejoinDate,
+      Remarks = obj.Remarks,
+      RetireeAmount = obj.RetireeAmount,
+      RetrenchmentAmount = obj.RetrenchmentAmount,
+      RetrenchmentDate = obj.RetrenchmentDate,
       Status = obj.Status,
       Id = obj.Id,
       DateInserted___ = obj.___DateInserted___?.ToDateTime(),
@@ -52,26 +58,28 @@ public record class EmployeeDetailDTO : BaseDTO<EmployeeDetail>
   {
     return new EmployeeDetail
     {
-      AmountDue = obj.AmountDue.ToString(),
+      AmountDue = obj.AmountDue,
+      Classification = obj.Classification,
       CostCentreCode = obj.CostCentreCode,
-      Date = obj.Date?.ToString(),
+      Date = obj.Date,
       Email = obj.Email,
       FullName = obj.FullName,
       Gender = obj.Gender,
       GroupNumber = obj.GroupNumber,
       IdNumber = obj.IdNumber,
       Narration = obj.Narration,
+      PayrollGroupID = obj.PayrollGroupID,
       PayrollNumber = obj.PayrollNumber,
       PhoneNumber = obj.PhoneNumber,
-      RejoinDate = obj.RejoinDate?.ToString(),
-      RetireeAmount = obj.RetireeAmount?.ToString(),
-      RetrenchmentAmount = obj.RetrenchmentAmount?.ToString(),
-      RetrenchmentDate = obj.RetrenchmentDate?.ToString(),
+      RejoinDate = obj.RejoinDate,
+      Remarks = obj.Remarks,
+      RetireeAmount = obj.RetireeAmount,
+      RetrenchmentAmount = obj.RetrenchmentAmount,
+      RetrenchmentDate = obj.RetrenchmentDate,
       Status = obj.Status,
       Id = obj.Id,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

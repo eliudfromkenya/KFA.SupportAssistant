@@ -12,7 +12,7 @@ namespace KFA.SupportAssistant.Core.ContributorAggregate.Specifications;
 
 public static class DynamicParam<T> where T : BaseModel, new()
 {
-  public async static Task<dynamic[]?> GetDynamicQuery(EndPointUser user, IDbQuery<T> queryGenerator, ListParam param, CancellationToken cancellationToken)
+  public static async Task<dynamic[]?> GetDynamicQuery(EndPointUser user, IDbQuery<T> queryGenerator, ListParam param, CancellationToken cancellationToken)
   {
     IQueryable? ans = GetQuery(user, queryGenerator, param);
     if (param.FilterParam?.SelectColumns?.Length > 0)
@@ -54,10 +54,10 @@ public static class DynamicParam<T> where T : BaseModel, new()
       if (!string.IsNullOrWhiteSpace(filter?.Predicate))
         query = query.Where(filter.Predicate, filter.Parameters ?? []);
     }
-   // var ss = new ListParam { FilterParam = new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] },  Skip = 0, Take = 3 };
+    // var ss = new ListParam { FilterParam = new FilterParam { Predicate = "SupplierCodePrefix.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Description, SupplierCodePrefix}", Parameters = ["S3", "3100"], OrderByConditions = ["Description", "SupplierCodePrefix"] },  Skip = 0, Take = 3 };
     return query;
   }
- 
+
   private static IQueryable<T> OrderModelsBy(IQueryable<T> query, params string[] orderByParams)
   {
     if (orderByParams == null || orderByParams.Length == 0)

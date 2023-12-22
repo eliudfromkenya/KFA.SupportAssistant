@@ -59,5 +59,4 @@ public record class PriceChangeRequestDTO : BaseDTO<PriceChangeRequest>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

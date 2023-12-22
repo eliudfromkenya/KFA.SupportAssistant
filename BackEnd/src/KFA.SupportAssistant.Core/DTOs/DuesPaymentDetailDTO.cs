@@ -1,5 +1,4 @@
 ﻿using KFA.SupportAssistant.Core.Models;
-using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.DTOs;
 public record class DuesPaymentDetailDTO : BaseDTO<DuesPaymentDetail>
@@ -22,8 +21,8 @@ public record class DuesPaymentDetailDTO : BaseDTO<DuesPaymentDetail>
   {
     return new DuesPaymentDetailDTO
     {
-      Amount = decimal.TryParse(obj.Amount, out decimal amt)?amt:0,
-      Date = DateTime.TryParse( obj.Date, out DateTime date) ? date : DateTime.MinValue,
+      Amount = decimal.TryParse(obj.Amount, out decimal amt) ? amt : 0,
+      Date = DateTime.TryParse(obj.Date, out DateTime date) ? date : DateTime.MinValue,
       DocumentNo = obj.DocumentNo,
       EmployeeID = obj.EmployeeId,
       IsFinalPayment = bool.TryParse(obj.IsFinalPayment, out bool isFinal) ? isFinal : null,

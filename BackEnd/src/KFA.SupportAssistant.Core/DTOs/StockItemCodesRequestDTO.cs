@@ -68,5 +68,4 @@ public record class StockItemCodesRequestDTO : BaseDTO<StockItemCodesRequest>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

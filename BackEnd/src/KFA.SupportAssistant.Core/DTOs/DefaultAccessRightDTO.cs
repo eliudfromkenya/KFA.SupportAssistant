@@ -37,5 +37,4 @@ public record class DefaultAccessRightDTO : BaseDTO<DefaultAccessRight>
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

@@ -37,4 +37,8 @@
     <ProjectReference Include="..\KFA.SupportAssistant.UseCases\KFA.SupportAssistant.UseCases.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EndPoints\" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace KFA.SupportAssistant.Core;
 
-namespace KFA.SupportAssistant.Core;
-public static  class UserRoleConstants
+public static class UserRoleConstants
 {
   public const string ROLE_GUEST = "U-KR-NKMW-000001";
   public const string ROLE_ADMIN = "U-KR-NKMW-000003";
