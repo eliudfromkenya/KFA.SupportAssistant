@@ -14,6 +14,8 @@ public static class SeedData{
         serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(), null);
 
     AsyncUtil.RunSync(() => PayrollGroups.Process(dbContext));
+    AsyncUtil.RunSync(() => EndPointsAccessRights.Process(dbContext));
+
     // Look for any and populate default values.
   }
 }
