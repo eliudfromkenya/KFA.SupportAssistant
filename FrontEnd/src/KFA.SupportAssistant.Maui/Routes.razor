@@ -1,0 +1,28 @@
+﻿@using KFA.SupportAssistant.RCL.Pages.LoginPages
+@using Microsoft.AspNetCore.Components.Authorization
+
+<CascadingAuthenticationState>
+   <Router AppAssembly="@typeof(MauiProgram).Assembly">
+        <Found Context="routeData">
+            <AuthorizeView>
+                <Authorized>
+                    <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(Components.Layout.MainLayout)" />
+                </Authorized>
+                <NotAuthorized>
+                    <CascadingAuthenticationState>
+                        <Login />
+                    </CascadingAuthenticationState>
+                </NotAuthorized>
+            </AuthorizeView>
+             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>        
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(Components.Layout.MainLayout)">
+                <h1>404 Error</h1>
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>            
+    </NotFound>
+    </Router>
+</CascadingAuthenticationState>
