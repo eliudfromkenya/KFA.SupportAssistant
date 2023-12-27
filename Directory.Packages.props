@@ -61,9 +61,19 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageVersion Include="EntityFrameworkCore.DataEncryption" Version="5.0.0" />
 
-
-    <PackageVersion Include="EntityFrameworkCore.Triggers" Version="1.2.2" />
-    <PackageVersion Include="Microsoft.Data.Sqlite.Core" Version="8.0.0" />
-    <PackageVersion Include="Prism.Core" Version="7.2.0.1422" />
+    <PackageVersion Include="Blazored.LocalStorage" Version="4.4.0" />
+    <PackageVersion Include="BlazorPro.Spinkit" Version="1.2.0" />
+    <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
+    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.2.1" />
+    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.2.1" />
+    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.2.1" />
+    <PackageVersion Include="Microsoft.Maui.Controls" Version="8.0.3" />
+    <PackageVersion Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.3" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="8.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
   </ItemGroup>
 </Project>

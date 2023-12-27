@@ -1,6 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using KFA.SupportAssistant.RCL.Data;
 using KFA.SupportAssistant.RCL.Handlers;
+using KFA.SupportAssistant.RCL.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Logging;
 
@@ -22,11 +23,17 @@ namespace KFA.SupportAssistant.Maui;
           builder.Services.AddTransient<ValidateHeaderHandler>();
           builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
           builder.Services.AddSingleton<HttpClient>();
-          builder.Services.AddBlazoredLocalStorage();
+    builder.Services.AddScoped<IUserService, UserService>();
+    builder.Services.AddBlazoredLocalStorage();
+    builder.Services.AddAuthorizationCore(options =>
+    {
+      options.AddPolicy("SeniorEmployee", policy =>
+          policy.RequireClaim("IsUserEmployedBefore1990", "true"));
+    });
 
 #if DEBUG
     builder.Services.AddBlazorWebViewDeveloperTools();
-  		builder.Logging.AddDebug();
+  		//builder.Logging.AddDebug();
 #endif
 
           return builder.Build();

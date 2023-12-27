@@ -1,8 +1,7 @@
-﻿namespace KFA.SupportAssistant.RCL.Data
+﻿namespace KFA.SupportAssistant.RCL.Data;
+
+public class Role
 {
-  public class Role
-  {
-    public short RoleId { get; set; }
-    public string RoleDesc { get; set; }
-  }
+  public short RoleId { get; set; }
+  public string? RoleDesc { get; set; }
 }

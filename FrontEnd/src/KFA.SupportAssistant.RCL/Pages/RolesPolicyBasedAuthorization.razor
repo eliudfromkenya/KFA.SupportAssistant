@@ -14,22 +14,22 @@
 @code {
 
     [CascadingParameter]
-    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    private Task<AuthenticationState>? authenticationStateTask { get; set; }
 
     bool IsUserPublisher;
     bool IsSeniorEmployee;
 
     private async Task FindOutAboutUser()
-    {       
-        
+    {
+        if (authenticationStateTask == null)
+            return;
+
         var user = (await authenticationStateTask).User;
 
         if (user.IsInRole("Publisher"))
             IsUserPublisher = true;
 
         if ((await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
-            IsSeniorEmployee = true;
-        
-
+            IsSeniorEmployee = true;    
     }
 }

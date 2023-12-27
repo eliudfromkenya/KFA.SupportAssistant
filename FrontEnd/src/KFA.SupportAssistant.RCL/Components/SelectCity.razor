@@ -12,12 +12,12 @@
     }
 </select>
 
-@code {    
-    
+@code {
+
     [Parameter]
     public EventCallback<ChangeEventArgs> OnChangeEvent { get; set; }
 
-    public string[] Cities { get; set; }
+    public string[] Cities { get; set; } = [];
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

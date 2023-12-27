@@ -12,7 +12,7 @@ public sealed record class EmployeeDetail : BaseModel
   public decimal AmountDue { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please classification must be 255 characters or less")]
-  [Column("classification")]
+  [Column("classfication")]
   public string? Classification { get; init; }
 
   [Column("cost_centre_code")]

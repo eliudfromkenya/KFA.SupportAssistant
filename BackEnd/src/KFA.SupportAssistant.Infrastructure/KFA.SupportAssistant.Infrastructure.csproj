@@ -17,6 +17,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
     <ProjectReference Include="..\KFA.SupportAssistant.Core\KFA.SupportAssistant.Core.csproj" />
     <ProjectReference Include="..\KFA.SupportAssistant.UseCases\KFA.SupportAssistant.UseCases.csproj" />
   </ItemGroup>

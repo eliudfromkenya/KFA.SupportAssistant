@@ -1,5 +1,6 @@
 ﻿@page  "/signup"
 @using KFA.SupportAssistant.RCL.Data
+@using KFA.SupportAssistant.RCL.Models
 @using KFA.SupportAssistant.RCL.Services
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
@@ -41,24 +42,25 @@
 
 @code {
 
-    private User user;
-    public string LoginMesssage { get; set; }
+    private SignupSystemUserDTO user = new();
+    public string? LoginMesssage { get; set; }
+
 
     protected override Task OnInitializedAsync()
     {
-        user = new User();
+        user = new ();
         return base.OnInitializedAsync();
     }
 
     private async Task<bool> RegisterUser()
     {
         //assume that user is valid
-        user.Source = "APPC";
+       // user.Source = "APPC";
         var returnedUser = await userService.RegisterUserAsync(user);
 
-        if(returnedUser.EmailAddress != null)
+        if(returnedUser?.EmailAddress != null)
         {   
-            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider)?.MarkUserAsAuthenticated(returnedUser);
             NavigationManager.NavigateTo("/");
         }
         else

@@ -1,43 +1,33 @@
 ﻿@page "/employee_details"
 @using BlazorPro.Spinkit
 @using KFA.SupportAssistant.RCL.Services
+@inject ILocalStorageService localStorageService
+@inject IUserService userService
+
 <h3>EmployeeDetails</h3>
 
 
 <div class="col-12">
 
     <h3><b>EmployeeDetailss</b></h3>    
-    <SpinLoader IsLoading="isLoading">
-        <LoadingTemplate>
-            <div class="col-12" style="background-color: lightgray; height:400px; vertical-align:middle">
-                <br /><br />
-                <Chase Center="true" Color="#c21f13" Size="70px"></Chase>
-            </div>
-        </LoadingTemplate>
-        <ContentTemplate>
-            @if (filteredEmployeeDetailsList != null)
-            {
-                       
-            }
-        </ContentTemplate>
-    </SpinLoader>
+   
 </div>
 
 @code {
 
-    public EmployeeDetails employeedetails { get; set; }
-    public List<EmployeeDetails> employeedetailsList { get; set; }
-    public List<EmployeeDetails> filteredEmployeeDetailsList { get; set; }
-    public string SelectedCity { get; set; }
+    public EmployeeDetails? employeedetails { get; set; }
+    public List<EmployeeDetails>? employeedetailsList { get; set; }
+    public List<EmployeeDetails>? filteredEmployeeDetailsList { get; set; }
+    public string? SelectedCity { get; set; }
 
     public bool IsVisible { get; set; }
     public bool Result { get; set; }
-    public string RecordName { get; set; }
-    public string[] Cities { get; set; }
+    public string? RecordName { get; set; }
+    public string[]? Cities { get; set; }
     public bool IsGridViewFiltered { get; set; }
-    bool isLoading = true;
+    //bool isLoading = true;
 
-    ElementReference firstNameTextBox;
+    //ElementReference firstNameTextBox;
 
     protected override void OnInitialized()
     {
@@ -90,7 +80,7 @@
         {
             await LoadEmployeeDetailss();
 
-            isLoading = false;
+            //isLoading = false;
             StateHasChanged();
         }
 
@@ -99,16 +89,16 @@
 
     public void Dispose()
     {
-        Console.WriteLine("EmployeeDetailss - Dispose");
+        Console.WriteLine("EmployeeDetails - Dispose");
     }
 
     private async Task LoadEmployeeDetailss()
     {
         await Task.Delay(500);
 
-        using var httpClientWrapper = new HttpClientWrapper<EmployeeDetails, string>("","");
+        using var httpClientWrapper = new HttpClientWrapper<EmployeeDetails, string>("employee-details");
 
-        employeedetailsList = filteredEmployeeDetailsList = await bookStoresService.GetAllAsync("employeedetailss/GetEmployeeDetailss");
+        employeedetailsList = filteredEmployeeDetailsList = (await httpClientWrapper.GetManyAsync())?.ToList();
 
         if (employeedetailsList == null)
         {
@@ -116,47 +106,46 @@
             refreshRequest.AccessToken = await localStorageService.GetItemAsync<string>("accessToken");
             refreshRequest.RefreshToken = await localStorageService.GetItemAsync<string>("refreshToken");
 
-            var user1 = await userService.RefreshTokenAsync(refreshRequest);
-            await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
+           // var user1 = await userService.RefreshTokenAsync(refreshRequest);
+           // await localStorageService.SetItemAsync("accessToken", user1?.AccessToken);
 
-            employeedetailsList = filteredEmployeeDetailsList = await bookStoresService.GetAllAsync("employeedetailss/GetEmployeeDetailss");
+            // employeedetailsList = filteredEmployeeDetailsList = await bookStoresService.GetAllAsync("employeedetailss/GetEmployeeDetailss");
         }
-
-        //if (employeedetailsList != null)
-        //    employeedetailsList = employeedetailsList.OrderByDescending(auth => auth.EmployeeDetailsId).ToList();
 
         StateHasChanged();
     }
 
     private async Task SaveEmployeeDetails()
     {
-        employeedetails.City = SelectedCity;
+        await Task.Run(() => { });
+        // employeedetails.City = SelectedCity;
 
-        if (employeedetails.EmployeeDetailsId == 0)
-            await bookStoresService.SaveAsync("employeedetailss/CreateEmployeeDetails", employeedetails);
-        else
-            await bookStoresService.UpdateAsync("employeedetailss/UpdateEmployeeDetails", employeedetails.EmployeeDetailsId, employeedetails);
+        // if (employeedetails?.EmployeeDetailsId == 0)
+        //     await bookStoresService.SaveAsync("employeedetailss/CreateEmployeeDetails", employeedetails);
+        // else
+        //     await bookStoresService.UpdateAsync("employeedetailss/UpdateEmployeeDetails", employeedetails.EmployeeDetailsId, employeedetails);
 
-        await LoadEmployeeDetailss();
+        // await LoadEmployeeDetailss();
 
-        Result = true;
-        IsVisible = true;
+        // Result = true;
+        // IsVisible = true;
 
-        var firstName = employeedetails.FirstName;
-        var lastName = employeedetails.LastName;
+        // var firstName = employeedetails?.FirstName;
+        // var lastName = employeedetails?.LastName;
 
-        RecordName = firstName + " " + lastName;
+        // RecordName = firstName + " " + lastName;
 
-        employeedetails = new EmployeeDetails();
+        // employeedetails = new EmployeeDetails();
 
-        //await JSRuntime.InvokeVoidAsync("saveMessage", firstName, lastName);
-        await JSRuntime.InvokeVoidAsync("setFocusOnElement", firstNameTextBox);
+        // //await JSRuntime.InvokeVoidAsync("saveMessage", firstName, lastName);
+        // await JSRuntime.InvokeVoidAsync("setFocusOnElement", firstNameTextBox);
     }
 
     private async Task DeleteEmployeeDetails(int employeedetailsId)
     {
-        await bookStoresService.DeleteAsync("employeedetailss/DeleteEmployeeDetails/", employeedetailsId);
-        await LoadEmployeeDetailss();
+        await Task.Run(() => { });
+        //await bookStoresService.DeleteAsync("employeedetailss/DeleteEmployeeDetails/", employeedetailsId);
+       // await LoadEmployeeDetailss();
 
         //throw new Exception("DeleteEmployeeDetails");
     }
@@ -168,35 +157,12 @@
 
     private void OnSelectCityChange(ChangeEventArgs changeEventArgs)
     {
-        SelectedCity = (string)changeEventArgs.Value;
+       // SelectedCity = (string)changeEventArgs.Value;
     }
 
     private void OnEmployeeDetailsSearchTextChanged(ChangeEventArgs changeEventArgs, string columnTitle)
     {
-        string searchText = changeEventArgs.Value.ToString();
-        IsGridViewFiltered = true;
-
-        switch (columnTitle)
-        {
-            case "EmployeeDetailsId":
-                filteredEmployeeDetailsList = employeedetailsList.Where(auth => auth.EmployeeDetailsId.ToString().Contains(searchText)).ToList();
-                break;
-            case "FirstName":
-                filteredEmployeeDetailsList = employeedetailsList.Where(auth => auth.FirstName.ToLower().Contains(searchText)).ToList();
-                break;
-            case "LastName":
-                filteredEmployeeDetailsList = employeedetailsList.Where(auth => auth.LastName.ToLower().Contains(searchText)).ToList();
-                break;
-            case "City":
-                filteredEmployeeDetailsList = employeedetailsList.Where(auth => auth.City.ToLower().Contains(searchText)).ToList();
-                break;
-            case "EmailAddress":
-                filteredEmployeeDetailsList = employeedetailsList.Where(auth => auth.EmailAddress.ToLower().Contains(searchText)).ToList();
-                break;
-            default:
-                Console.WriteLine("Default case");
-                break;
-        }
+      
     }
 
 }

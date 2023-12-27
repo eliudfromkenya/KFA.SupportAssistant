@@ -11,7 +11,7 @@
             @foreach (var item in ItemList)
             {
                 <tr>
-                    @GridRow(item)
+                    @GridRow?.Invoke(item)
                 </tr>
             }
         </tbody>
@@ -37,15 +37,15 @@
 @code {
 
     [Parameter]
-    public RenderFragment GridColumns { get; set; }
+    public RenderFragment? GridColumns { get; set; }
 
     [Parameter]
-    public RenderFragment<TItem> GridRow { get; set; }
+    public RenderFragment<TItem>? GridRow { get; set; }
 
     [Parameter]
-    public List<TItem> Items { get; set; }
+    public List<TItem> Items { get; set; } = new();
 
-    public List<TItem> ItemList { get; set; }
+    public List<TItem> ItemList { get; set; } = new();
 
     public int PageSize { get; set; }
     public int TotalPages { get; set; }

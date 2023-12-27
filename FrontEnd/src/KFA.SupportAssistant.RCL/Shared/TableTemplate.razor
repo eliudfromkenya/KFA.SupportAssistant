@@ -12,7 +12,7 @@
                 @foreach (var item in Items)
                 {
                     <tr>
-                        @RowTemplate(item)
+                        @RowTemplate?.Invoke(item)
                     </tr>
                 }
             </tbody>
@@ -24,12 +24,12 @@
 @code {
 
     [Parameter]
-    public RenderFragment TableHeader { get; set; }
+    public RenderFragment? TableHeader { get; set; }
 
     [Parameter]
-    public RenderFragment<TItem> RowTemplate { get; set; }
+    public RenderFragment<TItem>? RowTemplate { get; set; }
 
     [Parameter]
-    public List<TItem> Items { get; set; }
+    public List<TItem> Items { get; set; } = new();
 
 }

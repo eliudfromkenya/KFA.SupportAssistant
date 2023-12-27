@@ -30,9 +30,9 @@ public class HttpClientWrapper<T, TResourceIdentifier> : IDisposable where T : c
   /// <param name="serviceBaseAddress">As per the example, this would be "http://www.somedomain"</param>
   /// <param name="addressSuffix">As per the example, this would be "api/members/"</param>
 
-  public HttpClientWrapper(string serviceBaseAddress, string addressSuffix)
+  public HttpClientWrapper(string addressSuffix)
   {
-    this.serviceBaseAddress = serviceBaseAddress;
+    this.serviceBaseAddress = Declarations.BaseApiUri;
     this._addressSuffix = addressSuffix;
     _httpClient = MakeHttpClient(serviceBaseAddress);
   }
@@ -67,14 +67,14 @@ public class HttpClientWrapper<T, TResourceIdentifier> : IDisposable where T : c
     return await responseMessage.Content.ReadAsAsync<T>();
   }
 
-  public async Task<T?> PostAsync(T model)
+  public async Task<(HttpStatusCode,string)> PostAsync(T model)
   {
     if (_httpClient == null)
-      return null;
+      return (HttpStatusCode.NotImplemented, string.Empty);
 
     var objectContent = JsonContent.Create(model);
     var responseMessage = await _httpClient.PostAsync(_addressSuffix, objectContent);
-    return await responseMessage.Content.ReadAsAsync<T>();
+    return (responseMessage.StatusCode, await responseMessage.Content.ReadAsStringAsync());
   }
 
   public async Task<HttpResponseMessage?> PutAsync(TResourceIdentifier identifier, T model)

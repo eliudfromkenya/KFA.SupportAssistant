@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using Blazored.LocalStorage;
+using KFA.SupportAssistant.RCL.Models;
 using KFA.SupportAssistant.RCL.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 
@@ -27,10 +28,10 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 
     ClaimsIdentity identity;
 
-    if (accessToken != null && accessToken != string.Empty)
+    if (false && accessToken != null && accessToken != string.Empty)
     {
-      User user = await _userService.GetUserByAccessTokenAsync(accessToken??" ");
-      identity = GetClaimsIdentity(user);
+      //SystemUserDTO? user = await _userService.GetUserByAccessTokenAsync(accessToken??" ");
+      //identity = user != null ? GetClaimsIdentity(user) : new ClaimsIdentity();
     }
     else
     {
@@ -42,7 +43,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     return await Task.FromResult(new AuthenticationState(claimsPrincipal));
   }
 
-  public async Task MarkUserAsAuthenticated(User user)
+  public async Task MarkUserAsAuthenticated(SystemUserDTO user)
   {
     await _localStorageService.SetItemAsync("accessToken", user.AccessToken);
     await _localStorageService.SetItemAsync("refreshToken", user.RefreshToken);
@@ -66,16 +67,16 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
   }
 
-  private ClaimsIdentity GetClaimsIdentity(User user)
+  private ClaimsIdentity GetClaimsIdentity(SystemUserDTO? user)
   {
     var claimsIdentity = new ClaimsIdentity();
 
-    if (user.EmailAddress != null)
+    if (user?.EmailAddress != null)
     {
       claimsIdentity = new ClaimsIdentity(new[]
                       {
                                   new Claim(ClaimTypes.Name, user.EmailAddress),
-                                  new Claim(ClaimTypes.Role, user.Role.RoleDesc),
+                                  new Claim(ClaimTypes.Role, user.RoleId??"None"),
                                   new Claim("IsUserEmployedBefore1990", IsUserEmployedBefore1990(user))
                               }, "apiauth_type");
     }
@@ -83,9 +84,9 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     return claimsIdentity;
   }
 
-  private string IsUserEmployedBefore1990(User user)
+  private string IsUserEmployedBefore1990(SystemUserDTO? user)
   {
-    if (user?.HireDate.Value.Year < 1990)
+    if (user?.ExpirationDate?.Year < 1990)
       return "true";
     else
       return "false";

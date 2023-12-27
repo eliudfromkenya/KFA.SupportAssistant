@@ -5,7 +5,7 @@
 
 @if (IsUserAuthenticated)
 {
-    <h3><b>@user.Identity.Name</b> is logged in!!!</h3>
+    <h3><b>@user?.Identity?.Name</b> is logged in!!!</h3>
     <br />
     <p>Is Publisher : @IsPublisher</p>
     <p>Is Senior Employee : @IsSeniorEmployee</p>
@@ -20,10 +20,10 @@ else
 
 
 @code {
-    
+
     [CascadingParameter]
-    private Task<AuthenticationState> authenticationStateTask { get; set; }
-    ClaimsPrincipal user;
+    private Task<AuthenticationState>? authenticationStateTask { get; set; }
+    ClaimsPrincipal? user;
 
     bool IsUserAuthenticated;
     bool IsPublisher;
@@ -33,15 +33,16 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        user = (await authenticationStateTask).User;
+        if (authenticationStateTask != null)
+            user = (await authenticationStateTask).User;
 
         if (user?.Identity?.IsAuthenticated ?? false)
             IsUserAuthenticated = true;
 
-        if (user.IsInRole("Publisher"))
+        if (user?.IsInRole("Publisher")==true)
             IsPublisher = true;
 
-        if ((await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
+        if (user != null && (await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
             IsSeniorEmployee = true;
     }
 }
