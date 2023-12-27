@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using FastEndpoints.Security;
 using KFA.SupportAssistant.Core;
+using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
@@ -70,7 +71,7 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
             new ("RoleId", value.UserRole!)
           });
 
-      await SendAsync(new LoginResponse(value.LoginId, jwtToken, value.UserId, value.UserRole, DateTime.Now, value.UserRights), cancellation: cancellationToken);
+      await SendAsync(new LoginResponse(value.LoginId, jwtToken, value.UserId, value.UserRole, DateTime.Now, value.UserRights, value.User as SystemUserDTO), cancellation: cancellationToken);
     }
     else
     {

@@ -6,7 +6,7 @@ namespace KFA.SupportAssistant.RCL.Services;
 
 public interface IUserService
 {
-  public Task<SystemUserDTO?> LoginAsync(LoginDetails loginDetails);
+  public Task<LoginResponse?> LoginAsync(LoginDetails loginDetails);
 
   public Task<SystemUserDTO?> RegisterUserAsync(SignupSystemUserDTO user);
 

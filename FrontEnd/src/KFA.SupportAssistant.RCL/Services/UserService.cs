@@ -9,7 +9,7 @@ namespace KFA.SupportAssistant.RCL.Services;
 public class UserService : IUserService
 {
   public AppSettings? _appSettings { get; }
-  public async Task<SystemUserDTO?> LoginAsync(LoginDetails loginDetails)
+  public async Task<LoginResponse?> LoginAsync(LoginDetails loginDetails)
   {
     //user.Password = Utility.Encrypt(user.Password);
     //string serializedUser = JsonConvert.SerializeObject(user);
@@ -25,7 +25,10 @@ public class UserService : IUserService
     using var httpClient = new HttpClientWrapper<LoginDetails, string>("users/login");  
     var response = await httpClient.PostAsync(loginDetails);
     var responseStatusCode = response.Item1;
-    return JsonConvert.DeserializeObject<SystemUserDTO>(response.Item2);
+
+    if(responseStatusCode == System.Net.HttpStatusCode.OK)
+    return JsonConvert.DeserializeObject<LoginResponse>(response.Item2);
+    else throw new Exception(response.Item2);  
   }
 
   public async Task<SystemUserDTO?> RegisterUserAsync(SignupSystemUserDTO user)

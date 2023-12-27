@@ -1,4 +1,4 @@
-﻿@page  "/"
+﻿@page "/login"
 @using KFA.SupportAssistant.RCL.Data
 @using KFA.SupportAssistant.RCL.Models
 @using Microsoft.AspNetCore.Components.Authorization
@@ -11,34 +11,43 @@
 @inject IUserService userService
 @inject IJSRuntime jsRunTime
 
-<EditForm Model="@userLoginDetails" OnValidSubmit="@ValidateUser">
-    <div>
-        <br /><br /><br /><br /><br />
+<div class="flex flex-col row w-screen h-screen flex-wrap">
+    <div class="flex col w-6/12 h-full flex-wrap">
+        <figure class="flex col flex-col my-auto items-center jusfify-center w-full">
+            <img src="./images/icon.png" class="w-64 h-64 mx-auto my-1 " />
+            <div class="h-0" />
+            <figcaption class="text-blue-three mt-9 main-title font-bold">
+                KFA Support Assistant
+            </figcaption>
+        </figure>
     </div>
-    <div>
-        <h3 style="font-weight:bold; color:purple">Book Stores Login</h3>
+    <div class="flex col w-6/12 h-full flex-wrap">
+        <div class="w-3/5 max-w-[426px] mx-auto my-auto">
+            <EditForm Model="@userLoginDetails" OnValidSubmit="@ValidateUser">
+                <h1 class="font-bold leading-0 mb-0 font-mukta text-[32px] text-customBlack-one">Welcome!</h1>
+                <p class="font-normal mb-9 font-mukta text-[24px] text-gray-two">Login to continue</p>
+                <div class="col-12 row">
+                    <input class="form-control text-input border-blue-three " @bind="userLoginDetails.Username" placeholder="email address" />
+                </div>
+                <br />
+                <div class="col-12 row">
+                    <input type="password" class="form-control text-input  border-blue-three " @bind="userLoginDetails.Password" placeholder="password" />
+                </div>
+                <br />
+                <div class="w-full flex flex-col">
+                    <span class="col-12"></span>
+                    <input type="submit" class="form-control col-6 btn btn-primary" value="Login" />
+                    <div class="w-4" />
+                    <a href="/signup" class="col-3 mt-4 mr-3 ml-auto">Sign up</a>
+                </div>
+                <br />
+                <div class="col-12 row" style="text-align:left; font-weight:bold">
+                    <span class="col-12">@LoginMesssage</span>
+                </div>
+            </EditForm>
+        </div>
     </div>
-    <div>
-        <br />
-    </div>
-    <div class="col-12 row">
-        <input class="form-control col-12" @bind="userLoginDetails.Username" placeholder="email address" />
-    </div>
-    <br />
-    <div class="col-12 row">
-        <input type="password" class="form-control col-12" @bind="userLoginDetails.Password" placeholder="password" />
-    </div>
-    <br />
-    <div class="col-12 row">
-        <span class="col-12"></span>
-        <input type="submit" class="form-control col-6 btn btn-primary" value="Login" />
-        <a href="/signup" class="col-3">Sign up</a>
-    </div>
-    <br />
-    <div class="col-12 row" style="text-align:left; font-weight:bold">
-        <span class="col-12">@LoginMesssage</span>
-    </div>
-</EditForm>
+</div>
 
 @code {
     public class LoginDetails
@@ -47,11 +56,32 @@
         public string Password { get; set; } = string.Empty;
         public string Device { get; set; } = string.Empty;
     }
+    public readonly struct LoginResponse
+    {
+        public LoginResponse(string? loginId, string? token, object? userId, string? role, DateTime? date, string?[] rights, SystemUserDTO user)
+        {
+            LoginId = loginId;
+            Token = token;
+            UserId = userId;
+            Role = role;
+            Rights = rights;
+            Date = date;
+            User = user;
+        }
 
-    private SystemUserDTO user = new ();
+        public string? LoginId { get; }
+        public string? Token { get; }
+        public object? UserId { get; }
+        public string? Role { get; }
+        public SystemUserDTO? User { get; }
+        public string?[] Rights { get; }
+        public DateTime? Date { get; }
+    }
+
+    private SystemUserDTO user = new();
     public string? LoginMesssage { get; set; }
     ClaimsPrincipal? claimsPrincipal;
-    private LoginDetails userLoginDetails = new ();
+    private LoginDetails userLoginDetails = new();
 
     [CascadingParameter]
     private Task<AuthenticationState>? authenticationStateTask { get; set; }
@@ -81,9 +111,9 @@
 
         var returnedUser = await userService.LoginAsync(userLoginDetails);
 
-        if (returnedUser?.EmailAddress != null)
+        if (returnedUser?.User?.Username != null)
         {
-            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
+            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser?.User!);
             NavigationManager.NavigateTo("/index");
         }
         else

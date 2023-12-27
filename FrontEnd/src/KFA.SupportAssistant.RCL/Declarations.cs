@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace KFA.SupportAssistant.RCL;
 public static class Declarations
 {
-  public static string BaseApiUri = @"http://localhost:57678/api/v3";
+  public static string BaseApiUri = @"http://localhost:57678/api/v3/";
 }

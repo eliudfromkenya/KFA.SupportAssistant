@@ -18,7 +18,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       var users = context.SystemUsers
       .Where(b => b.Username == username || b.Id == username || b.EmailAddress == username)
       .AsNoTracking()
-        .Select(b => new { b.Id, b.ExpirationDate, b.IsActive, b.MaturityDate, b.NameOfTheUser, b.PasswordHash, b.PasswordSalt, b.RoleId, b.Username, })
+        //.Select(b => new { b.Id, b.ExpirationDate, b.IsActive, b.MaturityDate, b.NameOfTheUser, b.PasswordHash, b.PasswordSalt, b.RoleId, b.Username, })
         .ToArray();
 
       users = users.Where(user => VerifyUser(password, user.PasswordHash, user.PasswordSalt)).ToArray();
@@ -73,8 +73,9 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
         LoginId = login.Id,
         Prefix = dataDevice?.DeviceNumber,
         UserId = user.Id,
+        User = (SystemUserDTO)user,
         UserRole = user.RoleId,
-        UserRights = userRights.ToArray()
+        UserRights = [.. userRights]
       };
     }
   }
