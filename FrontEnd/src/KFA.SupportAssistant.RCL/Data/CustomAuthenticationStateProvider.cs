@@ -35,8 +35,8 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 
     ClaimsIdentity identity;
 
-    // if (user != null && date > DateTime.Now.AddHours(-12))
-    if (user != null && date > DateTime.Now.AddMinutes(-5))
+    if (user != null && date > DateTime.Now.AddHours(-12))
+    //if (user != null && date > DateTime.Now.AddMinutes(-5))
     {
       identity = user != null ? GetClaimsIdentity(user) : new ClaimsIdentity();
     }
