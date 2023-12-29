@@ -1,7 +1,9 @@
-﻿using System.Security.Claims;
+﻿using Ardalis.Result;
+using System.Security.Claims;
 using FastEndpoints.Security;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Globals.Models;
 using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.Users;
 using MediatR;
@@ -49,7 +51,21 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
     var tokenSignature = Config.GetValue<string>("Auth:TokenSigningKey");
 
     var command = new UserLoginCommand(request.Username!, request.Password!, request.Device);
-    var result = await _mediator.Send(command, cancellationToken);
+    Result<LoginResult>? result = null;
+    try
+    {
+      result = await _mediator.Send(command, cancellationToken);
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, ResultStatus.Unauthorized, [ex.Message], cancellationToken);
+      return;
+    }
+    catch (Exception ex)
+    {
+      await ErrorsConverter.CheckErrors(HttpContext, ResultStatus.CriticalError, [ex.Message], cancellationToken);
+      return;
+    }
 
     if (result.Errors.Any())
     {

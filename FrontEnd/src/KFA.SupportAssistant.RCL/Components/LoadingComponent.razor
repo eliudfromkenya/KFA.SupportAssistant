@@ -1,0 +1,25 @@
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime;
+
+@if (@IsLoading)
+{
+    <div class="left-0 right-0 inline-block mx-auto h-[96px] w-[96px] animate-spin rounded-full border-4 border-solid border-blue-three border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" @onclick="(() => CloseValidation())"
+    role="status">
+        <span class="!absolute mx-auto !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Please Wait...</span>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool IsLoading { get; set; } = false;
+
+    [Parameter]
+    public int Width { get; set; } = 48;
+
+    string size => $"{Width}px";
+
+    private void CloseValidation()
+    {
+        IsLoading = false;
+    }
+}

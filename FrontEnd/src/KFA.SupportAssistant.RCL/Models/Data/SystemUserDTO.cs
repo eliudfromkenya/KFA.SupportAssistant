@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.RCL.Models;
+﻿namespace KFA.SupportAssistant.RCL.Models.Data;
 public record class SystemUserDTO
 {
   public string? Contact { get; set; }

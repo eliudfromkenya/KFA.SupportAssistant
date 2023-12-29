@@ -1,8 +1,8 @@
-﻿using System.Security.Claims;
-using Blazored.LocalStorage;
-using KFA.SupportAssistant.RCL.Models;
+﻿using Blazored.LocalStorage;
+using KFA.SupportAssistant.RCL.Models.Data;
 using KFA.SupportAssistant.RCL.Services;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Claims;
 
 namespace KFA.SupportAssistant.RCL.Data;
 
@@ -10,28 +10,35 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
   public ILocalStorageService _localStorageService { get; }
   public IUserService _userService { get; set; }
-  private readonly HttpClient _httpClient;
 
   public CustomAuthenticationStateProvider(ILocalStorageService localStorageService,
-      IUserService userService,
-      HttpClient httpClient)
+      IUserService userService)
   {
     //throw new Exception("CustomAuthenticationStateProviderException");
     _localStorageService = localStorageService;
     _userService = userService;
-    _httpClient = httpClient;
   }
 
   public override async Task<AuthenticationState> GetAuthenticationStateAsync()
   {
-    var accessToken = await _localStorageService.GetItemAsync<string>("accessToken");
+    SystemUserDTO? user = null;
+    DateTime? date = null;
+    if (await _localStorageService.ContainKeyAsync("date")) {
+      date = await _localStorageService.GetItemAsync<DateTime>("date");
+      user = await _localStorageService.GetItemAsync<SystemUserDTO>("user");
+    }
+
+    if(date > DateTime.Now)
+    {
+      await _localStorageService.SetItemAsync("date", DateTime.Now);
+    }
 
     ClaimsIdentity identity;
 
-    if (false && accessToken != null && accessToken != string.Empty)
+    // if (user != null && date > DateTime.Now.AddHours(-12))
+    if (user != null && date > DateTime.Now.AddMinutes(-5))
     {
-      //SystemUserDTO? user = await _userService.GetUserByAccessTokenAsync(accessToken??" ");
-      //identity = user != null ? GetClaimsIdentity(user) : new ClaimsIdentity();
+      identity = user != null ? GetClaimsIdentity(user) : new ClaimsIdentity();
     }
     else
     {
@@ -43,10 +50,13 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     return await Task.FromResult(new AuthenticationState(claimsPrincipal));
   }
 
-  public async Task MarkUserAsAuthenticated(SystemUserDTO user)
+  public async Task MarkUserAsAuthenticated(SystemUserDTO user, string token)
   {
-    await _localStorageService.SetItemAsync("accessToken", user.AccessToken);
-    await _localStorageService.SetItemAsync("refreshToken", user.RefreshToken);
+    await _localStorageService.SetItemAsync("accessToken", token);
+    await _localStorageService.SetItemAsync("refreshToken", token);
+    await _localStorageService.SetItemAsync("date", DateTime.Now);
+    await _localStorageService.SetItemAsync("user", user);
+    await _localStorageService.SetItemAsync("name", user?.Username);
 
     var identity = GetClaimsIdentity(user);
 
@@ -59,6 +69,8 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
   {
     await _localStorageService.RemoveItemAsync("refreshToken");
     await _localStorageService.RemoveItemAsync("accessToken");
+    await _localStorageService.RemoveItemAsync("user");
+    await _localStorageService.RemoveItemAsync("date");
 
     var identity = new ClaimsIdentity();
 
@@ -71,11 +83,11 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
   {
     var claimsIdentity = new ClaimsIdentity();
 
-    if (user?.EmailAddress != null)
+    if (user?.Username != null)
     {
       claimsIdentity = new ClaimsIdentity(new[]
                       {
-                                  new Claim(ClaimTypes.Name, user.EmailAddress),
+                                  new Claim(ClaimTypes.Name, user.Username),
                                   new Claim(ClaimTypes.Role, user.RoleId??"None"),
                                   new Claim("IsUserEmployedBefore1990", IsUserEmployedBefore1990(user))
                               }, "apiauth_type");

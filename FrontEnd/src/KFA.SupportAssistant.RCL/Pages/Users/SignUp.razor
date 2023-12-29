@@ -1,6 +1,6 @@
 ﻿@page  "/signup"
+@using KFA.SupportAssistant.RCL.Models.Data
 @using KFA.SupportAssistant.RCL.Data
-@using KFA.SupportAssistant.RCL.Models
 @using KFA.SupportAssistant.RCL.Services
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
@@ -60,7 +60,7 @@
 
         if(returnedUser?.EmailAddress != null)
         {   
-            ((CustomAuthenticationStateProvider)AuthenticationStateProvider)?.MarkUserAsAuthenticated(returnedUser);
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider)?.MarkUserAsAuthenticated(returnedUser, "");
             NavigationManager.NavigateTo("/");
         }
         else

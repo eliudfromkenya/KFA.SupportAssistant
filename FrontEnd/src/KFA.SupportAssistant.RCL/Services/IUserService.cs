@@ -1,6 +1,5 @@
-﻿using KFA.SupportAssistant.RCL.Data;
-using KFA.SupportAssistant.RCL.Models;
-using static KFA.SupportAssistant.RCL.Pages.LoginPages.Login;
+﻿using KFA.SupportAssistant.RCL.Models.Data;
+using static KFA.SupportAssistant.RCL.Pages.Users.Login;
 
 namespace KFA.SupportAssistant.RCL.Services;
 

@@ -1,9 +1,9 @@
-﻿namespace KFA.SupportAssistant.Core.DTOs;
+﻿namespace KFA.SupportAssistant.RCL.Models.Data;
 public record class EmployeeDetailDTO
 {
   public decimal AmountDue { get; set; }
   public string? CostCentreCode { get; set; }
-  public global::System.DateTime? Date { get; set; }
+  public DateTime? Date { get; set; }
   public string? Email { get; set; }
   public string? FullName { get; set; }
   public string? Gender { get; set; }
@@ -12,10 +12,10 @@ public record class EmployeeDetailDTO
   public string? Narration { get; set; }
   public string? PayrollNumber { get; set; }
   public string? PhoneNumber { get; set; }
-  public global::System.DateTime? RejoinDate { get; set; }
+  public DateTime? RejoinDate { get; set; }
   public decimal? RetireeAmount { get; set; }
   public decimal? RetrenchmentAmount { get; set; }
-  public global::System.DateTime? RetrenchmentDate { get; set; }
+  public DateTime? RetrenchmentDate { get; set; }
   public string? Status { get; set; }
   public string? Remarks { get; set; }
   public string? PayrollGroupID { get; set; }

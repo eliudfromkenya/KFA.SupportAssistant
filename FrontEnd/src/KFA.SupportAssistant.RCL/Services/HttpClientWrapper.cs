@@ -1,6 +1,6 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Net;
 
 namespace KFA.SupportAssistant.RCL.Services;
 
@@ -67,7 +67,7 @@ public class HttpClientWrapper<T, TResourceIdentifier> : IDisposable where T : c
     return await responseMessage.Content.ReadAsAsync<T>();
   }
 
-  public async Task<(HttpStatusCode,string)> PostAsync(T model)
+  public async Task<(HttpStatusCode, string)> PostAsync(T model)
   {
     if (_httpClient == null)
       return (HttpStatusCode.NotImplemented, string.Empty);
@@ -81,7 +81,7 @@ public class HttpClientWrapper<T, TResourceIdentifier> : IDisposable where T : c
   {
     if (_httpClient == null)
       return null;
-    
+
     var objectContent = JsonContent.Create(model);
     return await _httpClient.PutAsync($"{_addressSuffix}{identifier}", objectContent);
   }
@@ -97,7 +97,7 @@ public class HttpClientWrapper<T, TResourceIdentifier> : IDisposable where T : c
 
   public async Task<HttpStatusCode?> DeleteAsync(TResourceIdentifier identifier)
   {
-    if(_httpClient == null)
+    if (_httpClient == null)
       return null;
 
     var r = await _httpClient.DeleteAsync($"{_addressSuffix}{identifier}");

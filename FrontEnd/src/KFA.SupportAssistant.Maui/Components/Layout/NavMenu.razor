@@ -1,4 +1,5 @@
-﻿<div class="top-0">
+﻿@using KFA.SupportAssistant.RCL.Models
+<div class="top-0">
     <div class="w-full">
         <a class="main-title font-[68px] w-full mx-3 my-1" href=""><img src="./images/icon.png" class="w-24 h-24 mx-auto my-1 " /></a>
     </div>
@@ -8,45 +9,39 @@
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="ml-3 bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu menu-label" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="sukuta">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Sukuta Boys
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="eventhandling">
-                <span class="oi oi-bell" aria-hidden="true"></span> Event Handling
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="authorization">
-                <span class="oi oi-account-login" aria-hidden="true"></span> Authorization
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="authors">
-                <span class="oi oi-people" aria-hidden="true"></span> Authors
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="publishers">
-                <span class="oi oi-book" aria-hidden="true"></span> Publishers
-            </NavLink>
-        </div>
+        @foreach (var item in SideMenuItems)
+        {
+            <div class="nav-item px-9">
+                <NavLink class="nav-link my-0" href="@item.URI">
+                    @{
+                        <img src="@item.SVGIcon" class="img-fluid bg-blue-three px-5 my-0 me-5 text-blue-three w-[4px] h-[4px]" />
+                        <div>&nbsp;&nbsp;&nbsp;</div>
+                        @item.Text
+                    }
+                </NavLink>
+            </div>
+        }
     </nav>
 </div>
+
+@code{
+    public SideMenuItem[] SideMenuItems { get; set; } = [];
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        SideMenuItems = RCL.Data.SideMenuItems.GetSideMenuItems().Where(c => c.MainMenuType != MainMenuType.None).ToArray();
+
+        for(int i = 0; i < SideMenuItems.Length; i++)
+        {
+            var obj = SideMenuItems[i];
+            var text = obj.SVGIcon.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""");
+            text = text.Replace("<svg", @"<svg height=""28px"" width=""28px""");
+            var bytes = System.Text.Encoding.UTF8.GetBytes(text);
+
+            var data = Convert.ToBase64String(bytes);
+            var image = String.Format("data:image/svg+xml;base64,{0}", data);
+            SideMenuItems[i] = obj with { SVGIcon = image };
+        } 
+    } 
+    //Match="NavLinkMatch.All
+}

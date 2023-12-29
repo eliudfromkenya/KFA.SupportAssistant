@@ -1,8 +1,8 @@
-﻿@using KFA.SupportAssistant.RCL.Pages.LoginPages
+﻿@using KFA.SupportAssistant.RCL.Pages.Users
 @using Microsoft.AspNetCore.Components.Authorization
 
 <CascadingAuthenticationState>
-   <Router AppAssembly="@typeof(MauiProgram).Assembly">
+   <Router AppAssembly="@typeof(MauiProgram).Assembly" AdditionalAssemblies="new[]{typeof(MainMenuType).Assembly}">
         <Found Context="routeData">
             <AuthorizeView>
                 <Authorized>

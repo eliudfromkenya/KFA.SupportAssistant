@@ -58,6 +58,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
       <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" />
       <PackageReference Include="Microsoft.Maui.Controls" />
       <PackageReference Include="Microsoft.Maui.Controls.Compatibility" />

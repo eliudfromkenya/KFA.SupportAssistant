@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KFA.SupportAssistant.Maui",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KFA.SupportAssistant.Blazor.Client", "FrontEnd\src\KFA.SupportAssistant.Blazor\KFA.SupportAssistant.Blazor.Client\KFA.SupportAssistant.Blazor.Client.csproj", "{0ABCE167-518F-4BE9-8C26-0881950CA1C1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KFA.SupportAssistant.Blazor", "FrontEnd\src\KFA.SupportAssistant.Blazor\KFA.SupportAssistant.Blazor\KFA.SupportAssistant.Blazor.csproj", "{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{0ABCE167-518F-4BE9-8C26-0881950CA1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ABCE167-518F-4BE9-8C26-0881950CA1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ABCE167-518F-4BE9-8C26-0881950CA1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{19FBFD61-7AA1-4284-94BE-C974154F2FD6} = {E4300A9F-444A-4E9C-BB57-DF4F2D088626}
 		{5A96C44E-F5B4-4A7A-BC5F-D72C332554AB} = {E4300A9F-444A-4E9C-BB57-DF4F2D088626}
 		{0ABCE167-518F-4BE9-8C26-0881950CA1C1} = {E4300A9F-444A-4E9C-BB57-DF4F2D088626}
+		{C6506E35-FCBE-4EA5-9CE9-6EF1A025A52A} = {E4300A9F-444A-4E9C-BB57-DF4F2D088626}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F19343-8185-4A9F-9165-0EA8544BC925}

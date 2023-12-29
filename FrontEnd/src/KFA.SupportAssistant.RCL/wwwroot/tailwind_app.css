@@ -548,6 +548,22 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.\!absolute{
+  position: absolute !important;
+}
+
+.left-0{
+  left: 0px;
+}
+
+.right-0{
+  right: 0px;
+}
+
+.\!-m-px{
+  margin: -1px !important;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -579,12 +595,16 @@ video {
   margin-right: 0.75rem;
 }
 
+.mt-4{
+  margin-top: 1rem;
+}
+
 .mt-9{
   margin-top: 2.25rem;
 }
 
-.mt-4{
-  margin-top: 1rem;
+.inline-block{
+  display: inline-block;
 }
 
 .flex{
@@ -595,12 +615,20 @@ video {
   display: table;
 }
 
-.h-32{
-  height: 8rem;
+.\!h-px{
+  height: 1px !important;
+}
+
+.h-0{
+  height: 0px;
 }
 
 .h-64{
   height: 16rem;
+}
+
+.h-\[96px\]{
+  height: 96px;
 }
 
 .h-full{
@@ -611,24 +639,16 @@ video {
   height: 100vh;
 }
 
-.h-12{
-  height: 3rem;
-}
-
-.h-8{
-  height: 2rem;
-}
-
-.h-2{
-  height: 0.5rem;
-}
-
-.h-0{
-  height: 0px;
+.\!w-px{
+  width: 1px !important;
 }
 
 .w-3\/5{
   width: 60%;
+}
+
+.w-4{
+  width: 1rem;
 }
 
 .w-6\/12{
@@ -639,6 +659,10 @@ video {
   width: 16rem;
 }
 
+.w-\[96px\]{
+  width: 96px;
+}
+
 .w-full{
   width: 100%;
 }
@@ -647,16 +671,18 @@ video {
   width: 100vw;
 }
 
-.w-16{
-  width: 4rem;
-}
-
-.w-4{
-  width: 1rem;
-}
-
 .max-w-\[426px\]{
   max-width: 426px;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin{
+  animation: spin 1s linear infinite;
 }
 
 .flex-col{
@@ -671,13 +697,53 @@ video {
   align-items: center;
 }
 
+.justify-center{
+  justify-content: center;
+}
+
+.\!overflow-hidden{
+  overflow: hidden !important;
+}
+
+.\!whitespace-nowrap{
+  white-space: nowrap !important;
+}
+
 .rounded{
   border-radius: 0.25rem;
+}
+
+.rounded-full{
+  border-radius: 9999px;
+}
+
+.\!border-0{
+  border-width: 0px !important;
+}
+
+.border-4{
+  border-width: 4px;
+}
+
+.border-solid{
+  border-style: solid;
 }
 
 .border-blue-three{
   --tw-border-opacity: 1;
   border-color: rgb(1 73 124 / var(--tw-border-opacity));
+}
+
+.border-r-transparent{
+  border-right-color: transparent;
+}
+
+.\!p-0{
+  padding: 0px !important;
+}
+
+.align-\[-0\.125em\]{
+  vertical-align: -0.125em;
 }
 
 .font-mukta{
@@ -713,6 +779,15 @@ video {
 .text-gray-two{
   --tw-text-opacity: 1;
   color: rgb(128 128 128 / var(--tw-text-opacity));
+}
+
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.\!\[clip\:rect\(0\2c 0\2c 0\2c 0\)\]{
+  clip: rect(0,0,0,0) !important;
 }
 
 body {
@@ -1077,4 +1152,16 @@ body {
   padding: 0px;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  @keyframes spin{
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  .motion-reduce\:animate-\[spin_1\.5s_linear_infinite\]{
+    animation: spin 1.5s linear infinite;
+  }
 }

@@ -13,71 +13,71 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
 {
   public async Task<LoginResult?> LoginAsync(string username, string password, string? device, CancellationToken cancellationToken)
   {
-    using (context)
-    {
-      var users = context.SystemUsers
-      .Where(b => b.Username == username || b.Id == username || b.EmailAddress == username)
-      .AsNoTracking()
-        //.Select(b => new { b.Id, b.ExpirationDate, b.IsActive, b.MaturityDate, b.NameOfTheUser, b.PasswordHash, b.PasswordSalt, b.RoleId, b.Username, })
-        .ToArray();
-
-      users = users.Where(user => VerifyUser(password, user.PasswordHash, user.PasswordSalt)).ToArray();
-      if (users.Length == 0) throw new Exception("Invalid user login credentials\r\nPlease check username or password");
-
-      users = users.Where(user => user?.IsActive??false).ToArray();
-      if (users.Length == 0) throw new Exception("User is inactive, please contact system administrator");
-
-      users = users.Where(user => user.MaturityDate < DateTime.UtcNow).ToArray();
-      if (users.Length == 0) throw new Exception($"Your time to use the system is not yet ready, please contact system administrator");
-
-      users = users.Where(user => user.ExpirationDate > DateTime.UtcNow).ToArray();
-      if (users.Length == 0) throw new Exception($"You are no longer allowed t nuse the system, please contact system administrator");
-
-      var user = users.First();
-      var allUserRights = context
-        .UserRights
-        .Where(c => c.UserId == user.Id || c.RoleId == user.RoleId)
-        .Select(v => new { v.RightId, v.CommandId })
-        .Distinct()
-        .ToArray();
-
-      var userRights = allUserRights
-        .Where(c => c.CommandId != null && c.CommandId?.Trim()?.Length > 0)
-        .Select(c => $"C-{c.CommandId}").Concat(allUserRights
-        .Where(c => c.RightId != null && c.RightId?.Trim()?.Length > 0)
-        .Select(c => $"R-{c.RightId}")).ToList();
-
-      userRights.Add($"U-{user.RoleId}");
-
-      var dataDevice = context.DataDevices.FirstOrDefault(c => c.DeviceCode == device || c.DeviceNumber == device);
-
-      var id = new IdGenerator().GetNextId<UserLogin>();
-      var login = new UserLogin
+      using (context)
       {
-        DeviceId = dataDevice?.Id,
-        FromDate = DateTime.UtcNow,
-        Narration = "Web Api Login",
-        UserId = user.Id,
-        Id = id,
-        ___DateInserted___ = DateTime.UtcNow.FromDateTime(),
-        ___DateUpdated___ = DateTime.UtcNow.FromDateTime(),
-        ___ModificationStatus___ = 1,
-        UptoDate = DateTime.UtcNow
-      };
-      await context.AddAsync(login, cancellationToken);
-      await context.SaveChangesAsync(cancellationToken);
-      return new LoginResult
-      {
-        DeviceId = dataDevice?.Id,
-        ExpiryDate = DateTime.Now,
-        LoginId = login.Id,
-        Prefix = dataDevice?.DeviceNumber,
-        UserId = user.Id,
-        User = (SystemUserDTO)user,
-        UserRole = user.RoleId,
-        UserRights = [.. userRights]
-      };
-    }
+        var users = context.SystemUsers
+        .Where(b => b.Username == username || b.Id == username || b.EmailAddress == username)
+        .AsNoTracking()
+          //.Select(b => new { b.Id, b.ExpirationDate, b.IsActive, b.MaturityDate, b.NameOfTheUser, b.PasswordHash, b.PasswordSalt, b.RoleId, b.Username, })
+          .ToArray();
+
+        users = users.Where(user => VerifyUser(password, user.PasswordHash, user.PasswordSalt)).ToArray();
+        if (users.Length == 0) throw new UnauthorizedAccessException("Invalid user login credentials\r\nPlease check username or password");
+
+        users = users.Where(user => user?.IsActive ?? false).ToArray();
+        if (users.Length == 0) throw new UnauthorizedAccessException("User is inactive, please contact system administrator");
+
+        users = users.Where(user => user.MaturityDate < DateTime.UtcNow).ToArray();
+        if (users.Length == 0) throw new UnauthorizedAccessException($"Your time to use the system is not yet ready, please contact system administrator");
+
+        users = users.Where(user => user.ExpirationDate > DateTime.UtcNow).ToArray();
+        if (users.Length == 0) throw new UnauthorizedAccessException($"You are no longer allowed to use the system (time expired), please contact system administrator");
+
+        var user = users.First();
+        var allUserRights = context
+          .UserRights
+          .Where(c => c.UserId == user.Id || c.RoleId == user.RoleId)
+          .Select(v => new { v.RightId, v.CommandId })
+          .Distinct()
+          .ToArray();
+
+        var userRights = allUserRights
+          .Where(c => c.CommandId != null && c.CommandId?.Trim()?.Length > 0)
+          .Select(c => $"C-{c.CommandId}").Concat(allUserRights
+          .Where(c => c.RightId != null && c.RightId?.Trim()?.Length > 0)
+          .Select(c => $"R-{c.RightId}")).ToList();
+
+        userRights.Add($"U-{user.RoleId}");
+
+        var dataDevice = context.DataDevices.FirstOrDefault(c => c.DeviceCode == device || c.DeviceNumber == device);
+
+        var id = new IdGenerator().GetNextId<UserLogin>();
+        var login = new UserLogin
+        {
+          DeviceId = dataDevice?.Id,
+          FromDate = DateTime.UtcNow,
+          Narration = "Web Api Login",
+          UserId = user.Id,
+          Id = id,
+          ___DateInserted___ = DateTime.UtcNow.FromDateTime(),
+          ___DateUpdated___ = DateTime.UtcNow.FromDateTime(),
+          ___ModificationStatus___ = 1,
+          UptoDate = DateTime.UtcNow
+        };
+        await context.AddAsync(login, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
+        return new LoginResult
+        {
+          DeviceId = dataDevice?.Id,
+          ExpiryDate = DateTime.Now,
+          LoginId = login.Id,
+          Prefix = dataDevice?.DeviceNumber,
+          UserId = user.Id,
+          User = (SystemUserDTO)user,
+          UserRole = user.RoleId,
+          UserRights = [.. userRights]
+        };
+      }
   }
 
   private static bool VerifyUser(string password, byte[]? passwordHash, byte[]? passwordSalt)
@@ -109,9 +109,8 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
 
       SystemUser user = usr with { PasswordHash = passwordHash, Username = usr.Username?.ToLower(), PasswordSalt = passwordSalt, RoleId = "USR006" };
 
-      if(string.IsNullOrWhiteSpace(user.Id))
+      if (string.IsNullOrWhiteSpace(user.Id))
         user.Id = idGenerator.GetNextId<SystemUser>();
-
 
       await context.SystemUsers.AddAsync(user, cancellationToken);
       await context.SaveChangesAsync(cancellationToken);

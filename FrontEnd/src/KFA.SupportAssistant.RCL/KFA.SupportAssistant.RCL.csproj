@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,11 +18,25 @@
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" />
     <PackageReference Include="BlazorPro.Spinkit" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization"  />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" />
     <PackageReference Include="Newtonsoft.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\AboutUs\Index.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\AboutUs\Index.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Employees\EmployeeList.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Employees\EmployeeList.razor" />
   </ItemGroup>
 
 </Project>

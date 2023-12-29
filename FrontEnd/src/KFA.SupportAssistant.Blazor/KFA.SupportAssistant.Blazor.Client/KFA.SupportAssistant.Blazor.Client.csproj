@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
   </ItemGroup>
 

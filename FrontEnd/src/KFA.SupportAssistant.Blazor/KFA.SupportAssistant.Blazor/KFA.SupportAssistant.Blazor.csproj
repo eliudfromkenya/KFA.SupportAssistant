@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\KFA.SupportAssistant.RCL\KFA.SupportAssistant.RCL.csproj" />
     <ProjectReference Include="..\KFA.SupportAssistant.Blazor.Client\KFA.SupportAssistant.Blazor.Client.csproj" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
   </ItemGroup>
 

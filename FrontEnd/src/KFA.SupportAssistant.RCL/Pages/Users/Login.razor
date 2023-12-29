@@ -1,10 +1,10 @@
 ﻿@page "/login"
+@using KFA.SupportAssistant.RCL.Models.Data
 @using KFA.SupportAssistant.RCL.Data
-@using KFA.SupportAssistant.RCL.Models
 @using Microsoft.AspNetCore.Components.Authorization
 @using Newtonsoft.Json
 @using KFA.SupportAssistant.RCL.Services
-@using System.Security.Claims
+@using KFA.SupportAssistant.RCL.Components
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService
@@ -41,8 +41,11 @@
                     <a href="/signup" class="col-3 mt-4 mr-3 ml-auto">Sign up</a>
                 </div>
                 <br />
+                 <div class="items-center mx-auto justify-center">
+                    <LoadingComponent Width="48" IsLoading="@isLoading" />
+                 </div>
                 <div class="col-12 row" style="text-align:left; font-weight:bold">
-                    <span class="col-12">@LoginMesssage</span>
+                    <span class="text-red-500">@LoginMesssage</span>
                 </div>
             </EditForm>
         </div>
@@ -82,6 +85,7 @@
     public string? LoginMesssage { get; set; }
     ClaimsPrincipal? claimsPrincipal;
     private LoginDetails userLoginDetails = new();
+    bool isLoading = false;
 
     [CascadingParameter]
     private Task<AuthenticationState>? authenticationStateTask { get; set; }
@@ -98,30 +102,45 @@
             NavigationManager.NavigateTo("/index");
         }
         {
-            userLoginDetails.Username = "philip.cramer@gmail.com";
-            userLoginDetails.Password = "philip.cramer";
+            try
+            {
+                var name = await localStorageService.GetItemAsync<string>("name");
+                userLoginDetails.Username = name.ToUpper();
+            }
+            catch
+            {                
+            }           
         }
 
     }
 
     private async Task<bool> ValidateUser()
     {
-        //assume that user is valid
-        //call an API
-
-        var returnedUser = await userService.LoginAsync(userLoginDetails);
-
-        if (returnedUser?.User?.Username != null)
+        try
         {
-            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser?.User!);
-            NavigationManager.NavigateTo("/index");
-        }
-        else
-        {
-            LoginMesssage = "Invalid username or password";
-        }
+            isLoading = true;
+            var returnedUser = await userService.LoginAsync(userLoginDetails);
+            LoginMesssage = null;
 
-        return await Task.FromResult(true);
+            if (returnedUser?.User?.Username != null)
+            {
+                await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser?.User!, returnedUser?.Token ?? "");
+                NavigationManager.NavigateTo("/index");
+            }
+            else
+            {
+                LoginMesssage = "Invalid username or password";
+            }
+
+            isLoading = false;
+            return true;
+        } 
+        catch(Exception ex)
+        {
+            isLoading = false;
+            LoginMesssage = ex.Message;
+            return false;
+        }       
     }
 
 }

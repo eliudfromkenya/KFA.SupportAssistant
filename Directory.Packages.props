@@ -21,6 +21,7 @@
     <PackageVersion Include="FluentAssertions" Version="7.0.0-alpha.3" />
     <PackageVersion Include="MailKit" Version="4.3.0" />
     <PackageVersion Include="MediatR" Version="12.2.0" />
+    <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
@@ -60,7 +61,6 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageVersion Include="EntityFrameworkCore.DataEncryption" Version="5.0.0" />
-
     <PackageVersion Include="Blazored.LocalStorage" Version="4.4.0" />
     <PackageVersion Include="BlazorPro.Spinkit" Version="1.2.0" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
