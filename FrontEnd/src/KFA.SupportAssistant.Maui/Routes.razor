@@ -1,6 +1,7 @@
 ﻿@using KFA.SupportAssistant.RCL.Pages.Users
 @using Microsoft.AspNetCore.Components.Authorization
 
+<Fluxor.Blazor.Web.StoreInitializer />
 <CascadingAuthenticationState>
    <Router AppAssembly="@typeof(MauiProgram).Assembly" AdditionalAssemblies="new[]{typeof(MainMenuType).Assembly}">
         <Found Context="routeData">

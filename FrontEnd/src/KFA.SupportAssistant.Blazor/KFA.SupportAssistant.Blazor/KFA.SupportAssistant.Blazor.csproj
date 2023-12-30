@@ -11,6 +11,9 @@
     <ProjectReference Include="..\KFA.SupportAssistant.Blazor.Client\KFA.SupportAssistant.Blazor.Client.csproj" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
+    <PackageReference Include="Fluxor" />
+    <PackageReference Include="Fluxor.Blazor.Web" />
+    <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
   </ItemGroup>
 
 </Project>

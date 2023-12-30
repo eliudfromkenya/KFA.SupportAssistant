@@ -124,7 +124,7 @@
 
             if (returnedUser?.User?.Username != null)
             {
-                await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser?.User!, returnedUser?.Token ?? "");
+                await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
                 NavigationManager.NavigateTo("/index");
             }
             else
