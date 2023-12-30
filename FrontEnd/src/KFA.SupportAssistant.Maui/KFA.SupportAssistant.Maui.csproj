@@ -65,6 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
       <ProjectReference Include="..\KFA.SupportAssistant.RCL\KFA.SupportAssistant.RCL.csproj" />
     </ItemGroup>
 

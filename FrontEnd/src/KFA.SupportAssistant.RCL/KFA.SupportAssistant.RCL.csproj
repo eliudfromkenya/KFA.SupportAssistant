@@ -39,4 +39,8 @@
     <UpToDateCheckInput Remove="Pages\Employees\EmployeeList.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
+  </ItemGroup>
+
 </Project>
