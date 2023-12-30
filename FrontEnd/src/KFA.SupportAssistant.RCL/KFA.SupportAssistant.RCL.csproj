@@ -24,6 +24,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" />
     <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Fluxor" />
+    <PackageReference Include="Fluxor.Blazor.Web" />
+    <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,6 +4,8 @@ using KFA.SupportAssistant.RCL.Handlers;
 using KFA.SupportAssistant.RCL.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Logging;
+using Fluxor;
+using KFA.SupportAssistant.RCL.State.MainTitle;
 
 namespace KFA.SupportAssistant.Maui;
 
@@ -25,6 +27,14 @@ namespace KFA.SupportAssistant.Maui;
           builder.Services.AddSingleton<HttpClient>();
     builder.Services.AddScoped<IUserService, UserService>();
     builder.Services.AddBlazoredLocalStorage();
+    builder.Services.AddFluxor(o =>
+    {
+      o.ScanAssemblies(typeof(MauiProgram).Assembly, typeof(MainTitleState).Assembly);
+      o.UseReduxDevTools(rdt =>
+      {
+        rdt.Name = "KFA Support Assistant";
+      });
+    });
     builder.Services.AddAuthorizationCore(options =>
     {
       options.AddPolicy("SeniorEmployee", policy =>

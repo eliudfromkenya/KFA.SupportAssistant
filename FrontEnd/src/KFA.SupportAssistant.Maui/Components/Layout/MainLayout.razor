@@ -1,65 +1,31 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
+﻿@using KFA.SupportAssistant.RCL.State.MainTitle
+@using Microsoft.AspNetCore.Components.Authorization
 @inherits LayoutComponentBase
+@inject IDispatcher dispatcher
+@inject IState<MainTitleState> mainTitleState
 
 <div class="page">
-    <div class="sidebar bg-lighterBlue-two" style="background-image:none;">
-        <NavMenu />
+    <div class="sidebar bg-lighterBlue-two" style="background-image:none;">       
+        <AuthorizeView>
+            <Authorized>
+                <NavMenu />
+            </Authorized>
+        </AuthorizeView>
     </div>
 
     <main>
-        <div class="top-0 w-full flex align-items-end flex-row bg-lighterBlue-two">
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-           
-           <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
+        <div class="top-0 w-full flex align-items-end flex-row bg-lighterBlue-two">            
 
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="bg-lighterBlue-one btn-animate card border-3 rounded-[10px] my-1 mx-2">
-                <img src="./images/icon.png" class="w-auto h-8 mx-auto my-1 " />
-                <label class="menu-label mx-1">System User</label>
-            </div>
-
-            <div class="top-row px-4">      
+            <div class="top-0 px-4">      
                 <AuthorizeView>
                     <Authorized>
-                        <a href="/" >Logout</a>
+                        <a href="/log-out" class="col-3 mt-4 mr-3 ml-auto">Log Out</a>
+                        <span class="main-title">@mainTitleState.Value.MainTitle</span>
                     </Authorized>
-                    <NotAuthorized>
-                        <a href="/">Login</a>
+                    <NotAuthorized>                       
+                        <a href="/login" class="col-3 mt-4 mr-3 ml-auto">Login</a>
                     </NotAuthorized>
                 </AuthorizeView>
-        
-        
-                <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
             </div>
         </div>
 
@@ -68,3 +34,10 @@
         </article>
     </main>
 </div>
+@code{
+
+    protected override void OnInitialized(){
+        base.OnInitialized();
+       
+    }
+}

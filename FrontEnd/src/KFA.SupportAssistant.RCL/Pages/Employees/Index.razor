@@ -1,15 +1,21 @@
 ﻿@page "/employees"
 @page "/employees/index"
-
+@using Fluxor
 @using BlazorPro.Spinkit
 @using KFA.SupportAssistant.RCL.Services
+@using KFA.SupportAssistant.RCL.State.MainTitle
 @inject ILocalStorageService localStorageService
 @inject IUserService userService
+@inject IDispatcher dispatcher
+@inject IState<MainTitleState> mainTitleState
 
-<div class="flex flex-col h-[calc(100vh-50px)] w-full bg-blue-two">
-   
-</div>
+<h3>Employee Details Index</h3>
 
 @code {
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $"Employees" });
+    }   
 }

@@ -4,11 +4,18 @@
 
 @using BlazorPro.Spinkit
 @using KFA.SupportAssistant.RCL.Services
+@using KFA.SupportAssistant.RCL.State.MainTitle
 @inject ILocalStorageService localStorageService
 @inject IUserService userService
+@inject IDispatcher dispatcher
+@inject IState<MainTitleState> mainTitleState
 
 <h3>Account Payables Index</h3>
 
 @code {
-
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $"Ap Workout" });
+    }
 }

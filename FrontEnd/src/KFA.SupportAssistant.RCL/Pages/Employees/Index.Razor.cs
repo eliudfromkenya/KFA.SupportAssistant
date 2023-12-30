@@ -21,7 +21,7 @@ public partial class Index : IMainPage
       Name = "EmployeeList",
       Text = "Staff On Dues",
       URI = Constants.Employeelist,
-      SVGIcon = EmployeesSVGIcons.Employeelist
+      SVGIcon = SVGIcons.Employeelist
     },
       new GeneralMenuItem
       {
@@ -31,7 +31,7 @@ public partial class Index : IMainPage
         Name = "PaymentList",
         Text = "Dues Payments",
         URI = Constants.PaymentList,
-        SVGIcon = EmployeesSVGIcons.PaymentList
+        SVGIcon = SVGIcons.PaymentList
       },
       new GeneralMenuItem
       {
@@ -41,7 +41,7 @@ public partial class Index : IMainPage
         Name = "Employee Details",
         Text = "Staff Details",
         URI = Constants.EmployeeDetails,
-        SVGIcon = EmployeesSVGIcons.EmployeeDetails
+        SVGIcon = SVGIcons.EmployeeDetails
       },
       new GeneralMenuItem
       {
@@ -51,7 +51,7 @@ public partial class Index : IMainPage
         Name = "Payment Detail",
         Text = "Payment Detail",
         URI = Constants.PaymentDetails,
-        SVGIcon = EmployeesSVGIcons.PaymentDetails
+        SVGIcon = SVGIcons.PaymentDetails
       },
       new GeneralMenuItem
       {
@@ -61,7 +61,7 @@ public partial class Index : IMainPage
         Name = "Employee Statement",
         Text = "Staff Statement",
         URI = Constants.Statement,
-        SVGIcon = EmployeesSVGIcons.Statement
+        SVGIcon = SVGIcons.Statement
       },
       new GeneralMenuItem
       {
@@ -71,7 +71,7 @@ public partial class Index : IMainPage
         Name = "Payments Detail Report",
         Text = "Payments Detail Report",
         URI = Constants.PaymentsDetailReport,
-        SVGIcon = EmployeesSVGIcons.PaymentsDetailReport
+        SVGIcon = SVGIcons.PaymentsDetailReport
       },
       new GeneralMenuItem
       {
@@ -81,7 +81,7 @@ public partial class Index : IMainPage
         Name = "Employee Detail Details",
         Text = "Staff Details",
         URI = Constants.EmployeeDetailReport,
-        SVGIcon = EmployeesSVGIcons.EmployeeDetailReport
+        SVGIcon = SVGIcons.EmployeeDetailReport
       },
       new GeneralMenuItem
       {
@@ -91,7 +91,7 @@ public partial class Index : IMainPage
         Name = "Payment Summaries",
         Text = "Payment Summaries",
         URI = Constants.PaymentsSummaries,
-        SVGIcon = EmployeesSVGIcons.PaymentsSummaries
+        SVGIcon = SVGIcons.PaymentsSummaries
       }
     ];
   }

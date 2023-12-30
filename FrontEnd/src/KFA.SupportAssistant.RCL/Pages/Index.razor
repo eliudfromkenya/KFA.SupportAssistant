@@ -1,7 +1,10 @@
 ﻿@page "/index"
+@using KFA.SupportAssistant.RCL.State.MainTitle
 @inject NavigationManager navigationManager
 @inject ILocalStorageService localStorageService
 @inject IAuthorizationService authorizationService
+@inject IState<LoggedInUserState> userState
+
 
 @if (IsUserAuthenticated)
 {
@@ -9,6 +12,7 @@
     <br />
     <p>Is Publisher : @IsPublisher</p>
     <p>Is Senior Employee : @IsSeniorEmployee</p>
+    <p>Is Senior Employee : @userState.Value.User?.User?.NameOfTheUser</p>
 }
 else
 {
