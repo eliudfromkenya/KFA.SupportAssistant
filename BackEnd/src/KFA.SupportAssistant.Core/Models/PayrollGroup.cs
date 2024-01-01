@@ -11,18 +11,19 @@ public sealed record class PayrollGroup : BaseModel
   // [Required]
   [Column("group_id")]
   [Encrypted]
-  public override string? Id { get; set; }
+  [Key]
+  public override string? Id { get; set; } = string.Empty;
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please group name must be 255 characters or less")]
   [Column("group_name")]
   [Encrypted]
-  public string? GroupName { get; init; }
+  public string? GroupName { get; init; } = string.Empty;
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]
   [Encrypted]
-  public string? Narration { get; init; }
+  public string? Narration { get; init; } = string.Empty;
   public override object ToBaseDTO()
   {
     return (PayrollGroupDTO)this;

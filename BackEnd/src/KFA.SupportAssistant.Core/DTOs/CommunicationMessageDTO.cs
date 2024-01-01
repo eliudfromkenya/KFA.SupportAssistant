@@ -41,17 +41,17 @@ public record class CommunicationMessageDTO : BaseDTO<CommunicationMessage>
     return new CommunicationMessage
     {
       Attachments = obj.Attachments,
-      Details = obj.Details,
-      From = obj.From,
-      Message = obj.Message,
-      MessageType = obj.MessageType,
-      Narration = obj.Narration,
-      Status = obj.Status,
-      Title = obj.Title,
-      To = obj.To,
-      Id = obj.Id,
-      ___DateInserted___ = obj.DateInserted___.FromDateTime(),
-      ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
+      Details = obj?.Details??string.Empty,
+      From = obj?.From ?? string.Empty,
+      Message = obj?.Message ?? string.Empty,
+      MessageType = obj?.MessageType,
+      Narration = obj?.Narration ?? string.Empty,
+      Status = obj?.Status,
+      Title = obj?.Title ?? string.Empty,
+      To = obj?.To ?? string.Empty,
+      Id = obj?.Id ?? string.Empty,
+      ___DateInserted___ = obj?.DateInserted___.FromDateTime(),
+      ___DateUpdated___ = obj?.DateUpdated___.FromDateTime()
     };
   }
 }

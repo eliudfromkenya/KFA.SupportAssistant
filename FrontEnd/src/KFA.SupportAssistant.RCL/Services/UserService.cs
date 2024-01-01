@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.RCL.Data;
+﻿using KFA.SupportAssistant.Globals.Services;
+using KFA.SupportAssistant.RCL.Data;
 using KFA.SupportAssistant.RCL.Models.Data;
 using Newtonsoft.Json;
 using System.Net;
@@ -6,8 +7,10 @@ using static KFA.SupportAssistant.RCL.Pages.Users.Login;
 
 namespace KFA.SupportAssistant.RCL.Services;
 
-public class UserService : IUserService
+public class UserService(IHttpClientService httpClientService) : IUserService
 {
+  readonly IHttpClientService _httpClientService = httpClientService;
+
   public AppSettings? _appSettings { get; }
   public async Task<LoginResponse?> LoginAsync(LoginDetails loginDetails)
   {
@@ -22,34 +25,23 @@ public class UserService : IUserService
     //requestMessage.Content.Headers.ContentType
     //          = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
-    using var httpClient = new HttpClientWrapper<LoginDetails, string>("users/login");
-    var response = await httpClient.PostAsync(loginDetails);
-    var responseStatusCode = response.Item1;
+    //using var httpClient = new HttpClientWrapper<LoginDetails, string>("users/login");
 
-    if (responseStatusCode == System.Net.HttpStatusCode.OK)
-      return JsonConvert.DeserializeObject<LoginResponse>(response.Item2);
-    else throw ConvertToError(responseStatusCode, response.Item2);
+    _httpClientService.SubURL = "users/login";
+    return await _httpClientService.PostAsync<LoginResponse>(loginDetails);
   }
 
-  struct ErrorObject
-  {
-    public System.Net.HttpStatusCode StatusCode { get; set; }
-    public string Message { get; set; }
-    public Dictionary<string, string[]> Errors { get; set; }
-  }
-  private static Exception ConvertToError(HttpStatusCode responseStatusCode, string item2)
-  {
-    var message = JsonConvert.DeserializeObject<ErrorObject>(item2);
-    return new Exception($@"Error {message.StatusCode}: {message.Message}  ({string.Join("\r\n", message.Errors?.SelectMany(c => c.Value) ?? [])})");
-  }
 
   public async Task<SystemUserDTO?> RegisterUserAsync(SignupSystemUserDTO user)
   {
-    // user.Password = Utility.Encrypt(user.Password);
-    using var httpClient = new HttpClientWrapper<SignupSystemUserDTO, string>("users/register");
-    var response = await httpClient.PostAsync(user);
-    var responseStatusCode = response.Item1;
-    return JsonConvert.DeserializeObject<SystemUserDTO>(response.Item2);
+    _httpClientService.SubURL = "users/register";
+    return await _httpClientService.PostAsync<SystemUserDTO>(user);
+
+    //// user.Password = Utility.Encrypt(user.Password);
+    //using var httpClient = new HttpClientWrapper<SignupSystemUserDTO, string>("users/register");
+    //var response = await httpClient.PostAsync(user);
+    //var responseStatusCode = response.Item1;
+    //return JsonConvert.DeserializeObject<SystemUserDTO>(response.Item2);
   }
 
   //public async Task<SystemUserDTO?> RefreshTokenAsync(RefreshRequest refreshRequest)

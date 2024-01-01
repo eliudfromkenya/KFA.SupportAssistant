@@ -1,8 +1,10 @@
 ﻿using Humanizer;
+using KFA.SupportAssistant.Core.Classes;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Globals.Classes;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
@@ -23,6 +25,50 @@ public static class Extensions
             ? DateTimeOffset.MinValue
             : new DateTimeOffset(dateTime);
     }
+
+  public static Exception ConvertToError(this HttpResponseMessage httpMessage)
+  {
+    var error = AsyncUtil.RunSync(() => httpMessage.Content.ReadAsStringAsync());
+    try
+    {
+      var message = JsonConvert.DeserializeObject<ErrorObject>(error);
+      if (message.Errors.Any())
+        return new Exception($@"Error {message.StatusCode}: {message.Message}  ({string.Join("\r\n", message.Errors?.SelectMany(c => c.Value) ?? [])})");
+    }
+    catch { }
+
+    try
+    {
+      var message = JsonConvert.DeserializeObject<ErrorDefault>(error);
+      if (!string.IsNullOrWhiteSpace(message.Reason))
+        return new Exception($@"Error {message.Status}: There was an error ({message.Reason})");
+    }
+    catch (Exception)
+    {
+      
+    }
+    return new Exception($@"Error {httpMessage.StatusCode}: There was an error ({error})");
+  }
+
+
+  public static Exception ConvertToError(this HttpStatusCode responseStatusCode, string item2)
+  {
+    var message = JsonConvert.DeserializeObject<ErrorObject>(item2);
+    return new Exception($@"Error {message.StatusCode}: {message.Message}  ({string.Join("\r\n", message.Errors?.SelectMany(c => c.Value) ?? [])})");
+  }
+  struct ErrorObject
+  {
+    public System.Net.HttpStatusCode StatusCode { get; set; }
+    public string Message { get; set; }
+    public Dictionary<string, string[]> Errors { get; set; }
+  }
+  struct ErrorDefault
+  {
+    public string Status { get; set; }
+    public string Code { get; set; }
+    public string Reason { get; set; }
+    public string Note { get; set; }
+  }
 
   public static DateTime? FromDateTimeOffset(this DateTimeOffset? date)
     {

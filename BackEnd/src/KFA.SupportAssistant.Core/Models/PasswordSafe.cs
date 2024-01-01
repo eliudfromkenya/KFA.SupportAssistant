@@ -16,19 +16,19 @@ public sealed record class PasswordSafe : BaseModel
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please details must be 255 characters or less")]
   [Column("details")]
-  public string? Details { get; init; }
+  public string? Details { get; init; } = string.Empty;
 
   // [Required]
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please name must be 255 characters or less")]
   [Column("name")]
-  public string? Name { get; init; }
+  public string? Name { get; init; } = string.Empty;
 
   // [Required]
   [Encrypted]
   [MaxLength(255, ErrorMessage = "Please password must be 255 characters or less")]
   [Column("password")]
-  public string? Password { get; init; }
+  public string? Password { get; init; } = string.Empty;
 
   // [Required]
   [Column("password_id")]
@@ -37,9 +37,9 @@ public sealed record class PasswordSafe : BaseModel
   [MaxLength(255, ErrorMessage = "Please reminder must be 255 characters or less")]
   [Column("reminder")]
   [Encrypted]
-  public string? Reminder { get; init; }
+  public string? Reminder { get; init; } = string.Empty;
 
   [Column("users_visible_to")]
   [Encrypted]
-  public string? UsersVisibleTo { get; init; }
+  public string? UsersVisibleTo { get; init; } = string.Empty;
 }

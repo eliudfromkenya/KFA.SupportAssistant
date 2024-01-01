@@ -2,20 +2,55 @@
 @page "/employees/index"
 @using Fluxor
 @using BlazorPro.Spinkit
+@using KFA.SupportAssistant.Globals
+@using KFA.SupportAssistant.RCL.Components
 @using KFA.SupportAssistant.RCL.Services
+@using KFA.SupportAssistant.RCL.State.Employees
 @using KFA.SupportAssistant.RCL.State.MainTitle
 @inject ILocalStorageService localStorageService
 @inject IUserService userService
 @inject IDispatcher dispatcher
-@inject IState<MainTitleState> mainTitleState
+@inject IState<EmployeesState> state
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
 
 <h3>Employee Details Index</h3>
+
+@if (state.Value.IsLoading)
+{
+    <LoadingComponent IsLoading= "true" />
+}
+else
+{
+    @if (state.Value.Error == null)
+    {
+        <div> @state?.Value?.Employees?.Length</div>
+    }
+    else
+    {
+        <div> @state?.Value?.Error?.Message</div>
+    }
+}
 
 @code {
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $"Employees" });
+        dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $" " });
+        dispatcher.Dispatch(new FetchEmployeeDetailsAction());
+        Functions.RunOnBackground(async () =>
+        {
+            try
+            {
+               await InvokeAsync(() =>
+                {
+                    dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $"Employees" });
+                });
+            }
+            catch (Exception)
+            {
+            }
+        }, 5000);
     }   
 }

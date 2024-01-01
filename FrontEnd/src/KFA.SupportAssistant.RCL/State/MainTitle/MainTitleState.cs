@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Fluxor;
+﻿using Fluxor;
 
 namespace KFA.SupportAssistant.RCL.State.MainTitle;
 
@@ -11,12 +6,13 @@ namespace KFA.SupportAssistant.RCL.State.MainTitle;
 public class MainTitleState
 {
   public string? MainTitle { get; }
+
   public MainTitleState(string mainTitle)
   {
     MainTitle = mainTitle;
   }
+
   public MainTitleState()
   {
-      
   }
 }

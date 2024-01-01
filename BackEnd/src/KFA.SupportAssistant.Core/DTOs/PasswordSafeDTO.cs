@@ -30,11 +30,11 @@ public record class PasswordSafeDTO : BaseDTO<PasswordSafe>
   {
     return new PasswordSafe
     {
-      Details = obj.Details,
-      Name = obj.Name,
-      Password = obj.Password,
-      Reminder = obj.Reminder,
-      UsersVisibleTo = obj.UsersVisibleTo,
+      Details = obj.Details ?? string.Empty,
+      Name = obj.Name ?? string.Empty,
+      Password = obj.Password ?? string.Empty,
+      Reminder = obj.Reminder ?? string.Empty,
+      UsersVisibleTo = obj.UsersVisibleTo ?? string.Empty,
       Id = obj.Id,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()

@@ -24,9 +24,9 @@ public record class PayrollGroupDTO : BaseDTO<PayrollGroup>
   {
     return new PayrollGroup
     {
-      GroupName = obj.GroupName,
-      Narration = obj.Narration,
-      Id = obj.Id,
+      GroupName = obj.GroupName ?? string.Empty,
+      Narration = obj.Narration ?? string.Empty,
+      Id = obj.Id ?? string.Empty,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };

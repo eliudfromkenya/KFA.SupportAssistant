@@ -41,11 +41,11 @@ public record class ComputerAnydeskDTO : BaseDTO<ComputerAnydesk>
       DeviceName = obj.DeviceName,
       Narration = obj.Narration,
       NameOfUser = obj.NameOfUser,
-      Password = obj.Password,
-      Type = obj.Type,
-      Id = obj.Id,
-      ___DateInserted___ = obj.DateInserted___.FromDateTime(),
-      ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
+      Password = obj?.Password ?? string.Empty,
+      Type = obj?.Type,
+      Id = obj?.Id,
+      ___DateInserted___ = obj?.DateInserted___.FromDateTime(),
+      ___DateUpdated___ = obj?.DateUpdated___.FromDateTime()
     };
   }
 }

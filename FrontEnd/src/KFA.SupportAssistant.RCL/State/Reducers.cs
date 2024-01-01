@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Fluxor;
+﻿using Fluxor;
 using KFA.SupportAssistant.RCL.State.MainTitle;
 
 namespace KFA.SupportAssistant.RCL.State;
+
 public static class Reducers
 {
   [ReducerMethod]

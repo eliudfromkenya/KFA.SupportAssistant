@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Fluxor;
+using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.RCL.Models.Data;
 using KFA.SupportAssistant.RCL.Services;
 using KFA.SupportAssistant.RCL.State.MainTitle;
@@ -37,6 +38,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
         date = await _localStorageService.GetItemAsync<DateTime>("date");
         user = await _localStorageService.GetItemAsync<LoginResponse>("user");
         _dispatcher.Dispatch(new ChangeLoggedInUserAction { User = user });
+        //Factory.GetHttpWrapper<string, string>("").AccessToken = user.Value.Token;
       }
 
       if (date > DateTime.Now)
@@ -69,6 +71,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     await _localStorageService.SetItemAsync("name", user?.User?.Username ?? string.Empty);
 
     _dispatcher.Dispatch(new ChangeLoggedInUserAction { User = user });
+    //Factory.GetHttpWrapper<string, string>("").AccessToken = user?.Token;
 
     var identity = GetClaimsIdentity(user?.User);
 

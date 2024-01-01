@@ -18,6 +18,9 @@ public class ListModelsHandler<T, X>(IDbQuery<X> dbQuery)
     List<X> objs = [];
     if(query != null)
       objs = await query!.ToListAsync(cancellationToken);
-    return Result<Result<List<T>>>.Success(objs.Select(v => (T)v.ToBaseDTO()).ToList());
+    var resukt = JsonConvert.SerializeObject(objs);
+   // var bb = objs.Select(v => (T)v.ToBaseDTO()).ToList();
+   // return Result<List<T>>.Success(JsonConvert.DeserializeObject<List<T>>(resukt));
+   return Result<List<T>>.Success(objs.Select(v => (T)v.ToBaseDTO()).ToList());
   }
 }

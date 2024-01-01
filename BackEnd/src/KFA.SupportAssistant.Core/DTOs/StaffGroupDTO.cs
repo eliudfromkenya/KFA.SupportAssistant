@@ -27,10 +27,10 @@ public record class StaffGroupDTO : BaseDTO<StaffGroup>
   {
     return new StaffGroup
     {
-      Description = obj.Description,
+      Description = obj.Description ?? string.Empty,
       IsActive = obj.IsActive,
-      Narration = obj.Narration,
-      Id = obj.Id,
+      Narration = obj.Narration ?? string.Empty,
+      Id = obj.Id ?? string.Empty,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };

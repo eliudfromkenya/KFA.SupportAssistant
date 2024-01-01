@@ -1,9 +1,13 @@
 ﻿@attribute [Route(Constants.EmployeeDetails)]
 
 @using BlazorPro.Spinkit
+@using KFA.SupportAssistant.Globals.Services
+@using KFA.SupportAssistant.RCL.Models.Data
 @using KFA.SupportAssistant.RCL.Services
+@using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries
 @inject ILocalStorageService localStorageService
 @inject IUserService userService
+@inject IHttpClientService httpClientService
 
 <h3>EmployeeDetails</h3>
 
@@ -16,9 +20,9 @@
 
 @code {
 
-    public EmployeeDetails? employeedetails { get; set; }
-    public List<EmployeeDetails>? employeedetailsList { get; set; }
-    public List<EmployeeDetails>? filteredEmployeeDetailsList { get; set; }
+    public EmployeeDetailDTO? employeedetails { get; set; }
+    public List<EmployeeDetailDTO>? employeedetailsList { get; set; }
+    public List<EmployeeDetailDTO>? filteredEmployeeDetailsList { get; set; }
     public string? SelectedCity { get; set; }
 
     public bool IsVisible { get; set; }
@@ -40,8 +44,8 @@
     {
         Console.WriteLine("EmployeeDetailss - OnInitializedAsync");
 
-        employeedetails = new EmployeeDetails();
-        employeedetailsList = new List<EmployeeDetails>();
+        employeedetails = new EmployeeDetailDTO();
+        employeedetailsList = new List<EmployeeDetailDTO>();
         //employeedetailsList = await employeedetailsService.GetEmployeeDetailss();
 
         await base.OnInitializedAsync();
@@ -96,10 +100,8 @@
     private async Task LoadEmployeeDetailss()
     {
         await Task.Delay(500);
-
-        using var httpClientWrapper = new HttpClientWrapper<EmployeeDetails, string>("employee-details");
-
-        employeedetailsList = filteredEmployeeDetailsList = (await httpClientWrapper.GetManyAsync())?.ToList();
+        httpClientService.SubURL = "employee-details";
+        //employeedetailsList = filteredEmployeeDetailsList = (await httpClientService.GetAsync<EmployeeDetailDTO>(new ListParam { Take = 1000000, Skip = 0 }))..ToList();
 
         if (employeedetailsList == null)
         {
@@ -151,7 +153,7 @@
         //throw new Exception("DeleteEmployeeDetails");
     }
 
-    private void EditEmployeeDetails(EmployeeDetails argEmployeeDetails)
+    private void EditEmployeeDetails(EmployeeDetailDTO argEmployeeDetails)
     {
         employeedetails = argEmployeeDetails;
     }

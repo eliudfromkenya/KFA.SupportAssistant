@@ -101,7 +101,8 @@ else
   app.UseDefaultExceptionHandler(); // from FastEndpoints
   app.UseHsts();
 }
-app.UseAntiForgery()
+app//.UseDefaultExceptionHandler()
+   .UseAntiForgery()
    .UseFastEndpoints(c =>
    {
      c.Endpoints.RoutePrefix = "api/v3";

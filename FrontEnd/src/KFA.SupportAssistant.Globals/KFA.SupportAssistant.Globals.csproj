@@ -15,6 +15,11 @@
     <PackageReference Include="MonkeyCache.LiteDB" />
     <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="Serilog" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" />
   </ItemGroup>
 
 </Project>

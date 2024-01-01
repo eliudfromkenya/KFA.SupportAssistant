@@ -40,14 +40,14 @@ public record class DuesPaymentDetailDTO : BaseDTO<DuesPaymentDetail>
     return new DuesPaymentDetail
     {
       Amount = obj.Amount.ToString(),
-      Date = obj.Date?.ToString(),
-      DocumentNo = obj.DocumentNo,
+      Date = obj.Date?.ToString() ?? string.Empty,
+      DocumentNo = obj.DocumentNo ?? string.Empty,
       EmployeeId = obj.EmployeeID,
-      IsFinalPayment = obj.IsFinalPayment?.ToString(),
-      Narration = obj.Narration,
-      OpeningBalance = obj.OpeningBalance?.ToString(),
-      PaymentType = obj.PaymentType,
-      ProcessedBy = obj.ProcessedBy,
+      IsFinalPayment = obj.IsFinalPayment?.ToString() ?? string.Empty,
+      Narration = obj.Narration ?? string.Empty,
+      OpeningBalance = obj.OpeningBalance?.ToString() ?? string.Empty,
+      PaymentType = obj.PaymentType ?? string.Empty,
+      ProcessedBy = obj.ProcessedBy ?? string.Empty,
       Id = obj.Id,
       ___DateInserted___ = obj.DateInserted___.FromDateTime(),
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()

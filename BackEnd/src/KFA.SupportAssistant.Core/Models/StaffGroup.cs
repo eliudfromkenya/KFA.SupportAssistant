@@ -12,12 +12,12 @@ public sealed record class StaffGroup : BaseModel
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]
   [Column("description")]
   [Encrypted]
-  public string? Description { get; init; }
+  public string? Description { get; init; } = string.Empty;
 
   // [Required]
   [Column("group_number")]
-  [Encrypted]
-  public override string? Id { get; set; }
+ [Encrypted]
+  public override string? Id { get; set; } = string.Empty;
 
   // [Required]
   [Column("is_active")]
@@ -26,7 +26,7 @@ public sealed record class StaffGroup : BaseModel
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]
   [Encrypted]
-  public string? Narration { get; init; }
+  public string? Narration { get; init; } = string.Empty;
 
   public ICollection<EmployeeDetail>? EmployeeDetails { get; set; }
   public override object ToBaseDTO()

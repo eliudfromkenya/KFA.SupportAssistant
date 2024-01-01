@@ -24,7 +24,7 @@ public sealed record class ComputerAnydesk : BaseModel
   [MaxLength(100, ErrorMessage = "Please password must be 100 characters or less")]
   [Column("password")]
   [Encrypted]
-  public string? Password { get; init; }
+  public string? Password { get; init; } = string.Empty;
 
   [MaxLength(100, ErrorMessage = "Please name of user must be 100 characters or less")]
   [Column("name_of_user")]

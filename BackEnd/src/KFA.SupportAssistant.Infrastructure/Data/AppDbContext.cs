@@ -2,6 +2,7 @@
 using Ardalis.SharedKernel;
 using KFA.SupportAssistant.Core.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.DataEncryption;
 
 namespace KFA.SupportAssistant.Infrastructure.Data;
 
@@ -15,7 +16,7 @@ public class AppDbContext : DbContext
   {
     _dispatcher = dispatcher;
   }
-
+  private static MsEncryptionProvider _provider = new ();
   public DbSet<CommandDetail> CommandDetails { get; set; }
   public DbSet<CommunicationMessage> CommunicationMessages { get; set; }
   public DbSet<ComputerAnydesk> ComputerAnydesks { get; set; }
@@ -67,12 +68,15 @@ public class AppDbContext : DbContext
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
+    _provider ??= new MsEncryptionProvider();
+    modelBuilder.UseEncryption(_provider);
     modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
   }
 
   public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
   {
     int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+    _provider ??= new MsEncryptionProvider();
 
     // ignore events if no dispatcher provided
     if (_dispatcher == null) return result;

@@ -21,9 +21,9 @@ public class CreateEmployeeDetailValidator : Validator<CreateEmployeeDetailReque
          .MinimumLength(2)
          .MaximumLength(255);
 
-    RuleFor(x => x.EmployeeID)
-         .NotEmpty()
-         .WithMessage("Employee ID is required.");
+    //RuleFor(x => x.EmployeeID)
+    //     .NotEmpty()
+    //     .WithMessage("Employee ID is required.");
 
     RuleFor(x => x.FullName)
          .NotEmpty()
@@ -36,11 +36,11 @@ public class CreateEmployeeDetailValidator : Validator<CreateEmployeeDetailReque
          .MaximumLength(8);
 
     RuleFor(x => x.GroupNumber)
-         .MinimumLength(2)
+         .MinimumLength(1)
          .MaximumLength(25);
 
     RuleFor(x => x.IdNumber)
-         .MinimumLength(2)
+         .MinimumLength(5)
          .MaximumLength(15);
 
     RuleFor(x => x.Narration)
