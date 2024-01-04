@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.VendorCodesRequests;
+namespace KFA.SupportAssistant.Web.EndPoints.VendorCodesRequests;
 
 public class VendorCodesRequestListResponse
 {

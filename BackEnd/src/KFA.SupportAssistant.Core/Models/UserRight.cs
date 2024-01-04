@@ -63,7 +63,7 @@ public sealed record class UserRight : BaseModel
 
   // [Required]
   [Column("user_right_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
   [Column("user_activities")]
   public UserActivities UserActivities { get; set; } = UserActivities.None;
 }

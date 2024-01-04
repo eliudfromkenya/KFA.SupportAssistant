@@ -14,7 +14,7 @@ public sealed record class ActualBudgetVariancesBatchHeader : BaseModel
 
   [Required]
   [Column("batch_key")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please batch number must be 255 characters or less")]
   [Column("batch_number")]

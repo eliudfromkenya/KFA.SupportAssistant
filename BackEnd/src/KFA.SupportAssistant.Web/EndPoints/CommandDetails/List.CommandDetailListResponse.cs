@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.CommandDetails;
+namespace KFA.SupportAssistant.Web.EndPoints.CommandDetails;
 
 public class CommandDetailListResponse
 {

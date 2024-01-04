@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.ActualBudgetVariances;
+namespace KFA.SupportAssistant.Web.EndPoints.ActualBudgetVariances;
 
 public class ActualBudgetVarianceListResponse
 {

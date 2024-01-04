@@ -25,7 +25,7 @@ public sealed record class CommandDetail : BaseModel
 
   // [Required]
   [Column("command_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(25, ErrorMessage = "Please command name must be 25 characters or less")]

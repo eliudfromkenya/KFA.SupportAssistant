@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
+namespace KFA.SupportAssistant.Web.EndPoints.CostCentres;
 
 public class CostCentreListResponse
 {

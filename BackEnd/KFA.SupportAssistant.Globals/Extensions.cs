@@ -406,10 +406,18 @@ public static class Extensions
       foreach (var item in updates)
         {
         var prop = type.FirstOrDefault(x => x.Name.ToUpper() == item.Key.ToUpper());
-
+        
         if (prop?.CanWrite == true && item.Key.ToLower() != primaryKeyName.ToLower())
-          prop?.SetValue(obj, Convert.ChangeType(item.Value, prop.PropertyType), null);
-        }
+          prop?.SetValue(obj, Convert.ChangeType(item.Value, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType), null);
+        //if (Nullable.GetUnderlyingType(prop.PropertyType) != null)
+        //{
+        //  prop?.SetValue(obj, Convert.ChangeType(item.Value, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType), null);
+        //}
+        //else
+        //{
+        //   prop?.SetValue(obj, Convert.ChangeType(item.Value, prop.PropertyType), null);
+        //}
+      }
       }
 
     return obj;

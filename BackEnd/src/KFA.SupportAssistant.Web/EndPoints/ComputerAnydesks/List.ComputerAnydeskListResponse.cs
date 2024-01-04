@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAnydesks;
+namespace KFA.SupportAssistant.Web.EndPoints.ComputerAnydesks;
 
 public class ComputerAnydeskListResponse
 {

@@ -23,7 +23,7 @@ public sealed record class UserAuditTrail : BaseModel
 
   // [Required]
   [Column("audit_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please category must be 255 characters or less")]

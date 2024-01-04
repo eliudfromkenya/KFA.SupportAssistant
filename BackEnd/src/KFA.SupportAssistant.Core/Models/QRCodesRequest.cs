@@ -30,7 +30,7 @@ public sealed record class QRCodesRequest : BaseModel
 
   // [Required]
   [Column("qr_code_request_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please request data must be 255 characters or less")]

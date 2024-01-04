@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core;
+﻿using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -34,7 +35,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of purchases budget details as specified";
       s.Description = "Returns all purchases budget details as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new PurchasesBudgetDetailListResponse { PurchasesBudgetDetails = [new PurchasesBudgetDetailRecord(string.Empty, 0, "Item Code", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "Narration", "1000", 0, DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new PurchasesBudgetDetailListResponse { PurchasesBudgetDetails = [new PurchasesBudgetDetailRecord("", 0, "Item Code", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "Narration", "1000", 0, DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }
@@ -43,7 +44,8 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {
     var command = new ListModelsQuery<PurchasesBudgetDetailDTO, PurchasesBudgetDetail>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+    var result = Result<List<PurchasesBudgetDetailDTO>>.Success(ans.Select(v => (PurchasesBudgetDetailDTO)v).ToList());
 
     if (result.Errors.Any())
     {

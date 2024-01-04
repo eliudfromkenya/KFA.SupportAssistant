@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.QRRequestItems;
+namespace KFA.SupportAssistant.Web.EndPoints.QRRequestItems;
 
 public class QRRequestItemListResponse
 {

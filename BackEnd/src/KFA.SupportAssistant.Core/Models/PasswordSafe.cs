@@ -32,7 +32,7 @@ public sealed record class PasswordSafe : BaseModel
 
   // [Required]
   [Column("password_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please reminder must be 255 characters or less")]
   [Column("reminder")]

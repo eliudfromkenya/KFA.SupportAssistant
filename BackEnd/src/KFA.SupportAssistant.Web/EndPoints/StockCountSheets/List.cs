@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core;
+﻿using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -34,7 +35,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of stock count sheets as specified";
       s.Description = "Returns all stock count sheets as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new StockCountSheetListResponse { StockCountSheets = [new StockCountSheetRecord(0, 0, string.Empty, 0, "1000", "Document Number", string.Empty, "Narration", 0, 0, 0, 0, 0, 0, DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new StockCountSheetListResponse { StockCountSheets = [new StockCountSheetRecord(0, 0, "0", 0, "1000", "Document Number", "0", "Narration", 0, 0, 0, 0, 0, 0, DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }
@@ -43,7 +44,8 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {
     var command = new ListModelsQuery<StockCountSheetDTO, StockCountSheet>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+    var result = Result<List<StockCountSheetDTO>>.Success(ans.Select(v => (StockCountSheetDTO)v).ToList());
 
     if (result.Errors.Any())
     {

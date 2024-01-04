@@ -13,5 +13,5 @@ public sealed record class DeviceGuid : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_device_guids";
   // [Required]
   [Column("guid")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 }

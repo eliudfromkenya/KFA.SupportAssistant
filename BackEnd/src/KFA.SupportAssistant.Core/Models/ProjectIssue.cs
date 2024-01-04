@@ -31,7 +31,7 @@ public sealed record class ProjectIssue : BaseModel
 
   // [Required]
   [Column("project_issue_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please registered by must be 255 characters or less")]
   [Column("registered_by")]

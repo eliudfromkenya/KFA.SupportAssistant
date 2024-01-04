@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core;
+using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -43,7 +44,8 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {
     var command = new ListModelsQuery<StaffGroupDTO, StaffGroup>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+    var result = Result<List<StaffGroupDTO>>.Success(ans.Select(v => (StaffGroupDTO)v).ToList());
 
     if (result.Errors.Any())
     {

@@ -49,7 +49,7 @@ public sealed record class DuesPaymentDetail : BaseModel
 
   // [Required]
   [Column("payment_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [Encrypted]

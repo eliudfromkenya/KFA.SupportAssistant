@@ -14,7 +14,7 @@ public sealed record class CostCentre : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_cost_centres";
   // [Required]
   [Column("cost_centre_code")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please description must be 255 characters or less")]

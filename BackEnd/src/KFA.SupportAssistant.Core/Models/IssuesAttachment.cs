@@ -10,7 +10,7 @@ public sealed record class IssuesAttachment : BaseModel
     public override string? ___tableName___ { get; protected set; } = "tbl_issues_attachments";
     // [Required]
     [Column("attachment_id")]
-    public override string? Id { get; set; }
+    public override string? Id { get; init; }
 
     [MaxLength(255, ErrorMessage = "Please attachment type must be 255 characters or less")]
     [Column("attachment_type")]

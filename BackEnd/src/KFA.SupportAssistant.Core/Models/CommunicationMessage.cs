@@ -34,7 +34,7 @@ public sealed record class CommunicationMessage : BaseModel
 
   // [Required]
   [Column("message_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   //[Encrypted]

@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.LedgerAccounts;
+namespace KFA.SupportAssistant.Web.EndPoints.LedgerAccounts;
 
 public class LedgerAccountListResponse
 {

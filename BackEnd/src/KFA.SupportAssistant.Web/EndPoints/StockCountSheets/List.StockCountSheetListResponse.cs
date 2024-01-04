@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.StockCountSheets;
+namespace KFA.SupportAssistant.Web.EndPoints.StockCountSheets;
 
 public class StockCountSheetListResponse
 {

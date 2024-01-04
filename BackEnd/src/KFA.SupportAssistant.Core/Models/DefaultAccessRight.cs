@@ -9,7 +9,7 @@ public sealed record class DefaultAccessRight : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_default_access_rights";
   // [Required]
   [Column("right_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please name must be 255 characters or less")]

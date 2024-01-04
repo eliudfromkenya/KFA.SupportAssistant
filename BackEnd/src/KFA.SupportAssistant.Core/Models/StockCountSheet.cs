@@ -23,7 +23,7 @@ public sealed record class StockCountSheet : BaseModel
 
   [Required]
   [Column("count_sheet_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(10, ErrorMessage = "Please document number must be 10 characters or less")]
   [Column("document_number")]

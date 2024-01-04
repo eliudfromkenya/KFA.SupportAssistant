@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
@@ -89,8 +89,8 @@ namespace PPMS.API.ServiceRegisters
                     .Where(x => x != null)
                     .Select(x =>
                     {
-                        DatabaseTable master = null;
-                        string[] @group = null;
+                        DatabaseTable? master = null;
+                        string[]? @group = null;
                         try
                         {
                             master = db.Tables.FirstOrDefault(y => y.Id == db.Columns.FirstOrDefault(m => m.Id == x.MasterColumnId).TableId);

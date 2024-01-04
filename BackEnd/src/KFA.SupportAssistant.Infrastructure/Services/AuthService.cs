@@ -110,7 +110,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       SystemUser user = usr with { PasswordHash = passwordHash, Username = usr.Username?.ToLower(), PasswordSalt = passwordSalt, RoleId = "USR006" };
 
       if (string.IsNullOrWhiteSpace(user.Id))
-        user.Id = idGenerator.GetNextId<SystemUser>();
+        user = user with { Id = idGenerator.GetNextId<SystemUser>() };
 
       await context.SystemUsers.AddAsync(user, cancellationToken);
       await context.SaveChangesAsync(cancellationToken);
@@ -151,7 +151,7 @@ internal class AuthService(AppDbContext context, IIdGenerator idGenerator) : IAu
       using var db = context;
       DataDevice device = (DataDevice)dataDevice;
       if (string.IsNullOrWhiteSpace(device.Id))
-        device.Id = idGenerator.GetNextId<DataDevice>();
+        device = device with { Id = idGenerator.GetNextId<DataDevice>() };
 
       await db.DataDevices.AddAsync(device, cancellationToken);
       await db.SaveChangesAsync(cancellationToken);

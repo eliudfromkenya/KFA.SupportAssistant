@@ -12,7 +12,7 @@ public sealed record class PayrollGroup : BaseModel
   [Column("group_id")]
   [Encrypted]
   [Key]
-  public override string? Id { get; set; } = string.Empty;
+  public override string? Id { get; init; } = string.Empty;
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please group name must be 255 characters or less")]

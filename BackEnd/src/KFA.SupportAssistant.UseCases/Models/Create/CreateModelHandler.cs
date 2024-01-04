@@ -17,12 +17,13 @@ public class CreateModelHandler<T, X>(IInsertModelService<X> _addService)
       .Select(n => n!)
       .ToArray() ?? [];
 
-    foreach (var obj in objs)
+    for (int i = 0; i < objs.Length; i++)
     {
+      var obj = objs[i];
       obj.___DateInserted___ = DateTime.Now.FromDateTime();
       obj.___DateUpdated___ = DateTime.Now.FromDateTime();
       if (string.IsNullOrWhiteSpace(obj.Id))
-        obj.Id = Declarations.IdGenerator?.GetNextId<X>();
+        objs[i] = obj with { Id = Declarations.IdGenerator?.GetNextId<X>() };
     }
     var createdItem = await _addService.InsertModel(request?.user, cancellationToken, objs);
     return createdItem.Value?.Select(c => (T)c.ToBaseDTO())?.ToArray() ?? [];

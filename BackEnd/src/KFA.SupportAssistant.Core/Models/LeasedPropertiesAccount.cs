@@ -41,7 +41,7 @@ public sealed record class LeasedPropertiesAccount : BaseModel
 
   // [Required]
   [Column("leased_property_account_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(25, ErrorMessage = "Please ledger account id must be 25 characters or less")]
   [Column("ledger_account_code")]

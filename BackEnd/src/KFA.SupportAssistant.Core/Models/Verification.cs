@@ -40,7 +40,7 @@ public sealed record class Verification : BaseModel
 
   // [Required]
   [Column("verification_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please verification name must be 255 characters or less")]

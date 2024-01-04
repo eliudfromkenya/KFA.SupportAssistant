@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Globals;
+using Newtonsoft.Json;
 
 namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_employee_details")]
@@ -34,7 +35,7 @@ public sealed record class EmployeeDetail : BaseModel
 
   //[Required]
   [Column("employee_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
   [Encrypted]
   // [Required]
   [MaxLength(255, ErrorMessage = "Please full name must be 255 characters or less")]
@@ -49,6 +50,7 @@ public sealed record class EmployeeDetail : BaseModel
   public string? GroupNumber { get; init; }
 
   [ForeignKey(nameof(GroupNumber))]
+  [JsonIgnore]
   public StaffGroup? Group { get; set; }
   [NotMapped]
   public string? Group_Caption { get; set; }
@@ -67,6 +69,7 @@ public sealed record class EmployeeDetail : BaseModel
   public string? PayrollGroupID { get; init; }
 
   [ForeignKey(nameof(PayrollGroupID))]
+  [JsonIgnore]
   public PayrollGroup? PayrollGroup { get; set; }
   [NotMapped]
   public string? PayrollGroup_Caption { get; set; }
@@ -106,7 +109,7 @@ public sealed record class EmployeeDetail : BaseModel
   [Column("status")]
   [Encrypted]
   public string? Status { get; init; } = string.Empty;
-
+  [JsonIgnore]
   public ICollection<DuesPaymentDetail>? DuesPaymentDetails { get; set; }
 
   public override object ToBaseDTO()

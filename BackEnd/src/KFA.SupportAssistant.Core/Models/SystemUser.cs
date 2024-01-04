@@ -60,7 +60,7 @@ public sealed record class SystemUser : BaseModel
 
   // [Required]
   [Column("user_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   //// [Required]
   //[MaxLength(25, ErrorMessage = "Please user number must be 25 characters or less")]

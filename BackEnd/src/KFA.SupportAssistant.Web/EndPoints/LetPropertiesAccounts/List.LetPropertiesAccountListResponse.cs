@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.LetPropertiesAccounts;
+namespace KFA.SupportAssistant.Web.EndPoints.LetPropertiesAccounts;
 
 public class LetPropertiesAccountListResponse
 {

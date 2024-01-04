@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.IssuesSubmissions;
+namespace KFA.SupportAssistant.Web.EndPoints.IssuesSubmissions;
 
 public class IssuesSubmissionListResponse
 {

@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.PurchasesBudgetBatchHeaders;
+namespace KFA.SupportAssistant.Web.EndPoints.PurchasesBudgetBatchHeaders;
 
 public class PurchasesBudgetBatchHeaderListResponse
 {

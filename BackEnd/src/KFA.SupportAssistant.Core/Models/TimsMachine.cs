@@ -42,7 +42,7 @@ public sealed record class TimsMachine : BaseModel
 
   // [Required]
   [Column("machine_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]

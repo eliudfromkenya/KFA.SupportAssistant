@@ -19,7 +19,7 @@ public class UpdateModelService<T>(IRepository<T> _repository,
     if (model == null)
       return Result.Error("No element to update are provided");
 
-    model.Id = id;
+   // model.Id = id;
     await _repository.UpdateAsync(model!, cancellationToken);
     var domainEvent = new ModelUpdatedEvent<T>(id, model);
     await _mediator.Publish(domainEvent, cancellationToken);

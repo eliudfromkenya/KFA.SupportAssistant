@@ -831,7 +831,7 @@ namespace Pilgrims.Projects.Assistant.Classes
             InitializeCaptionLabel({ff[2].Camelize()}, disposal, false);
             if ({ff[2].Camelize()} != null)
             {{
-                Context.CurrentObject.WhenAnyValue(c => c.{col.ColumnName.MakeName()})
+                Context.CurrentObject.WhenAnyValue(c => c.{col.ColumnName?.MakeName()})
                    .Throttle(TimeSpan.FromMilliseconds(700))
                    .DistinctUntilChanged()
                    .ObserveOn(RxApp.MainThreadScheduler)
@@ -851,7 +851,7 @@ namespace Pilgrims.Projects.Assistant.Classes
             InitializeCaptionLabel({ff[2].Camelize()}, disposal, true);
             if ({ff[2].Camelize()} != null)
             {{
-                Context.CurrentObject.WhenAnyValue(c => c.{col.ColumnName.MakeName()})
+                Context.CurrentObject.WhenAnyValue(c => c.{col.ColumnName?.MakeName()})
                    .Throttle(TimeSpan.FromMilliseconds(700))
                    .DistinctUntilChanged()
                    .ObserveOn(RxApp.MainThreadScheduler)
@@ -906,9 +906,9 @@ namespace Pilgrims.Projects.Assistant.Classes
                 string autoCompleteAssignment = "";
                 if (!col.IsPrimary && ((col.Type?.ToLower().Contains("string") ?? false) || relIds.Contains(col.Id)))
                 {
-                    autoCompleteText = $@"                    if (Context.AutoCompleteList.ContainsKey(nameof(k.{col.ColumnName.MakeName()})))
+                    autoCompleteText = $@"                    if (Context.AutoCompleteList.ContainsKey(nameof(k.{col.ColumnName?.MakeName()})))
                         this.OneWayBind(ViewModel,
-                           viewModel => viewModel.AutoCompleteList[nameof(k.{col.ColumnName.MakeName()})],
+                           viewModel => viewModel.AutoCompleteList[nameof(k.{col.ColumnName?.MakeName()})],
                            view => view.{ctrName}.Items).DisposeWith(disposal);";
                     var foreignTable = rels
                           .Where(x => x.ForeignColumnId == col.Id)
@@ -916,11 +916,11 @@ namespace Pilgrims.Projects.Assistant.Classes
                           .FirstOrDefault();
 
                     if (foreignTable?.Length > 2)
-                        autoCompleteAssignment = $@"                {{ nameof(k.{col.ColumnName.MakeName()}), AutoCompletionData.{foreignTable.MakeName()} }}";
+                        autoCompleteAssignment = $@"                {{ nameof(k.{col.ColumnName?.MakeName()}), AutoCompletionData.{foreignTable.MakeName()} }}";
                     else
                         autoCompleteAssignment = $@"                {{
-                    nameof(k.{col.ColumnName.MakeName()}),
-                    Context.ModelList.Select(c => c.{col.ColumnName.MakeName()}).Distinct()
+                    nameof(k.{col.ColumnName?.MakeName()}),
+                    Context.ModelList.Select(c => c.{col.ColumnName?.MakeName()}).Distinct()
                            .Select(c => new Pair(c)).ToArray()
                 }}";
                 }
@@ -928,7 +928,7 @@ namespace Pilgrims.Projects.Assistant.Classes
                 var errorBindings = $@"                {{
                     {ctrName}, disposable =>
                        this.BindValidation(ViewModel,
-                           viewModel => viewModel.CurrentObject.{(col.IsPrimary ? "Id" : col.ColumnName.MakeName())},
+                           viewModel => viewModel.CurrentObject.{(col.IsPrimary ? "Id" : col.ColumnName?.MakeName())},
                            view => view.{col.ColumnName.Titleize().MakeName()}ErrorBox.Text)
                               .DisposeWith(disposable)
                 }}";

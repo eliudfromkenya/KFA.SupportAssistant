@@ -28,7 +28,7 @@ public sealed record class IssuesSubmission : BaseModel
 
   // [Required]
   [Column("submission_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please submitted to must be 255 characters or less")]

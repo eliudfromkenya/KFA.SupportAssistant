@@ -58,7 +58,7 @@ public sealed record class QRRequestItem : BaseModel
 
   // [Required]
   [Column("sale_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Column("time")]
   public global::System.DateTime Time { get; init; }

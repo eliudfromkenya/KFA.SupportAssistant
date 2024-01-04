@@ -45,7 +45,7 @@ public sealed record class PriceChangeRequest : BaseModel
 
   // [Required]
   [Column("request_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please requesting user must be 255 characters or less")]
   [Column("requesting_user")]

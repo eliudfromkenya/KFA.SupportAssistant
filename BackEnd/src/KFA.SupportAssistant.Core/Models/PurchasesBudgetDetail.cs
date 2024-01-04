@@ -68,7 +68,7 @@ public sealed record class PurchasesBudgetDetail : BaseModel
   [Required]
   //    [Index(IsUnique = true)]
   [Column("purchases_budget_detail_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Column("unit_cost_price")]
   public decimal UnitCostPrice { get; init; }

@@ -52,7 +52,7 @@ public sealed record class VendorCodesRequest : BaseModel
 
   // [Required]
   [Column("vendor_code_request_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please vendor type must be 255 characters or less")]
   [Column("vendor_type")]

@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.VerificationRights;
+namespace KFA.SupportAssistant.Web.EndPoints.VerificationRights;
 
 public class VerificationRightListResponse
 {

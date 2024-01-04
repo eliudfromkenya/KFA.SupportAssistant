@@ -29,7 +29,7 @@ public sealed record class IssuesProgress : BaseModel
 
   // [Required]
   [Column("progress_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please reported by must be 255 characters or less")]
   [Column("reported_by")]

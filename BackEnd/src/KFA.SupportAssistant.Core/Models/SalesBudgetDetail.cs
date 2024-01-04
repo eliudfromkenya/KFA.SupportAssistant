@@ -67,7 +67,7 @@ public sealed record class SalesBudgetDetail : BaseModel
 
   [Required]
   [Column("sales_budget_detail_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Column("selling_price")]
   public decimal SellingPrice { get; init; }

@@ -38,7 +38,7 @@ public sealed record class VerificationRight : BaseModel
 
   // [Required]
   [Column("verification_right_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Column("verification_type_id")]
   public long VerificationTypeId { get; init; }

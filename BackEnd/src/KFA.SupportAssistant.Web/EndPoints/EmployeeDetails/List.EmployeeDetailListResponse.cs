@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.EmployeeDetails;
+namespace KFA.SupportAssistant.Web.EndPoints.EmployeeDetails;
 
 public class EmployeeDetailListResponse
 {

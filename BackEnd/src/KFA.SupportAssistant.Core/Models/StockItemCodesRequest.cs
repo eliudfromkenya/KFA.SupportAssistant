@@ -44,7 +44,7 @@ public sealed record class StockItemCodesRequest : BaseModel
 
   // [Required]
   [Column("item_code_request_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(500, ErrorMessage = "Please narration must be 500 characters or less")]
   [Column("narration")]

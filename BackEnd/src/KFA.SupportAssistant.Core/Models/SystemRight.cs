@@ -22,7 +22,7 @@ public sealed record class SystemRight : BaseModel
 
   // [Required]
   [Column("right_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please right name must be 255 characters or less")]

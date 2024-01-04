@@ -96,6 +96,39 @@ internal static class RegisterEntities
       {
         var dtoAssemblyName = typeof(CostCentreDTO).Assembly.GetName()?.Name;
         var dtoType = Type.GetType($"{dtoAssemblyName}.DTOs.{type.Name}DTO, {dtoAssemblyName}")!;
+        var modelType = Type.GetType($"{dtoAssemblyName}.Models.{type.Name}, {dtoAssemblyName}")!;
+       
+        var requestHandlerType = typeof(IRequestHandler<,>);
+        var modelCommandType = typeof(ListModelsQuery<,>);
+        var listType = typeof(List<>).MakeGenericType(modelType);
+       // var resultType = typeof(Result<>);// .MakeGenericType(listType);
+        var genericCommandType = modelCommandType.MakeGenericType(dtoType, type);
+        //var genericResultType = resultType.MakeGenericType(listType);
+        var constructedRequestHandlerType = requestHandlerType.MakeGenericType(genericCommandType, listType);
+
+        Type genericHandlerType = typeof(ListModelsHandler<,>);
+        Type constructedHandlerType = genericHandlerType.MakeGenericType(dtoType, type);
+
+        builder.RegisterType(constructedHandlerType)
+          .As(constructedRequestHandlerType)
+          .InstancePerLifetimeScope();
+      }
+      catch (Exception ex)
+      {
+        var dd = ex.ToString();
+      }
+    });
+  }
+
+
+  private static void RegisterListsModelsB(ContainerBuilder builder, List<Type> allDTOTypes)
+  {
+    allDTOTypes.ForEach(type =>
+    {
+      try
+      {
+        var dtoAssemblyName = typeof(CostCentreDTO).Assembly.GetName()?.Name;
+        var dtoType = Type.GetType($"{dtoAssemblyName}.DTOs.{type.Name}DTO, {dtoAssemblyName}")!;
 
         var requestHandlerType = typeof(IRequestHandler<,>);
         var modelCommandType = typeof(ListModelsQuery<,>);
@@ -118,6 +151,7 @@ internal static class RegisterEntities
       }
     });
   }
+
 
 
   private static void RegisterDynamicListsModels(ContainerBuilder builder, List<Type> allDTOTypes)

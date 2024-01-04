@@ -1,4 +1,5 @@
-﻿using KFA.SupportAssistant.Core;
+﻿using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -6,6 +7,7 @@ using KFA.SupportAssistant.Infrastructure.Services;
 using KFA.SupportAssistant.UseCases.ModelCommandsAndQueries;
 using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Web.Services;
+using Mapster;
 using MediatR;
 using Newtonsoft.Json;
 
@@ -34,7 +36,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of employee details as specified";
       s.Description = "Returns all employee details as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new EmployeeDetailListResponse { EmployeeDetails = [new EmployeeDetailRecord(0, "Classification", "Cost Centre Code", DateTime.Now, "Email", "1000", "Full Name", "Gender", "Group Number", "Id Number", "Narration", string.Empty, "Payroll Number", "Phone Number", DateTime.Now, "Remarks", 0, 0, DateTime.Now, "Status", DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new EmployeeDetailListResponse { EmployeeDetails = [new EmployeeDetailRecord(0, "Classification", "Cost Centre Code", DateTime.Now, "Email", "1000", "Full Name", "Gender", "Group Number", "Id Number", "Narration", "", "Payroll Number", "Phone Number", DateTime.Now, "Remarks", 0, 0, DateTime.Now, "Status", DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }
@@ -43,7 +45,15 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {
     var command = new ListModelsQuery<EmployeeDetailDTO, EmployeeDetail>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+
+    var config = TypeAdapterConfig<EmployeeDetail, EmployeeDetailDTO>.NewConfig();
+
+    config.Map(dest => dest.Date, src => BaseDTO<EmployeeDetail>.ToDate(src.Date))
+    .Map(dest => dest.RejoinDate, src => BaseDTO<EmployeeDetail>.ToDate(src.RejoinDate))
+    .Map(dest => dest.RetrenchmentDate, src => BaseDTO<EmployeeDetail>.ToDate(src.RetrenchmentDate));
+
+    var result = Result<List<EmployeeDetailDTO>>.Success(ans.Select(v => v.Adapt<EmployeeDetailDTO>()).ToList());
 
     if (result.Errors.Any())
     {

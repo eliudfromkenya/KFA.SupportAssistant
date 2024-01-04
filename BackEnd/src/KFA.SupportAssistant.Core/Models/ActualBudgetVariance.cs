@@ -10,7 +10,7 @@ public sealed record class ActualBudgetVariance : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_actual_budget_variances";
   [Required]
   [Column("actual_budget_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Required]
   [Column("actual_value")]

@@ -1,4 +1,4 @@
-﻿namespace KFA.SupportAssistant.Web.EndPoints.IssuesProgresses;
+namespace KFA.SupportAssistant.Web.EndPoints.IssuesProgresses;
 
 public class IssuesProgressListResponse
 {

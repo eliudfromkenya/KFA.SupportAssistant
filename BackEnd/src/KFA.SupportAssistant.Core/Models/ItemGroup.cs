@@ -14,7 +14,7 @@ public sealed record class ItemGroup : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_item_groups";
   // [Required]
   [Column("group_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please name must be 255 characters or less")]

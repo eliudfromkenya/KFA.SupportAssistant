@@ -22,7 +22,7 @@ public sealed record class VerificationType : BaseModel
 
   // [Required]
   [Column("verification_type_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please verification type name must be 255 characters or less")]

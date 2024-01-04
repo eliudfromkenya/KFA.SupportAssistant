@@ -44,7 +44,7 @@ public sealed record class LedgerAccount : BaseModel
 
   // [Required]
   [Column("ledger_account_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(255, ErrorMessage = "Please main group must be 255 characters or less")]
   [Column("main_group")]

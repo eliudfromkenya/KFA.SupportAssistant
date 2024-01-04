@@ -1,4 +1,6 @@
-﻿using KFA.SupportAssistant.Core;
+﻿
+using Ardalis.Result;
+using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -34,7 +36,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of actual budget variances as specified";
       s.Description = "Returns all actual budget variances as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new ActualBudgetVarianceListResponse { ActualBudgetVariances = [new ActualBudgetVarianceRecord("1000", 0,string.Empty, 0, "Comment", "Description", "Field 1", "Field 2", "Field 3", string.Empty, string.Empty, "Narration", DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new ActualBudgetVarianceListResponse { ActualBudgetVariances = [new ActualBudgetVarianceRecord("1000", 0, "0", 0, "Comment", "Description", "Field 1", "Field 2", "Field 3", "0", "0", "Narration", DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }
@@ -43,7 +45,8 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {
     var command = new ListModelsQuery<ActualBudgetVarianceDTO, ActualBudgetVariance>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+    var result = Result<List<ActualBudgetVarianceDTO>>.Success(ans.Select(v => (ActualBudgetVarianceDTO)v).ToList());
 
     if (result.Errors.Any())
     {

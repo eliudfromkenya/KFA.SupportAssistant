@@ -14,14 +14,12 @@ namespace KFA.SupportAssistant.Globals;
 public abstract record class BaseModel : IAggregateRoot
   {
   private readonly List<DomainEventBase> _domainEvents = [];
-  private string? _id;
-
   [Key]
   [MaxLength(___PrimaryMaxLength___)]
   [Column("id")]
-  public virtual string? Id { get => _id; set => _id = value; }
+  public virtual string? Id { get; init; }
 
-  public BaseModel(string? id = null) => _id = id;
+  public BaseModel(string? id = null) => Id = id;
 
   [NotMapped]
   public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();

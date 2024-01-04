@@ -104,13 +104,13 @@ namespace PPMS.Console.Generators;
                 var tableRels = allRels.Where(r => colIds.Contains(r.MasterColumn) || colIds.Contains(r.ForeignColumn)).ToList();
 
                 var endPointId = numbers.Dequeue();
-               using var createTsk = Task.Run(() => GenerateCreateEndPoint(table, columns, name, singular, tableRels, endPointId));
-                using var deleteTsk = Task.Run(() => GenerateDeleteEndPoint(table, columns, name, singular, tableRels, endPointId));
-                using var dynamicTsk = Task.Run(() => GenerateDynamicGetEndPoint(table, columns, name, singular, tableRels, endPointId));
-                using var getByIdTsk = Task.Run(() => GenerateGetByIdEndPoint(table, columns, name, singular, tableRels, endPointId));
+               //using var createTsk = Task.Run(() => GenerateCreateEndPoint(table, columns, name, singular, tableRels, endPointId));
+              //  using var deleteTsk = Task.Run(() => GenerateDeleteEndPoint(table, columns, name, singular, tableRels, endPointId));
+              //  using var dynamicTsk = Task.Run(() => GenerateDynamicGetEndPoint(table, columns, name, singular, tableRels, endPointId));
+               // using var getByIdTsk = Task.Run(() => GenerateGetByIdEndPoint(table, columns, name, singular, tableRels, endPointId));
                 using var listTsk = Task.Run(() => GenerateListEndPoint(table, columns, name, singular, tableRels, endPointId));
-                using var patchTsk = Task.Run(() => GeneratePatchEndPoint(table, columns, name, singular, tableRels, endPointId));
-                using var updateTsk = Task.Run(() => GenerateUpdateEndPoint(table, columns, name, singular, tableRels, endPointId));
+              //  using var patchTsk = Task.Run(() => GeneratePatchEndPoint(table, columns, name, singular, tableRels, endPointId));
+             //   using var updateTsk = Task.Run(() => GenerateUpdateEndPoint(table, columns, name, singular, tableRels, endPointId));
 
                 endPointsAccessRights.Append($@"
       #region {table.OriginalName}
@@ -1045,7 +1045,8 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
     CancellationToken cancellationToken)
   {{
     var command = new ListModelsQuery<{singular.MakeName()}DTO, {singular.MakeName()}>(CreateEndPointUser.GetEndPointUser(User), request);
-    var result = await mediator.Send(command, cancellationToken);
+    var ans = await mediator.Send(command, cancellationToken);
+    var result = Result<List<{singular.MakeName()}DTO>>.Success(ans.Select(v => ({singular.MakeName()}DTO)v).ToList());
 
     if (result.Errors.Any())
     {{

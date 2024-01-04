@@ -24,7 +24,7 @@ public sealed record class DataDevice : BaseModel
 
   // [Required]
   [Column("device_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please device name must be 255 characters or less")]

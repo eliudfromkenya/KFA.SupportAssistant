@@ -82,7 +82,7 @@ internal class UserManagementService(AppDbContext context, IIdGenerator idGenera
 
       userRights = userCommands.Union(userRights).Select(n =>
       {
-        n.Id = idGenerator.GetNextId<UserRight>();
+        n = n with { Id = idGenerator.GetNextId<UserRight>() };
         return n;
       }).ToArray();
 

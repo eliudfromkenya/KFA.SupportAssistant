@@ -22,7 +22,7 @@ public sealed record class ExpensesBudgetDetail : BaseModel
   [Required]
   //    [Index(IsUnique = true)]
   [Column("expense_budget_detail_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [Column("ledger_account_code")]
   public string? LedgerAccountCode { get; init; }

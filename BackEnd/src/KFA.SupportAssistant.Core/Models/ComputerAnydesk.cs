@@ -15,7 +15,7 @@ public sealed record class ComputerAnydesk : BaseModel
   public override string? ___tableName___ { get; protected set; } = "tbl_computer_anydesks";
   // [Required]
   [Column("anydesk_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(100, ErrorMessage = "Please anydesk number must be 100 characters or less")]

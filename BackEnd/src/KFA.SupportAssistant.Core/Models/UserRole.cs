@@ -26,7 +26,7 @@ public sealed record class UserRole : BaseModel
 
   // [Required]
   [Column("role_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please role name must be 255 characters or less")]

@@ -56,7 +56,7 @@ public sealed record class Supplier : BaseModel
 
   // [Required]
   [Column("supplier_id")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   [MaxLength(25, ErrorMessage = "Please telephone must be 25 characters or less")]
   [Column("telephone")]

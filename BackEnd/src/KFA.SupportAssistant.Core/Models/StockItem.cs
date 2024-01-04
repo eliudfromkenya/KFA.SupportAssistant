@@ -26,7 +26,7 @@ public sealed record class StockItem : BaseModel
 
   // [Required]
   [Column("item_code")]
-  public override string? Id { get; set; }
+  public override string? Id { get; init; }
 
   // [Required]
   [MaxLength(255, ErrorMessage = "Please item name must be 255 characters or less")]
