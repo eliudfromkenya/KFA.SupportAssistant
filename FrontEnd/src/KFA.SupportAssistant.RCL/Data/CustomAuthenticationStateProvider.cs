@@ -53,6 +53,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     if (user != null && date > DateTime.Now.AddMinutes(-10))
     {
       identity = user != null ? GetClaimsIdentity(user?.User) : new ClaimsIdentity();
+      AfterLoginServices(user);
     }
     else
     {
@@ -62,6 +63,31 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     var claimsPrincipal = new ClaimsPrincipal(identity);
 
     return await Task.FromResult(new AuthenticationState(claimsPrincipal));
+  }
+
+  private void AfterLoginServices(LoginResponse? user)
+  {
+    try
+    {     
+      var items = RCL.Data.SideMenuItems.GetSideMenuItems().Where(c => c.MainMenuType != MainMenuType.None).ToArray();
+
+      for (int i = 0; i < items.Length; i++)
+      {
+        var obj = items[i];
+        var text = obj.SVGIcon.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""");
+        text = text.Replace("<svg", @"<svg height=""28px"" width=""28px""");
+        var bytes = System.Text.Encoding.UTF8.GetBytes(text);
+
+        var data = Convert.ToBase64String(bytes);
+        var image = String.Format("data:image/svg+xml;base64,{0}", data);
+        items[i] = obj with { SVGIcon = image };
+      }
+      _dispatcher.Dispatch(new ChangeMainMenuAction { Menus = items, Error = null, UserImageUrl = user?.UserImageUrl });
+    }
+    catch (Exception ex)
+    {
+      _dispatcher.Dispatch(new ChangeMainMenuAction { Menus = [], Error = ex, UserImageUrl = user?.UserImageUrl });
+    }
   }
 
   public async Task MarkUserAsAuthenticated(LoginResponse? user)

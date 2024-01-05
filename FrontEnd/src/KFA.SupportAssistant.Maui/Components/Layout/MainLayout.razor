@@ -1,11 +1,14 @@
-﻿@using KFA.SupportAssistant.RCL.State.MainTitle
+﻿@using KFA.SupportAssistant.RCL.Models
+@using KFA.SupportAssistant.RCL.State.MainTitle
 @using Microsoft.AspNetCore.Components.Authorization
 @inherits LayoutComponentBase
 @inject IDispatcher dispatcher
 @inject IState<MainTitleState> mainTitleState
+@inject IUserService userService
+@inject IState<GeneralMenusState> state
 
 <div class="page">
-    <div class="sidebar bg-lighterBlue-two" style="background-image:none;">       
+    <div class="sidebar bg-lighterBlue-two" style="background-image:none;">
         <AuthorizeView>
             <Authorized>
                 <NavMenu />
@@ -14,15 +17,82 @@
     </div>
 
     <main>
-        <div class="top-0 w-full flex align-items-end flex-row bg-lighterBlue-two">            
-
-            <div class="top-0 px-4">      
+        <div class="top-0 w-full align-items-end ">
+            <div class="top-0 px-0 w-full mr-1">
                 <AuthorizeView>
                     <Authorized>
-                        <a href="/log-out" class="col-3 mt-4 mr-3 ml-auto">Log Out</a>
-                        <span class="main-title">@mainTitleState.Value.MainTitle</span>
+                        <div class="flex flex-col w-full">
+                            <div class="flex flex-row w-full">
+                                @if (state.Value.Error != null)
+                                {
+                                    <div class="flex flex-col w-full">
+                                        <div class="text-red-one underline text-xl">
+                                            Error
+                                        </div>
+                                        <div class="text-red-two text-xl">
+                                            Unable to load menu;  @state.Value.Error.Message
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @foreach (var item in state.Value.Menus)
+                                    {
+                                        <div class="nav-item px-1">
+                                            <div class="bg-lighterBlue-one btn-animate h-25 border-3 rounded-[10px] m-1">
+                                                <img src="@item.SVGIcon" class="img-fluid px-5 my-0 me-5 text-blue-three w-[24px] h-[24px]" />
+                                                <label class="menu-label mx-1">@item.Text</label>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                <div class="bg-lighterBlue-one btn-animate h-25 border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+
+                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
+                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
+                                    <label class="menu-label mx-1">System User</label>
+                                </div>
+                            </div>
+                            <div class="flex flex-row w-full">
+                                <span class="main-title">@mainTitleState.Value.MainTitle</span>
+                                <a href="/log-out" class="col-3 mt-4 ml-auto mr-1">Log Out</a>
+                            </div>
+                        </div>
                     </Authorized>
-                    <NotAuthorized>                       
+                    <NotAuthorized>
                         <a href="/login" class="col-3 mt-4 mr-3 ml-auto">Login</a>
                     </NotAuthorized>
                 </AuthorizeView>
@@ -34,10 +104,7 @@
         </article>
     </main>
 </div>
-@code{
 
-    protected override void OnInitialized(){
-        base.OnInitialized();
-       
-    }
+@code {
+    //Match="NavLinkMatch.All
 }

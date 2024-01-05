@@ -27,6 +27,7 @@
     <PackageReference Include="Fluxor" />
     <PackageReference Include="Fluxor.Blazor.Web" />
     <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid"  />
   </ItemGroup>
 
   <ItemGroup>

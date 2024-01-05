@@ -1,6 +1,7 @@
 ﻿namespace KFA.SupportAssistant.RCL.Models.Data;
 public record class EmployeeDetailDTO
 {
+  public string? EmployeeId { get; set; }
   public decimal AmountDue { get; set; }
   public string? CostCentreCode { get; set; }
   public DateTime? Date { get; set; }

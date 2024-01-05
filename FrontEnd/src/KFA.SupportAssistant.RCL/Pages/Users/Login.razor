@@ -61,7 +61,7 @@
     }
     public readonly struct LoginResponse
     {
-        public LoginResponse(string? loginId, string? token, object? userId, string? role, DateTime? date, string?[] rights, SystemUserDTO user)
+        public LoginResponse(string? loginId, string? token, object? userId, string? role, DateTime? date, string?[] rights, string? userImageUrl, SystemUserDTO user)
         {
             LoginId = loginId;
             Token = token;
@@ -70,9 +70,11 @@
             Rights = rights;
             Date = date;
             User = user;
+            UserImageUrl = userImageUrl;
         }
 
         public string? LoginId { get; }
+        public string? UserImageUrl { get; }
         public string? Token { get; }
         public object? UserId { get; }
         public string? Role { get; }
