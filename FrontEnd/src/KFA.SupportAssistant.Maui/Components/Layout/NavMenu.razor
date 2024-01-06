@@ -32,12 +32,13 @@
         {
             @foreach (var item in state.Value.Menus)
             {
-                <div class="nav-item px-9 w-full">
+                <div class="nav-item px-1 w-full">
                     <NavLink class="nav-link my-0 w-full" href="@item.URI">
                         @{
-                            <img src="@item.SVGIcon" class="img-fluid bg-blue-three px-5 my-0 me-5 text-blue-three w-[4px] h-[4px]" />
-                            <div>&nbsp;&nbsp;&nbsp;</div>
-                            @item.Text
+                           <div class="px-5 my-auto w-[18px] h-[18px]">
+                                @item.IconFragment
+                            </div>
+                            <div class="mt-1">&nbsp;&nbsp;&nbsp;@item.Text</div>                            
                         }
                     </NavLink>
                 </div>

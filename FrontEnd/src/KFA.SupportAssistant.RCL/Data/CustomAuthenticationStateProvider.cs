@@ -76,11 +76,11 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
         var obj = items[i];
         var text = obj.SVGIcon.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""");
         text = text.Replace("<svg", @"<svg height=""28px"" width=""28px""");
-        var bytes = System.Text.Encoding.UTF8.GetBytes(text);
+        //var bytes = System.Text.Encoding.UTF8.GetBytes(text);
 
-        var data = Convert.ToBase64String(bytes);
-        var image = String.Format("data:image/svg+xml;base64,{0}", data);
-        items[i] = obj with { SVGIcon = image };
+        //var data = Convert.ToBase64String(bytes);
+        ///var image = String.Format("data:image/svg+xml;base64,{0}", data);
+        items[i] = obj with { SVGIcon = text };
       }
       _dispatcher.Dispatch(new ChangeMainMenuAction { Menus = items, Error = null, UserImageUrl = user?.UserImageUrl });
     }

@@ -96,13 +96,13 @@ else
             for (int i = 0; i < items.Length; i++)
             {
                 var obj = items[i];
-                var text = obj.SVGIcon.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""");
+                var text = obj.SVGIcon?.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""") ?? "";
                 text = text.Replace("<svg", @"<svg height=""32px"" width=""32px""");
                 var bytes = System.Text.Encoding.UTF8.GetBytes(text);
 
-                var data = Convert.ToBase64String(bytes);
-                var image = String.Format("data:image/svg+xml;base64,{0}", data);
-                items[i] = obj with { SVGIcon = image };
+               // var data = Convert.ToBase64String(bytes);
+               // var image = String.Format("data:image/svg+xml;base64,{0}", data);
+                items[i] = obj with { SVGIcon = text };
             }
 
             dispatcher.Dispatch(new ChangeGeneralMenuAction { Menus = items, Error = null });

@@ -39,52 +39,16 @@
                                     @foreach (var item in state.Value.Menus)
                                     {
                                         <div class="nav-item px-1">
-                                            <div class="bg-lighterBlue-one btn-animate h-25 border-3 rounded-[10px] m-1">
-                                                <img src="@item.SVGIcon" class="img-fluid px-5 my-0 me-5 text-blue-three w-[24px] h-[24px]" />
-                                                <label class="menu-label mx-1">@item.Text</label>
+                                            <div class="bg-lighterBlue-one flex flex-col items-center justify-center btn-animate min-h-20 min-w-24 border-3 rounded-[10px] m-1">
+                                                <div class="max-h-[24px] mx-auto mt-1 mb-3 max-w-[24px]">
+                                                    @item.IconFragment
+                                                </div>
+                                                
+                                                <label class="menu-label w-full text-center mx-1">@item.Text</label>
                                             </div>
                                         </div>
                                     }
                                 }
-                                <div class="bg-lighterBlue-one btn-animate h-25 border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
-
-                                <div class="bg-lighterBlue-one btn-animate  border-3 rounded-[10px] my-1 mx-2">
-                                    <img src="./images/icon.png" class="w-[32px] h-[32px] mx-auto my-1 " />
-                                    <label class="menu-label mx-1">System User</label>
-                                </div>
                             </div>
                             <div class="flex flex-row w-full">
                                 <span class="main-title">@mainTitleState.Value.MainTitle</span>

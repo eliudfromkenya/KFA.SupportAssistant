@@ -677,6 +677,10 @@ video {
   height: 100vh;
 }
 
+.h-\[96px\]{
+  height: 96px;
+}
+
 .\!w-px{
   width: 1px !important;
 }
@@ -707,6 +711,10 @@ video {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[96px\]{
+  width: 96px;
 }
 
 .max-w-\[426px\]{
