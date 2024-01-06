@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Employees\EmployeeHeader.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Employees\EmployeeHeader.razor" />
     <None Include="wwwroot\exampleJsInterop.js" />
   </ItemGroup>
 
@@ -27,7 +32,7 @@
     <PackageReference Include="Fluxor" />
     <PackageReference Include="Fluxor.Blazor.Web" />
     <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid"  />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +41,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\AboutUs\Index.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Employees\EmployeeHeader.razor" />
     <_ContentIncludedByDefault Remove="Pages\Employees\EmployeeList.razor" />
   </ItemGroup>
 
@@ -45,6 +51,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Employees\EmployeeHeader.razor" />
   </ItemGroup>
 
 </Project>

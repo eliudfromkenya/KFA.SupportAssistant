@@ -1,0 +1,11 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Employees With Salary Dues</PageTitle>
+<header><h1>Employees With Salary Dues</h1></header>
+
+
+<h3>CurrentLayout</h3>
+@Body
+@code {
+    public Type MainLayout { set; get; } = Type.GetType("KFA.SupportAssistant.Maui.Components.Layout.MainLayout")!;
+}
