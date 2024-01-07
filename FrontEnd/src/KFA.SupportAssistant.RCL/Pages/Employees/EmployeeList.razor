@@ -1,12 +1,138 @@
 ﻿@attribute [Route(Constants.Employeelist)]
 
+@using Fluxor
 @using BlazorPro.Spinkit
+@using KFA.SupportAssistant.Globals
+@using KFA.SupportAssistant.RCL.Components
+@using KFA.SupportAssistant.RCL.Models.Data
 @using KFA.SupportAssistant.RCL.Services
+@using KFA.SupportAssistant.RCL.State.Employees
+@using KFA.SupportAssistant.RCL.Pages.Employees
+@using KFA.SupportAssistant.RCL.State.MainTitle
+@using Microsoft.AspNetCore.Components.QuickGrid
 @inject ILocalStorageService localStorageService
 @inject IUserService userService
+@inject IDispatcher dispatcher
+@inject IState<EmployeesState> state
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<h3>EmployeeList</h3>
+@if (state.Value.IsLoading)
+{
+    <LoadingComponent IsLoading= "true" />
+}
+else
+{
+    @if (state.Value.Error == null)
+    {
+       <EmployeeHeader></EmployeeHeader>
+
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <EditForm Model="employee" Enhance>
+                             <div class="hstack gap-2 flex flex-row">
+                                 <label class="label-control">Search</label>
+                                 <div> 
+                                     <SearchBox />
+                                 </div>
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                             </div>
+                         </EditForm>
+                     </div>
+                     <div class="card-body">
+                         <QuickGrid  Items="@state?.Value?.Employees?.AsQueryable()" Pagination="pagination">
+                             <PropertyColumn Property="@(p => p.EmployeeId)" Sortable="true" Align="Align.Center" />
+                             <PropertyColumn Property="@(c => c.FullName)" Sortable="true" Class="country-name">
+                                 <ColumnOptions>
+                                     <div class="search-box">
+                                         <input type="search" autofocus @onchange="SearchEmployee" placeholder="EmployeeDetailDTO name..." />
+                                     </div>
+                                 </ColumnOptions>
+                             </PropertyColumn>
+                             <PropertyColumn Property="@(p => p.RejoinDate)" Format="yyyy-MM-dd" Sortable="true" />
+                             <PropertyColumn Title="Age in years" Property="@(c => ComputeAge(c.RejoinDate))" Sortable="true" Align="Align.Right" />
+                             <TemplateColumn Title="Action">
+                                 <button @onclick="@(() => Edit(context))" class="btn btn-info">Edit</button>
+                                 <button @onclick="@(() => Delete(context))" class="btn btn-danger">Delete</button>
+                             </TemplateColumn>
+                         </QuickGrid>
+                     </div>
+                     <div class="card-footer"><Paginator State="@pagination" /></div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+    }
+    else
+    {
+        <div> @state?.Value?.Error?.Message</div>
+    }
+}
 
 @code {
+    //Pagination
+    PaginationState pagination = new PaginationState { ItemsPerPage = 1000 };
 
+
+    [SupplyParameterFromForm]
+    EmployeeDetailDTO employee { get; set; } = new();
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        dispatcher.Dispatch(new FetchEmployeeDetailsAction());
+        dispatcher.Dispatch(new ChangeMainTitleAction { MainTitle = $"Staff on Dues" });
+    }
+       
+
+    // Load data from List to the Queryable container
+    private void ConvertListToQueryable()
+    {
+        pagination.TotalItemCountChanged += (sender, eventArgs) => StateHasChanged();
+    }
+
+    void Edit(EmployeeDetailDTO incomingModel)
+    {
+        employee = incomingModel;
+    }
+       
+    void Delete(EmployeeDetailDTO incomingModel)
+    {
+        // EmployeesList.Remove(EmployeesList.First(_ => _.EmployeeId == incomingModel.EmployeeId));
+        // if (EmployeesList is null) return;
+        // GetDataAgain();
+    }
+
+    // Get EmployeeDetailDTO's Age
+    int ComputeAge(DateTime? birthDate)
+    {
+        return DateTime.Now.Year - birthDate?.Year - (birthDate?.DayOfYear < DateTime.Now.DayOfYear ? 0 : 1) ?? 0;
+    }
+
+    //Search EmployeeDetailDTO
+    void SearchEmployee(ChangeEventArgs e)
+    {
+        // if (!string.IsNullOrEmpty(e.Value!.ToString()))
+        // {
+        //     var result = EmployeesList.Where(c => c.FullName!.Contains(e.Value!.ToString()!, StringComparison.CurrentCultureIgnoreCase)).ToList();
+        //     EmployeesQueryable = Enumerable.Empty<EmployeeDetailDTO>().AsQueryable();
+        //     if (result.Count == 0)
+        //     {
+        //         return;
+        //     }
+
+        //     if (result.Any())
+        //     {
+        //         foreach (var employee in result.OrderBy(_ => _.EmployeeId))
+        //             EmployeesQueryable = EmployeesQueryable.Concat(new[] { employee }.AsQueryable());
+        //     }
+        //     return;
+        // }
+        // GetDataAgain();
+    }
 }
+

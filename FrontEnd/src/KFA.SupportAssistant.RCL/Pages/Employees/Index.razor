@@ -7,6 +7,7 @@
 @using KFA.SupportAssistant.RCL.Models.Data
 @using KFA.SupportAssistant.RCL.Services
 @using KFA.SupportAssistant.RCL.State.Employees
+@using KFA.SupportAssistant.RCL.Pages.Employees
 @using KFA.SupportAssistant.RCL.State.MainTitle
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject ILocalStorageService localStorageService
@@ -15,64 +16,7 @@
 @inject IState<EmployeesState> state
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-
-<h3>Employee Details Index</h3>
-
-@if (state.Value.IsLoading)
-{
-    <LoadingComponent IsLoading= "true" />
-}
-else
-{
-    @if (state.Value.Error == null)
-    {
-        <div> @state?.Value?.Employees?.Length</div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <EditForm Model="employee" OnSubmit="AddEmployee" Enhance>
-                             <div class="hstack gap-2">
-                                 <label class="label-control">Fullname</label>
-                                 <InputText @bind-Value="employee.FullName" class="form-control"></InputText>
-                                 <label class="label-control">Birth Date</label>
-                                 <InputDate @bind-Value="SelectedDate" class="form-control "></InputDate>
-                                 <button type="submit" class="btn btn-primary">Save</button>
-                             </div>
-                         </EditForm>
-                     </div>
-                     <div class="card-body">
-                         <QuickGrid Items="@state?.Value?.Employees?.AsQueryable()" Pagination="pagination">
-                             <PropertyColumn Property="@(p => p.EmployeeId)" Sortable="true" Align="Align.Center" />
-                             <PropertyColumn Property="@(c => c.FullName)" Sortable="true" Class="country-name">
-                                 <ColumnOptions>
-                                     <div class="search-box">
-                                         <input type="search" autofocus @onchange="SearchEmployee" placeholder="EmployeeDetailDTO name..." />
-                                     </div>
-                                 </ColumnOptions>
-                             </PropertyColumn>
-                             <PropertyColumn Property="@(p => p.RejoinDate)" Format="yyyy-MM-dd" Sortable="true" />
-                             <PropertyColumn Title="Age in years" Property="@(c => ComputeAge(c.RejoinDate))" Sortable="true" Align="Align.Right" />
-                             <TemplateColumn Title="Action">
-                                 <button @onclick="@(() => Edit(context))" class="btn btn-info">Edit</button>
-                                 <button @onclick="@(() => Delete(context))" class="btn btn-danger">Delete</button>
-                             </TemplateColumn>
-                         </QuickGrid>
-                     </div>
-                     <div class="card-footer"><Paginator State="@pagination" /></div>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-    }
-    else
-    {
-        <div> @state?.Value?.Error?.Message</div>
-    }
-}
+<EmployeeList> </EmployeeList>
 
 @code {
     //Pagination

@@ -1,4 +1,23 @@
-﻿<h3>EmployeeHeader</h3>
+﻿@using KFA.SupportAssistant.RCL.State.Employees
+@inject IState<EmployeesState> state
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@if (!state.Value.IsLoading && state.Value.Error == null)
+{
+    <div class="flex flex-row alert-info mt-[-24px]" >
+        <span class="font-bold">No. of Staff on Dues:</span>
+        <span class="font-bold text-blue-three underline mr-3">@state.Value.Employees?.Length</span>
+
+        <span class="font-bold">Total Dues:</span>
+        <span class="font-bold text-blue-three underline mr-3">@state.Value.Employees?.Sum(c => c.RetireeAmount + c.RetrenchmentAmount)?.ToString("C2")</span>
+
+        <span class="font-bold">Retrenchment Dues:</span>
+        <span class="font-bold text-blue-three underline mr-3">@state.Value.Employees?.Sum(c => c.RetrenchmentAmount)?.ToString("C2")</span>
+
+        <span class="font-bold">Retirement Dues:</span>
+        <span class="font-bold text-blue-three underline mr-3">@state.Value.Employees?.Sum(c => c.RetireeAmount)?.ToString("C2") </span>
+    </div>
+}
 
 @code {
 

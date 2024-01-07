@@ -30,7 +30,6 @@ public static class Functions
   public static Func<int, int, string> AsMonthString =
  (yy, mm) => GetMonthsFormated(yy, mm);
 
-
   public static string GetMonthsFormated(int? year, int? month)
     {
     if (year < 100)

@@ -6,12 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="Pages\Employees\EmployeeHeader.razor" />
-  </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Employees\EmployeeHeader.razor" />
     <None Include="wwwroot\exampleJsInterop.js" />
   </ItemGroup>
 
@@ -55,6 +51,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Employees\EmployeeHeader.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

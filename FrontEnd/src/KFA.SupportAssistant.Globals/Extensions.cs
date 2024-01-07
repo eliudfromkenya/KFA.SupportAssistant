@@ -2,6 +2,8 @@
 using KFA.SupportAssistant.Core.Classes;
 using KFA.SupportAssistant.Globals;
 using KFA.SupportAssistant.Globals.Classes;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
@@ -50,6 +52,22 @@ public static class Extensions
     return new Exception($@"Error {httpMessage.StatusCode}: There was an error ({error})");
   }
 
+  public static RenderFragment? AsSVGIcon(this string svgText)
+  {
+    if (svgText == null)
+      return null;
+
+    var text = svgText.Replace($@"fill=""currentColor""", @"fill=""#01497C"" class=""fill-current text-blue-three mr-5""");
+    text = text.Replace("<svg", @"<svg height=""28px"" width=""28px""");
+
+    RenderFragment iconFragment = builder => CreateIcon(builder, text);
+    return iconFragment;
+  }
+
+  private static void CreateIcon(RenderTreeBuilder builder, string svgText)
+  {
+    builder.AddMarkupContent(0, svgText);
+  }
 
   public static Exception ConvertToError(this HttpStatusCode responseStatusCode, string item2)
   {

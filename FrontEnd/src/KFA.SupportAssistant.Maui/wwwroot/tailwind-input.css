@@ -52,7 +52,7 @@ body {
 }
 
 .main-title {
-    @apply relative font-bold font-mukta leading-8 text-xl;
+    @apply relative underline font-bold font-mukta leading-8 text-xl;
 }
 
 .main-sub-title {
@@ -68,7 +68,7 @@ body {
 }
 
 .text-input {
-    @apply text-customBlack-two bg-lighterBlue-three h-[42px] px-[3px] py-[5px] my-2 w-full border-2 border-lightBlue-three focus:border-blue-three hover:border-blue-two rounded-[5px] text-[16px] relative outline-none transform hover:translate-y-1 hover:bg-opacity-80 transition ease-out duration-300 focus:outline-none focus:shadow-blue-three;
+    @apply text-customBlack-one bg-lighterBlue-three h-[42px] px-[3px] py-[5px] my-2 w-full border-2 border-lightBlue-three focus:border-blue-three hover:border-blue-two rounded-[5px] text-[16px] relative outline-none transform hover:translate-y-1 hover:bg-opacity-80 transition ease-out duration-300 focus:outline-none focus:shadow-blue-three;
 }
 
 .side-bar-item {
