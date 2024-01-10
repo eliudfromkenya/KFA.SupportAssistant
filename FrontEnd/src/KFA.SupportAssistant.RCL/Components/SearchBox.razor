@@ -1,27 +1,64 @@
-﻿<div class="relative mr-0 my-0">
-    <div class="absolute pin-l z-10 pin-t mt-[20px] ml-5">
-        <svg version="1.1" class="h-4 text-blue-three" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
-        <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
-        c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
-        C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
-        S32.459,40,21.983,40z" />
+﻿<div onclick="@handleClick" class="relative m-0 p-0 flex w-full flex-wrap items-stretch">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 20 20"
+         fill="currentColor"
+         class="h-5 w-5 mt-3 text-blue-three absolute z-[2]">
+        <path fill-rule="evenodd"
+              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+              clip-rule="evenodd" />
     </svg>
-    </div>
-  <input type="search" class="z-0 pl-5 m-0 text-input" placeholder="Search by name...">
+
+    <input type="search"
+           class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l bg-clip-padding pl-6 text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[1]  dark:placeholder:text-neutral-200 dark:focus:border-primary text-input"
+           placeholder=@PlaceHolder
+           @bind="SearchText"
+           @onkeydown="@Enter"
+           aria-label="Search"
+           aria-describedby="button-search" />
 </div>
 
 @code {
-    RenderFragment? searchIconSVG { get; set; }
+    //RenderFragment? searchIconSVG { get; set; }
+
+    [Parameter]
+    public string PlaceHolder { get; set; } = "Search";
+
+    [Parameter]
+    public Action<string?>? SearchFunc { get; set; }
+
+    private string? SearchText { get; set; }
 
     private void handleClick(object obj, EventArgs e)
     {
+        try
+        {
+            SearchFunc?.Invoke(SearchText);
+        }
+        catch (Exception)
+        {
 
+        }
     }
+
+    public void Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            try
+            {
+            SearchFunc?.Invoke(SearchText);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+    }
+
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        searchIconSVG = RCL.SVGIcons.Search.AsSVGIcon();
+        //searchIconSVG = RCL.SVGIcons.Search.AsSVGIcon();
     }
 }

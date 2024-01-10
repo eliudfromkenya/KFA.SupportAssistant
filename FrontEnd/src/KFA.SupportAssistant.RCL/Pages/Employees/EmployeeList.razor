@@ -34,8 +34,8 @@ else
                             <EditForm Model="employee" Enhance>
                              <div class="hstack gap-2 flex flex-row">
                                  <label class="label-control">Search</label>
-                                 <div> 
-                                     <SearchBox />
+                                 <div>
+                                     <SearchBox PlaceHolder="Search Staff" SearchFunc="SearchEmployee" />
                                  </div>
                                  <button type="submit" class="btn btn-primary">Save</button>
                              </div>
@@ -98,6 +98,10 @@ else
     void Edit(EmployeeDetailDTO incomingModel)
     {
         employee = incomingModel;
+    }
+
+    private void SearchEmployee(string? searchText){
+
     }
        
     void Delete(EmployeeDetailDTO incomingModel)
