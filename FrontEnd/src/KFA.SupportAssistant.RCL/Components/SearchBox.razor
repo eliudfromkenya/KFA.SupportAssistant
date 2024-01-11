@@ -1,4 +1,4 @@
-﻿<div onclick="@handleClick" class="relative m-0 p-0 flex w-full flex-wrap items-stretch">
+﻿<div class="relative m-0 p-0 flex w-full flex-wrap items-stretch">
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 20 20"
          fill="currentColor"
@@ -9,7 +9,7 @@
     </svg>
 
     <input type="search"
-           class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l bg-clip-padding pl-6 text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[1]  dark:placeholder:text-neutral-200 dark:focus:border-primary text-input"
+           class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l bg-clip-padding pl-6 text-base font-normal leading-[1.6]  outline-none transition duration-200 ease-in-out focus:z-[1]  text-input"
            placeholder=@PlaceHolder
            @bind="SearchText"
            @onkeydown="@Enter"

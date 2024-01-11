@@ -33,16 +33,16 @@ else
                         <div class="card-header">
                             <EditForm Model="employee" Enhance>
                              <div class="hstack gap-2 flex flex-row">
-                                 <label class="label-control">Search</label>
+                                 <label class="label-control mt-2">Search</label>
                                  <div>
                                      <SearchBox PlaceHolder="Search Staff" SearchFunc="SearchEmployee" />
                                  </div>
-                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button type="submit" class="btn btn-primary ml-auto">Add Employee</button>
                              </div>
                          </EditForm>
                      </div>
-                     <div class="card-body">
-                         <QuickGrid  Items="@state?.Value?.Employees?.AsQueryable()" Pagination="pagination">
+                     <div class="grid card-body">
+                         <QuickGrid class="quickgrid" Theme="corporate" Items="@state?.Value?.Employees?.AsQueryable()" Pagination="pagination">
                              <PropertyColumn Property="@(p => p.EmployeeId)" Sortable="true" Align="Align.Center" />
                              <PropertyColumn Property="@(c => c.FullName)" Sortable="true" Class="country-name">
                                  <ColumnOptions>

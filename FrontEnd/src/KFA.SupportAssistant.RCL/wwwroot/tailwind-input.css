@@ -91,3 +91,46 @@ body {
 .close-icon {
     @apply p-0 overflow-hidden border-lightGray-two outline-none bg-customBlack-three rounded;
 }
+
+::deep .quickgrid[theme="corporate"] {
+    @apply text-[red];
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+::deep .quickgrid {
+    @apply text-[red];
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+::deep .quickgrid[theme="corporate"] .col-title {
+    @apply gap-[0.4rem] font-[bold] uppercase;
+    /* Separate the sort indicator from title text */
+}
+
+::deep .quickgrid[theme="corporate"] .sort-indicator {
+    @apply text-[blue];
+}
+
+::deep .quickgrid[theme="corporate"] button.col-title:hover,
+::deep .quickgrid[theme="corporate"] .col-options-button:hover {
+    @apply bg-[hotpink];
+}
+
+::deep .quickgrid[theme="corporate"] button.col-title:active,
+::deep .quickgrid[theme="corporate"] .col-options-button:active {
+    @apply bg-[yellow];
+}
+
+::deep .quickgrid[theme="corporate"] tbody tr {
+    @apply bg-[rgba(0,0,0,0.04)];
+}
+
+    ::deep .quickgrid[theme="corporate"] tbody tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+
+/* Magnifying glass */
+::deep .country-name .col-options-button {
+    @apply bg-[url('data:image/svg+xml;utf8,<svg_xmlns="http://www.w3.org/2000/svg"_class="h-6_w-6"_fill="none"_viewBox="0_0_24_24"_stroke="currentColor"_stroke-width="2">_<path_stroke-linecap="round"_stroke-linejoin="round"_d="M21_21l-6-6m2-5a7_7_0_11-14_0_7_7_0_0114_0z"_/>_</svg>')];
+}
