@@ -5,6 +5,7 @@
 @using KFA.SupportAssistant.Globals
 @using KFA.SupportAssistant.RCL.Components
 @using KFA.SupportAssistant.RCL.Models.Data
+@using KFA.SupportAssistant.RCL.Pages.Employees.Forms
 @using KFA.SupportAssistant.RCL.Services
 @using KFA.SupportAssistant.RCL.State.Employees
 @using KFA.SupportAssistant.RCL.Pages.Employees
@@ -15,6 +16,7 @@
 @inject IDispatcher dispatcher
 @inject IState<EmployeesState> state
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IJSRuntime js
 
 @if (state.Value.IsLoading)
 {
@@ -37,11 +39,11 @@ else
                                  <div>
                                      <SearchBox PlaceHolder="Search Staff" SearchFunc="SearchEmployee" />
                                  </div>
-                                 <button type="submit" class="btn btn-primary ml-auto">Add Employee</button>
+                                 <button type="submit" @onclick="ShowDialog" class="btn btn-primary ml-auto">Add Employee</button>
                              </div>
                          </EditForm>
                      </div>
-                     <div class="grid card-body">
+                     <div class="grid h-[calc(100vh-200px)] overflow-y-scroll card-body">
                          <QuickGrid class="quickgrid" Theme="corporate" Items="@state?.Value?.Employees?.AsQueryable()" Pagination="pagination">
                              <PropertyColumn Property="@(p => p.EmployeeId)" Sortable="true" Align="Align.Center" />
                              <PropertyColumn Property="@(c => c.FullName)" Sortable="true" Class="country-name">
@@ -65,6 +67,12 @@ else
          </div>
      </div>
 
+        <DialogComponent Title="Add An Employee" >
+            <ChildContent>
+                <AddEmployee />
+            </ChildContent>
+        </DialogComponent>
+    
     }
     else
     {
@@ -75,11 +83,21 @@ else
 @code {
     //Pagination
     PaginationState pagination = new PaginationState { ItemsPerPage = 1000 };
-
+    //private AddEmployee addEmployeeForm = new AddEmployee();
 
     [SupplyParameterFromForm]
     EmployeeDetailDTO employee { get; set; } = new();
+    DialogComponent? dialogComponent = new DialogComponent();
+   // string? Message;
 
+    private async Task ShowDialog()
+    {
+        await js.InvokeVoidAsync("myDialogFunction");
+        dialogComponent!.LoadDefault();
+        dialogComponent!.ClearEmployeeContainer();
+        dialogComponent.ChangeTitle("Add");
+        employee = new();
+    }
 
     protected override void OnInitialized()
     {

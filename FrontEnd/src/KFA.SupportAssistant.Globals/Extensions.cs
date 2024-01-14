@@ -64,6 +64,20 @@ public static class Extensions
     return iconFragment;
   }
 
+  public static RenderFragment? FromControl(this ComponentBase? component)
+  {
+    if (component == null)
+      return null;
+
+    RenderFragment iconFragment = builder => CreateIcon(builder, component);
+    return iconFragment;
+  }
+
+  private static void CreateIcon(RenderTreeBuilder builder, ComponentBase svgText)
+  {
+    builder.AddContent(0, svgText);
+  }
+
   private static void CreateIcon(RenderTreeBuilder builder, string svgText)
   {
     builder.AddMarkupContent(0, svgText);

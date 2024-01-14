@@ -1,0 +1,95 @@
+﻿@using KFA.SupportAssistant.RCL.Models.Data
+
+    <dialog id="my-dialog"  @onclose="OnClose" style="min-width:300px;">
+    <div class="rounded bg-lighterBlue-two shadow-md relative p-1">
+        @if (ShowMainContent)
+        {
+            <EditForm Enhance Model="Employee" OnValidSubmit="Save">
+                 <div class="card p-2 border-blue-two border-double border-4 rounded-md">
+                     <div class="card-header main-title m-3"> @Title</div>
+                    <div class="card-body">
+                        @ChildContent
+                    </div>
+                    <div class="card-footer mt-2">
+                        <div class="hstack flex flex-row gap-3 float-end">
+                            <button class="btn btn-primary" type="button" @onclick="Save">Save</button>
+                            <form method="dialog">
+                                <button class="btn btn-danger">Close</button>
+                            </form>                           
+                        </div>
+                    </div>
+                </div>
+            </EditForm>
+        }
+        @if (ShowConfirmationContent)
+        {
+            <div class="card p-2 border-blue-two border-double border-3 rounded-md">
+                <div class="card-header">Are you sure you wanna do this?</div>
+                <div class="card-body">
+                    <div class="hstack gap-2">
+
+                        <form method="dialog">
+                            <button class="btn btn-danger" @onclick="()=>ConfirmDelete(true)">Yes</button>
+                            <button class="btn btn-primary">No</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </dialog>
+
+@code {
+    [Parameter] public bool ShowMainContent { get; set; } = true;
+    [Parameter] public bool ShowConfirmationContent { get; set; } = false;
+    [Parameter] public string Title { get; set; } = "Add";
+    [Parameter] public EmployeeDetailDTO Employee { get; set; } = new();
+    [Parameter] public EventCallback<EmployeeDetailDTO> HandleAddEmployeeEvent { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    void OnClose(EventArgs e)
+    {
+
+    }
+
+    async Task Save()
+    {
+        if (Employee?.FullName is null) return;
+        await HandleAddEmployeeEvent.InvokeAsync(Employee);
+    }
+
+    public void ClearEmployeeContainer()
+    {
+        Employee = new();
+    }
+
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+    }
+
+    // Confirm Delete Employee
+    public void ShowConfirmDialog()
+    {
+        ShowMainContent = false;
+        ShowConfirmationContent = true;
+    }
+
+    [Parameter] public EventCallback HandleConfirmDeleteEvent { get; set; }
+    private async void ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleConfirmDeleteEvent.InvokeAsync();
+            ShowConfirmDialog();
+        }
+
+    }
+
+    public void LoadDefault()
+    {
+        ShowMainContent = true;
+        ShowConfirmationContent = false;
+    }
+}

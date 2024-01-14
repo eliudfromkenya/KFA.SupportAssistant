@@ -6,8 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\Employees\AddEmployee.razor" />
+  </ItemGroup>
+
 
   <ItemGroup>
+    <None Include="Pages\Employees\Forms\AddEmployee.razor" />
     <None Include="wwwroot\exampleJsInterop.js" />
   </ItemGroup>
 
@@ -37,6 +42,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\AboutUs\Index.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Employees\AddEmployee.razor" />
     <_ContentIncludedByDefault Remove="Pages\Employees\EmployeeHeader.razor" />
     <_ContentIncludedByDefault Remove="Pages\Employees\EmployeeList.razor" />
   </ItemGroup>
@@ -55,6 +61,10 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Employees\AddEmployee.razor" />
   </ItemGroup>
 
 </Project>
