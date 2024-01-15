@@ -10,6 +10,10 @@
     <Content Remove="Pages\Employees\AddEmployee.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Components\DialogComponent.razor.css" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <None Include="Pages\Employees\Forms\AddEmployee.razor" />
@@ -65,6 +69,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Employees\AddEmployee.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\DialogComponent.razor.css" />
   </ItemGroup>
 
 </Project>

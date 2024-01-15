@@ -72,7 +72,7 @@ body {
 }
 
 .text-input {
-    @apply text-customBlack-one bg-lighterBlue-three h-[42px] w-full border-2 border-lightBlue-three focus:border-blue-three hover:border-blue-two rounded-[5px] text-[16px] relative outline-none transform hover:translate-y-1 hover:bg-opacity-80 transition ease-out duration-300 focus:outline-none focus:shadow-blue-three;
+    @apply text-customBlack-one font-medium bg-lighterBlue-three h-[42px] w-full border-2 border-lightBlue-three focus:border-blue-three hover:border-blue-two rounded-[5px] text-[16px] relative outline-none transform hover:translate-y-1 hover:bg-opacity-80 transition ease-out duration-300 focus:outline-none focus:shadow-blue-three;
 }
 
 .side-bar-item {
@@ -80,7 +80,7 @@ body {
 }
 
 .text-label {
-    @apply text-customBlack-two outline-none px-[8px] py-[12px] font-bold w-[150px] min-w-[150px];
+    @apply text-customBlack-two outline-none px-[8px] py-[2px] font-medium w-[150px] min-w-[150px];
 }
 
 .data-label {
