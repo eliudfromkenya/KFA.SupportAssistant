@@ -13,23 +13,19 @@
             either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
         <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
-        <OutputType>Exe</OutputType>
-        <RootNamespace>KFA.SupportAssistant.Maui</RootNamespace>
-        <UseMaui>true</UseMaui>
-        <SingleProject>true</SingleProject>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <EnableDefaultCssItems>false</EnableDefaultCssItems>
-        <Nullable>enable</Nullable>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>KFA.SupportAssistant.Maui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableDefaultCssItems>false</EnableDefaultCssItems>
+		<Nullable>enable</Nullable>
 
-        <!-- Display name -->
-        <ApplicationTitle>KFA.SupportAssistant.Maui</ApplicationTitle>
+		<!-- Display name -->
+		<ApplicationTitle>KFA.SupportAssistant.Maui</ApplicationTitle>
 
-        <!-- App Identifier -->
-        <ApplicationId>com.companyname.kfa.supportassistant.maui</ApplicationId>
-
-        <!-- Versions -->
-        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-        <ApplicationVersion>1</ApplicationVersion>
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.kfa.supportassistant.maui</ApplicationId>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -57,20 +53,20 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
-      <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" />
-      <PackageReference Include="Microsoft.Maui.Controls" />
-      <PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
-      <PackageReference Include="Fluxor" />
-      <PackageReference Include="Fluxor.Blazor.Web" />
-      <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
-      <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid"  />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" />
+		<PackageReference Include="Microsoft.Maui.Controls" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
+		<PackageReference Include="Fluxor" />
+		<PackageReference Include="Fluxor.Blazor.Web" />
+		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid"  />
+	</ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
-      <ProjectReference Include="..\KFA.SupportAssistant.RCL\KFA.SupportAssistant.RCL.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\KFA.SupportAssistant.Globals\KFA.SupportAssistant.Globals.csproj" />
+		<ProjectReference Include="..\KFA.SupportAssistant.RCL\KFA.SupportAssistant.RCL.csproj" />
+	</ItemGroup>
 
 </Project>

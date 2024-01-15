@@ -12,6 +12,7 @@ namespace KFA.SupportAssistant.UseCases.Models.List;
 public class ListModelsHandler<T, X>(IDbQuery<X> dbQuery)
   : IQueryHandler<ListModelsQuery<T, X>, List<X>> where T : BaseDTO<X>, new() where X : BaseModel, new()
 {
+  static object objLock = new();
   public async Task<List<X>> Handle(ListModelsQuery<T, X> request, CancellationToken cancellationToken)
   {
     var query = DynamicParam<X>.GetQuery(request.user, dbQuery, request.param);

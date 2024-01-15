@@ -9,5 +9,5 @@ namespace KFA.SupportAssistant;
 public static class Declarations
 {
   public static string ApplicationDataPath { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DynamicAssistantHelper");
-  public static string BaseApiUri = @"http://localhost:57678/api/v3/";
+  public static string BaseApiUri = @"http://localhost:57679/api/v3/";
 }

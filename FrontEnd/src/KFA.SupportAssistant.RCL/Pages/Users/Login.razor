@@ -107,7 +107,7 @@
             try
             {
                 var name = await localStorageService.GetItemAsync<string>("name");
-                userLoginDetails.Username = name.ToUpper();
+                userLoginDetails.Username = name?.ToUpper() ?? "User";
             }
             catch
             {                
