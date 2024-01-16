@@ -10,12 +10,19 @@ public class UserLoginHandler(IAuthService authService) : ICommandHandler<UserLo
   public async Task<Result<LoginResult>> Handle(UserLoginCommand request,
     CancellationToken cancellationToken)
   {
-    var result = await authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
-
-    if (result == null)
+    try
     {
-      return Result.Unauthorized();
+      var result = await authService.LoginAsync(request.username, request.password, request.device, cancellationToken);
+
+      if (result == null)
+      {
+        return Result.Unauthorized();
+      }
+      return result;
     }
-    return result;
+    catch (Exception ex)
+    {
+      return Result.Error((ex?.InnerError() ?? ex)?.Message);
+    }
   }
 }

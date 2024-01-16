@@ -75,4 +75,10 @@
     <Content Include="Components\DialogComponent.razor.css" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="package.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
