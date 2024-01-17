@@ -1,30 +1,58 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">KFA.SupportAssistant.Blazor</a>
+﻿@using KFA.SupportAssistant.RCL.Models
+@using KFA.SupportAssistant.RCL.State.MainTitle
+@inject IDispatcher dispatcher
+@inject IState<MainTitleState> mainTitleState
+@inject IUserService userService
+@inject IState<MainMenusState> state
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<div class="top-0">
+    <div class="w-full">
+        <a class="main-title font-[68px] w-full mx-3 my-1" href=""><img src="./images/icon.png" class="w-24 h-24 mx-auto my-1 " /></a>
     </div>
 </div>
 
 <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+<div class="nav-scrollable w-full" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column w-full">
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
+        @if (state.Value.Error != null)
+        {
+            <div class="flex flex-col w-full">
+                <div class="text-red-one underline text-xl">
+                    Error
+                </div>
+                <div class="text-red-two text-xl">
+                  Unable to load menu;  @state.Value.Error.Message
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in state.Value.Menus)
+            {
+                <div class="nav-item px-1 w-full">
+                    <NavLink class="nav-link my-0 w-full" href="@item.URI">
+                        @{
+                           <div class="px-5 my-auto w-[18px] h-[18px]">
+                                @item.IconFragment
+                            </div>
+                            <div class="mt-1">&nbsp;&nbsp;&nbsp;@item.Text</div>                            
+                        }
+                    </NavLink>
+                </div>
+            }
+        }
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
     </nav>
 </div>
 
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+       
+    } 
+    //Match="NavLinkMatch.All
+}
