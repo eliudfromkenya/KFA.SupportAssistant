@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Components\Layout\MainLayout.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
