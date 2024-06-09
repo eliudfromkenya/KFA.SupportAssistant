@@ -264,7 +264,7 @@ namespace ProjectMaker
       {
         return;
       }
-      var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Entries Table.mdb");
+      var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "KFADynamicsAssistant.mdb");
       var data = new RawData(path);
 
 
@@ -314,12 +314,12 @@ namespace ProjectMaker
       try
       {
         var mainPath = new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "../../../..")).FullName;
-        var path = Path.Combine(mainPath, "KFADynamicsAssistant.mdb"/*"Entries Table.mdb"*/);
+        var path = Path.Combine(mainPath, "KFADynamicsAssistant.mdb"/*"KFADynamicsAssistant.mdb"*/);
         var data = new RawData(path);
 
         var preRels = data.GetRelations();
 
-        //path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "KfaDataEntries.mdb"/*"Entries Table.mdb"*/);
+        //path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "KfaDataEntries.mdb"/*"KFADynamicsAssistant.mdb"*/);
 
         //data = new RawData(path);
         var tablesWithData = data.GetTablesThatContainsData();

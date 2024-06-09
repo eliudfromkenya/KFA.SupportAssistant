@@ -1555,12 +1555,13 @@ namespace Pilgrims.Projects.Assistant.DataLayer.UnitTests
       var rels = db.Relations
           .Include(x => x.ForeignColumn.Table)
           .Include(x => x.MasterColumn.Table)
+          .Where(n => n.ForeignColumn.Table != null && n.MasterColumn.Table != null)
           .ToArray();
-      var relMasters = db.Relations.Select(c => new
+      var relMasters = rels.Select(c => new
       {
-        ForeginColumn = c.ForeignColumn.StrimLinedName,
-        Foreign = c.ForeignColumn.Table.StrimLinedName.Replace(" ", ""),
-        Master = Functions.Singularize(c.MasterColumn.Table.StrimLinedName.Replace(" ", "")),
+        ForeginColumn = c.ForeignColumn?.StrimLinedName,
+        Foreign = c.ForeignColumn?.Table?.StrimLinedName?.Replace(" ", ""),
+        Master = Functions.Singularize(c.MasterColumn?.Table?.StrimLinedName?.Replace(" ", "")),
       }).ToArray().GroupBy(x => x.Foreign)
       .ToDictionary(x => x.Key, y => y.Select(r => new { r.Master, r.ForeginColumn }).ToArray());
       var txtIncludes = $@"using Microsoft.EntityFrameworkCore;
