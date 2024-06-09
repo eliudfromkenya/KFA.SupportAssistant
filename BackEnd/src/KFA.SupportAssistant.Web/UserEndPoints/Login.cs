@@ -76,16 +76,21 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
     if (result.IsSuccess)
     {
       var value = result.Value;
-      var jwtToken = JWTBearer.CreateToken(
-          signingKey: tokenSignature!,
-          expireAt: DateTime.UtcNow.AddDays(30),
-          permissions: value.UserRights!,
-          claims: new Claim[]
-          {
-            new ("UserId", value.UserId!) ,
-            new ("LoginId", value.LoginId!) ,
-            new ("RoleId", value.UserRole!)
-          });
+      var jwtToken = JwtBearer.CreateToken(
+                o =>
+                {
+                  o.SigningKey = tokenSignature!;
+                  o.ExpireAt = DateTime.UtcNow.AddDays(30);
+                  o.User.Permissions.Add(value.UserRights!);
+                  o.User.Roles.Add(value.UserRole!);
+                  o.User.Claims.AddRange(
+                      [
+                        new ("UserId", value.UserId!) ,
+                        new ("LoginId", value.LoginId!) ,
+                        new ("RoleId", value.UserRole!)
+                      ]);
+                  o.User["UserId"] = value.UserId!; //indexer based claim setting
+                });
 
       await SendAsync(new LoginResponse(value.LoginId, jwtToken, value.UserId, value.UserRole, DateTime.Now, value.UserRights, value.User as SystemUserDTO), cancellation: cancellationToken);
     }

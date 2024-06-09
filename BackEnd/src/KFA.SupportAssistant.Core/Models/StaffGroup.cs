@@ -16,7 +16,7 @@ public sealed record class StaffGroup : BaseModel
 
   // [Required]
   [Column("group_number")]
- [Encrypted]
+  [Encrypted]
   public override string? Id { get; init; } = string.Empty;
 
   // [Required]

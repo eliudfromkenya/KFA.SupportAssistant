@@ -36,7 +36,7 @@ public sealed record class CostCentre : BaseModel
   [Column("supplier_code_prefix")]
   public string? SupplierCodePrefix { get; init; }
 
-  public ICollection<ComputerAnydesk>? ComputerAnydesks { get; set; }
+  public ICollection<ComputerRemoteAddress>? ComputerAnydesks { get; set; }
   public ICollection<DataDevice>? DataDevices { get; set; }
   public ICollection<LeasedPropertiesAccount>? LeasedPropertiesAccounts { get; set; }
   public ICollection<LedgerAccount>? LedgerAccounts { get; set; }

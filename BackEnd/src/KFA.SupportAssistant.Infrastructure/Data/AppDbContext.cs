@@ -16,10 +16,25 @@ public class AppDbContext : DbContext
   {
     _dispatcher = dispatcher;
   }
-  private static MsEncryptionProvider _provider = new ();
+
+  private static MsEncryptionProvider _provider = new();
   public DbSet<CommandDetail> CommandDetails { get; set; }
   public DbSet<CommunicationMessage> CommunicationMessages { get; set; }
-  public DbSet<ComputerAnydesk> ComputerAnydesks { get; set; }
+  public DbSet<ComputerAssetAcquisition> ComputerAssetAcquisitions { get; set; }
+  public DbSet<ComputerAssetAssignment> ComputerAssetAssignments { get; set; }
+  public DbSet<ComputerAssetDetail> ComputerAssetDetails { get; set; }
+  public DbSet<ComputerAssetGroup> ComputerAssetGroups { get; set; }
+  public DbSet<ComputerAssetMaintaince> ComputerAssetMaintainces { get; set; }
+  public DbSet<ComputerAssetTransfer> ComputerAssetTransfers { get; set; }
+  public DbSet<ComputerAssetValuation> ComputerAssetValuations { get; set; }
+  public DbSet<ComputerAssetsMaintainceAccessory> ComputerAssetsMaintainceAccessories { get; set; }
+  public DbSet<ComputerAssetsMaintainceDispatch> ComputerAssetsMaintainceDispatches { get; set; }
+  public DbSet<ComputerAssetsMaintainceReceiving> ComputerAssetsMaintainceReceivings { get; set; }
+  public DbSet<ComputerAssetsPostsToDynamic> ComputerAssetsPostsToDynamics { get; set; }
+  public DbSet<ComputerAssetsStatus> ComputerAssetsStatuses { get; set; }
+  public DbSet<ComputerAssetsWriteOff> ComputerAssetsWriteOffs { get; set; }
+  public DbSet<ComputerRemoteAddress> ComputerRemoteAddresses { get; set; }
+  public DbSet<Vendor> Vendors { get; set; }
   public DbSet<CostCentre> CostCentres { get; set; }
   public DbSet<DataDevice> DataDevices { get; set; }
   public DbSet<DeviceGuid> DeviceGuids { get; set; }

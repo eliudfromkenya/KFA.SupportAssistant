@@ -14,6 +14,7 @@ using Microsoft.Net.Http.Headers;
 using MySqlConnector;
 using Serilog;
 using FastEndpoints.Security;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,14 +35,17 @@ Log.Logger = logConfig.CreateBootstrapLogger();
 Log.Information("Starting the HostBuilder...");
 
 builder.Services
-   .AddCookieAuth(validFor: TimeSpan.FromMinutes(60))
-   .AddJWTBearerAuth(builder.Configuration["Auth:TokenSigningKey"]!)
+    .AddAuthenticationCookie(validFor: TimeSpan.FromMinutes(10)) //configure cookie auth
+   .AddAuthenticationJwtBearer(s => s.SigningKey = builder.Configuration["Auth:TokenSigningKey"]!) //add this
+   .AddAuthorization() //add this
    .AddAuthentication(o =>
    {
-     o.DefaultScheme = builder.Configuration["Auth:AuthScheme"];
-     o.DefaultAuthenticateScheme = builder.Configuration["Auth:AuthScheme"];
+     o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+     o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
    })
-   .AddPolicyScheme(builder.Configuration["Auth:AuthScheme"]!, builder.Configuration["Auth:AuthScheme"], o =>
+   .AddPolicyScheme(builder.Configuration[JwtBearerDefaults.AuthenticationScheme]!, builder.Configuration[JwtBearerDefaults.AuthenticationScheme], o =>
    {
      o.ForwardDefaultSelector = ctx =>
      {
@@ -102,7 +106,7 @@ else
   app.UseHsts();
 }
 app//.UseDefaultExceptionHandler()
-   .UseAntiForgery()
+  // .UseAntiForgery()
    .UseFastEndpoints(c =>
    {
      c.Endpoints.RoutePrefix = "api/v3";

@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
+
+public record ComputerAssetAcquisitionRecord(string? AcquisitionID, string? AquisitionType, string? AssetDetailID, decimal? AssetValue, global::System.DateTime? DateOfAcquisition, string? DocumentNo, string? Narration, string? QuotationNumber, string? ReceivedBy, decimal? Value, decimal? VATAmount, string? VendorCode, global::System.DateTime? WarantyEndDate, DateTime? DateInserted___, DateTime? DateUpdated___);

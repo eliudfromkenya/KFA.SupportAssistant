@@ -1,0 +1,3 @@
+namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceAccessories;
+
+public record ComputerAssetsMaintainceAccessoryRecord(string? AccessoryGroupID, string? AccessoryID, decimal? Amount, string? AssetDetailID, global::System.DateTime? DateOfAcquisition, string? Description, string? InvoiceNumber, string? MaintainceID, string? Narration, string? QuotationNumber, decimal? VATAmount, string? VendorCode, DateTime? DateInserted___, DateTime? DateUpdated___);

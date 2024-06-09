@@ -64,16 +64,21 @@ public class Register(IMediator mediator, IConfiguration config) : Endpoint<Regi
     if (result.IsSuccess)
     {
       var (user, loginId, rights) = result.Value;
-      var jwtToken = JWTBearer.CreateToken(
-          signingKey: tokenSignature!,
-          expireAt: DateTime.UtcNow.AddDays(1),
-          permissions: rights!,
-          claims: new Claim[]
-          {
-           new ("UserId", user.Id!) ,
-            new ("LoginId", loginId!) ,
-            new ("RoleId", user.RoleId!)
-          });
+      var jwtToken = JwtBearer.CreateToken(
+                 o =>
+                 {
+                   o.SigningKey = tokenSignature!;
+                   o.ExpireAt = DateTime.UtcNow.AddDays(30);
+                   o.User.Permissions.Add(rights!);
+                   o.User.Roles.Add(user.RoleId!);
+                   o.User.Claims.AddRange(
+                       [
+                         new ("UserId", user.Id!) ,
+                        new ("LoginId", loginId!) ,
+                        new ("RoleId", user.RoleId!)
+                       ]);
+                   o.User["UserId"] = user.Id!; //indexer based claim setting
+                 });
 
       await SendAsync(new RegisterResponse(jwtToken, user.RoleId, user.Id, user.Contact, user.EmailAddress, user.ExpirationDate?? new DateTime(1,1,1), user.IsActive == true, user.MaturityDate ?? new DateTime(1, 1, 1), user.NameOfTheUser, user.Narration, user.Username), cancellation: cancellationToken);
     }
