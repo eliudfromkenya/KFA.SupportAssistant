@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
 
 public class GetComputerAssetAcquisitionByIdRequest
 {

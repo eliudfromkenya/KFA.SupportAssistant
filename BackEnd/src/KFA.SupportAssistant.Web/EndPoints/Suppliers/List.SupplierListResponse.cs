@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.Suppliers;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.Suppliers;
 
 public class SupplierListResponse
 {

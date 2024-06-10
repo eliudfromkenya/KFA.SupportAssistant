@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Assets Posts To Dynamic";
       s.Description = "This endpoint is used to update  computer assets posts to dynamic, making a full replacement of computer assets posts to dynamic with a specifed valuse. A valid computer assets posts to dynamic is required.";
       s.ExampleRequest = new UpdateComputerAssetsPostsToDynamicRequest { AssetDetailID = "", DateGenerated = DateTime.Now, Description = "Description", PostID = "1000", Posted = true };
-      s.ResponseExamples[200] = new UpdateComputerAssetsPostsToDynamicResponse (new ComputerAssetsPostsToDynamicRecord("", DateTime.Now, "Description", "1000", true, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetsPostsToDynamicResponse(new ComputerAssetsPostsToDynamicRecord("", DateTime.Now, "Description", "1000", true, DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.PostID))
     {
-      AddError(request => request.PostID , "The post id of the record to be updated is required please");
+      AddError(request => request.PostID, "The post id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

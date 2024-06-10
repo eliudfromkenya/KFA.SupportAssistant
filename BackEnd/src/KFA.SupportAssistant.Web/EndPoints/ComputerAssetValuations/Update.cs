@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Valuation";
       s.Description = "This endpoint is used to update  computer asset valuation, making a full replacement of computer asset valuation with a specifed valuse. A valid computer asset valuation is required.";
       s.ExampleRequest = new UpdateComputerAssetValuationRequest { AssetDetailID = "", Description = "Description", RevaluationID = "1000", Status = "Status", ValuationDate = DateTime.Now, Value = 0 };
-      s.ResponseExamples[200] = new UpdateComputerAssetValuationResponse (new ComputerAssetValuationRecord("", "Description", "1000", "Status", DateTime.Now, 0, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetValuationResponse(new ComputerAssetValuationRecord("", "Description", "1000", "Status", DateTime.Now, 0, DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.RevaluationID))
     {
-      AddError(request => request.RevaluationID , "The revaluation id of the record to be updated is required please");
+      AddError(request => request.RevaluationID, "The revaluation id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

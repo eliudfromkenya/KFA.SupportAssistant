@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetValuations;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetValuations;
 
 public readonly struct CreateComputerAssetValuationResponse(string? assetDetailID, string? description, string? revaluationID, string? status, global::System.DateTime? valuationDate, decimal? value, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

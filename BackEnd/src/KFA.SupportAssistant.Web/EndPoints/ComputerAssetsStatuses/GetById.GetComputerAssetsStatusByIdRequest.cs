@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsStatuses;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsStatuses;
 
 public class GetComputerAssetsStatusByIdRequest
 {

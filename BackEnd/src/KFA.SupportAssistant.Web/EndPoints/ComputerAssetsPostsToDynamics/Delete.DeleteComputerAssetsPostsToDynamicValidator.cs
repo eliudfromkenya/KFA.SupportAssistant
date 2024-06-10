@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
 
@@ -16,4 +16,3 @@ public class DeleteComputerAssetsPostsToDynamicValidator : Validator<DeleteCompu
       .MaximumLength(30);
   }
 }
-

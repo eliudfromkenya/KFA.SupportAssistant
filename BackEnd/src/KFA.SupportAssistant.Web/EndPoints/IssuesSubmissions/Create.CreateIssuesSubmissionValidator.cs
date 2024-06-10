@@ -19,7 +19,6 @@ public class CreateIssuesSubmissionValidator : Validator<CreateIssuesSubmissionR
          .MinimumLength(2)
          .MaximumLength(500);
 
-
     RuleFor(x => x.SubmissionID)
          .NotEmpty()
          .WithMessage("Submission ID is required.")

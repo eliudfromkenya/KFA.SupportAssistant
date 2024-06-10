@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetDetails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetDetails;
 
 public readonly struct CreateComputerAssetDetailResponse(string? assetID, string? assetName, string? description, string? groupID, string? serialNumber, string? state, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

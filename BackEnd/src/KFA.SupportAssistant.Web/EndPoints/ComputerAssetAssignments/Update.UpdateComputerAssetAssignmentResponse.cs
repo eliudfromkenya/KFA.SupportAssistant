@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAssignments;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAssignments;
 
 public class UpdateComputerAssetAssignmentResponse
 {

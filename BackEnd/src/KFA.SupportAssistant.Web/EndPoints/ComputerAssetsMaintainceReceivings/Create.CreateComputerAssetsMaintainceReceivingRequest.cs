@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceReceivings;
 
@@ -12,7 +12,9 @@ public class CreateComputerAssetsMaintainceReceivingRequest
   public string? FromDepartmentCode { get; set; }
   public string? Narration { get; set; }
   public string? ReasonToSend { get; set; }
+
   [Required]
   public string? ReceiveID { get; set; }
+
   public string? RecievedBy { get; set; }
 }

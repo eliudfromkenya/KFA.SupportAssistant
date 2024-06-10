@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
 
 public readonly struct CreateComputerAssetTransferResponse(string? assetDetailID, string? costCentreCode, string? narration, string? payrollNumber, string? responsibleUser, string? status, global::System.DateTime? transferDate, string? transferID, string? transferReasons, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

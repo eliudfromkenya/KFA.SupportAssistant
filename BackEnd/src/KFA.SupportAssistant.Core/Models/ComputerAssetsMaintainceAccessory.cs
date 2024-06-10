@@ -71,7 +71,7 @@ public sealed record class ComputerAssetsMaintainceAccessory : BaseModel
   public Vendor? Vendor { get; set; }
   //[Reactive, NotMapped]
   public string? Vendor_Caption { get; set; }
-    public override object ToBaseDTO()
+  public override object ToBaseDTO()
   {
     return (ComputerAssetsMaintainceAccessoryDTO)this;
   }

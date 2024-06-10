@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAssignments;
 
@@ -9,29 +9,29 @@ public class UpdateComputerAssetAssignmentValidator : Validator<UpdateComputerAs
 {
   public UpdateComputerAssetAssignmentValidator()
   {
-     RuleFor(x => x.AssignedUser)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.AssignedUser)
+    .MinimumLength(2)
+    .MaximumLength(255);
 
-RuleFor(x => x.AssignmentType)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.AssignmentType)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.AssignmentID)
-     .NotEmpty()
-     .WithMessage("AssignmentID is required.");
+    RuleFor(x => x.AssignmentID)
+         .NotEmpty()
+         .WithMessage("AssignmentID is required.");
 
-RuleFor(x => x.CostCentreCode)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.CostCentreCode)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.Narration)
-     .MinimumLength(2)
-     .MaximumLength(500);
+    RuleFor(x => x.Narration)
+         .MinimumLength(2)
+         .MaximumLength(500);
 
-RuleFor(x => x.PayrollNumber)
-     .MinimumLength(2)
-     .MaximumLength(255);             
+    RuleFor(x => x.PayrollNumber)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
     static bool checkIds(string? objectId, string? urlId)
     {

@@ -31,7 +31,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
       s.Summary = $"[End Point - {EndPointId}] Gets price change request by specified request id";
       s.Description = "This endpoint is used to retrieve price change request with the provided request id";
       s.ExampleRequest = new GetPriceChangeRequestByIdRequest { RequestID = "request id to retrieve" };
-      s.ResponseExamples[200] = new PriceChangeRequestRecord("Attanded By", "Batch Number", "Cost Centre Code", "Cost Price", "Item Code", "Narration", "1000", "Requesting User", "Selling Price", "Status", DateTime.Now,DateTime.Now, DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new PriceChangeRequestRecord("Attanded By", "Batch Number", "Cost Centre Code", "Cost Price", "Item Code", "Narration", "1000", "Requesting User", "Selling Price", "Status", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
     });
   }
 

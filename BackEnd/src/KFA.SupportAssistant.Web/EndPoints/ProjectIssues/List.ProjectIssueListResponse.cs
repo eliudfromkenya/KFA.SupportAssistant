@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ProjectIssues;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ProjectIssues;
 
 public class ProjectIssueListResponse
 {

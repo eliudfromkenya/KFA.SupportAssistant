@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Price Change Request";
       s.Description = "This endpoint is used to update  price change request, making a full replacement of price change request with a specifed valuse. A valid price change request is required.";
       s.ExampleRequest = new UpdatePriceChangeRequestRequest { AttandedBy = "Attanded By", BatchNumber = "Batch Number", CostCentreCode = "Cost Centre Code", CostPrice = "Cost Price", ItemCode = "Item Code", Narration = "Narration", RequestID = "1000", RequestingUser = "Requesting User", SellingPrice = "Selling Price", Status = "Status", TimeAttended = "Time Attended", TimeOfRequest = "Time of Request" };
-      s.ResponseExamples[200] = new UpdatePriceChangeRequestResponse(new PriceChangeRequestRecord("Attanded By", "Batch Number", "Cost Centre Code", "Cost Price", "Item Code", "Narration", "1000", "Requesting User", "Selling Price", "Status", DateTime.Now,DateTime.Now, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdatePriceChangeRequestResponse(new PriceChangeRequestRecord("Attanded By", "Batch Number", "Cost Centre Code", "Cost Price", "Item Code", "Narration", "1000", "Requesting User", "Selling Price", "Status", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now));
     });
   }
 

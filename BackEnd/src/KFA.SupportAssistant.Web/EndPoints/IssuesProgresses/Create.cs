@@ -32,7 +32,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Used to create a new issues progress";
       s.Description = "This endpoint is used to create a new  issues progress. Here details of issues progress to be created is provided";
       s.ExampleRequest = new CreateIssuesProgressRequest { Description = "Description", IssueID = string.Empty, Narration = "Narration", ProgressID = "1000", ReportedBy = "Reported By", Status = Core.Models.Types.IssueStatus.None, Time = DateTime.Now };
-      s.ResponseExamples[200] = new CreateIssuesProgressResponse("Description", string.Empty, "Narration", "1000", "Reported By",  Core.Models.Types.IssueStatus.None, DateTime.Now, DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new CreateIssuesProgressResponse("Description", string.Empty, "Narration", "1000", "Reported By", Core.Models.Types.IssueStatus.None, DateTime.Now, DateTime.Now, DateTime.Now);
     });
   }
 

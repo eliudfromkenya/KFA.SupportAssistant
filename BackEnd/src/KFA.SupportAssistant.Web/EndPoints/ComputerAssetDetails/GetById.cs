@@ -1,5 +1,4 @@
-
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;

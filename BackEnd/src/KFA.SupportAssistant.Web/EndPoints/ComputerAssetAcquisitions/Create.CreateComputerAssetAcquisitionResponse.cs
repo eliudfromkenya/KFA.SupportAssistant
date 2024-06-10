@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
 
 public readonly struct CreateComputerAssetAcquisitionResponse(string? acquisitionID, string? aquisitionType, string? assetDetailID, decimal? assetValue, global::System.DateTime? dateOfAcquisition, string? documentNo, string? narration, string? quotationNumber, string? receivedBy, decimal? value, decimal? vATAmount, string? vendorCode, global::System.DateTime? warantyEndDate, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

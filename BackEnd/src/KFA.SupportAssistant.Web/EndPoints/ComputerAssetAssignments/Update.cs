@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Assignment";
       s.Description = "This endpoint is used to update  computer asset assignment, making a full replacement of computer asset assignment with a specifed valuse. A valid computer asset assignment is required.";
       s.ExampleRequest = new UpdateComputerAssetAssignmentRequest { AssetID = "", AssignedUser = "Assigned User", AssignmentDate = DateTime.Now, AssignmentType = "Assignment Type", AssignmentID = "1000", CostCentreCode = "Cost Centre Code", Narration = "Narration", PayrollNumber = "Payroll Number" };
-      s.ResponseExamples[200] = new UpdateComputerAssetAssignmentResponse (new ComputerAssetAssignmentRecord("", "Assigned User", DateTime.Now, "Assignment Type", "1000", "Cost Centre Code", "Narration", "Payroll Number", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetAssignmentResponse(new ComputerAssetAssignmentRecord("", "Assigned User", DateTime.Now, "Assignment Type", "1000", "Cost Centre Code", "Narration", "Payroll Number", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.AssignmentID))
     {
-      AddError(request => request.AssignmentID , "The assignmentid of the record to be updated is required please");
+      AddError(request => request.AssignmentID, "The assignmentid of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

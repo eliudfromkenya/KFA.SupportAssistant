@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Stock Item Codes Request";
       s.Description = "This endpoint is used to update  stock item codes request, making a full replacement of stock item codes request with a specifed valuse. A valid stock item codes request is required.";
       s.ExampleRequest = new UpdateStockItemCodesRequestRequest { AttandedBy = "Attanded By", CostCentreCode = "Cost Centre Code", CostPrice = 0, Description = "Description", Distributor = "Distributor", ItemCode = "Item Code", ItemCodeRequestID = "1000", Narration = "Narration", RequestingUser = "Requesting User", SellingPrice = 0, Status = "Status", Supplier = "Supplier", TimeAttended = "Time Attended", TimeOfRequest = "Time of Request", UnitOfMeasure = "Unit Of Measure" };
-      s.ResponseExamples[200] = new UpdateStockItemCodesRequestResponse(new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier",DateTime.Now, DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateStockItemCodesRequestResponse(new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier", DateTime.Now, DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now));
     });
   }
 

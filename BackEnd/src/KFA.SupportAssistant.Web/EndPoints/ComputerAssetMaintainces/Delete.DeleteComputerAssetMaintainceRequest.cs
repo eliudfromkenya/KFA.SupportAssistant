@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetMaintainces;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetMaintainces;
 
 public record DeleteComputerAssetMaintainceRequest
 {

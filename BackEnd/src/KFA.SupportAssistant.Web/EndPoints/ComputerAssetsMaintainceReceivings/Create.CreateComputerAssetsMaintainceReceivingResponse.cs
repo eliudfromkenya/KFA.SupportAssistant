@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceReceivings;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceReceivings;
 
 public readonly struct CreateComputerAssetsMaintainceReceivingResponse(string? assetDetailID, string? broughtBy, global::System.DateTime? dateRecieved, string? description, string? fromDepartmentCode, string? narration, string? reasonToSend, string? receiveID, string? recievedBy, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

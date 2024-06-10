@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ExpenseBudgetBatchHeaders;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ExpenseBudgetBatchHeaders;
 
 public class ExpenseBudgetBatchHeaderListResponse
 {

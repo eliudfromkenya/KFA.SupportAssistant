@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsWriteOffs;
 
@@ -16,4 +16,3 @@ public class DeleteComputerAssetsWriteOffValidator : Validator<DeleteComputerAss
       .MaximumLength(30);
   }
 }
-

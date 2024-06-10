@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
 
@@ -9,33 +9,33 @@ public class UpdateComputerAssetTransferValidator : Validator<UpdateComputerAsse
 {
   public UpdateComputerAssetTransferValidator()
   {
-     RuleFor(x => x.CostCentreCode)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.CostCentreCode)
+    .MinimumLength(2)
+    .MaximumLength(255);
 
-RuleFor(x => x.Narration)
-     .MinimumLength(2)
-     .MaximumLength(500);
+    RuleFor(x => x.Narration)
+         .MinimumLength(2)
+         .MaximumLength(500);
 
-RuleFor(x => x.PayrollNumber)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.PayrollNumber)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.ResponsibleUser)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.ResponsibleUser)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.Status)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Status)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.TransferID)
-     .NotEmpty()
-     .WithMessage("Transfer ID is required.");
+    RuleFor(x => x.TransferID)
+         .NotEmpty()
+         .WithMessage("Transfer ID is required.");
 
-RuleFor(x => x.TransferReasons)
-     .MinimumLength(2)
-     .MaximumLength(255);             
+    RuleFor(x => x.TransferReasons)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
     static bool checkIds(string? objectId, string? urlId)
     {

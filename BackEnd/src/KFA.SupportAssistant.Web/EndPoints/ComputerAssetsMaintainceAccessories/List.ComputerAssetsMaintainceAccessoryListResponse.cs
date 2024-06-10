@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceAccessories;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceAccessories;
 
 public class ComputerAssetsMaintainceAccessoryListResponse
 {

@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Acquisition";
       s.Description = "This endpoint is used to update  computer asset acquisition, making a full replacement of computer asset acquisition with a specifed valuse. A valid computer asset acquisition is required.";
       s.ExampleRequest = new UpdateComputerAssetAcquisitionRequest { AcquisitionID = "1000", AquisitionType = "Aquisition Type", AssetDetailID = "", AssetValue = 0, DateOfAcquisition = DateTime.Now, DocumentNo = "Document No", Narration = "Narration", QuotationNumber = "Quotation Number", ReceivedBy = "Received By", Value = 0, VATAmount = 0, VendorCode = "Vendor Code", WarantyEndDate = DateTime.Now };
-      s.ResponseExamples[200] = new UpdateComputerAssetAcquisitionResponse (new ComputerAssetAcquisitionRecord("1000", "Aquisition Type", "", 0, DateTime.Now, "Document No", "Narration", "Quotation Number", "Received By", 0, 0, "Vendor Code", DateTime.Now, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetAcquisitionResponse(new ComputerAssetAcquisitionRecord("1000", "Aquisition Type", "", 0, DateTime.Now, "Document No", "Narration", "Quotation Number", "Received By", 0, 0, "Vendor Code", DateTime.Now, DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.AcquisitionID))
     {
-      AddError(request => request.AcquisitionID , "The acquisition id of the record to be updated is required please");
+      AddError(request => request.AcquisitionID, "The acquisition id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

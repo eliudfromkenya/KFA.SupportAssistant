@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.TimsMachines;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.TimsMachines;
 
 public class TimsMachineListResponse
 {

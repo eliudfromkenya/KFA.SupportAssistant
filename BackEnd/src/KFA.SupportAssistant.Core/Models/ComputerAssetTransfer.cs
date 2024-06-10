@@ -53,6 +53,6 @@ public sealed record class ComputerAssetTransfer : BaseModel
 
   public override object ToBaseDTO()
   {
-    return(ComputerAssetTransferDTO)this;
+    return (ComputerAssetTransferDTO)this;
   }
 }

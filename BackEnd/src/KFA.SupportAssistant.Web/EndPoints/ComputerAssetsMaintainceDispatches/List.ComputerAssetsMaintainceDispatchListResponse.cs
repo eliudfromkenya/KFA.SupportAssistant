@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceDispatches;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceDispatches;
 
 public class ComputerAssetsMaintainceDispatchListResponse
 {

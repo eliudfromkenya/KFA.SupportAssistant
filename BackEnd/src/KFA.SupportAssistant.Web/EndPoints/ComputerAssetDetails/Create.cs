@@ -1,4 +1,4 @@
-using KFA.SupportAssistant.Core;
+﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -48,7 +48,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
     if (result.Errors.Any())
     {
       result.Errors.ToList().ForEach(n => AddError(n));
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);     
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
     }
 
     ThrowIfAnyErrors();

@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
 
@@ -16,4 +16,3 @@ public class DeleteComputerRemoteAddressValidator : Validator<DeleteComputerRemo
       .MaximumLength(30);
   }
 }
-

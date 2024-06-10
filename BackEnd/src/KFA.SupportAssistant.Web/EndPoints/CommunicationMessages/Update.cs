@@ -33,8 +33,8 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Update a full Communication Message";
       s.Description = "This endpoint is used to update  communication message, making a full replacement of communication message with a specifed valuse. A valid communication message is required.";
-      s.ExampleRequest = new UpdateCommunicationMessageRequest { Attachments = new byte[] { }, Details = "Details", From = "From", Message = "Message", MessageID = "1000", MessageType = Core.DataLayer.Types.CommunicationMessageType.WhatsApp, Narration = "Narration", Status =  Core.DataLayer.Types.CommunicationMessageStatus.Delivered, Title = "Title", To = "To" };
-      s.ResponseExamples[200] = new UpdateCommunicationMessageResponse(new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000", Core.DataLayer.Types.CommunicationMessageType.WhatsApp, "Narration",  Core.DataLayer.Types.CommunicationMessageStatus.Undelivered, "Title", "To", DateTime.Now, DateTime.Now));
+      s.ExampleRequest = new UpdateCommunicationMessageRequest { Attachments = new byte[] { }, Details = "Details", From = "From", Message = "Message", MessageID = "1000", MessageType = Core.DataLayer.Types.CommunicationMessageType.WhatsApp, Narration = "Narration", Status = Core.DataLayer.Types.CommunicationMessageStatus.Delivered, Title = "Title", To = "To" };
+      s.ResponseExamples[200] = new UpdateCommunicationMessageResponse(new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000", Core.DataLayer.Types.CommunicationMessageType.WhatsApp, "Narration", Core.DataLayer.Types.CommunicationMessageStatus.Undelivered, "Title", "To", DateTime.Now, DateTime.Now));
     });
   }
 

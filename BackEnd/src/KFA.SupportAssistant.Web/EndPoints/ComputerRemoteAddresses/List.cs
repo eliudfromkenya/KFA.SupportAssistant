@@ -1,5 +1,4 @@
-﻿
-using KFA.SupportAssistant.Core;
+﻿using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;

@@ -26,7 +26,7 @@ public class Patch(IMediator mediator, IEndPointManager endPointManager) : Endpo
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Update partially a stock item codes request";
       s.Description = "Used to update part of an existing stock item codes request. A valid existing stock item codes request is required.";
-      s.ResponseExamples[200] = new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier", DateTime.Now,DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier", DateTime.Now, DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now);
     });
   }
 

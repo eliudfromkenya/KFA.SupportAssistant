@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsStatuses;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsStatuses;
 
 public readonly struct CreateComputerAssetsStatusResponse(string? assetDetailID, string? assetsStatusID, global::System.DateTime? date, string? description, string? doneBy, string? status, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

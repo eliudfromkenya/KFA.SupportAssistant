@@ -35,7 +35,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of issues progresses as specified";
       s.Description = "Returns all issues progresses as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new IssuesProgressListResponse { IssuesProgresses = [new IssuesProgressRecord("Description", "", "Narration", "1000", "Reported By",  Core.Models.Types.IssueStatus.Pending, DateTime.Now, DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new IssuesProgressListResponse { IssuesProgresses = [new IssuesProgressRecord("Description", "", "Narration", "1000", "Reported By", Core.Models.Types.IssueStatus.Pending, DateTime.Now, DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }

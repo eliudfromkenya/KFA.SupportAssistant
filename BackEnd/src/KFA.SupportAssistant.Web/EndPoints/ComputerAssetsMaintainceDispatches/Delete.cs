@@ -1,4 +1,4 @@
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals.DataLayer;
@@ -68,4 +68,3 @@ public class Delete(IMediator mediator, IEndPointManager endPointManager) : Endp
     };
   }
 }
-

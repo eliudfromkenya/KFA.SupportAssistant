@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
 
@@ -20,4 +20,3 @@ public class PatchComputerAssetAcquisitionValidator : Validator<PatchComputerAss
     .WithMessage("Body or content to update is required.");
   }
 }
-

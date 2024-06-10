@@ -1,4 +1,4 @@
-﻿
+﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
@@ -9,7 +9,6 @@ using KFA.SupportAssistant.UseCases.Models.List;
 using KFA.SupportAssistant.Web.Services;
 using MediatR;
 using Newtonsoft.Json;
-using Ardalis.Result;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceDispatches;
 

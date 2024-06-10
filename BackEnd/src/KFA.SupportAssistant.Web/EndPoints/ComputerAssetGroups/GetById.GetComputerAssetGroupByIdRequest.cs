@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetGroups;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetGroups;
 
 public class GetComputerAssetGroupByIdRequest
 {

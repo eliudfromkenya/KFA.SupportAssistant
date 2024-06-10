@@ -26,7 +26,7 @@ public class Patch(IMediator mediator, IEndPointManager endPointManager) : Endpo
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Update partially a communication message";
       s.Description = "Used to update part of an existing communication message. A valid existing communication message is required.";
-      s.ResponseExamples[200] = new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000",  Core.DataLayer.Types.CommunicationMessageType.WhatsApp, "Narration", Core.DataLayer.Types.CommunicationMessageStatus.Delivered, "Title", "To", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000", Core.DataLayer.Types.CommunicationMessageType.WhatsApp, "Narration", Core.DataLayer.Types.CommunicationMessageStatus.Delivered, "Title", "To", DateTime.Now, DateTime.Now);
     });
   }
 

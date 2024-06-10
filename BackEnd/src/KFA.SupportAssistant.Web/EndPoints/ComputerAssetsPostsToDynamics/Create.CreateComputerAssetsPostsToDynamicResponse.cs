@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
 
 public readonly struct CreateComputerAssetsPostsToDynamicResponse(string? assetDetailID, global::System.DateTime? dateGenerated, string? description, string? postID, bool? posted, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

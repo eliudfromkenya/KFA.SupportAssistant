@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Transfer";
       s.Description = "This endpoint is used to update  computer asset transfer, making a full replacement of computer asset transfer with a specifed valuse. A valid computer asset transfer is required.";
       s.ExampleRequest = new UpdateComputerAssetTransferRequest { AssetDetailID = "", CostCentreCode = "Cost Centre Code", Narration = "Narration", PayrollNumber = "Payroll Number", ResponsibleUser = "Responsible User", Status = "Status", TransferDate = DateTime.Now, TransferID = "1000", TransferReasons = "Transfer Reasons" };
-      s.ResponseExamples[200] = new UpdateComputerAssetTransferResponse (new ComputerAssetTransferRecord("", "Cost Centre Code", "Narration", "Payroll Number", "Responsible User", "Status", DateTime.Now, "1000", "Transfer Reasons", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetTransferResponse(new ComputerAssetTransferRecord("", "Cost Centre Code", "Narration", "Payroll Number", "Responsible User", "Status", DateTime.Now, "1000", "Transfer Reasons", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.TransferID))
     {
-      AddError(request => request.TransferID , "The transfer id of the record to be updated is required please");
+      AddError(request => request.TransferID, "The transfer id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

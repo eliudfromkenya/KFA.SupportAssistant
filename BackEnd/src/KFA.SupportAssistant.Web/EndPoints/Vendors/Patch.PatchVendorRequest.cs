@@ -1,4 +1,4 @@
-using KFA.SupportAssistant.Core.DTOs;
+﻿using KFA.SupportAssistant.Core.DTOs;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace KFA.SupportAssistant.Web.EndPoints.Vendors;

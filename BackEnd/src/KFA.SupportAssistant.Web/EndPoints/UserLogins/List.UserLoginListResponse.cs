@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.UserLogins;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.UserLogins;
 
 public class UserLoginListResponse
 {

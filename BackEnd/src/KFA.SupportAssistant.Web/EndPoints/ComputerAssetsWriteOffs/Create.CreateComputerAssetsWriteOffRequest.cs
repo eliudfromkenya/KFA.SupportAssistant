@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsWriteOffs;
 
@@ -9,7 +9,9 @@ public class CreateComputerAssetsWriteOffRequest
   public string? Description { get; set; }
   public string? Narration { get; set; }
   public string? ReasonForWriteOff { get; set; }
+
   [Required]
   public string? WriteOffID { get; set; }
+
   public global::System.DateTime? WriteOffDate { get; set; }
 }

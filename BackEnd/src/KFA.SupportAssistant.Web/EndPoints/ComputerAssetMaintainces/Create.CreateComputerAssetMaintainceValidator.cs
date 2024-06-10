@@ -9,32 +9,32 @@ public class CreateComputerAssetMaintainceValidator : Validator<CreateComputerAs
 {
   public CreateComputerAssetMaintainceValidator()
   {
-     RuleFor(x => x.AssetState)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.AssetState)
+    .MinimumLength(2)
+    .MaximumLength(255);
 
-RuleFor(x => x.Description)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Description)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.Diagnosis)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Diagnosis)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.DoneBy)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.DoneBy)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.MaintainceID)
-     .NotEmpty()
-     .WithMessage("Maintaince ID is required.");
+    RuleFor(x => x.MaintainceID)
+         .NotEmpty()
+         .WithMessage("Maintaince ID is required.");
 
-RuleFor(x => x.Narration)
-     .MinimumLength(2)
-     .MaximumLength(500);
+    RuleFor(x => x.Narration)
+         .MinimumLength(2)
+         .MaximumLength(500);
 
-RuleFor(x => x.WhatWasDone)
-     .MinimumLength(2)
-     .MaximumLength(255);             
+    RuleFor(x => x.WhatWasDone)
+         .MinimumLength(2)
+         .MaximumLength(255);
   }
 }

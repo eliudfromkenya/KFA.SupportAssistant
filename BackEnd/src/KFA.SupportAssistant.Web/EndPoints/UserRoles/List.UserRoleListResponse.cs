@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.UserRoles;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.UserRoles;
 
 public class UserRoleListResponse
 {

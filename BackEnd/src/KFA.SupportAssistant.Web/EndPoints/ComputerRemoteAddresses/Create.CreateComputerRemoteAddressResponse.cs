@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
 
 public readonly struct CreateComputerRemoteAddressResponse(string? anyDeskId, string? anyDeskNumber, string? anydeskPassword, string? assetDetailID, string? costCentreCode, string? deviceName, string? nameOfUser, string? narration, string? teamViewerAddress, string? type, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

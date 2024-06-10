@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
 
@@ -20,4 +20,3 @@ public class PatchComputerRemoteAddressValidator : Validator<PatchComputerRemote
     .WithMessage("Body or content to update is required.");
   }
 }
-

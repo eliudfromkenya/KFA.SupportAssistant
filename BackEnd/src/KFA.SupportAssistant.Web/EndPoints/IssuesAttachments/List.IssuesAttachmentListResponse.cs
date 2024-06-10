@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.IssuesAttachments;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.IssuesAttachments;
 
 public class IssuesAttachmentListResponse
 {

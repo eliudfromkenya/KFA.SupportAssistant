@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Group";
       s.Description = "This endpoint is used to update  computer asset group, making a full replacement of computer asset group with a specifed valuse. A valid computer asset group is required.";
       s.ExampleRequest = new UpdateComputerAssetGroupRequest { CanBeAssigned = true, Description = "Description", GroupID = "1000", GroupName = "Group Name", LastAssignedValue = "Last Assigned Value", ParentGroupID = "", Prefix = "Prefix", Suffix = "Suffix" };
-      s.ResponseExamples[200] = new UpdateComputerAssetGroupResponse (new ComputerAssetGroupRecord(true, "Description", "1000", "Group Name", "Last Assigned Value", "", "Prefix", "Suffix", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetGroupResponse(new ComputerAssetGroupRecord(true, "Description", "1000", "Group Name", "Last Assigned Value", "", "Prefix", "Suffix", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.GroupID))
     {
-      AddError(request => request.GroupID , "The group id of the record to be updated is required please");
+      AddError(request => request.GroupID, "The group id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

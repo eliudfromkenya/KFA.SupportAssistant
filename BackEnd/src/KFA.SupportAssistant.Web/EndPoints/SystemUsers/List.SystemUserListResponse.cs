@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.SystemUsers;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.SystemUsers;
 
 public class SystemUserListResponse
 {

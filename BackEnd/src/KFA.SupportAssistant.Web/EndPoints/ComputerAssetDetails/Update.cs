@@ -1,4 +1,4 @@
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Detail";
       s.Description = "This endpoint is used to update  computer asset detail, making a full replacement of computer asset detail with a specifed valuse. A valid computer asset detail is required.";
       s.ExampleRequest = new UpdateComputerAssetDetailRequest { AssetID = "1000", AssetName = "Asset Name", Description = "Description", GroupID = "Group ID", SerialNumber = "Serial Number", State = "State" };
-      s.ResponseExamples[200] = new UpdateComputerAssetDetailResponse (new ComputerAssetDetailRecord("1000", "Asset Name", "Description", "Group ID", "Serial Number", "State", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetDetailResponse(new ComputerAssetDetailRecord("1000", "Asset Name", "Description", "Group ID", "Serial Number", "State", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.AssetID))
     {
-      AddError(request => request.AssetID , "The asset id of the record to be updated is required please");
+      AddError(request => request.AssetID, "The asset id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

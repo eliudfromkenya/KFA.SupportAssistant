@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.LeasedPropertiesAccounts;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.LeasedPropertiesAccounts;
 
 public class LeasedPropertiesAccountListResponse
 {

@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAssignments;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAssignments;
 
 public readonly struct CreateComputerAssetAssignmentResponse(string? assetID, string? assignedUser, global::System.DateTime? assignmentDate, string? assignmentType, string? assignmentID, string? costCentreCode, string? narration, string? payrollNumber, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

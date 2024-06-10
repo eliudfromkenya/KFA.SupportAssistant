@@ -1,4 +1,4 @@
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using KFA.SupportAssistant.Core;
 using KFA.SupportAssistant.Core.DTOs;
 using KFA.SupportAssistant.Core.Models;
@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Vendor";
       s.Description = "This endpoint is used to update  vendor, making a full replacement of vendor with a specifed valuse. A valid vendor is required.";
       s.ExampleRequest = new UpdateVendorRequest { Contact = "Contact", Descriptions = "Descriptions", Email = "Email", IsActive = true, VendorCode = "1000" };
-      s.ResponseExamples[200] = new UpdateVendorResponse (new VendorRecord("Contact", "Descriptions", "Email", true, "1000", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateVendorResponse(new VendorRecord("Contact", "Descriptions", "Email", true, "1000", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.VendorCode))
     {
-      AddError(request => request.VendorCode , "The vendor code of the record to be updated is required please");
+      AddError(request => request.VendorCode, "The vendor code of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

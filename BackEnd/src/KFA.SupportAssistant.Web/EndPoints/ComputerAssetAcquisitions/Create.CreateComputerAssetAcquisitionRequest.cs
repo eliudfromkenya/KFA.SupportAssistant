@@ -1,12 +1,14 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
 
 public class CreateComputerAssetAcquisitionRequest
 {
   public const string Route = "/computer_asset_acquisitions";
+
   [Required]
   public string? AcquisitionID { get; set; }
+
   public string? AquisitionType { get; set; }
   public string? AssetDetailID { get; set; }
   public decimal? AssetValue { get; set; }

@@ -1,8 +1,8 @@
-﻿using KFA.SupportAssistant.Core.DTOs;
-using KFA.SupportAssistant.Core.Models;
-using KFA.SupportAssistant.Globals;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+using KFA.SupportAssistant.Core.DTOs;
+using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
 [Table("tbl_computer_asset_acquisitions")]
@@ -24,7 +24,6 @@ public sealed record class ComputerAssetAcquisition : BaseModel
   public ComputerAssetDetail? AssetDetail { get; set; }
   //[Reactive, NotMapped]
   public string? AssetDetail_Caption { get; set; }
-
 
   [Column("asset_value")]
   public decimal AssetValue { get; init; }

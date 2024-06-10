@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Assets Maintaince Receiving";
       s.Description = "This endpoint is used to update  computer assets maintaince receiving, making a full replacement of computer assets maintaince receiving with a specifed valuse. A valid computer assets maintaince receiving is required.";
       s.ExampleRequest = new UpdateComputerAssetsMaintainceReceivingRequest { AssetDetailID = "", BroughtBy = "Brought By", DateRecieved = DateTime.Now, Description = "Description", FromDepartmentCode = "From Department Code", Narration = "Narration", ReasonToSend = "Reason To Send", ReceiveID = "1000", RecievedBy = "Recieved By" };
-      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceReceivingResponse (new ComputerAssetsMaintainceReceivingRecord("", "Brought By", DateTime.Now, "Description", "From Department Code", "Narration", "Reason To Send", "1000", "Recieved By", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceReceivingResponse(new ComputerAssetsMaintainceReceivingRecord("", "Brought By", DateTime.Now, "Description", "From Department Code", "Narration", "Reason To Send", "1000", "Recieved By", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.ReceiveID))
     {
-      AddError(request => request.ReceiveID , "The receive id of the record to be updated is required please");
+      AddError(request => request.ReceiveID, "The receive id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

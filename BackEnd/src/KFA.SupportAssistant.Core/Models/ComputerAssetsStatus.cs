@@ -37,6 +37,6 @@ public sealed record class ComputerAssetsStatus : BaseModel
 
   public override object ToBaseDTO()
   {
-    return(ComputerAssetsStatusDTO)this;
+    return (ComputerAssetsStatusDTO)this;
   }
 }

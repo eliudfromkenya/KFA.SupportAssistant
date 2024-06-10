@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerRemoteAddresses;
 
 public class UpdateComputerRemoteAddressResponse
 {

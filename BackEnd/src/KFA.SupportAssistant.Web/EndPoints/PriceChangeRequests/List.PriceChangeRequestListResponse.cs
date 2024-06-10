@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.PriceChangeRequests;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.PriceChangeRequests;
 
 public class PriceChangeRequestListResponse
 {

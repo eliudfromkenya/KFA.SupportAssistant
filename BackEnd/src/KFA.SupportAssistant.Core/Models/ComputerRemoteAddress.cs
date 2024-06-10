@@ -64,6 +64,6 @@ public sealed record class ComputerRemoteAddress : BaseModel
 
   public override object ToBaseDTO()
   {
-    return(ComputerRemoteAddressDTO)this;
+    return (ComputerRemoteAddressDTO)this;
   }
 }

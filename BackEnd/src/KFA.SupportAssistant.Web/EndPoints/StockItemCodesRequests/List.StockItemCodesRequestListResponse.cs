@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.StockItemCodesRequests;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.StockItemCodesRequests;
 
 public class StockItemCodesRequestListResponse
 {

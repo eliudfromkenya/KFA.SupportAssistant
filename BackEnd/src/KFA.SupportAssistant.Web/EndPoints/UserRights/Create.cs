@@ -32,7 +32,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Used to create a new user right";
       s.Description = "This endpoint is used to create a new  user right. Here details of user right to be created is provided";
       s.ExampleRequest = new CreateUserRightRequest { Description = "Description", Narration = "Narration", ObjectName = "Object Name", RightId = string.Empty, RoleId = string.Empty, UserId = string.Empty, UserRightId = "1000" };
-      s.ResponseExamples[200] = new CreateUserRightResponse("Description", "Narration", "Object Name", string.Empty, string.Empty, string.Empty,"1000", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new CreateUserRightResponse("Description", "Narration", "Object Name", string.Empty, string.Empty, string.Empty, "1000", DateTime.Now, DateTime.Now);
     });
   }
 

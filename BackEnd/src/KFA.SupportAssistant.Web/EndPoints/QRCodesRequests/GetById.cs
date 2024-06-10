@@ -31,7 +31,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
       s.Summary = $"[End Point - {EndPointId}] Gets qr codes request by specified qr code request id";
       s.Description = "This endpoint is used to retrieve qr codes request with the provided qr code request id";
       s.ExampleRequest = new GetQRCodesRequestByIdRequest { QRCodeRequestID = "qr code request id to retrieve" };
-      s.ResponseExamples[200] = new QRCodesRequestRecord(string.Empty, true, "Narration", "1000", "Request Data", "Response Data",  Core.DataLayer.Types.QRResponseType.Recieved, DateTime.Now, "Tims Machine used", "VAT Class", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new QRCodesRequestRecord(string.Empty, true, "Narration", "1000", "Request Data", "Response Data", Core.DataLayer.Types.QRResponseType.Recieved, DateTime.Now, "Tims Machine used", "VAT Class", DateTime.Now, DateTime.Now);
     });
   }
 

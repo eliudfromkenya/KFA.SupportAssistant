@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetGroups;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetGroups;
 
 public readonly struct CreateComputerAssetGroupResponse(bool? canBeAssigned, string? description, string? groupID, string? groupName, string? lastAssignedValue, string? parentGroupID, string? prefix, string? suffix, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

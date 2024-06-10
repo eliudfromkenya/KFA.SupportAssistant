@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Asset Maintaince";
       s.Description = "This endpoint is used to update  computer asset maintaince, making a full replacement of computer asset maintaince with a specifed valuse. A valid computer asset maintaince is required.";
       s.ExampleRequest = new UpdateComputerAssetMaintainceRequest { AssetDispatchID = "", AssetRecieveID = "", AssetState = "Asset State", Description = "Description", Diagnosis = "Diagnosis", DoneBy = "Done By", MaintainceID = "1000", Narration = "Narration", TreatAsExpense = true, WhatWasDone = "What Was Done" };
-      s.ResponseExamples[200] = new UpdateComputerAssetMaintainceResponse (new ComputerAssetMaintainceRecord("", "", "Asset State", "Description", "Diagnosis", "Done By", "1000", "Narration", true, "What Was Done", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetMaintainceResponse(new ComputerAssetMaintainceRecord("", "", "Asset State", "Description", "Diagnosis", "Done By", "1000", "Narration", true, "What Was Done", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.MaintainceID))
     {
-      AddError(request => request.MaintainceID , "The maintaince id of the record to be updated is required please");
+      AddError(request => request.MaintainceID, "The maintaince id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

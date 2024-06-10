@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.PayrollGroups;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.PayrollGroups;
 
 public class PayrollGroupListResponse
 {

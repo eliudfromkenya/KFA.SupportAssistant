@@ -32,7 +32,7 @@ public class Create(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Used to create a new issues submission";
       s.Description = "This endpoint is used to create a new  issues submission. Here details of issues submission to be created is provided";
       s.ExampleRequest = new CreateIssuesSubmissionRequest { IssueID = "Issue ID", Narration = "Narration", Status = Core.Models.Types.IssueStatus.None, SubmissionID = "1000", SubmittedTo = "Submitted To", SubmittingUser = "Submitting User", TimeSubmitted = DateTime.Now, Type = "Type" };
-      s.ResponseExamples[200] = new CreateIssuesSubmissionResponse("Issue ID", "Narration",  Core.Models.Types.IssueStatus.None, "1000", "Submitted To", "Submitting User", DateTime.Now, "Type", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new CreateIssuesSubmissionResponse("Issue ID", "Narration", Core.Models.Types.IssueStatus.None, "1000", "Submitted To", "Submitting User", DateTime.Now, "Type", DateTime.Now, DateTime.Now);
     });
   }
 

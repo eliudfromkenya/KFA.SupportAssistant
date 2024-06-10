@@ -37,6 +37,6 @@ public sealed record class ComputerAssetValuation : BaseModel
   public decimal Value { get; init; }
   public override object ToBaseDTO()
   {
-    return(ComputerAssetValuationDTO)this;
+    return (ComputerAssetValuationDTO)this;
   }
 }

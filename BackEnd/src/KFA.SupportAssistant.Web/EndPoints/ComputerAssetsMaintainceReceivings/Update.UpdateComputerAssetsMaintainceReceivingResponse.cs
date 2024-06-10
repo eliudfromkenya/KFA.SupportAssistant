@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceReceivings;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceReceivings;
 
 public class UpdateComputerAssetsMaintainceReceivingResponse
 {

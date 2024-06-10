@@ -1,21 +1,21 @@
 ﻿using KFA.SupportAssistant.Core.Models;
+
 namespace KFA.SupportAssistant.Core.DTOs;
 public record class ComputerRemoteAddressDTO : BaseDTO<ComputerRemoteAddress>
 {
-        public string? AnyDeskNumber { get; set; }
-        public string? AnydeskPassword { get; set; }
-        public string? AssetDetailID { get; set; }
-        public string? CostCentreCode { get; set; }
-        public string? DeviceName { get; set; }
-        public string? NameOfUser { get; set; }
-        public string? Narration { get; set; }
-        public string? TeamViewerAddress { get; set; }
-        public string? Type { get; set; }
-public override ComputerRemoteAddress? ToModel()
+  public string? AnyDeskNumber { get; set; }
+  public string? AnydeskPassword { get; set; }
+  public string? AssetDetailID { get; set; }
+  public string? CostCentreCode { get; set; }
+  public string? DeviceName { get; set; }
+  public string? NameOfUser { get; set; }
+  public string? Narration { get; set; }
+  public string? TeamViewerAddress { get; set; }
+  public string? Type { get; set; }
+  public override ComputerRemoteAddress? ToModel()
   {
     return (ComputerRemoteAddress)this;
   }
-
 
   public static implicit operator ComputerRemoteAddressDTO(ComputerRemoteAddress obj)
   {
@@ -53,5 +53,4 @@ public override ComputerRemoteAddress? ToModel()
       ___DateUpdated___ = obj.DateUpdated___.FromDateTime()
     };
   }
-
 }

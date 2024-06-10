@@ -35,7 +35,7 @@ public class List(IMediator mediator, IEndPointManager endPointManager) : Endpoi
       // XML Docs are used by default but are overridden by these properties:
       s.Summary = $"[End Point - {EndPointId}] Retrieves list of issues submissions as specified";
       s.Description = "Returns all issues submissions as specified, i.e filter to specify which records or rows to return, order to specify order criteria";
-      s.ResponseExamples[200] = new IssuesSubmissionListResponse { IssuesSubmissions = [new IssuesSubmissionRecord("Issue ID", "Narration", Core.Models.Types.IssueStatus.Done, "1000", "Submitted To", "Submitting User",DateTime.Now, "Type", DateTime.Now, DateTime.Now)] };
+      s.ResponseExamples[200] = new IssuesSubmissionListResponse { IssuesSubmissions = [new IssuesSubmissionRecord("Issue ID", "Narration", Core.Models.Types.IssueStatus.Done, "1000", "Submitted To", "Submitting User", DateTime.Now, "Type", DateTime.Now, DateTime.Now)] };
       s.ExampleRequest = new ListParam { Param = JsonConvert.SerializeObject(new FilterParam { Predicate = "Id.Trim().StartsWith(@0) and Id >= @1", SelectColumns = "new {Id, Narration}", Parameters = ["S3", "3100"], OrderByConditions = ["Id", "Narration"] }), Skip = 0, Take = 1000 };
     });
   }

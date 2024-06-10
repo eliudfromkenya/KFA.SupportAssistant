@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceDispatches;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceDispatches;
 
 public readonly struct CreateComputerAssetsMaintainceDispatchResponse(string? assetDetailID, string? collectedBy, global::System.DateTime? dateSend, string? description, string? dispatchID, string? narration, string? reasonToSend, string? sentBy, string? toDepartmentCode, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

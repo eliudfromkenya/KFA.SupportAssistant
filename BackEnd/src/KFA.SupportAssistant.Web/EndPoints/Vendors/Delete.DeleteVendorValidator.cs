@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.Vendors;
 
@@ -16,4 +16,3 @@ public class DeleteVendorValidator : Validator<DeleteVendorRequest>
       .MaximumLength(30);
   }
 }
-

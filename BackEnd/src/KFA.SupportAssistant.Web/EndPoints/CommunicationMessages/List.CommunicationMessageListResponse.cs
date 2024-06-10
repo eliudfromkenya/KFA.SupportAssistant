@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.CommunicationMessages;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.CommunicationMessages;
 
 public class CommunicationMessageListResponse
 {

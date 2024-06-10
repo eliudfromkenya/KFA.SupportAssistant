@@ -55,6 +55,6 @@ public sealed record class ComputerAssetsMaintainceReceiving : BaseModel
 
   public override object ToBaseDTO()
   {
-    return(ComputerAssetsMaintainceReceivingDTO)this;
+    return (ComputerAssetsMaintainceReceivingDTO)this;
   }
 }

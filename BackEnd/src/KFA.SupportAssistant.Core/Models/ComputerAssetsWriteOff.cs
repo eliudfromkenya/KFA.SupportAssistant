@@ -37,6 +37,6 @@ public sealed record class ComputerAssetsWriteOff : BaseModel
 
   public override object ToBaseDTO()
   {
-    return(ComputerAssetsWriteOffDTO)this;
+    return (ComputerAssetsWriteOffDTO)this;
   }
 }

@@ -41,7 +41,7 @@ public record class CommunicationMessageDTO : BaseDTO<CommunicationMessage>
     return new CommunicationMessage
     {
       Attachments = obj.Attachments,
-      Details = obj?.Details??string.Empty,
+      Details = obj?.Details ?? string.Empty,
       From = obj?.From ?? string.Empty,
       Message = obj?.Message ?? string.Empty,
       MessageType = obj?.MessageType,

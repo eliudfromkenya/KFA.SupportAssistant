@@ -31,7 +31,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
       s.Summary = $"[End Point - {EndPointId}] Gets communication message by specified message id";
       s.Description = "This endpoint is used to retrieve communication message with the provided message id";
       s.ExampleRequest = new GetCommunicationMessageByIdRequest { MessageID = "message id to retrieve" };
-      s.ResponseExamples[200] = new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000",  Core.DataLayer.Types.CommunicationMessageType.SMS, "Narration", Core.DataLayer.Types.CommunicationMessageStatus.Send, "Title", "To", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new CommunicationMessageRecord(new byte[] { }, "Details", "From", "Message", "1000", Core.DataLayer.Types.CommunicationMessageType.SMS, "Narration", Core.DataLayer.Types.CommunicationMessageStatus.Send, "Title", "To", DateTime.Now, DateTime.Now);
     });
   }
 

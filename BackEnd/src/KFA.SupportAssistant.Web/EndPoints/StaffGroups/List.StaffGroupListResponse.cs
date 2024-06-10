@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.StaffGroups;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.StaffGroups;
 
 public class StaffGroupListResponse
 {

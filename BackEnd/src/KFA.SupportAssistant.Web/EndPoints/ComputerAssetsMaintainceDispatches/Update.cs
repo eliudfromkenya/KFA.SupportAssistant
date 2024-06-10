@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Assets Maintaince Dispatch";
       s.Description = "This endpoint is used to update  computer assets maintaince dispatch, making a full replacement of computer assets maintaince dispatch with a specifed valuse. A valid computer assets maintaince dispatch is required.";
       s.ExampleRequest = new UpdateComputerAssetsMaintainceDispatchRequest { AssetDetailID = "", CollectedBy = "Collected By", DateSend = DateTime.Now, Description = "Description", DispatchID = "1000", Narration = "Narration", ReasonToSend = "Reason To Send", SentBy = "Sent By", ToDepartmentCode = "To Department Code" };
-      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceDispatchResponse (new ComputerAssetsMaintainceDispatchRecord("", "Collected By", DateTime.Now, "Description", "1000", "Narration", "Reason To Send", "Sent By", "To Department Code", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceDispatchResponse(new ComputerAssetsMaintainceDispatchRecord("", "Collected By", DateTime.Now, "Description", "1000", "Narration", "Reason To Send", "Sent By", "To Department Code", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.DispatchID))
     {
-      AddError(request => request.DispatchID , "The dispatch id of the record to be updated is required please");
+      AddError(request => request.DispatchID, "The dispatch id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

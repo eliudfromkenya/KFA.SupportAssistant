@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Assets Maintaince Accessory";
       s.Description = "This endpoint is used to update  computer assets maintaince accessory, making a full replacement of computer assets maintaince accessory with a specifed valuse. A valid computer assets maintaince accessory is required.";
       s.ExampleRequest = new UpdateComputerAssetsMaintainceAccessoryRequest { AccessoryGroupID = "", AccessoryID = "1000", Amount = 0, AssetDetailID = "", DateOfAcquisition = DateTime.Now, Description = "Description", InvoiceNumber = "Invoice Number", MaintainceID = "", Narration = "Narration", QuotationNumber = "Quotation Number", VATAmount = 0, VendorCode = "Vendor Code" };
-      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceAccessoryResponse (new ComputerAssetsMaintainceAccessoryRecord("", "1000", 0, "", DateTime.Now, "Description", "Invoice Number", "", "Narration", "Quotation Number", 0, "Vendor Code", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetsMaintainceAccessoryResponse(new ComputerAssetsMaintainceAccessoryRecord("", "1000", 0, "", DateTime.Now, "Description", "Invoice Number", "", "Narration", "Quotation Number", 0, "Vendor Code", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.AccessoryID))
     {
-      AddError(request => request.AccessoryID , "The accessory id of the record to be updated is required please");
+      AddError(request => request.AccessoryID, "The accessory id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

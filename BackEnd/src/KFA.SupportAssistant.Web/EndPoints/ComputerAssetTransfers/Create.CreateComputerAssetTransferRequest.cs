@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
 
@@ -12,7 +12,9 @@ public class CreateComputerAssetTransferRequest
   public string? ResponsibleUser { get; set; }
   public string? Status { get; set; }
   public global::System.DateTime? TransferDate { get; set; }
+
   [Required]
   public string? TransferID { get; set; }
+
   public string? TransferReasons { get; set; }
 }

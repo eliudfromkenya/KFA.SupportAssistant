@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
 
@@ -20,4 +20,3 @@ public class PatchComputerAssetsPostsToDynamicValidator : Validator<PatchCompute
     .WithMessage("Body or content to update is required.");
   }
 }
-

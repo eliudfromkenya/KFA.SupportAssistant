@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Remote Address";
       s.Description = "This endpoint is used to update  computer remote address, making a full replacement of computer remote address with a specifed valuse. A valid computer remote address is required.";
       s.ExampleRequest = new UpdateComputerRemoteAddressRequest { AnyDeskId = "1000", AnyDeskNumber = "AnyDesk Number", AnydeskPassword = "Anydesk Password", AssetDetailID = "", CostCentreCode = "Cost Centre Code", DeviceName = "Device Name", NameOfUser = "Name Of User", Narration = "Narration", TeamViewerAddress = "Team Viewer Address", Type = "Type" };
-      s.ResponseExamples[200] = new UpdateComputerRemoteAddressResponse (new ComputerRemoteAddressRecord("1000", "AnyDesk Number", "Anydesk Password", "", "Cost Centre Code", "Device Name", "Name Of User", "Narration", "Team Viewer Address", "Type", DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerRemoteAddressResponse(new ComputerRemoteAddressRecord("1000", "AnyDesk Number", "Anydesk Password", "", "Cost Centre Code", "Device Name", "Name Of User", "Narration", "Team Viewer Address", "Type", DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.AnyDeskId))
     {
-      AddError(request => request.AnyDeskId , "The anydesk id of the record to be updated is required please");
+      AddError(request => request.AnyDeskId, "The anydesk id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

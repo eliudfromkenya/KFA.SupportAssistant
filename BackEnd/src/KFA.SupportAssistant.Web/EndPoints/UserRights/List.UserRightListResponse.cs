@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.UserRights;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.UserRights;
 
 public class UserRightListResponse
 {

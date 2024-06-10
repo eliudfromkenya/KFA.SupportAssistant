@@ -31,7 +31,7 @@ public class GetById(IMediator mediator, IEndPointManager endPointManager) : End
       s.Summary = $"[End Point - {EndPointId}] Gets stock item codes request by specified item code request id";
       s.Description = "This endpoint is used to retrieve stock item codes request with the provided item code request id";
       s.ExampleRequest = new GetStockItemCodesRequestByIdRequest { ItemCodeRequestID = "item code request id to retrieve" };
-      s.ResponseExamples[200] = new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier", DateTime.Now,DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now);
+      s.ResponseExamples[200] = new StockItemCodesRequestRecord("Attanded By", "Cost Centre Code", 0, "Description", "Distributor", "Item Code", "1000", "Narration", "Requesting User", 0, "Status", "Supplier", DateTime.Now, DateTime.Now, "Unit Of Measure", DateTime.Now, DateTime.Now);
     });
   }
 

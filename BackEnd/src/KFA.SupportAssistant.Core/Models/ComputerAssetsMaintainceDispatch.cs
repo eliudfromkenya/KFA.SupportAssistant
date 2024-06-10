@@ -52,9 +52,9 @@ public sealed record class ComputerAssetsMaintainceDispatch : BaseModel
   public string? ToDepartment_Caption { get; set; }
 
   public ICollection<ComputerAssetMaintaince>? ComputerAssetMaintainces { get; set; }
-  
+
   public override object ToBaseDTO()
   {
-    return(ComputerAssetsMaintainceDispatchDTO)this;
+    return (ComputerAssetsMaintainceDispatchDTO)this;
   }
 }

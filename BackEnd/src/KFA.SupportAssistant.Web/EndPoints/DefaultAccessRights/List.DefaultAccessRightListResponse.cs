@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.DefaultAccessRights;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.DefaultAccessRights;
 
 public class DefaultAccessRightListResponse
 {

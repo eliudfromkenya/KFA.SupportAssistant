@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KFA.SupportAssistant.Core.DTOs;
-using KFA.SupportAssistant.Core.Models;
 using KFA.SupportAssistant.Globals;
 
 namespace KFA.SupportAssistant.Core.Models;
@@ -47,8 +46,8 @@ public sealed record class ComputerAssetAssignment : BaseModel
   [MaxLength(255, ErrorMessage = "Please payroll number must be 255 characters or less")]
   [Column("payroll_number")]
   public string? PayrollNumber { get; init; }
-    public override object ToBaseDTO()
+  public override object ToBaseDTO()
   {
-    return(ComputerAssetAssignmentDTO)this;
+    return (ComputerAssetAssignmentDTO)this;
   }
 }

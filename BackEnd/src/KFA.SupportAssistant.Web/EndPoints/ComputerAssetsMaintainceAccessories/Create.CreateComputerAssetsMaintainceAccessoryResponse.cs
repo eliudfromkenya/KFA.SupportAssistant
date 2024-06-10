@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceAccessories;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsMaintainceAccessories;
 
 public readonly struct CreateComputerAssetsMaintainceAccessoryResponse(string? accessoryGroupID, string? accessoryID, decimal? amount, string? assetDetailID, global::System.DateTime? dateOfAcquisition, string? description, string? invoiceNumber, string? maintainceID, string? narration, string? quotationNumber, decimal? vATAmount, string? vendorCode, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

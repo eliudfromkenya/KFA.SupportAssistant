@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Computer Assets Write Off";
       s.Description = "This endpoint is used to update  computer assets write off, making a full replacement of computer assets write off with a specifed valuse. A valid computer assets write off is required.";
       s.ExampleRequest = new UpdateComputerAssetsWriteOffRequest { AssetDetailID = "", Description = "Description", Narration = "Narration", ReasonForWriteOff = "Reason For Write-Off", WriteOffID = "1000", WriteOffDate = DateTime.Now };
-      s.ResponseExamples[200] = new UpdateComputerAssetsWriteOffResponse (new ComputerAssetsWriteOffRecord("", "Description", "Narration", "Reason For Write-Off", "1000", DateTime.Now, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateComputerAssetsWriteOffResponse(new ComputerAssetsWriteOffRecord("", "Description", "Narration", "Reason For Write-Off", "1000", DateTime.Now, DateTime.Now, DateTime.Now));
     });
   }
 
@@ -44,7 +44,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
   {
     if (string.IsNullOrWhiteSpace(request.WriteOffID))
     {
-      AddError(request => request.WriteOffID , "The write off id of the record to be updated is required please");
+      AddError(request => request.WriteOffID, "The write off id of the record to be updated is required please");
 
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
 

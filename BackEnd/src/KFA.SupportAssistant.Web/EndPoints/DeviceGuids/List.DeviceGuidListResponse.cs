@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.DeviceGuids;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.DeviceGuids;
 
 public class DeviceGuidListResponse
 {

@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ItemGroups;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ItemGroups;
 
 public class ItemGroupListResponse
 {

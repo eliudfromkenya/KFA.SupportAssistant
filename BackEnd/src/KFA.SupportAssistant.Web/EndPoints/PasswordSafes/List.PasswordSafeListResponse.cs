@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.PasswordSafes;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.PasswordSafes;
 
 public class PasswordSafeListResponse
 {

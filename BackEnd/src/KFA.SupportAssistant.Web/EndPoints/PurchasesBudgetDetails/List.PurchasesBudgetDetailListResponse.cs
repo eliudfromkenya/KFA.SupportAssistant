@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.PurchasesBudgetDetails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.PurchasesBudgetDetails;
 
 public class PurchasesBudgetDetailListResponse
 {

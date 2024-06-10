@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.DuesPaymentDetails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.DuesPaymentDetails;
 
 public class DuesPaymentDetailListResponse
 {

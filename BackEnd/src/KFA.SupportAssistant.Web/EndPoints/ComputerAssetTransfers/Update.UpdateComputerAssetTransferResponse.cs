@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetTransfers;
 
 public class UpdateComputerAssetTransferResponse
 {

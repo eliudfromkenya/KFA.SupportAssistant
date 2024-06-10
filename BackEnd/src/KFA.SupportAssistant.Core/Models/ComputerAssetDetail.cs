@@ -50,9 +50,8 @@ public sealed record class ComputerAssetDetail : BaseModel
   public ICollection<ComputerAssetsWriteOff>? ComputerAssetsWriteOffs { get; set; }
   public ICollection<ComputerRemoteAddress>? ComputerRemoteAddresses { get; set; }
 
-
   public override object ToBaseDTO()
   {
-    return(ComputerAssetDetailDTO)this;
+    return (ComputerAssetDetailDTO)this;
   }
 }

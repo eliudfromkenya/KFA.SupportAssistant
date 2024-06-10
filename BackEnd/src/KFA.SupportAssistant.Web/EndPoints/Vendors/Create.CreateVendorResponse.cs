@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.Vendors;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.Vendors;
 
 public readonly struct CreateVendorResponse(string? contact, string? descriptions, string? email, bool? isActive, string? vendorCode, DateTime? dateInserted___, DateTime? dateUpdated___)
 {

@@ -9,25 +9,25 @@ public class UpdateVendorValidator : Validator<UpdateVendorRequest>
 {
   public UpdateVendorValidator()
   {
-     RuleFor(x => x.Contact)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Contact)
+    .MinimumLength(2)
+    .MaximumLength(255);
 
-RuleFor(x => x.Descriptions)
-     .NotEmpty()
-     .WithMessage("Descriptions is required.")
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Descriptions)
+         .NotEmpty()
+         .WithMessage("Descriptions is required.")
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.Email)
-     .NotEmpty()
-     .WithMessage("Email is required.")
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Email)
+         .NotEmpty()
+         .WithMessage("Email is required.")
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.VendorCode)
-     .NotEmpty()
-     .WithMessage("Vendor Code is required.");             
+    RuleFor(x => x.VendorCode)
+         .NotEmpty()
+         .WithMessage("Vendor Code is required.");
 
     static bool checkIds(string? objectId, string? urlId)
     {

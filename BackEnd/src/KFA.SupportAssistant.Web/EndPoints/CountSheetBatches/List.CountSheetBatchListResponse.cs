@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.CountSheetBatches;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.CountSheetBatches;
 
 public class CountSheetBatchListResponse
 {

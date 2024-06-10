@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ActualBudgetVariancesBatchHeaders;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ActualBudgetVariancesBatchHeaders;
 
 public class ActualBudgetVariancesBatchHeaderListResponse
 {

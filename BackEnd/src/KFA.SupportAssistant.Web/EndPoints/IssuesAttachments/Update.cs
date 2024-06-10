@@ -34,7 +34,7 @@ public class Update(IMediator mediator, IEndPointManager endPointManager) : Endp
       s.Summary = $"[End Point - {EndPointId}] Update a full Issues Attachment";
       s.Description = "This endpoint is used to update  issues attachment, making a full replacement of issues attachment with a specifed valuse. A valid issues attachment is required.";
       s.ExampleRequest = new UpdateIssuesAttachmentRequest { AttachmentID = "1000", AttachmentType = "Attachment Type", Data = new byte[] { }, Description = "Description", File = "File", IssueID = string.Empty, Narration = "Narration", Time = DateTime.Now };
-      s.ResponseExamples[200] = new UpdateIssuesAttachmentResponse(new IssuesAttachmentRecord("1000", "Attachment Type", new byte[] { }, "Description", "File",string.Empty, "Narration", DateTime.Now, DateTime.Now, DateTime.Now));
+      s.ResponseExamples[200] = new UpdateIssuesAttachmentResponse(new IssuesAttachmentRecord("1000", "Attachment Type", new byte[] { }, "Description", "File", string.Empty, "Narration", DateTime.Now, DateTime.Now, DateTime.Now));
     });
   }
 

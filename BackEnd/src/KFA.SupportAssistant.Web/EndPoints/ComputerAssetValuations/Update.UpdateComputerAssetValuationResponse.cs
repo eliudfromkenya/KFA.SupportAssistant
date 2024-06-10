@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetValuations;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetValuations;
 
 public class UpdateComputerAssetValuationResponse
 {

@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetValuations;
 
@@ -16,4 +16,3 @@ public class DeleteComputerAssetValuationValidator : Validator<DeleteComputerAss
       .MaximumLength(30);
   }
 }
-

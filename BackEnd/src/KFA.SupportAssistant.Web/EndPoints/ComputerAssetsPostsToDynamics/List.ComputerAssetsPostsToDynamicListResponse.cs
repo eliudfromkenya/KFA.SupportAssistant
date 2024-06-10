@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsPostsToDynamics;
 
 public class ComputerAssetsPostsToDynamicListResponse
 {

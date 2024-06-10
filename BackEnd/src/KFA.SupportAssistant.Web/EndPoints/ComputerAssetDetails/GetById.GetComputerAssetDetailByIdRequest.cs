@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetDetails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetDetails;
 
 public class GetComputerAssetDetailByIdRequest
 {

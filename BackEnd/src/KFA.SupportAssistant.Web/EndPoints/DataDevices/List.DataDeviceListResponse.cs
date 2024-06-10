@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.DataDevices;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.DataDevices;
 
 public class DataDeviceListResponse
 {

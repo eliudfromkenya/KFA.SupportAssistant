@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.SalesBudgetDetails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.SalesBudgetDetails;
 
 public class SalesBudgetDetailListResponse
 {

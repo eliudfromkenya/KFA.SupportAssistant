@@ -50,6 +50,6 @@ public sealed record class ComputerAssetGroup : BaseModel
   public ICollection<ComputerAssetsMaintainceAccessory>? ComputerAssetsMaintainceAccessories { get; set; }
   public override object ToBaseDTO()
   {
-    return(ComputerAssetGroupDTO)this;
+    return (ComputerAssetGroupDTO)this;
   }
 }

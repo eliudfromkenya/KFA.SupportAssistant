@@ -9,9 +9,9 @@ public class CreateSystemRightValidator : Validator<CreateSystemRightRequest>
 {
   public CreateSystemRightValidator()
   {
-     RuleFor(x => x.Narration)
-         .MinimumLength(2)
-         .MaximumLength(500);
+    RuleFor(x => x.Narration)
+        .MinimumLength(2)
+        .MaximumLength(500);
 
     RuleFor(x => x.RightId)
          .NotEmpty()

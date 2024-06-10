@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsWriteOffs;
 
@@ -9,21 +9,21 @@ public class UpdateComputerAssetsWriteOffValidator : Validator<UpdateComputerAss
 {
   public UpdateComputerAssetsWriteOffValidator()
   {
-     RuleFor(x => x.Description)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.Description)
+    .MinimumLength(2)
+    .MaximumLength(255);
 
-RuleFor(x => x.Narration)
-     .MinimumLength(2)
-     .MaximumLength(500);
+    RuleFor(x => x.Narration)
+         .MinimumLength(2)
+         .MaximumLength(500);
 
-RuleFor(x => x.ReasonForWriteOff)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.ReasonForWriteOff)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.WriteOffID)
-     .NotEmpty()
-     .WithMessage("Write Off ID is required.");             
+    RuleFor(x => x.WriteOffID)
+         .NotEmpty()
+         .WithMessage("Write Off ID is required.");
 
     static bool checkIds(string? objectId, string? urlId)
     {

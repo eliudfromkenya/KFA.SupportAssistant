@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.UserAuditTrails;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.UserAuditTrails;
 
 public class UserAuditTrailListResponse
 {

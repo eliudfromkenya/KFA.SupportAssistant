@@ -34,7 +34,7 @@ public class Patch(IMediator mediator, IEndPointManager endPointManager) : Endpo
   {
     if (string.IsNullOrWhiteSpace(request.WriteOffID))
     {
-      AddError(request => request.WriteOffID , "The computer assets write off of the record to be updated is required please");
+      AddError(request => request.WriteOffID, "The computer assets write off of the record to be updated is required please");
       await SendErrorsAsync(statusCode: 400, cancellation: cancellationToken);
       return;
     }
@@ -48,7 +48,7 @@ public class Patch(IMediator mediator, IEndPointManager endPointManager) : Endpo
     if (result.Errors.Any())
     {
       result.Errors.ToList().ForEach(n => AddError(n));
-      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);      
+      await ErrorsConverter.CheckErrors(HttpContext, result.Status, result.Errors, cancellationToken);
     }
 
     ThrowIfAnyErrors();

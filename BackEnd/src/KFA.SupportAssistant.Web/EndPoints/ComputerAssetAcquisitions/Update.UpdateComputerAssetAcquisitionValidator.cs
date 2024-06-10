@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetAcquisitions;
 
@@ -9,33 +9,33 @@ public class UpdateComputerAssetAcquisitionValidator : Validator<UpdateComputerA
 {
   public UpdateComputerAssetAcquisitionValidator()
   {
-     RuleFor(x => x.AcquisitionID)
-     .NotEmpty()
-     .WithMessage("Acquisition ID is required.");
+    RuleFor(x => x.AcquisitionID)
+    .NotEmpty()
+    .WithMessage("Acquisition ID is required.");
 
-RuleFor(x => x.AquisitionType)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.AquisitionType)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.DocumentNo)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.DocumentNo)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.Narration)
-     .MinimumLength(2)
-     .MaximumLength(500);
+    RuleFor(x => x.Narration)
+         .MinimumLength(2)
+         .MaximumLength(500);
 
-RuleFor(x => x.QuotationNumber)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.QuotationNumber)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.ReceivedBy)
-     .MinimumLength(2)
-     .MaximumLength(255);
+    RuleFor(x => x.ReceivedBy)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
-RuleFor(x => x.VendorCode)
-     .MinimumLength(2)
-     .MaximumLength(255);             
+    RuleFor(x => x.VendorCode)
+         .MinimumLength(2)
+         .MaximumLength(255);
 
     static bool checkIds(string? objectId, string? urlId)
     {

@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.Vendors;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.Vendors;
 
 public class UpdateVendorResponse
 {

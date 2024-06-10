@@ -1,4 +1,4 @@
-namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsWriteOffs;
+﻿namespace KFA.SupportAssistant.Web.EndPoints.ComputerAssetsWriteOffs;
 
 public class GetComputerAssetsWriteOffByIdRequest
 {
